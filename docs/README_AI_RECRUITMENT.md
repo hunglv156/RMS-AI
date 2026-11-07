@@ -36,7 +36,7 @@ authorization nếu liên quan.
 | **[Đề xuất]** | Chi tiết thiết kế hợp lý, chưa được xác nhận | Dùng làm mặc định, được phép điều chỉnh trước khi code |
 | **[Mở]** | Chưa quyết định (xem [mục 17](#17-các-quyết-định-còn-mở)) | Không tự chọn thay; hỏi hoặc ghi rõ giả định |
 
-Những gì **[Chốt]**: React + TypeScript, NestJS, FastAPI, PostgreSQL + pgvector, S3-compatible private storage, Redis + BullMQ, multi-tenant SaaS, JD do người duyệt, parsing + embedding + RAG, scoring engine deterministic tách riêng, kết quả giải thích được bằng bằng chứng, audit trail, recruiter giữ quyền quyết định. Ngoài ra là các quyết định trong [`docs/adr/`](adr/): chạy local, Qwen3 tự host có fallback, `bge-m3` + `bge-reranker-v2-m3`, chỉ dùng pgvector, auth tự làm, `match_value` theo rubric, phạm vi hệ thống.
+Những gì **[Chốt]**: React + TypeScript, NestJS, FastAPI, PostgreSQL + pgvector, S3-compatible private storage, Redis + BullMQ, multi-tenant SaaS, JD do người duyệt, parsing + embedding + RAG, scoring engine deterministic tách riêng, kết quả giải thích được bằng bằng chứng, audit trail, recruiter giữ quyền quyết định. Ngoài ra là các quyết định trong [`docs/adr/`](adr/): chạy local, Qwen3 14B tự host, `bge-m3` + `bge-reranker-v2-m3`, chỉ dùng pgvector, auth tự làm, `match_value` theo rubric, phạm vi hệ thống.
 
 Mọi nội dung còn lại (JSON mẫu, cột và index, công thức coverage, cấu trúc thư mục, KPI, lộ trình) là **[Đề xuất]**, trừ khi được ghi khác.
 
@@ -997,7 +997,7 @@ Khi làm một tính năng, cần bàn giao đủ:
 | Vấn đề | Hướng dẫn hiện tại |
 |---|---|
 | Tenant context | Gắn vào session/token hay header được kiểm tra; ghi lại trước khi code API |
-| LLM | Bản Qwen3 cụ thể và có cần fallback hay không, quyết định theo gate M1 (ADR 0002) |
+| LLM | Đã chọn Qwen3 14B tự host (ADR 0002); còn chờ kiểm tra tay tiếng Việt ở gate M1 |
 | OCR | Tesseract `vie+eng` là mặc định; đổi nếu chất lượng trên CV scan không đạt |
 | Retention | Thời gian lưu CV và kết quả |
 | Scoring | Giá trị `rubric_values`, ngưỡng `min_coverage`, chính sách must-have |
