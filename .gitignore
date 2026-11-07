@@ -1,0 +1,36 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.hypothesis/
+
+# Dữ liệu CV/JD: không bao giờ đưa vào git
+data/
+
+# Trọng số model và kết quả spike
+models/
+spikes/output/
+
+# Test
+playwright-report/
+test-results/
+
+# Bản sao lưu cục bộ
+*.bak.md
