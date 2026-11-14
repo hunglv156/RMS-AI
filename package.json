@@ -8,6 +8,18 @@
     "infra:up": "docker compose up -d --wait",
     "infra:down": "docker compose down",
     "infra:status": "docker compose ps",
-    "infra:reset": "docker compose down -v"
+    "infra:reset": "docker compose down -v",
+    "build": "pnpm -r build",
+    "lint": "eslint .",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "check": "pnpm build && pnpm lint && pnpm typecheck && pnpm test",
+    "dev": "pnpm infra:up && pnpm --parallel --filter @rms/api --filter @rms/web dev"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.0.0"
   }
 }

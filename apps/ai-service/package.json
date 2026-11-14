@@ -1,0 +1,12 @@
+{
+  "name": "@rms/ai-service",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "echo 'python: không cần build'",
+    "lint": "uv run ruff check . && uv run ruff format --check .",
+    "typecheck": "uv run mypy",
+    "test": "uv run pytest -q",
+    "dev": "uv run uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload"
+  }
+}
