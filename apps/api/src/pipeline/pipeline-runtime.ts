@@ -3,11 +3,15 @@ import { Queue, Worker, UnrecoverableError, type Job } from 'bullmq';
 import IORedis from 'ioredis';
 import { APP_CONFIG, type AppConfig } from '../config';
 import {
-  JOB_EXTRACT, JOB_PARSE, QUEUE_DEAD, QUEUE_EXTRACT, QUEUE_PARSE, type DocumentJobData,
+  JOB_EXTRACT, JOB_PARSE, JOB_SCREEN, QUEUE_DEAD, QUEUE_EXTRACT, QUEUE_PARSE, QUEUE_SCREEN,
+  type DocumentJobData, type ScreeningJobData,
 } from './constants';
 import { DocumentPipeline, type Stage } from './document-pipeline.service';
 import { OutboxService, type OutboxRow } from './outbox.service';
+import { ScreeningPipeline } from './screening-pipeline.service';
 import { TenantRunner } from './tenant-runner';
+
+type AnyJob = DocumentJobData | ScreeningJobData;
 
 /**
  * Cầu nối outbox → BullMQ và các worker. Poller đẩy job đã commit trong DB sang Redis;
@@ -19,6 +23,7 @@ export class PipelineRuntime implements OnModuleInit, OnModuleDestroy {
   private connection?: IORedis;
   private parseQueue?: Queue;
   private extractQueue?: Queue;
+  private screenQueue?: Queue;
   private deadQueue?: Queue;
   private workers: Worker[] = [];
   private timer?: ReturnType<typeof setInterval>;
@@ -29,6 +34,7 @@ export class PipelineRuntime implements OnModuleInit, OnModuleDestroy {
     @Inject(OutboxService) private readonly outbox: OutboxService,
     @Inject(TenantRunner) private readonly tenants: TenantRunner,
     @Inject(DocumentPipeline) private readonly pipeline: DocumentPipeline,
+    @Inject(ScreeningPipeline) private readonly screening: ScreeningPipeline,
   ) {}
 
   async onModuleInit(): Promise<void> {
@@ -44,22 +50,24 @@ export class PipelineRuntime implements OnModuleInit, OnModuleDestroy {
     };
     this.parseQueue = new Queue(QUEUE_PARSE, { ...opts, defaultJobOptions: jobOptions });
     this.extractQueue = new Queue(QUEUE_EXTRACT, { ...opts, defaultJobOptions: jobOptions });
+    this.screenQueue = new Queue(QUEUE_SCREEN, { ...opts, defaultJobOptions: jobOptions });
     this.deadQueue = new Queue(QUEUE_DEAD, opts);
 
     this.workers = [
-      this.makeWorker(QUEUE_PARSE, 'parse', p.parseConcurrency, (d) => this.pipeline.parse(d), opts),
+      this.makeWorker(QUEUE_PARSE, 'parse', p.parseConcurrency, (d) => this.pipeline.parse(d as DocumentJobData), opts),
       // Concurrency 1: LLM Qwen3 14B xử lý tuần tự (ADR 0002).
-      this.makeWorker(QUEUE_EXTRACT, 'extract', p.extractConcurrency, (d) => this.pipeline.extract(d), opts),
+      this.makeWorker(QUEUE_EXTRACT, 'extract', p.extractConcurrency, (d) => this.pipeline.extract(d as DocumentJobData), opts),
+      this.makeWorker(QUEUE_SCREEN, 'assess', p.screenConcurrency, (d) => this.screening.assess(d as ScreeningJobData), opts),
     ];
     this.timer = setInterval(() => void this.dispatchPending(), p.pollIntervalMs);
   }
 
   private makeWorker(
     queue: string, stage: Stage, concurrency: number,
-    handler: (d: DocumentJobData) => Promise<void>,
+    handler: (d: AnyJob) => Promise<void>,
     opts: { connection: IORedis; prefix: string },
   ): Worker {
-    const worker = new Worker<DocumentJobData>(queue, (job) => handler(job.data), {
+    const worker = new Worker<AnyJob>(queue, (job) => handler(job.data), {
       ...opts, concurrency, lockDuration: this.config.pipeline.lockDurationMs,
     });
     worker.on('completed', (job) => void this.markOutbox(job.data, 'done'));
@@ -68,7 +76,7 @@ export class PipelineRuntime implements OnModuleInit, OnModuleDestroy {
     return worker;
   }
 
-  private async onFailed(stage: Stage, job: Job<DocumentJobData> | undefined, err: Error): Promise<void> {
+  private async onFailed(stage: Stage, job: Job<AnyJob> | undefined, err: Error): Promise<void> {
     if (!job) return;
     const final = err instanceof UnrecoverableError || job.attemptsMade >= (job.opts.attempts ?? 1);
     if (!final) {
@@ -76,8 +84,12 @@ export class PipelineRuntime implements OnModuleInit, OnModuleDestroy {
       return;
     }
     // Hết lượt retry: đánh dấu tài liệu lỗi và chuyển job vào dead-letter queue để xem xét.
-    await this.pipeline.markFailed(
-      job.data, stage, stage === 'parse' ? 'failed_extraction' : 'failed_provider', err.message);
+    if (stage === 'assess') {
+      await this.screening.markFailed(job.data as ScreeningJobData, 'failed_provider', err.message);
+    } else {
+      await this.pipeline.markFailed(
+        job.data as DocumentJobData, stage, stage === 'parse' ? 'failed_extraction' : 'failed_provider', err.message);
+    }
     await this.deadQueue?.add('dead', {
       queue: job.queueName, job: job.name, data: job.data, error: err.message.slice(0, 500),
       attempts: job.attemptsMade,
@@ -85,7 +97,7 @@ export class PipelineRuntime implements OnModuleInit, OnModuleDestroy {
     await this.markOutbox(job.data, 'failed', err.message);
   }
 
-  private async markOutbox(data: DocumentJobData, status: 'done' | 'failed', error?: string): Promise<void> {
+  private async markOutbox(data: { outboxId: string; organization_id: string }, status: 'done' | 'failed', error?: string): Promise<void> {
     try {
       await this.tenants.run(data.organization_id, (trx) =>
         trx.updateTable('background_jobs')
@@ -113,6 +125,14 @@ export class PipelineRuntime implements OnModuleInit, OnModuleDestroy {
   }
 
   private async dispatch(row: OutboxRow): Promise<void> {
+    if (row.type === JOB_SCREEN) {
+      const data: ScreeningJobData = {
+        outboxId: row.id, organization_id: row.organization_id, run_id: (row.payload_json as { run_id: string }).run_id,
+      };
+      await this.screenQueue?.add(row.type, data, { jobId: row.id });
+      await this.markEnqueued(row);
+      return;
+    }
     const queue = row.type === JOB_PARSE ? this.parseQueue : row.type === JOB_EXTRACT ? this.extractQueue : undefined;
     if (!queue) {
       this.log.error(`Loại job lạ trong outbox: ${row.type}`);
@@ -130,10 +150,15 @@ export class PipelineRuntime implements OnModuleInit, OnModuleDestroy {
           .where('organization_id', '=', row.organization_id).where('id', '=', data.resume_id)
           .where('parse_status', '=', 'uploaded').execute();
       }
-      await trx.updateTable('background_jobs').set({ status: 'enqueued', enqueued_at: new Date() })
-        .where('organization_id', '=', row.organization_id).where('id', '=', row.id)
-        .where('status', '=', 'pending').execute();
     });
+    await this.markEnqueued(row);
+  }
+
+  private markEnqueued(row: OutboxRow): Promise<unknown> {
+    return this.tenants.run(row.organization_id, (trx) =>
+      trx.updateTable('background_jobs').set({ status: 'enqueued', enqueued_at: new Date() })
+        .where('organization_id', '=', row.organization_id).where('id', '=', row.id)
+        .where('status', '=', 'pending').execute());
   }
 
   /** Dùng cho test: đưa thẳng một job vào hàng đợi mà không qua outbox. */
@@ -150,13 +175,13 @@ export class PipelineRuntime implements OnModuleInit, OnModuleDestroy {
   async onModuleDestroy(): Promise<void> {
     if (this.timer) clearInterval(this.timer);
     await Promise.all(this.workers.map((w) => w.close()));
-    await Promise.all([this.parseQueue, this.extractQueue, this.deadQueue].map((q) => q?.close()));
+    await Promise.all([this.parseQueue, this.extractQueue, this.screenQueue, this.deadQueue].map((q) => q?.close()));
     this.connection?.disconnect();
   }
 
   /** Dọn toàn bộ dữ liệu Redis của prefix này (test). */
   async obliterate(): Promise<void> {
-    for (const q of [this.parseQueue, this.extractQueue, this.deadQueue]) {
+    for (const q of [this.parseQueue, this.extractQueue, this.screenQueue, this.deadQueue]) {
       await q?.obliterate({ force: true }).catch(() => undefined);
     }
   }

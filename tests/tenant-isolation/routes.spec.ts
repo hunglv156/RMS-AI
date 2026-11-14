@@ -159,6 +159,37 @@ describe('JD version và applications của org B', () => {
   });
 });
 
+describe('screenings của org B', () => {
+  it('xem, liệt kê và tạo lượt sàng lọc trên job/run của org B → 404 với org A', async () => {
+    for (const r of [
+      'POST /api/v1/jobs/:jobId/screenings', 'GET /api/v1/jobs/:jobId/screenings',
+      'GET /api/v1/jobs/:jobId/screenings/:runId',
+    ]) cover(r);
+    const { makePdf } = await import('../../apps/api/test/helpers/files');
+    const v = (await t.http().post(`${api}/jobs/${jobB}/jd/versions`).set(bearer(b)).send({})).body.id;
+    await t.http().put(`${api}/jobs/${jobB}/jd/versions/${v}/criteria`).set(bearer(b))
+      .send({ criteria: [{ code: 'abc', label: 'abc', weight: 1 }] }).expect(200);
+    await t.http().post(`${api}/jobs/${jobB}/jd/versions/${v}/approve`).set(bearer(b)).expect(200);
+    const pdf = await makePdf(1, 'iso-screen');
+    const rid = (await t.http().post(`${api}/resumes/upload`).set(bearer(b)).field('candidate_id', candB)
+      .attach('file', pdf, { filename: 'b.pdf', contentType: 'application/pdf' }).expect(201)).body.id;
+    const appB = (await t.http().post(`${api}/jobs/${jobB}/applications`).set(bearer(b))
+      .send({ candidate_id: candB, resume_id: rid }).expect(201)).body.id;
+    const run = (await t.http().post(`${api}/jobs/${jobB}/screenings`).set(bearer(b))
+      .set('Idempotency-Key', 'iso-b').send({ application_id: appB }).expect(202)).body.id;
+
+    await t.http().get(`${api}/jobs/${jobB}/screenings`).set(bearer(a)).expect(404);
+    await t.http().get(`${api}/jobs/${jobB}/screenings/${run}`).set(bearer(a)).expect(404);
+    await t.http().post(`${api}/jobs/${jobB}/screenings`).set(bearer(a)).set('Idempotency-Key', 'iso-a')
+      .send({ application_id: appB }).expect(404);
+    // Run của B qua job của A cũng không lộ ra.
+    const jobA = (await t.http().get(`${api}/jobs`).set(bearer(a))).body.items[0].id;
+    await t.http().get(`${api}/jobs/${jobA}/screenings/${run}`).set(bearer(a)).expect(404);
+    const n = await t.db.admin.query('SELECT count(*)::int AS n FROM screening_runs WHERE organization_id = $1', [a.orgId]);
+    expect(n.rows[0].n).toBe(0);
+  });
+});
+
 describe('route công khai và route không thuộc tenant', () => {
   it('được ghi nhận là đã xem xét', () => {
     for (const r of [

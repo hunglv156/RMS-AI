@@ -18,3 +18,17 @@ export interface DocumentJobData {
   resume_id: string;
   actor_id: string | null;
 }
+
+/** Phải khớp `ASSESS_PROMPT_VERSION` trong ai-service. */
+export const ASSESS_PROMPT_VERSION = 'assess-batch-v1';
+/** Dấu vân tay pipeline của một lượt sàng lọc: đổi parser, prompt trích xuất hoặc prompt chấm thì chạy mới. */
+export const SCREENING_FINGERPRINT = `${PIPELINE_VERSION}/${ASSESS_PROMPT_VERSION}`;
+
+export const QUEUE_SCREEN = 'screening';
+export const JOB_SCREEN = 'screening.assess';
+
+export interface ScreeningJobData {
+  outboxId: string;
+  organization_id: string;
+  run_id: string;
+}

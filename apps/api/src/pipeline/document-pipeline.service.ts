@@ -5,9 +5,10 @@ import {
   JOB_EXTRACT, PIPELINE_VERSION, type DocumentJobData,
 } from './constants';
 import { OutboxService } from './outbox.service';
+import { ScreeningPipeline } from './screening-pipeline.service';
 import { TenantRunner } from './tenant-runner';
 
-export type Stage = 'parse' | 'extract';
+export type Stage = 'parse' | 'extract' | 'assess';
 
 const errText = (e: unknown): string => (e instanceof Error ? e.message : String(e)).slice(0, 500);
 
@@ -25,6 +26,7 @@ export class DocumentPipeline {
     @Inject(TenantRunner) private readonly tenants: TenantRunner,
     @Inject(AiClient) private readonly ai: AiClient,
     @Inject(OutboxService) private readonly outbox: OutboxService,
+    @Inject(ScreeningPipeline) private readonly screening: ScreeningPipeline,
   ) {}
 
   /** Kiểm tra lại tenant trước khi chạy: resume phải tồn tại TRONG tổ chức mà job tuyên bố. */
@@ -142,6 +144,8 @@ export class DocumentPipeline {
         .where('pipeline_version', '=', PIPELINE_VERSION).execute();
       await trx.updateTable('resumes').set({ parse_status: 'ready' })
         .where('organization_id', '=', orgId).where('id', '=', data.resume_id).execute();
+      // Các lượt sàng lọc đang chờ CV này được đánh thức trong cùng transaction.
+      await this.screening.wakeWaitingRuns(trx, orgId, data.resume_id);
     });
   }
 
@@ -162,6 +166,10 @@ export class DocumentPipeline {
           .set({ status: 'failed', error: `${stage}: ${message}`, finished_at: new Date() })
           .where('organization_id', '=', orgId).where('resume_id', '=', data.resume_id)
           .where('pipeline_version', '=', PIPELINE_VERSION).where('status', '=', 'running').execute();
+        // Lý do của run phải theo trạng thái thật của CV (vd `rejected` đã đặt trước lần gọi hết-retry này).
+        const current = await trx.selectFrom('resumes').select('parse_status')
+          .where('organization_id', '=', orgId).where('id', '=', data.resume_id).executeTakeFirst();
+        await this.screening.failWaitingRuns(trx, orgId, data.resume_id, current?.parse_status ?? status);
       });
     } catch (e) {
       this.log.error(`markFailed ${data.resume_id}: ${errText(e)}`);

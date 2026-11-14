@@ -22,6 +22,7 @@ export interface AppConfig {
     enabled: boolean;
     parseConcurrency: number;
     extractConcurrency: number;
+    screenConcurrency: number;
     attempts: number;
     backoffMs: number;
     lockDurationMs: number;
@@ -42,6 +43,7 @@ export function loadConfig(overrides: ConfigOverrides = {}): AppConfig {
     parseConcurrency: 2,
     // LLM chỉ chạy một lượt tại một thời điểm (ADR 0002).
     extractConcurrency: 1,
+    screenConcurrency: 1,
     attempts: 3,
     backoffMs: 5000,
     // Phải dài hơn timeout gọi AI (180s) để BullMQ không coi job đang chạy là stalled.

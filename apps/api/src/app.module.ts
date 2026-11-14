@@ -14,6 +14,9 @@ import { CandidatesController } from './candidates/candidates.controller';
 import { CandidatesService } from './candidates/candidates.service';
 import { JdController } from './jd/jd.controller';
 import { JdService } from './jd/jd.service';
+import { ScreeningPipeline } from './pipeline/screening-pipeline.service';
+import { ScreeningsController } from './screenings/screenings.controller';
+import { ScreeningsService } from './screenings/screenings.service';
 import { JobsController } from './jobs/jobs.controller';
 import { JobsService } from './jobs/jobs.service';
 import { MembersController } from './organizations/members.controller';
@@ -40,7 +43,7 @@ export class AppModule {
       imports: [JwtModule.register({ secret: config.jwtSecret, signOptions: { algorithm: 'HS256' }, verifyOptions: { algorithms: ['HS256'] } })],
       controllers: [
         HealthController, AuthController, MeController, JobsController, CandidatesController,
-        MembersController, AuditController, ResumesController, JdController,
+        MembersController, AuditController, ResumesController, JdController, ScreeningsController,
       ],
       providers: [
         { provide: APP_CONFIG, useValue: config },
@@ -56,7 +59,9 @@ export class AppModule {
         AiClient,
         TenantRunner,
         OutboxService,
+        ScreeningPipeline,
         DocumentPipeline,
+        ScreeningsService,
         PipelineRuntime,
         ResumesService,
         { provide: APP_GUARD, useClass: AuthGuard },

@@ -40,6 +40,31 @@ export interface ExtractResult {
   timings: Record<string, number | null>;
 }
 
+export interface EvaluateCriterion {
+  code: string;
+  label: string;
+  description: string;
+  weight: number;
+  priority: 'must_have' | 'nice_to_have';
+}
+export interface EvaluateResult {
+  status: 'ok' | 'failed_validation';
+  error: string | null;
+  results: Array<{
+    code: string; level: string; status: string; match_value: number | null; weight: number;
+    rationale: string; evidence: Array<{ quote: string; start_offset: number; end_offset: number }>;
+    validated: boolean; raw: Record<string, unknown>; notes: string[];
+  }>;
+  score: {
+    score_state: 'scored' | 'insufficient_coverage'; observed_score: number | null; coverage: number;
+    lower_bound: number; upper_bound: number; requires_manual_review: boolean;
+  } | null;
+  prompt_version: string;
+  model: string;
+  truncated: boolean;
+  timings: Record<string, unknown>;
+}
+
 @Injectable()
 export class AiClient {
   constructor(@Inject(APP_CONFIG) private readonly config: AppConfig) {}
@@ -50,6 +75,13 @@ export class AiClient {
 
   extract(p: { organization_id: string; resume_id: string; extracted_text_key: string }) {
     return this.post<ExtractResult>('/internal/v1/documents/extract', p);
+  }
+
+  evaluate(p: {
+    organization_id: string; resume_id: string; extracted_text_key: string;
+    criteria: EvaluateCriterion[]; scoring: { rubric_values: Record<string, number>; min_coverage: number };
+  }) {
+    return this.post<EvaluateResult>('/internal/v1/screenings/evaluate', p);
   }
 
   private async post<T>(path: string, payload: unknown): Promise<T> {

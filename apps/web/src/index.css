@@ -21,3 +21,13 @@ input, textarea, select, button { font: inherit; padding: 6px 10px; }
 .resume-item { flex-wrap: wrap; }
 .profile { flex-basis: 100%; border-top: 1px solid #eee; margin-top: 8px; padding-top: 8px; }
 .warn { color: #8a5a00; background: #fff6e0; padding: 6px 10px; border-radius: 4px; }
+.screening-detail { background: #fff; border: 1px solid #e2e2e2; border-radius: 6px; padding: 10px 14px; margin-top: 12px; }
+table.criteria { width: 100%; border-collapse: collapse; margin: 12px 0; }
+table.criteria th, table.criteria td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid #eee; }
+.evidence { margin: 4px 0; padding: 4px 8px; border-left: 3px solid #ccc; color: #444; font-size: 14px; white-space: pre-wrap; }
+.evidence mark { background: #fff3a8; }
+.level { border-radius: 10px; padding: 2px 10px; font-size: 12px; background: #eee; }
+.level-strong, .level-adequate { background: #dff5df; }
+.level-partial { background: #fff0cc; }
+.level-absent { background: #fadada; }
+.level-needs_review { background: #fff6e0; color: #8a5a00; }

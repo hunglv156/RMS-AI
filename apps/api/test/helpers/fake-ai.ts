@@ -16,6 +16,7 @@ export interface FakeAi {
   count(path: string): number;
   onParse: (call: FakeAiCall) => Reply;
   onExtract: (call: FakeAiCall) => Reply;
+  onEvaluate: (call: FakeAiCall) => Reply;
   close(): Promise<void>;
 }
 
@@ -40,6 +41,20 @@ export async function startFakeAi(): Promise<FakeAi> {
       status: 200,
       body: { profile: PROFILE, prompt_version: 'extract-slim-v1', model: 'fake-model', truncated: false, timings: { total_seconds: 0.1 } },
     }),
+    onEvaluate: (c) => ({
+      status: 200,
+      body: {
+        status: 'ok', error: null, prompt_version: 'assess-batch-v1', model: 'fake-model', truncated: false,
+        timings: { calls: 1, llm_seconds: 0.1 },
+        results: (c.body.criteria as Array<{ code: string; weight: number }>).map((k, i) => ({
+          code: k.code, level: i === 0 ? 'strong' : 'unknown', status: i === 0 ? 'supported' : 'unknown',
+          match_value: i === 0 ? 1 : null, weight: k.weight, rationale: 'r',
+          evidence: i === 0 ? [{ quote: 'Python', start_offset: 0, end_offset: 6 }] : [], validated: true,
+          raw: { level: i === 0 ? 'strong' : 'unknown' }, notes: [],
+        })),
+        score: { score_state: 'scored', observed_score: 100, coverage: 0.5, lower_bound: 50, upper_bound: 100, requires_manual_review: false },
+      },
+    }),
     close: () => new Promise((r) => server.close(() => r())),
   };
   const server = http.createServer((req, res) => {
@@ -57,7 +72,8 @@ export async function startFakeAi(): Promise<FakeAi> {
         }
         const call = { path: req.url ?? '', body: JSON.parse(raw) as Record<string, unknown> };
         fake.calls.push(call);
-        const reply = await (req.url?.endsWith('/parse') ? fake.onParse(call) : fake.onExtract(call));
+        const reply = await (req.url?.endsWith('/parse') ? fake.onParse(call)
+          : req.url?.endsWith('/evaluate') ? fake.onEvaluate(call) : fake.onExtract(call));
         res.writeHead(reply.status, { 'content-type': 'application/json' }).end(JSON.stringify(reply.body));
       })();
     });

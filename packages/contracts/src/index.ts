@@ -298,3 +298,54 @@ export interface ApplicationDto {
   stage: string;
   created_at: string;
 }
+
+// ===== Sàng lọc (screening) =====
+export const createScreeningSchema = z.object({ application_id: z.string().uuid() });
+export type CreateScreeningInput = z.infer<typeof createScreeningSchema>;
+
+export type ScreeningRunStatus =
+  | 'queued' | 'waiting_document' | 'retrieving' | 'assessing' | 'validating' | 'scoring'
+  | 'completed' | 'failed_validation' | 'failed_provider' | 'cancelled';
+
+export interface EvidenceDto {
+  quote: string;
+  start_offset: number;
+  end_offset: number;
+}
+export interface CriterionResultDto {
+  criterion_id: string;
+  code: string;
+  label: string;
+  priority: 'must_have' | 'nice_to_have';
+  level: 'strong' | 'adequate' | 'partial' | 'absent' | 'unknown' | 'needs_review';
+  status: 'supported' | 'partially_supported' | 'not_supported' | 'unknown' | 'needs_review';
+  match_value: number | null;
+  weight: number;
+  reason: string;
+  evidence: EvidenceDto[];
+  notes: string[];
+}
+export interface ScreeningRunDto {
+  id: string;
+  application_id: string;
+  candidate_name: string;
+  jd_version_id: string;
+  status: ScreeningRunStatus;
+  score_state: 'scored' | 'insufficient_coverage' | null;
+  observed_score: number | null;
+  coverage: number | null;
+  lower_bound: number | null;
+  upper_bound: number | null;
+  requires_manual_review: boolean;
+  error: string | null;
+  created_at: string;
+  finished_at: string | null;
+}
+export interface ScreeningRunDetailDto extends ScreeningRunDto {
+  /** Văn bản CV đã trích xuất, để UI tô sáng trích dẫn theo offset. */
+  cv_text: string | null;
+  results: CriterionResultDto[];
+  timings: Record<string, unknown>;
+  model: string | null;
+  prompt_version: string | null;
+}

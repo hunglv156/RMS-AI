@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
 import { JOB_STATUSES, type JobDto } from '@rms/contracts';
 import { api, patch } from '../api/client';
+import ScreeningPanel from '../components/ScreeningPanel';
 import { useCan, useFetch } from '../hooks';
 
 export default function JobDetailPage() {
@@ -41,6 +42,7 @@ export default function JobDetailPage() {
         {err && <p role="alert" className="error">{err}</p>}
         {canWrite && <button type="submit">{t('jobs.save')}</button>}
       </form>
+      <ScreeningPanel jobId={jobId} />
     </>
   );
 }
