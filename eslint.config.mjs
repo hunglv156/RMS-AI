@@ -5,6 +5,7 @@ export default tseslint.config(
   { ignores: ['**/dist/**', '**/node_modules/**', 'apps/ai-service/**', 'spikes/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
+  { files: ['scripts/**/*.mjs'], languageOptions: { globals: { process: 'readonly', fetch: 'readonly', FormData: 'readonly', Blob: 'readonly', console: 'readonly' } } },
   {
     rules: {
       '@typescript-eslint/no-explicit-any': 'error',
