@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from app.config import Settings, get_settings
 from app.infrastructure.llm import LLMProvider, OllamaProvider
 from app.infrastructure.storage import ObjectStore, S3Store
-from app.routers import documents
+from app.routers import documents, screenings
 
 
 def create_app(
@@ -19,6 +19,7 @@ def create_app(
     app.state.store = store or S3Store(resolved)
     app.state.llm = llm or OllamaProvider(resolved.ollama_url, resolved.llm_model)
     app.include_router(documents.router)
+    app.include_router(screenings.router)
 
     @app.get("/health")
     def health() -> dict[str, str]:
