@@ -12,6 +12,7 @@ dependencies = [
   "pymupdf>=1.24",
   "pytesseract>=0.3.13",
   "pillow>=10.4",
+  "python-docx>=1.2.0",
 ]
 
 [dependency-groups]
@@ -23,11 +24,24 @@ target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501", "B008"]  # E501: ruff format lo độ dài dòng; B008: idiom Depends() của FastAPI
 
 [tool.mypy]
 strict = true
 plugins = ["pydantic.mypy"]
 files = ["app", "tests"]
+
+[[tool.mypy.overrides]]
+# Thư viện không có type stub đầy đủ.
+module = ["pytesseract", "pymupdf", "fitz", "docx", "docx.*"]
+ignore_missing_imports = true
+disallow_untyped_calls = false
+follow_untyped_imports = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*", "app.extraction.text"]
+disallow_untyped_calls = false
+implicit_reexport = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

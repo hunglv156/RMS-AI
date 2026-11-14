@@ -10,7 +10,7 @@
     "infra:status": "docker compose ps",
     "infra:reset": "docker compose down -v",
     "build": "pnpm -r build",
-    "lint": "eslint .",
+    "lint": "eslint . && pnpm --filter @rms/ai-service lint",
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test",
     "check": "pnpm build && pnpm lint && pnpm typecheck && pnpm test",

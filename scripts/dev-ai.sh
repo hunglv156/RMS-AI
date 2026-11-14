@@ -8,4 +8,4 @@ if ! curl -fs http://127.0.0.1:11434/api/tags >/dev/null 2>&1; then
   sleep 2
 fi
 cd apps/ai-service
-exec uv run uvicorn app.main:app --host 127.0.0.1 --port "${AI_PORT:-8000}" --reload
+exec uv run uvicorn app.main:create_app --factory --host 127.0.0.1 --port "${AI_PORT:-8000}" --reload
