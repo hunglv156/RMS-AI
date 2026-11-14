@@ -850,12 +850,12 @@ Các giai đoạn dưới đây là luồng công việc, không phải cam kế
 
 ### Phase 1 — Nền tảng SaaS (phải chạy được khi chưa có AI)
 
-- [ ] Monorepo, CI, docker-compose/dev environment.
-- [ ] NestJS auth, membership, RBAC, tenant guard.
-- [ ] Migration PostgreSQL, index theo tenant, test cách ly.
-- [ ] Khung dashboard React, CRUD job/candidate.
-- [ ] Private object storage, upload/download có authorize.
-- [ ] Audit event và logging an toàn.
+- [x] Monorepo, docker-compose/dev environment (`pnpm check`; chưa có CI hosted vì chạy local).
+- [x] NestJS auth, membership, RBAC, tenant guard.
+- [x] Migration PostgreSQL, index theo tenant, test cách ly.
+- [x] Khung dashboard React, CRUD job/candidate.
+- [x] Private object storage, upload/download có authorize.
+- [x] Audit event và logging an toàn.
 
 **Hoàn thành khi:** chạy được tạo tổ chức → job → ứng viên → upload CV mà không rò dữ liệu chéo tenant.
 

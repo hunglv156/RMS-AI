@@ -110,11 +110,13 @@ describe('resumes của org B', () => {
     cover('POST /api/v1/resumes/upload');
     cover('GET /api/v1/resumes/:resumeId/status');
     cover('GET /api/v1/resumes/:resumeId/download-url');
+    cover('GET /api/v1/candidates/:candidateId/resumes');
     const { makePdf } = await import('../../apps/api/test/helpers/files');
     const pdf = await makePdf(1, 'iso');
     const up = await t.http().post(`${api}/resumes/upload`).set(bearer(b))
       .field('candidate_id', candB).attach('file', pdf, { filename: 'b.pdf', contentType: 'application/pdf' }).expect(201);
     const rid = up.body.id;
+    await t.http().get(`${api}/candidates/${candB}/resumes`).set(bearer(a)).expect(404);
     await t.http().get(`${api}/resumes/${rid}/status`).set(bearer(a)).expect(404);
     await t.http().get(`${api}/resumes/${rid}/download-url`).set(bearer(a)).expect(404);
     await t.http().post(`${api}/resumes/upload`).set(bearer(a))

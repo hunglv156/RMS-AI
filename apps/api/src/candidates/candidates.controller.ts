@@ -6,11 +6,15 @@ import {
 } from '@rms/contracts';
 import { RequirePermission } from '../auth/decorators';
 import { ZodPipe } from '../common/zod.pipe';
+import { ResumesService } from '../resumes/resumes.service';
 import { CandidatesService } from './candidates.service';
 
 @Controller('candidates')
 export class CandidatesController {
-  constructor(@Inject(CandidatesService) private readonly candidates: CandidatesService) {}
+  constructor(
+    @Inject(CandidatesService) private readonly candidates: CandidatesService,
+    @Inject(ResumesService) private readonly resumes: ResumesService,
+  ) {}
 
   @Get() @RequirePermission('candidate:read')
   list(@Query(new ZodPipe(listQuerySchema)) q: ListQuery) {
@@ -25,6 +29,12 @@ export class CandidatesController {
   @Get(':candidateId') @RequirePermission('candidate:read')
   get(@Param('candidateId', ParseUUIDPipe) id: string) {
     return this.candidates.get(id);
+  }
+
+  @Get(':candidateId/resumes') @RequirePermission('resume:read')
+  async resumesOf(@Param('candidateId', ParseUUIDPipe) id: string) {
+    await this.candidates.get(id); // 404 nếu không thuộc tổ chức
+    return { items: await this.resumes.listForCandidate(id) };
   }
 
   @Delete(':candidateId') @HttpCode(204) @RequirePermission('candidate:delete')
