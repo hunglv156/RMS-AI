@@ -613,7 +613,7 @@ LLM chỉ chọn `level`. Code suy ra `status`, còn `match_value` lấy từ `r
 
 ### 10.4 Quy tắc đánh giá
 
-- Retrieve **theo từng tiêu chí**, không dồn tất cả vào một prompt lớn.
+- **[Đã đổi theo [ADR 0008](adr/0008-batch-assessment.md)]** Mọi tiêu chí của một CV được chấm trong **một** lượt gọi LLM (tối đa 8 tiêu chí mỗi lượt, nhiều hơn thì chia lượt và dùng chung phần đầu prompt). Khi có retrieval, vẫn truy xuất theo từng tiêu chí nhưng hợp các đoạn đã truy xuất vào cùng một lượt.
 - LLM chỉ được dùng bằng chứng đã truy xuất. Cấm suy diễn bằng cấp, ngày tháng, số năm kinh nghiệm, chứng chỉ, nhà tuyển dụng hay kỹ năng.
 - Validate schema và xác minh `quote`/offset trỏ tới text có thật.
 - Lấy nhiều đoạn khi cần; khi có mâu thuẫn hoặc độ tin cậy thấp thì chuyển `needs_review`.
@@ -996,8 +996,9 @@ Khi làm một tính năng, cần bàn giao đủ:
 
 | Vấn đề | Hướng dẫn hiện tại |
 |---|---|
-| Tenant context | Gắn vào session/token hay header được kiểm tra; ghi lại trước khi code API |
+| Tenant context | Đã chốt ([ADR 0009](adr/0009-tenant-context.md)): `org_id` trong access token, kiểm tra lại membership mỗi request, RLS làm lớp thứ hai |
 | LLM | Đã chọn Qwen3 14B tự host (ADR 0002); còn chờ kiểm tra tay tiếng Việt ở gate M1 |
+| Chấm tiêu chí | Chấm gộp một lượt cho mỗi CV (ADR 0008); chưa có nhãn nên chưa biết chất lượng so với chấm từng tiêu chí |
 | OCR | Tesseract `vie+eng` là mặc định; đổi nếu chất lượng trên CV scan không đạt |
 | Retention | Thời gian lưu CV và kết quả |
 | Scoring | Giá trị `rubric_values`, ngưỡng `min_coverage`, chính sách must-have |

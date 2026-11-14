@@ -18,3 +18,6 @@ body { margin: 0; }
 button.link { background: none; border: none; color: #0645ad; cursor: pointer; padding: 0; }
 button.danger { color: #b00020; }
 input, textarea, select, button { font: inherit; padding: 6px 10px; }
+.resume-item { flex-wrap: wrap; }
+.profile { flex-basis: 100%; border-top: 1px solid #eee; margin-top: 8px; padding-top: 8px; }
+.warn { color: #8a5a00; background: #fff6e0; padding: 6px 10px; border-radius: 4px; }

@@ -2,8 +2,10 @@ import { createHash, randomUUID } from 'node:crypto';
 import {
   Inject, Injectable, NotFoundException, UnprocessableEntityException,
 } from '@nestjs/common';
-import type { DownloadUrlDto, ResumeDto, ResumeStatusDto } from '@rms/contracts';
+import type { DownloadUrlDto, ResumeDto, ResumeProfileDto, ResumeStatusDto } from '@rms/contracts';
 import { AuditService } from '../audit/audit.service';
+import { JOB_PARSE, PIPELINE_VERSION } from '../pipeline/constants';
+import { OutboxService } from '../pipeline/outbox.service';
 import { S3Service, DOWNLOAD_URL_TTL_SECONDS } from '../storage/s3.service';
 import { TenantContext } from '../tenant/tenant-context';
 import { FileRejected, validateResumeFile } from './file-validation';
@@ -25,6 +27,7 @@ export class ResumesService {
     @Inject(TenantContext) private readonly tenant: TenantContext,
     @Inject(AuditService) private readonly audit: AuditService,
     @Inject(S3Service) private readonly s3: S3Service,
+    @Inject(OutboxService) private readonly outbox: OutboxService,
   ) {}
 
   async upload(
@@ -70,6 +73,9 @@ export class ResumesService {
         return toDto(winner as Row, true);
       }
       await this.audit.record('resume.upload', 'resume', id, { candidate_id: candidateId, size: file.buffer.length });
+      // Outbox cùng transaction: commit xong thì job chắc chắn tồn tại, rollback thì không có job mồ côi.
+      await this.outbox.enqueue(trx, organizationId, JOB_PARSE, { resume_id: id, actor_id: userId },
+        `${JOB_PARSE}:${id}:${PIPELINE_VERSION}`);
       return toDto(inserted as Row, false);
     } catch (e) {
       await this.s3.remove(objectKey).catch(() => undefined);
@@ -83,6 +89,23 @@ export class ResumesService {
       .where('organization_id', '=', organizationId).where('id', '=', id).executeTakeFirst();
     if (!r) throw new NotFoundException('Không tìm thấy CV');
     return r;
+  }
+
+  async profile(id: string): Promise<ResumeProfileDto> {
+    const { trx, organizationId } = this.tenant.current();
+    const r = await trx.selectFrom('resumes').select(['id', 'parse_status', 'requires_manual_review'])
+      .where('organization_id', '=', organizationId).where('id', '=', id).executeTakeFirst();
+    if (!r) throw new NotFoundException('Không tìm thấy CV');
+    const run = await trx.selectFrom('document_processing_runs')
+      .select(['structured_profile_json', 'quality_flags_json', 'model', 'prompt_version', 'error'])
+      .where('organization_id', '=', organizationId).where('resume_id', '=', id)
+      .where('pipeline_version', '=', PIPELINE_VERSION).executeTakeFirst();
+    const flags = (run?.quality_flags_json as { flags?: string[] } | undefined)?.flags ?? [];
+    return {
+      resume_id: r.id, parse_status: r.parse_status, requires_manual_review: r.requires_manual_review,
+      quality_flags: flags, profile: (run?.structured_profile_json as ResumeProfileDto['profile']) ?? null,
+      model: run?.model ?? null, prompt_version: run?.prompt_version ?? null, error: run?.error ?? null,
+    };
   }
 
   async listForCandidate(candidateId: string): Promise<ResumeDto[]> {

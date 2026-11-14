@@ -73,6 +73,22 @@ export interface ResumesTable {
   created_by: string;
   created_at: Ts;
 }
+export interface DocumentProcessingRunsTable {
+  id: Generated<string>;
+  organization_id: string;
+  resume_id: string;
+  pipeline_version: string;
+  status: Generated<'running' | 'succeeded' | 'failed'>;
+  error: string | null;
+  quality_flags_json: Json;
+  extracted_text_key: string | null;
+  structured_profile_json: unknown;
+  prompt_version: string | null;
+  model: string | null;
+  timings_json: Json;
+  created_at: Ts;
+  finished_at: Date | null;
+}
 export interface AuditEventsTable {
   id: Generated<string>;
   organization_id: string;
@@ -104,6 +120,7 @@ export interface Database {
   jobs: JobsTable;
   candidates: CandidatesTable;
   resumes: ResumesTable;
+  document_processing_runs: DocumentProcessingRunsTable;
   audit_events: AuditEventsTable;
   background_jobs: BackgroundJobsTable;
 }

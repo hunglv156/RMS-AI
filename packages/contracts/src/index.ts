@@ -207,3 +207,24 @@ export interface DownloadUrlDto {
   url: string;
   expires_in: number;
 }
+
+// ===== Hồ sơ đã trích xuất =====
+export interface ExtractedProfile {
+  headline: string | null;
+  years_of_experience: number | null;
+  skills: string[];
+  experience: { company: string | null; title: string | null; period: string | null }[];
+  education: string[];
+  languages: string[];
+}
+export interface ResumeProfileDto {
+  resume_id: string;
+  parse_status: ParseStatus;
+  requires_manual_review: boolean;
+  quality_flags: string[];
+  profile: ExtractedProfile | null;
+  model: string | null;
+  prompt_version: string | null;
+  error: string | null;
+}
+

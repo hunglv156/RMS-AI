@@ -11,6 +11,10 @@ export default defineConfig({
   reporter: [['list']],
   use: { baseURL: `http://127.0.0.1:${WEB_PORT}`, trace: 'retain-on-failure' },
   webServer: [
+    // Với AI thật: ai-service cần chạy sẵn (scripts/dev-ai.sh); ở đây chỉ chờ nó sẵn sàng.
+    ...(process.env.E2E_REAL_AI
+      ? [{ command: 'bash ../../scripts/dev-ai.sh', url: 'http://127.0.0.1:8000/health', reuseExistingServer: true, timeout: 120_000 }]
+      : []),
     {
       // API thật dùng DB dev trong .env; mỗi test đăng ký email ngẫu nhiên.
       command: 'pnpm --filter @rms/api build && node ../../apps/api/dist/main.js',

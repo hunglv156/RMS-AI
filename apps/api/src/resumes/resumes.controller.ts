@@ -34,6 +34,11 @@ export class ResumesController {
     return this.resumes.status(id);
   }
 
+  @Get(':resumeId/profile') @RequirePermission('resume:read')
+  profile(@Param('resumeId', ParseUUIDPipe) id: string) {
+    return this.resumes.profile(id);
+  }
+
   @Get(':resumeId/download-url') @RequirePermission('resume:download')
   downloadUrl(@Param('resumeId', ParseUUIDPipe) id: string) {
     return this.resumes.downloadUrl(id);

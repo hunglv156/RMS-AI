@@ -49,3 +49,18 @@ def test_signature_cannot_be_replayed_on_another_endpoint(client: TestClient) ->
 
 def test_health_needs_no_signature(client: TestClient) -> None:
     assert client.get("/health").status_code == 200
+
+
+def test_signature_vector_shared_with_nestjs() -> None:
+    """Cùng vector với apps/api/test/pipeline.spec.ts: hai ngôn ngữ phải ký giống hệt nhau."""
+    from app.security import sign
+
+    signature = sign(
+        "vector-secret-vector-secret-vector!",
+        "api",
+        1700000000,
+        "POST",
+        "/internal/v1/documents/parse",
+        b'{"a":1}',
+    )
+    assert signature == "3fdf2773022f8592ecd0feef484e20b4e68d22931bc902c7c81c6ca6ff473c39"

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import type { CandidateDto, DownloadUrlDto, ParseStatus, ResumeDto } from '@rms/contracts';
 import { api, del } from '../api/client';
+import ResumeProfile from '../components/ResumeProfile';
 import { useCan, useFetch } from '../hooks';
 
 const TERMINAL: ParseStatus[] = ['ready', 'rejected', 'failed_extraction', 'failed_provider', 'cancelled'];
@@ -65,10 +66,11 @@ export default function CandidateDetailPage() {
       {resumes.data && resumes.data.items.length === 0 && <p>{t('candidates.noResumes')}</p>}
       <ul className="cards">
         {resumes.data?.items.map((r) => (
-          <li key={r.id}>
+          <li key={r.id} className="resume-item">
             <span>{r.original_filename}</span>{' '}
             <span className="badge" data-testid="resume-status">{t(`status.${r.parse_status}`)}</span>
             {canDownload && <button onClick={() => void download(r.id)}>{t('candidates.download')}</button>}
+            {r.parse_status === 'ready' && <ResumeProfile resumeId={r.id} />}
           </li>
         ))}
       </ul>

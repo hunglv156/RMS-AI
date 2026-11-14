@@ -6,7 +6,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { MeController } from './auth/me.controller';
 import { HttpExceptionFilter } from './common/http-exception.filter';
-import { APP_CONFIG, loadConfig, type AppConfig } from './config';
+import { APP_CONFIG, loadConfig, type ConfigOverrides } from './config';
 import { DatabaseService } from './db/database.service';
 import { AuditController } from './audit/audit.controller';
 import { AuditService } from './audit/audit.service';
@@ -19,13 +19,18 @@ import { MembersService } from './organizations/members.service';
 import { ResumesController } from './resumes/resumes.controller';
 import { ResumesService } from './resumes/resumes.service';
 import { S3Service } from './storage/s3.service';
+import { AiClient } from './pipeline/ai-client';
+import { DocumentPipeline } from './pipeline/document-pipeline.service';
+import { OutboxService } from './pipeline/outbox.service';
+import { PipelineRuntime } from './pipeline/pipeline-runtime';
+import { TenantRunner } from './pipeline/tenant-runner';
 import { HealthController } from './health.controller';
 import { TenantContext } from './tenant/tenant-context';
 import { TenantInterceptor } from './tenant/tenant.interceptor';
 
 @Module({})
 export class AppModule {
-  static forRoot(overrides: Partial<AppConfig> = {}): DynamicModule {
+  static forRoot(overrides: ConfigOverrides = {}): DynamicModule {
     const config = loadConfig(overrides);
     return {
       module: AppModule,
@@ -45,12 +50,17 @@ export class AppModule {
         CandidatesService,
         MembersService,
         S3Service,
+        AiClient,
+        TenantRunner,
+        OutboxService,
+        DocumentPipeline,
+        PipelineRuntime,
         ResumesService,
         { provide: APP_GUARD, useClass: AuthGuard },
         { provide: APP_INTERCEPTOR, useClass: TenantInterceptor },
         { provide: APP_FILTER, useClass: HttpExceptionFilter },
       ],
-      exports: [DatabaseService, TenantContext, APP_CONFIG],
+      exports: [DatabaseService, TenantContext, APP_CONFIG, PipelineRuntime, OutboxService],
     };
   }
 }

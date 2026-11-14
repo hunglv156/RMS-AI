@@ -23,6 +23,8 @@ export async function createTestApp(
       AppModule.forRoot({
         databaseUrl: db.appUrl,
         jwtSecret: 'test-secret-test-secret-test-secret-123',
+        // Mặc định tắt poller/worker: test nghiệp vụ không cần Redis hay AI.
+        pipeline: { enabled: false },
         ...opts.overrides,
       }),
       ...((opts.imports ?? []) as never[]),
