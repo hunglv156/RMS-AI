@@ -16,6 +16,9 @@ import { JobsController } from './jobs/jobs.controller';
 import { JobsService } from './jobs/jobs.service';
 import { MembersController } from './organizations/members.controller';
 import { MembersService } from './organizations/members.service';
+import { ResumesController } from './resumes/resumes.controller';
+import { ResumesService } from './resumes/resumes.service';
+import { S3Service } from './storage/s3.service';
 import { HealthController } from './health.controller';
 import { TenantContext } from './tenant/tenant-context';
 import { TenantInterceptor } from './tenant/tenant.interceptor';
@@ -30,7 +33,7 @@ export class AppModule {
       imports: [JwtModule.register({ secret: config.jwtSecret, signOptions: { algorithm: 'HS256' }, verifyOptions: { algorithms: ['HS256'] } })],
       controllers: [
         HealthController, AuthController, MeController, JobsController, CandidatesController,
-        MembersController, AuditController,
+        MembersController, AuditController, ResumesController,
       ],
       providers: [
         { provide: APP_CONFIG, useValue: config },
@@ -41,6 +44,8 @@ export class AppModule {
         JobsService,
         CandidatesService,
         MembersService,
+        S3Service,
+        ResumesService,
         { provide: APP_GUARD, useClass: AuthGuard },
         { provide: APP_INTERCEPTOR, useClass: TenantInterceptor },
         { provide: APP_FILTER, useClass: HttpExceptionFilter },

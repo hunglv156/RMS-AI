@@ -14,6 +14,7 @@ export interface AppConfig {
   jwtSecret: string;
   accessTtlSeconds: number;
   refreshTtlSeconds: number;
+  s3: { endpoint: string; bucket: string; accessKey: string; secretKey: string };
 }
 
 export function loadConfig(overrides: Partial<AppConfig> = {}): AppConfig {
@@ -24,6 +25,12 @@ export function loadConfig(overrides: Partial<AppConfig> = {}): AppConfig {
     jwtSecret,
     accessTtlSeconds: overrides.accessTtlSeconds ?? 15 * 60,
     refreshTtlSeconds: overrides.refreshTtlSeconds ?? 30 * 24 * 3600,
+    s3: overrides.s3 ?? {
+      endpoint: required('S3_ENDPOINT'),
+      bucket: required('S3_BUCKET'),
+      accessKey: required('S3_ACCESS_KEY'),
+      secretKey: required('S3_SECRET_KEY'),
+    },
   };
 }
 

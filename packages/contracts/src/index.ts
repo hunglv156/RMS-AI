@@ -183,3 +183,27 @@ export interface AuditEventDto {
   metadata: unknown;
   created_at: string;
 }
+
+// ===== Resume =====
+export interface ResumeDto {
+  id: string;
+  candidate_id: string;
+  original_filename: string;
+  mime_type: string;
+  size_bytes: number;
+  page_count: number | null;
+  sha256: string;
+  parse_status: ParseStatus;
+  requires_manual_review: boolean;
+  created_at: string;
+  deduplicated?: boolean;
+}
+export interface ResumeStatusDto {
+  id: string;
+  parse_status: ParseStatus;
+  requires_manual_review: boolean;
+}
+export interface DownloadUrlDto {
+  url: string;
+  expires_in: number;
+}

@@ -105,6 +105,23 @@ describe('org A không chạm được tài nguyên của org B', () => {
   });
 });
 
+describe('resumes của org B', () => {
+  it('status/download-url/upload vào candidate của B → 404', async () => {
+    cover('POST /api/v1/resumes/upload');
+    cover('GET /api/v1/resumes/:resumeId/status');
+    cover('GET /api/v1/resumes/:resumeId/download-url');
+    const { makePdf } = await import('../../apps/api/test/helpers/files');
+    const pdf = await makePdf(1, 'iso');
+    const up = await t.http().post(`${api}/resumes/upload`).set(bearer(b))
+      .field('candidate_id', candB).attach('file', pdf, { filename: 'b.pdf', contentType: 'application/pdf' }).expect(201);
+    const rid = up.body.id;
+    await t.http().get(`${api}/resumes/${rid}/status`).set(bearer(a)).expect(404);
+    await t.http().get(`${api}/resumes/${rid}/download-url`).set(bearer(a)).expect(404);
+    await t.http().post(`${api}/resumes/upload`).set(bearer(a))
+      .field('candidate_id', candB).attach('file', pdf, { filename: 'a.pdf', contentType: 'application/pdf' }).expect(404);
+  });
+});
+
 describe('route công khai và route không thuộc tenant', () => {
   it('được ghi nhận là đã xem xét', () => {
     for (const r of [

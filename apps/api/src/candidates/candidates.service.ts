@@ -1,6 +1,7 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import type { CandidateDto, CreateCandidateInput, ListQuery, Page } from '@rms/contracts';
 import { AuditService } from '../audit/audit.service';
+import { S3Service } from '../storage/s3.service';
 import { TenantContext } from '../tenant/tenant-context';
 
 type Row = {
@@ -18,6 +19,7 @@ export class CandidatesService {
   constructor(
     @Inject(TenantContext) private readonly tenant: TenantContext,
     @Inject(AuditService) private readonly audit: AuditService,
+    @Inject(S3Service) private readonly s3: S3Service,
   ) {}
 
   async list(q: ListQuery): Promise<Page<CandidateDto>> {
@@ -51,9 +53,13 @@ export class CandidatesService {
 
   async remove(id: string): Promise<void> {
     const { trx, organizationId } = this.tenant.current();
+    const resumes = await trx.selectFrom('resumes').select('object_key')
+      .where('organization_id', '=', organizationId).where('candidate_id', '=', id).execute();
     const r = await trx.deleteFrom('candidates')
       .where('organization_id', '=', organizationId).where('id', '=', id).executeTakeFirst();
     if (Number(r.numDeletedRows) === 0) throw new NotFoundException('Không tìm thấy ứng viên');
     await this.audit.record('candidate.delete', 'candidate', id);
+    // Xoá file gốc cùng ứng viên (retention). Lỗi S3 làm hỏng request để không bỏ sót file.
+    for (const { object_key } of resumes) await this.s3.remove(object_key);
   }
 }
