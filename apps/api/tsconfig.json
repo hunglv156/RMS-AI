@@ -5,7 +5,20 @@
     "rootDir": "../..",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "types": ["node"]
+    "types": [
+      "node"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "vitest": [
+        "./node_modules/vitest"
+      ]
+    }
   },
-  "include": ["src", "test", "vitest.config.ts", "../../tests/tenant-isolation"]
+  "include": [
+    "src",
+    "test",
+    "vitest.config.ts",
+    "../../tests/tenant-isolation"
+  ]
 }
