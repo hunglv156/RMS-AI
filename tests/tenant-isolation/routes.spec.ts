@@ -126,6 +126,39 @@ describe('resumes của org B', () => {
   });
 });
 
+describe('JD version và applications của org B', () => {
+  it('mọi route /jobs/:jobId/... của job org B → 404 với người dùng org A', async () => {
+    for (const r of [
+      'GET /api/v1/jobs/:jobId/jd/versions', 'POST /api/v1/jobs/:jobId/jd/versions',
+      'GET /api/v1/jobs/:jobId/jd/versions/:versionId', 'PUT /api/v1/jobs/:jobId/jd/versions/:versionId/criteria',
+      'POST /api/v1/jobs/:jobId/jd/versions/:versionId/approve',
+      'GET /api/v1/jobs/:jobId/applications', 'POST /api/v1/jobs/:jobId/applications',
+    ]) cover(r);
+    const vB = (await t.http().post(`${api}/jobs/${jobB}/jd/versions`).set(bearer(b)).send({})).body.id;
+    await t.http().put(`${api}/jobs/${jobB}/jd/versions/${vB}/criteria`).set(bearer(b))
+      .send({ criteria: [{ code: 'abc', label: 'abc', weight: 1 }] }).expect(200);
+
+    await t.http().get(`${api}/jobs/${jobB}/jd/versions`).set(bearer(a)).expect(404);
+    await t.http().post(`${api}/jobs/${jobB}/jd/versions`).set(bearer(a)).send({}).expect(404);
+    await t.http().get(`${api}/jobs/${jobB}/jd/versions/${vB}`).set(bearer(a)).expect(404);
+    await t.http().put(`${api}/jobs/${jobB}/jd/versions/${vB}/criteria`).set(bearer(a))
+      .send({ criteria: [{ code: 'hack', label: 'hack', weight: 1 }] }).expect(404);
+    await t.http().post(`${api}/jobs/${jobB}/jd/versions/${vB}/approve`).set(bearer(a)).expect(404);
+    await t.http().get(`${api}/jobs/${jobB}/applications`).set(bearer(a)).expect(404);
+    await t.http().post(`${api}/jobs/${jobB}/applications`).set(bearer(a))
+      .send({ candidate_id: candB, resume_id: '00000000-0000-4000-8000-000000000000' }).expect(404);
+
+    // Version của org B qua job của org A cũng không lộ ra.
+    const jobA = (await t.http().get(`${api}/jobs`).set(bearer(a))).body.items[0].id;
+    await t.http().get(`${api}/jobs/${jobA}/jd/versions/${vB}`).set(bearer(a)).expect(404);
+    await t.http().post(`${api}/jobs/${jobA}/jd/versions/${vB}/approve`).set(bearer(a)).expect(404);
+    const row = await t.db.admin.query('SELECT approval_status FROM jd_versions WHERE id = $1', [vB]);
+    expect(row.rows[0].approval_status).toBe('draft');
+    const crits = await t.db.admin.query('SELECT code FROM job_criteria WHERE jd_version_id = $1', [vB]);
+    expect(crits.rows.map((x) => x.code)).toEqual(['abc']);
+  });
+});
+
 describe('route công khai và route không thuộc tenant', () => {
   it('được ghi nhận là đã xem xét', () => {
     for (const r of [

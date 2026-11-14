@@ -50,6 +50,8 @@ export class AuthService {
         await trx.insertInto('memberships')
           .values({ organization_id: orgId, user_id: user.id, role: 'owner', status: 'active' })
           .execute();
+        // Mỗi org có sẵn cấu hình chấm điểm mặc định (rubric_values, min_coverage lấy từ default của bảng).
+        await sql`INSERT INTO screening_configs (organization_id) VALUES (${orgId})`.execute(trx);
         await trx.insertInto('audit_events')
           .values({
             organization_id: orgId, actor_id: user.id, action: 'organization.create',

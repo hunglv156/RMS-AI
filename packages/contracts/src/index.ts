@@ -23,6 +23,7 @@ export const PERMISSIONS = [
   'candidate:read',
   'candidate:write',
   'candidate:delete',
+  'application:write',
   'resume:read',
   'resume:upload',
   'resume:download',
@@ -39,7 +40,7 @@ export const ROLE_PERMISSIONS: Record<Role, readonly Permission[]> = {
   admin: PERMISSIONS.filter((p) => p !== 'workspace:manage'),
   recruiter: [
     ...READ, 'job:write', 'jd:write', 'candidate:write',
-    'resume:upload', 'resume:download', 'screening:run',
+    'resume:upload', 'resume:download', 'screening:run', 'application:write',
   ],
   hiring_manager: [...READ, 'jd:approve', 'resume:download'],
   viewer: READ,
@@ -228,3 +229,72 @@ export interface ResumeProfileDto {
   error: string | null;
 }
 
+// ===== JD version, tiêu chí, application =====
+export const CRITERION_TYPES = [
+  'technical_skill', 'experience', 'soft_skill', 'language', 'education', 'other',
+] as const;
+export const CRITERION_PRIORITIES = ['must_have', 'nice_to_have'] as const;
+
+export const criterionInputSchema = z.object({
+  code: z.string().regex(/^[a-z][a-z0-9_]{1,48}$/, 'code: chữ thường, số, gạch dưới, bắt đầu bằng chữ'),
+  label: z.string().trim().min(1).max(200),
+  type: z.enum(CRITERION_TYPES).default('technical_skill'),
+  priority: z.enum(CRITERION_PRIORITIES).default('nice_to_have'),
+  // Trọng số phải hữu hạn và không âm (README 11.1); tổng phải dương được kiểm tra riêng.
+  weight: z.number().finite().min(0).max(1000),
+  description: z.string().max(2000).default(''),
+  evidence_guidance: z.array(z.string().max(300)).max(10).default([]),
+});
+export type CriterionInput = z.infer<typeof criterionInputSchema>;
+
+export const putCriteriaSchema = z
+  .object({ criteria: z.array(criterionInputSchema).min(1).max(30) })
+  .superRefine((v, ctx) => {
+    const codes = new Set<string>();
+    for (const [i, c] of v.criteria.entries()) {
+      if (codes.has(c.code)) {
+        ctx.addIssue({ code: 'custom', path: ['criteria', i, 'code'], message: `Trùng mã tiêu chí: ${c.code}` });
+      }
+      codes.add(c.code);
+    }
+    if (!(v.criteria.reduce((a, c) => a + c.weight, 0) > 0)) {
+      ctx.addIssue({ code: 'custom', path: ['criteria'], message: 'Tổng trọng số phải lớn hơn 0' });
+    }
+  });
+export type PutCriteriaInput = z.infer<typeof putCriteriaSchema>;
+
+export const createJdVersionSchema = z.object({
+  content: z.record(z.unknown()).default({}),
+});
+export type CreateJdVersionInput = z.infer<typeof createJdVersionSchema>;
+
+export interface CriterionDto extends CriterionInput {
+  id: string;
+  sort_order: number;
+}
+export interface JdVersionDto {
+  id: string;
+  job_id: string;
+  version_no: number;
+  approval_status: 'draft' | 'approved';
+  approved_at: string | null;
+  content: Record<string, unknown>;
+  created_at: string;
+  criteria: CriterionDto[];
+}
+
+export const createApplicationSchema = z.object({
+  candidate_id: z.string().uuid(),
+  resume_id: z.string().uuid(),
+});
+export type CreateApplicationInput = z.infer<typeof createApplicationSchema>;
+export interface ApplicationDto {
+  id: string;
+  job_id: string;
+  candidate_id: string;
+  candidate_name: string;
+  resume_id: string;
+  resume_status: ParseStatus;
+  stage: string;
+  created_at: string;
+}

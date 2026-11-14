@@ -12,6 +12,8 @@ import { AuditController } from './audit/audit.controller';
 import { AuditService } from './audit/audit.service';
 import { CandidatesController } from './candidates/candidates.controller';
 import { CandidatesService } from './candidates/candidates.service';
+import { JdController } from './jd/jd.controller';
+import { JdService } from './jd/jd.service';
 import { JobsController } from './jobs/jobs.controller';
 import { JobsService } from './jobs/jobs.service';
 import { MembersController } from './organizations/members.controller';
@@ -38,7 +40,7 @@ export class AppModule {
       imports: [JwtModule.register({ secret: config.jwtSecret, signOptions: { algorithm: 'HS256' }, verifyOptions: { algorithms: ['HS256'] } })],
       controllers: [
         HealthController, AuthController, MeController, JobsController, CandidatesController,
-        MembersController, AuditController, ResumesController,
+        MembersController, AuditController, ResumesController, JdController,
       ],
       providers: [
         { provide: APP_CONFIG, useValue: config },
@@ -47,6 +49,7 @@ export class AppModule {
         AuthService,
         AuditService,
         JobsService,
+        JdService,
         CandidatesService,
         MembersService,
         S3Service,
