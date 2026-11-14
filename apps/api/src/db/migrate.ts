@@ -57,7 +57,7 @@ export async function migrate(
         await client.query(direction === 'up' ? m.up : m.down);
         await client.query(
           direction === 'up'
-            ? 'INSERT INTO pgmigrations (name) VALUES ($1)'
+            ? 'INSERT INTO pgmigrations (name, run_on) VALUES ($1, now())'
             : 'DELETE FROM pgmigrations WHERE name = $1',
           [m.name],
         );
