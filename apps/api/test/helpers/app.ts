@@ -60,3 +60,16 @@ export async function register(t: TestApp, name = 'Org'): Promise<Session & { em
 }
 
 export const bearer = (s: { access: string }) => ({ Authorization: `Bearer ${s.access}` });
+
+/** Thêm một user mới vào org với role cho trước rồi trả về phiên đã chuyển sang org đó. */
+export async function addMember(t: TestApp, orgId: string, role: string): Promise<Session & { email: string }> {
+  const u = await register(t, `Home-${role}`);
+  const uid = (await t.db.admin.query('SELECT id FROM users WHERE email = $1', [u.email])).rows[0].id;
+  await t.db.admin.query(
+    'INSERT INTO memberships (organization_id, user_id, role) VALUES ($1,$2,$3)',
+    [orgId, uid, role],
+  );
+  const res = await t.http().post('/api/v1/auth/switch-org').set(bearer(u))
+    .send({ organization_id: orgId, refresh_token: u.refresh }).expect(200);
+  return { ...u, access: res.body.access_token, refresh: res.body.refresh_token, orgId, userId: uid };
+}

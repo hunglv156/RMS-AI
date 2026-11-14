@@ -107,3 +107,79 @@ export interface Page<T> {
   page_size: number;
   total: number;
 }
+
+// ===== Job / Candidate / Member =====
+export const JOB_STATUSES = ['draft', 'open', 'closed'] as const;
+export const createJobSchema = z.object({
+  title: z.string().trim().min(1).max(200),
+  description: z.string().max(20000).default(''),
+});
+export const updateJobSchema = z
+  .object({
+    title: z.string().trim().min(1).max(200),
+    description: z.string().max(20000),
+    status: z.enum(JOB_STATUSES),
+  })
+  .partial()
+  .refine((v) => Object.keys(v).length > 0, 'Cần ít nhất một trường để cập nhật');
+export type CreateJobInput = z.infer<typeof createJobSchema>;
+export type UpdateJobInput = z.infer<typeof updateJobSchema>;
+
+export interface JobDto {
+  id: string;
+  title: string;
+  description: string;
+  status: (typeof JOB_STATUSES)[number];
+  created_by: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export const CONSENT_STATUSES = ['unknown', 'granted', 'withdrawn'] as const;
+export const createCandidateSchema = z.object({
+  display_name: z.string().trim().min(1).max(200),
+  contact: z
+    .object({
+      email: z.string().trim().email().max(254).optional(),
+      phone: z.string().trim().max(40).optional(),
+    })
+    .default({}),
+  consent_status: z.enum(CONSENT_STATUSES).default('unknown'),
+});
+export type CreateCandidateInput = z.infer<typeof createCandidateSchema>;
+
+export interface CandidateDto {
+  id: string;
+  display_name: string;
+  contact: { email?: string; phone?: string };
+  consent_status: (typeof CONSENT_STATUSES)[number];
+  created_at: string;
+}
+
+export const listQuerySchema = pageQuerySchema.extend({ q: z.string().trim().max(100).optional() });
+export type ListQuery = z.infer<typeof listQuerySchema>;
+
+export const updateMemberSchema = z
+  .object({ role: z.enum(ROLES), status: z.enum(['active', 'suspended']) })
+  .partial()
+  .refine((v) => Object.keys(v).length > 0, 'Cần ít nhất một trường để cập nhật');
+export type UpdateMemberInput = z.infer<typeof updateMemberSchema>;
+
+export interface MemberDto {
+  id: string;
+  user_id: string;
+  email: string;
+  display_name: string;
+  role: Role;
+  status: 'active' | 'suspended';
+}
+
+export interface AuditEventDto {
+  id: string;
+  actor_id: string | null;
+  action: string;
+  resource_type: string;
+  resource_id: string | null;
+  metadata: unknown;
+  created_at: string;
+}

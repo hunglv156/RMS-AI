@@ -3,5 +3,5 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   plugins: [swc.vite({ module: { type: 'es6' } })],
-  test: { globals: false, include: ['test/**/*.spec.ts'], testTimeout: 30000 },
+  test: { globals: false, include: ['test/**/*.spec.ts', '../../tests/tenant-isolation/**/*.spec.ts'], testTimeout: 30000 },
 });
