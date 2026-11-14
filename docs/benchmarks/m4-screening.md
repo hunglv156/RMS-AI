@@ -26,3 +26,16 @@ Giới hạn: 5 CV, mỗi CV một lần chạy; chưa có nhãn nên chưa đo 
 - Điều kiện đo: lúc đo, swap đã dùng khoảng 18GB trên 19GB và RAM trống gần như bằng 0 (Qwen3 14B chiếm khoảng 10GB), tức là máy đang bận như các lần đo spike. Chưa thử chạy lại trên máy trống, nên chưa biết bao nhiêu phần của độ trễ là do swap.
 - Thời gian gần như toàn bộ nằm ở lượt LLM (`llm_seconds` sát `seconds` ở CV đầu: 31.7s trên 32.5s), không phải ở NestJS hay ghi DB.
 - Cách giảm đã biết nhưng chưa làm: rút `rationale` hoặc số trích dẫn tối đa mỗi tiêu chí (đầu ra chiếm phần lớn thời gian), hoặc chỉ chấm tiêu chí còn `needs_review`. Cả hai đổi prompt/schema nên cần đo lại chất lượng.
+
+## Thử nghiệm rút đầu ra (2026-11-15, không giữ lại)
+
+Thử `assess-batch-v2`: `rationale` ≤ 140 ký tự, tối đa 1 trích dẫn ≤ 200 ký tự mỗi tiêu chí, thêm dòng dặn ngắn gọn trong prompt. Cùng 5 CV, cùng 5 tiêu chí, một lần chạy.
+
+| Chỉ số | v1 (giữ) | v2 (bỏ) |
+|---|---|---|
+| Trung vị thời gian | 49.8s | 41.8s (lâu nhất 46.1s) |
+| Trích dẫn khớp nguyên văn | 27/30 (90%) | 14/18 (78%) |
+| Độ phủ CV `Information Technology/33` | 0.8 | 0.25 (3 tiêu chí thành `needs_review`) |
+| JSON hợp lệ, kết luận thiếu bằng chứng | 5/5, 0 | 5/5, 0 |
+
+Kết luận: v2 nhanh hơn khoảng 16% nhưng vẫn chưa tới 40s, đồng thời làm tụt tỷ lệ trích dẫn khớp xuống dưới ngưỡng 85% và làm mất kết luận ở một CV. Giữ v1 (`assess-batch-v1`). Lần đo này cũng chạy khi swap gần đầy (khoảng 15.7GB trên 16GB), nên độ trễ chưa phải số của máy trống. Hướng còn lại chưa thử: chỉ chấm lại tiêu chí `needs_review`, hoặc đo trên máy không bị swap.
