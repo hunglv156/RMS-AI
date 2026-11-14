@@ -26,7 +26,9 @@ function pickPdf(): string {
     const dir = path.join(root, d);
     if (fs.statSync(dir).isDirectory()) for (const f of fs.readdirSync(dir).sort()) if (f.endsWith('.pdf')) all.push(path.join(dir, f));
   }
-  return all.sort()[0];
+  const first = all.sort()[0];
+  if (!first) throw new Error('Không có PDF nào trong data/');
+  return first;
 }
 
 test('sàng lọc 1 CV Kaggle với 5 tiêu chí → kết quả có trích dẫn khớp CV, điểm và độ phủ', async ({ page, request }) => {
