@@ -9,6 +9,7 @@ dependencies = [
     "pydantic",
     "pydantic-settings",
     "numpy>=2.5.5",
+    "pymupdf>=2.1",
 ]
 
 [project.optional-dependencies]

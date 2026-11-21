@@ -1,0 +1,107 @@
+extract-v1 / norm-v1; eng; 200 DPI; SequenceMatcher(autojunk=False)
+Confidence: unweighted mean of page word-means (0-100); lengths: Unicode characters.
+Stored text is compared exactly as saved, without re-normalizing it.
+CV             Pages Methods       OCR mean  New chars Stored chars Similarity Status
+python_dev-01      1 ocr              94.58      12069        12078     0.9955 ok
+  source=Python Developer/20.pdf; sha256=18d279c1edf859c2c82c8f98f5456d1bbf7523c5104e672daa2890b5f6059e4e
+python_dev-02      1 ocr              92.86      10245        10246     0.9978 ok
+  source=Python Developer/110.pdf; sha256=1b279f463335db61fa8db8e58d399734a58491e1779015adc4f65abce8f7602b
+python_dev-03      1 ocr              91.53       1730         1731     0.9968 ok
+  source=Python Developer/54.pdf; sha256=27c4ddafa0d9a33b728a84b0c45ad467b431c928c006299b514cfe21305f7e77
+devops-01          1 ocr              94.51       6135         6136     0.9998 ok
+  source=DevOps Engineer/79.pdf; sha256=f7fff9d023f467550d221d079f97b7b8018f35ccdb2e95562ce72aaf2525426c
+database-01        1 ocr              93.59       6093         6078     0.9490 ok
+  source=Database/82.pdf; sha256=456827d30d3eac0171aaefa9852055ba34a863e1fe51959997e2cddf457f63b3
+hr-01              1 ocr              95.59       7332         7332     0.9997 ok
+  source=Human Resources/62.pdf; sha256=21367b09bd5a2ce2495853eb9251a7fb7fd6586624e12d5cfa9e9bd32b5932b9
+hr-02              1 ocr              95.17       8339         8339     0.9993 ok
+  source=Human Resources/29.pdf; sha256=3dd65c19265ee452f579439b6e6b3d9dccb8e1c7f06d06fcd77dd29ed33fc860
+hr-03              1 ocr              91.38       5402         5430     0.9928 ok
+  source=Human Resources/12.pdf; sha256=58907fef82f78d143ae3acda26c849510259c47931b51595cd287ffddca519d4
+finance-01         1 ocr              94.84       3249         3247     0.9978 ok
+  source=Finance/630cb4f94abf6001.pdf; sha256=91f76edb62f5ec5f51a483922362ef165ec75baa10b55683993fa6afac7da713
+designer-01        1 ocr              95.17       1915         1915     0.9969 ok
+  source=Designer/26.pdf; sha256=37e62d338121af5abe474fbdc504cf82752fcdf3837cf840580016c47b1e08b3
+
+Findings for Dylan
+------------------
+All ten manifest identifiers are SHA-256 hashes of source PDFs; none is an unmatched
+or text-only hash. All ten source PDFs have one page and use OCR, as expected for
+these image-only scans. No quality threshold flags fired; OCR page confidence is
+91.38-95.59, and text similarity is 0.9490-0.9998. Similarity to stored OCR is a
+regression comparison, not a measurement against human-transcribed ground truth.
+
+The largest difference is database-01: 6093 versus 6078 characters, similarity
+0.9490. A second extraction confirmed the result. Its whitespace-token sequence
+ratio is 0.9383, but 787 of the 795 stored tokens also occur in the new output
+(multiset overlap); new output has 810 tokens. This supports reading-order and
+segmentation differences alongside recognition changes rather than wholesale
+missing content. No stored texts were rewritten or adjusted to improve scores.
+
+Implementation
+--------------
+Public API: app.extraction.extract_document(bytes, ocr_lang='eng', dpi=200,
+limits=ExtractionLimits()). Frozen result dataclasses include page number,
+half-open normalized Unicode character offsets, method, optional OCR confidence,
+page/document flags, extractor and normalization versions, and tool versions.
+Text-layer content is meaningful if it has any alphanumeric character; this keeps
+short names usable. Hidden text is retained, with flags for near-white text,
+font size <=1 point, text matching a containing vector fill, invisible rendering
+mode, and near-zero opacity. These heuristics are not a complete detector for
+image backgrounds, gradients, occlusion or adversarial layouts.
+
+Tesseract is called through subprocess with PNG bytes on stdin and TSV on stdout:
+PyMuPDF already renders PNG, so this avoids Pillow/pytesseract dependencies and
+allows explicit per-page timeouts. TSV gives word confidences and line/paragraph
+boundaries. Word confidences below 60 on average trigger low_ocr_confidence;
+blank OCR output triggers empty_page, and an entirely blank document gets no_text.
+Default limits: 25 MiB, 100 pages, 25 million rendered pixels per page, 60 seconds
+per OCR call. Parsing still belongs in an isolated worker for untrusted input.
+No network is used by the extraction module or comparison script.
+
+Normalization is norm-v1: preserve words, Unicode and internal spacing; unify
+CRLF/CR to LF, trim line-end whitespace and outer blank lines, collapse blank-line
+runs. Nonempty pages have exactly two newlines between them; empty pages have
+zero-width spans and introduce no additional separators. This keeps the final
+text idempotently normalized while retaining every page in metadata. OCR itself
+can misrecognize content and reading order; normalization makes no corrections.
+
+Environment and validation
+--------------------------
+Python 3.13.18; PyMuPDF 2.1; Tesseract 5.5.4, eng, 200 DPI.
+Initial uv add under the auto-selected Python 3.15 failed because PyMuPDF 2.1's
+onnxruntime dependency has no cp315 wheel; uv add --python 3.13 pymupdf succeeded.
+No interpreter pin or unrelated configuration file was changed.
+
+Required command, from apps/ai-service:
+  uv sync && uv run ruff check . && uv run ruff format --check . && uv run pytest -q
+Output:
+  Resolved 42 packages; checked 41 packages
+  All checks passed!
+  24 files already formatted
+  23 passed, 6 warnings in 1.61s
+Warnings come from PyMuPDF SWIG bindings and FastAPI's existing httpx TestClient.
+
+OCR-unavailable verification:
+  PATH=/usr/bin .venv/bin/python -m pytest -q tests/extraction
+  17 passed, 2 skipped, 5 warnings in 0.19s
+
+Comparison command (exit 0):
+  uv run python -m app.extraction.compare_eval --data-root /Users/hung/Study/RMS-AI/data
+The complete ten-CV table and source mappings are above. The script runs only
+when invoked explicitly, not in default pytest collection. All test PDFs are
+generated in memory; the image-only fixture was rendered and visually inspected.
+No data in the read-only main checkout was modified.
+
+Modified files (all inside the allowed paths)
+--------------------------------------------
+apps/ai-service/README.md
+apps/ai-service/app/extraction/__init__.py
+apps/ai-service/app/extraction/document.py
+apps/ai-service/app/extraction/compare_eval.py
+apps/ai-service/tests/extraction/test_document.py
+apps/ai-service/tests/extraction/comparison_report.txt
+apps/ai-service/pyproject.toml
+apps/ai-service/uv.lock
+
+Nothing remains for T1.2. No commit, push, merge or application wiring was made.
