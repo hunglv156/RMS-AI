@@ -8,6 +8,12 @@ dependencies = [
     "uvicorn[standard]",
     "pydantic",
     "pydantic-settings",
+    "numpy>=2.5.5",
+]
+
+[project.optional-dependencies]
+embeddings = [
+    "sentence-transformers>=6.3.0",
 ]
 
 [dependency-groups]
@@ -24,6 +30,7 @@ line-length = 100
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["slow: downloads and runs the real embedding model (explicit opt-in)"]
 
 [build-system]
 requires = ["hatchling"]
