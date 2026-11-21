@@ -9,6 +9,7 @@ dist/
 .venv/
 __pycache__/
 .pytest_cache/
+.ruff_cache/
 
 # Local environment
 .env
