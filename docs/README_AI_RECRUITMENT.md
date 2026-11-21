@@ -525,6 +525,8 @@ Vì vậy kho truy xuất không phải tập CV của mọi ứng viên, mà l�
   -> kết quả theo tiêu chí
 ```
 
+**Đã cài đặt ([ADR 0010](adr/0010-hybrid-retrieval.md)):** retrieval chạy trong AI service, tìm chính xác trên các chunk của đúng một CV (`app/retrieval/`). Chunk (`chunk-v1`, ~400–800 ký tự, chồng lấn ~100) và embedding `bge-m3` được tạo ở bước `index` của pipeline tài liệu và lưu ở bảng `resume_chunks` (pgvector, RLS). Mỗi tiêu chí lấy top-K chunk bằng BM25 (từ khoá tiếng Anh trong `evidence_guidance`) + cosine (nhãn và mô tả tiêu chí) gộp bằng RRF; hợp các chunk, sắp theo thứ tự CV rồi đưa vào **một** lượt chấm gộp (ADR 0008). Chọn chế độ bằng `screening_configs.context_mode` (`full` | `retrieved`, mặc định `full`), `retrieval_mode` (`lexical` | `dense` | `hybrid`) và `retrieval_k`. Reranker chưa nằm trong hệ thống, chỉ là ablation offline.
+
 Hybrid là giả thuyết cần kiểm chứng, không phải kết luận: phải so với dense-only và lexical-only trên cùng tập dữ liệu ([mục 13](#13-đánh-giá-trước-khi-ra-mắt)). Gửi ít đoạn đã chọn lọc thay vì toàn bộ CV cũng là giả thuyết, dựa trên việc model dùng kém thông tin nằm giữa ngữ cảnh dài, và chỉ đúng khi Recall@k đủ cao.
 
 ### 9.3 Lưu ý về embedding và index
@@ -999,6 +1001,7 @@ Khi làm một tính năng, cần bàn giao đủ:
 | Tenant context | Đã chốt ([ADR 0009](adr/0009-tenant-context.md)): `org_id` trong access token, kiểm tra lại membership mỗi request, RLS làm lớp thứ hai |
 | LLM | Đã chọn Qwen3 14B tự host (ADR 0002); còn chờ kiểm tra tay tiếng Việt ở gate M1 |
 | Chấm tiêu chí | Chấm gộp một lượt cho mỗi CV (ADR 0008); chưa có nhãn nên chưa biết chất lượng so với chấm từng tiêu chí |
+| Retrieval | Hybrid BM25 + bge-m3 + RRF trong AI service (ADR 0010), chế độ `full`/`retrieved`; mặc định `full` cho tới khi có số liệu trên tập dev (`eval/`). K và từ khoá chỉnh trên dev, chạy test một lần |
 | OCR | Tesseract `vie+eng` là mặc định; đổi nếu chất lượng trên CV scan không đạt |
 | Retention | Thời gian lưu CV và kết quả |
 | Scoring | Giá trị `rubric_values`, ngưỡng `min_coverage`, chính sách must-have |
