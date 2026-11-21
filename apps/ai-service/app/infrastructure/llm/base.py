@@ -15,6 +15,7 @@ class LLMMetadata(BaseModel):
     output_tokens: int | None = None
     attempts: int
     finish_reason: str | None = None
+    response_model: str | None = None
 
 
 class LLMResult[T: BaseModel](BaseModel):

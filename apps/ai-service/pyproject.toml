@@ -33,7 +33,7 @@ line-length = 100
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-markers = ["slow: downloads and runs the real embedding model (explicit opt-in)"]
+markers = ["slow: downloads and runs the real embedding model (explicit opt-in)", "live: requires a configured external LLM gateway"]
 
 [build-system]
 requires = ["hatchling"]

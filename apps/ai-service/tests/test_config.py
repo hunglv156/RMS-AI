@@ -10,6 +10,9 @@ def test_settings_defaults() -> None:
     assert settings.ai_service_host == "127.0.0.1"
     assert settings.ai_service_port == 8100
     assert settings.gemini_api_key is None
+    assert settings.llm_model == "ag/gemini-3.8-flash-high"
+    assert settings.llm_base_url is None
+    assert settings.llm_api_key is None
 
 
 def test_gemini_api_key_is_not_exposed_by_repr() -> None:
@@ -39,6 +42,7 @@ def test_secret_fields_are_masked_and_json_dump_does_not_reveal_values() -> None
         "S3_ACCESS_KEY": "access-secret",
         "S3_SECRET_KEY": "s3-secret",
         "GEMINI_API_KEY": "gemini-secret",
+        "LLM_API_KEY": "llm-secret",
     }
     settings = Settings(_env_file=None, **secrets)
 
@@ -54,3 +58,5 @@ def test_secret_fields_are_masked_and_json_dump_does_not_reveal_values() -> None
     assert settings.s3_secret_key.get_secret_value() == secrets["S3_SECRET_KEY"]
     assert settings.gemini_api_key is not None
     assert settings.gemini_api_key.get_secret_value() == secrets["GEMINI_API_KEY"]
+    assert settings.llm_api_key is not None
+    assert settings.llm_api_key.get_secret_value() == secrets["LLM_API_KEY"]
