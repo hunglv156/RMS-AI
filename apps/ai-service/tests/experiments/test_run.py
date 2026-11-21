@@ -6,7 +6,7 @@ import pytest
 import yaml
 
 from app.config import Settings
-from app.experiments.run import atomic_write, run_experiment, sha256, summarize
+from app.experiments.run import atomic_write, run_experiment, sha256, summarize, summarize_directory
 from app.infrastructure.llm import FakeLLMProvider, LLMMetadata, LLMProviderError, LLMResult
 
 SECRET = "test-only-super-secret-key"
@@ -165,10 +165,46 @@ def test_summary_math_and_missing_scores(fixture):
     assert summary["group_scores_not_accuracy"][0] == {
         "expected_group": "match_A",
         "jd_id": "jd-a",
+        "count": 4,
         "scored_count": 3,
         "mean": 50,
         "median": 50,
+        "coverage_mean": pytest.approx(pair["result"]["total"]["coverage"]),
+        "coverage_median": pytest.approx(pair["result"]["total"]["coverage"]),
+        "known_only_score_mean": pytest.approx(pair["result"]["total"]["observed_score"]),
+        "known_only_score_median": pytest.approx(pair["result"]["total"]["observed_score"]),
     }
+
+
+def test_known_only_score_and_all_unknown(fixture):
+    args, _ = fixture
+    run(args, [response(), response()])
+    pair = json.loads((args["output_dir"] / "pairs/cv-1__jd-a.json").read_text())
+    result = pair["result"]
+    result["criteria"] = [
+        {"evidence": [], "scoring": {"weight": 2, "match_value": 0.5}},
+        {"evidence": [], "scoring": {"weight": 1, "match_value": 1.0}},
+        {"evidence": [], "scoring": {"weight": 7, "match_value": None}},
+    ]
+    pair["result"]["total"].update(
+        coverage=0.3, score_state="insufficient_coverage", observed_score=None
+    )
+    summary = summarize([pair])
+    assert summary["pairs"][0]["known_only_score"] == 66.67
+    assert summary["pairs"][0]["score"] is None
+    assert summary["pairs"][0]["coverage"] == 0.3
+    result["criteria"] = [{"evidence": [], "scoring": {"weight": 1, "match_value": None}}]
+    assert summarize([pair])["pairs"][0]["known_only_score"] is None
+
+
+def test_summarize_directory_preserves_pair_files(fixture):
+    args, _ = fixture
+    run(args, [response(), response()])
+    paths = sorted((args["output_dir"] / "pairs").glob("*.json"))
+    before = {path: path.read_bytes() for path in paths}
+    summary = summarize_directory(args["output_dir"])
+    assert summary["pair_count"] == 2
+    assert {path: path.read_bytes() for path in paths} == before
 
 
 def test_limit_and_resume_identity(fixture):

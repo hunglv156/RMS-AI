@@ -83,10 +83,16 @@ def summarize(pairs):
     groups = {}
     for pair in pairs:
         key = (pair["expected_group"], pair["jd_id"])
-        groups.setdefault(key, [])
-        score = pair.get("result", {}).get("total", {}).get("observed_score")
-        if score is not None:
-            groups[key].append(score)
+        groups.setdefault(key, {"score": [], "coverage": [], "known_only_score": []})
+        result = pair.get("result", {})
+        total = result.get("total", {})
+        for name, value in (
+            ("score", total.get("observed_score")),
+            ("coverage", total.get("coverage")),
+            ("known_only_score", _known_only_score(result)),
+        ):
+            if value is not None:
+                groups[key][name].append(value)
     usage = [p["result"]["llm"] for p in successful]
     input_tokens = sum(m["input_tokens"] or 0 for m in usage)
     output_tokens = sum(m["output_tokens"] or 0 for m in usage)
@@ -96,7 +102,12 @@ def summarize(pairs):
         "succeeded": len(successful),
         "pairs": [
             {k: p[k] for k in ("sheet_id", "jd_id", "expected_group", "status", "latency_s")}
-            | {"score": p.get("result", {}).get("total", {}).get("observed_score")}
+            | {
+                "score": p.get("result", {}).get("total", {}).get("observed_score"),
+                "coverage": p.get("result", {}).get("total", {}).get("coverage"),
+                "score_state": p.get("result", {}).get("total", {}).get("score_state"),
+                "known_only_score": _known_only_score(p.get("result", {})),
+            }
             for p in pairs
         ],
         "latency_s": {
@@ -130,13 +141,49 @@ def summarize(pairs):
             {
                 "expected_group": group,
                 "jd_id": jd,
-                "scored_count": len(scores),
-                "mean": statistics.mean(scores) if scores else None,
-                "median": statistics.median(scores) if scores else None,
+                "count": len(values["coverage"]),
+                "scored_count": len(values["score"]),
+                "mean": statistics.mean(values["score"]) if values["score"] else None,
+                "median": statistics.median(values["score"]) if values["score"] else None,
+                "coverage_mean": statistics.mean(values["coverage"])
+                if values["coverage"]
+                else None,
+                "coverage_median": statistics.median(values["coverage"])
+                if values["coverage"]
+                else None,
+                "known_only_score_mean": statistics.mean(values["known_only_score"])
+                if values["known_only_score"]
+                else None,
+                "known_only_score_median": statistics.median(values["known_only_score"])
+                if values["known_only_score"]
+                else None,
             }
-            for (group, jd), scores in sorted(groups.items())
+            for (group, jd), values in sorted(groups.items())
         ],
     }
+
+
+def _known_only_score(result):
+    known = [
+        c["scoring"]
+        for c in result.get("criteria", [])
+        if c.get("scoring", {}).get("match_value") is not None
+    ]
+    weight = sum(c.get("weight", 0) for c in known)
+    if not known or weight <= 0:
+        return None
+    return round(100 * sum(c["weight"] * c["match_value"] for c in known) / weight, 2)
+
+
+def summarize_directory(output_dir):
+    pair_files = sorted((Path(output_dir) / "pairs").glob("*.json"))
+    pairs = [json.loads(path.read_text()) for path in pair_files]
+    summary = summarize(pairs)
+    atomic_write(
+        Path(output_dir) / "summary.json", json.dumps(summary, ensure_ascii=False, indent=2) + "\n"
+    )
+    atomic_write(Path(output_dir) / "summary.md", markdown(summary))
+    return summary
 
 
 def markdown(summary):
@@ -145,6 +192,7 @@ def markdown(summary):
         "",
         summary["interpretation"],
         "Null scores mean insufficient coverage; excluded from group means/medians.",
+        "Coverage is known criterion weight / total weight; the published score is available only at min_coverage 0.8. Known-only score is a diagnostic weighted score over known criteria, even below that threshold.",
         "Latency includes input verification and screening; excludes queue and persistence time.",
         "",
         f"Succeeded: {summary['succeeded']}/{summary['pair_count']}",
@@ -152,25 +200,26 @@ def markdown(summary):
         f"Tokens: {json.dumps(summary['tokens'])}",
         f"Quote verification: {json.dumps(summary['quote_verification'])}",
         "",
-        "| CV | JD | Group | Status | Score | Latency (s) |",
-        "| --- | --- | --- | --- | --- | --- |",
+        "| CV | JD | Group | Status | Score | Coverage | Score state | Known-only diagnostic | Latency (s) |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for p in summary["pairs"]:
         lines.append(
             f"| {p['sheet_id']} | {p['jd_id']} | {p['expected_group']} | "
-            f"{p['status']} | {p['score']} | {p['latency_s']:.3f} |"
+            f"{p['status']} | {p['score']} | {p['coverage']} | {p['score_state']} | "
+            f"{p['known_only_score']} | {p['latency_s']:.3f} |"
         )
     lines += [
         "",
         "## Group sanity check (not accuracy)",
         "",
-        "| Group | JD | Scored count | Mean | Median |",
-        "| --- | --- | --- | --- | --- |",
+        "| Group | JD | Count | Published mean | Published median | Coverage mean | Coverage median | Known-only mean | Known-only median |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for g in summary["group_scores_not_accuracy"]:
         lines.append(
-            f"| {g['expected_group']} | {g['jd_id']} | {g['scored_count']} | "
-            f"{g['mean']} | {g['median']} |"
+            f"| {g['expected_group']} | {g['jd_id']} | {g['count']} | {g['mean']} | {g['median']} | "
+            f"{g['coverage_mean']} | {g['coverage_median']} | {g['known_only_score_mean']} | {g['known_only_score_median']} |"
         )
     lines += ["", "## Failures", "", json.dumps(summary["failures"], ensure_ascii=False), ""]
     return "\n".join(lines)
@@ -324,17 +373,26 @@ async def run_experiment(
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--eval-set", type=Path, required=True)
+    parser.add_argument("--eval-set", type=Path)
     parser.add_argument("--jd-ids", nargs="+", default=["jd-a", "jd-b"])
     parser.add_argument("--context-mode", choices=["full", "retrieved"], default="full")
     parser.add_argument("--concurrency", type=int, default=4)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--summarize-only", action="store_true")
     args = parser.parse_args()
+    if args.summarize_only:
+        summary = summarize_directory(args.output_dir)
+        print(f"Summarized {summary['pair_count']} pairs; outputs: {args.output_dir}")
+        return 0
+    if args.eval_set is None:
+        parser.error("--eval-set is required unless --summarize-only is used")
     settings = Settings()
     secrets = [k.get_secret_value() for k in (settings.llm_api_key, settings.gemini_api_key) if k]
     try:
-        summary = asyncio.run(run_experiment(**vars(args), settings=settings))
+        run_args = vars(args).copy()
+        run_args.pop("summarize_only")
+        summary = asyncio.run(run_experiment(**run_args, settings=settings))
     except Exception as exc:  # noqa: BLE001 — isolate pair failures and redact CLI errors
         parser.exit(2, redact(f"{type(exc).__name__}: {exc}\n", secrets))
     print(f"Succeeded {summary['succeeded']}/{summary['pair_count']}; outputs: {args.output_dir}")

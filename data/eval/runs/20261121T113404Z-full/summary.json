@@ -4,76 +4,15 @@
   "succeeded": 6,
   "pairs": [
     {
-      "sheet_id": "python_dev-01",
-      "jd_id": "jd-a",
-      "expected_group": "match_A",
-      "status": "failed",
-      "latency_s": 91.07628066701,
-      "score": null
-    },
-    {
-      "sheet_id": "python_dev-01",
-      "jd_id": "jd-b",
-      "expected_group": "match_A",
-      "status": "failed",
-      "latency_s": 91.0163854159764,
-      "score": null
-    },
-    {
-      "sheet_id": "python_dev-02",
-      "jd_id": "jd-a",
-      "expected_group": "match_A",
-      "status": "failed",
-      "latency_s": 91.10791374999098,
-      "score": null
-    },
-    {
-      "sheet_id": "python_dev-02",
-      "jd_id": "jd-b",
-      "expected_group": "match_A",
-      "status": "failed",
-      "latency_s": 91.00946145900525,
-      "score": null
-    },
-    {
-      "sheet_id": "python_dev-03",
-      "jd_id": "jd-a",
-      "expected_group": "match_A",
-      "status": "succeeded",
-      "latency_s": 28.475040958990576,
-      "score": null
-    },
-    {
-      "sheet_id": "python_dev-03",
-      "jd_id": "jd-b",
-      "expected_group": "match_A",
-      "status": "failed",
-      "latency_s": 91.29679558399948,
-      "score": null
-    },
-    {
-      "sheet_id": "devops-01",
-      "jd_id": "jd-a",
-      "expected_group": "partial_A",
-      "status": "failed",
-      "latency_s": 91.18278924998594,
-      "score": null
-    },
-    {
-      "sheet_id": "devops-01",
-      "jd_id": "jd-b",
-      "expected_group": "partial_A",
-      "status": "failed",
-      "latency_s": 90.94591370798298,
-      "score": null
-    },
-    {
       "sheet_id": "database-01",
       "jd_id": "jd-a",
       "expected_group": "partial_A",
       "status": "failed",
       "latency_s": 91.38303154098685,
-      "score": null
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
     },
     {
       "sheet_id": "database-01",
@@ -81,71 +20,10 @@
       "expected_group": "partial_A",
       "status": "failed",
       "latency_s": 91.12631266700919,
-      "score": null
-    },
-    {
-      "sheet_id": "hr-01",
-      "jd_id": "jd-a",
-      "expected_group": "match_B",
-      "status": "failed",
-      "latency_s": 90.91776870802278,
-      "score": null
-    },
-    {
-      "sheet_id": "hr-01",
-      "jd_id": "jd-b",
-      "expected_group": "match_B",
-      "status": "failed",
-      "latency_s": 91.43084024998825,
-      "score": null
-    },
-    {
-      "sheet_id": "hr-02",
-      "jd_id": "jd-a",
-      "expected_group": "match_B",
-      "status": "succeeded",
-      "latency_s": 60.008648459013784,
-      "score": null
-    },
-    {
-      "sheet_id": "hr-02",
-      "jd_id": "jd-b",
-      "expected_group": "match_B",
-      "status": "failed",
-      "latency_s": 91.32449395899312,
-      "score": null
-    },
-    {
-      "sheet_id": "hr-03",
-      "jd_id": "jd-a",
-      "expected_group": "match_B",
-      "status": "succeeded",
-      "latency_s": 59.113246792025166,
-      "score": null
-    },
-    {
-      "sheet_id": "hr-03",
-      "jd_id": "jd-b",
-      "expected_group": "match_B",
-      "status": "failed",
-      "latency_s": 91.18178058299236,
-      "score": null
-    },
-    {
-      "sheet_id": "finance-01",
-      "jd_id": "jd-a",
-      "expected_group": "none",
-      "status": "succeeded",
-      "latency_s": 29.586299417016562,
-      "score": null
-    },
-    {
-      "sheet_id": "finance-01",
-      "jd_id": "jd-b",
-      "expected_group": "none",
-      "status": "succeeded",
-      "latency_s": 90.97626108300756,
-      "score": null
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
     },
     {
       "sheet_id": "designer-01",
@@ -153,7 +31,10 @@
       "expected_group": "none",
       "status": "succeeded",
       "latency_s": 26.310377624991816,
-      "score": null
+      "score": null,
+      "coverage": 0.1,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 70.0
     },
     {
       "sheet_id": "designer-01",
@@ -161,7 +42,186 @@
       "expected_group": "none",
       "status": "failed",
       "latency_s": 91.28802904201439,
-      "score": null
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
+    },
+    {
+      "sheet_id": "devops-01",
+      "jd_id": "jd-a",
+      "expected_group": "partial_A",
+      "status": "failed",
+      "latency_s": 91.18278924998594,
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
+    },
+    {
+      "sheet_id": "devops-01",
+      "jd_id": "jd-b",
+      "expected_group": "partial_A",
+      "status": "failed",
+      "latency_s": 90.94591370798298,
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
+    },
+    {
+      "sheet_id": "finance-01",
+      "jd_id": "jd-a",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 29.586299417016562,
+      "score": null,
+      "coverage": 0.1,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 70.0
+    },
+    {
+      "sheet_id": "finance-01",
+      "jd_id": "jd-b",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 90.97626108300756,
+      "score": null,
+      "coverage": 0.0,
+      "score_state": "insufficient_coverage",
+      "known_only_score": null
+    },
+    {
+      "sheet_id": "hr-01",
+      "jd_id": "jd-a",
+      "expected_group": "match_B",
+      "status": "failed",
+      "latency_s": 90.91776870802278,
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
+    },
+    {
+      "sheet_id": "hr-01",
+      "jd_id": "jd-b",
+      "expected_group": "match_B",
+      "status": "failed",
+      "latency_s": 91.43084024998825,
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
+    },
+    {
+      "sheet_id": "hr-02",
+      "jd_id": "jd-a",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 60.008648459013784,
+      "score": null,
+      "coverage": 0.1,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 70.0
+    },
+    {
+      "sheet_id": "hr-02",
+      "jd_id": "jd-b",
+      "expected_group": "match_B",
+      "status": "failed",
+      "latency_s": 91.32449395899312,
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
+    },
+    {
+      "sheet_id": "hr-03",
+      "jd_id": "jd-a",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 59.113246792025166,
+      "score": null,
+      "coverage": 0.1,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 70.0
+    },
+    {
+      "sheet_id": "hr-03",
+      "jd_id": "jd-b",
+      "expected_group": "match_B",
+      "status": "failed",
+      "latency_s": 91.18178058299236,
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
+    },
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-a",
+      "expected_group": "match_A",
+      "status": "failed",
+      "latency_s": 91.07628066701,
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
+    },
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-b",
+      "expected_group": "match_A",
+      "status": "failed",
+      "latency_s": 91.0163854159764,
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
+    },
+    {
+      "sheet_id": "python_dev-02",
+      "jd_id": "jd-a",
+      "expected_group": "match_A",
+      "status": "failed",
+      "latency_s": 91.10791374999098,
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
+    },
+    {
+      "sheet_id": "python_dev-02",
+      "jd_id": "jd-b",
+      "expected_group": "match_A",
+      "status": "failed",
+      "latency_s": 91.00946145900525,
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
+    },
+    {
+      "sheet_id": "python_dev-03",
+      "jd_id": "jd-a",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 28.475040958990576,
+      "score": null,
+      "coverage": 0.35,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 48.57
+    },
+    {
+      "sheet_id": "python_dev-03",
+      "jd_id": "jd-b",
+      "expected_group": "match_A",
+      "status": "failed",
+      "latency_s": 91.29679558399948,
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
     }
   ],
   "latency_s": {
@@ -186,31 +246,19 @@
   },
   "failures": [
     {
-      "sheet_id": "python_dev-01",
+      "sheet_id": "database-01",
       "jd_id": "jd-a",
       "class": "LLMTimeoutError",
       "message": "LLM gateway call timed out"
     },
     {
-      "sheet_id": "python_dev-01",
+      "sheet_id": "database-01",
       "jd_id": "jd-b",
       "class": "LLMTimeoutError",
       "message": "LLM gateway call timed out"
     },
     {
-      "sheet_id": "python_dev-02",
-      "jd_id": "jd-a",
-      "class": "LLMTimeoutError",
-      "message": "LLM gateway call timed out"
-    },
-    {
-      "sheet_id": "python_dev-02",
-      "jd_id": "jd-b",
-      "class": "LLMTimeoutError",
-      "message": "LLM gateway call timed out"
-    },
-    {
-      "sheet_id": "python_dev-03",
+      "sheet_id": "designer-01",
       "jd_id": "jd-b",
       "class": "LLMTimeoutError",
       "message": "LLM gateway call timed out"
@@ -223,18 +271,6 @@
     },
     {
       "sheet_id": "devops-01",
-      "jd_id": "jd-b",
-      "class": "LLMTimeoutError",
-      "message": "LLM gateway call timed out"
-    },
-    {
-      "sheet_id": "database-01",
-      "jd_id": "jd-a",
-      "class": "LLMTimeoutError",
-      "message": "LLM gateway call timed out"
-    },
-    {
-      "sheet_id": "database-01",
       "jd_id": "jd-b",
       "class": "LLMTimeoutError",
       "message": "LLM gateway call timed out"
@@ -264,7 +300,31 @@
       "message": "LLM gateway call timed out"
     },
     {
-      "sheet_id": "designer-01",
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-a",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-b",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "python_dev-02",
+      "jd_id": "jd-a",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "python_dev-02",
+      "jd_id": "jd-b",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "python_dev-03",
       "jd_id": "jd-b",
       "class": "LLMTimeoutError",
       "message": "LLM gateway call timed out"
@@ -274,58 +334,98 @@
     {
       "expected_group": "match_A",
       "jd_id": "jd-a",
+      "count": 1,
       "scored_count": 0,
       "mean": null,
-      "median": null
+      "median": null,
+      "coverage_mean": 0.35,
+      "coverage_median": 0.35,
+      "known_only_score_mean": 48.57,
+      "known_only_score_median": 48.57
     },
     {
       "expected_group": "match_A",
       "jd_id": "jd-b",
+      "count": 0,
       "scored_count": 0,
       "mean": null,
-      "median": null
+      "median": null,
+      "coverage_mean": null,
+      "coverage_median": null,
+      "known_only_score_mean": null,
+      "known_only_score_median": null
     },
     {
       "expected_group": "match_B",
       "jd_id": "jd-a",
+      "count": 2,
       "scored_count": 0,
       "mean": null,
-      "median": null
+      "median": null,
+      "coverage_mean": 0.1,
+      "coverage_median": 0.1,
+      "known_only_score_mean": 70.0,
+      "known_only_score_median": 70.0
     },
     {
       "expected_group": "match_B",
       "jd_id": "jd-b",
+      "count": 0,
       "scored_count": 0,
       "mean": null,
-      "median": null
+      "median": null,
+      "coverage_mean": null,
+      "coverage_median": null,
+      "known_only_score_mean": null,
+      "known_only_score_median": null
     },
     {
       "expected_group": "none",
       "jd_id": "jd-a",
+      "count": 2,
       "scored_count": 0,
       "mean": null,
-      "median": null
+      "median": null,
+      "coverage_mean": 0.1,
+      "coverage_median": 0.1,
+      "known_only_score_mean": 70.0,
+      "known_only_score_median": 70.0
     },
     {
       "expected_group": "none",
       "jd_id": "jd-b",
+      "count": 1,
       "scored_count": 0,
       "mean": null,
-      "median": null
+      "median": null,
+      "coverage_mean": 0.0,
+      "coverage_median": 0.0,
+      "known_only_score_mean": null,
+      "known_only_score_median": null
     },
     {
       "expected_group": "partial_A",
       "jd_id": "jd-a",
+      "count": 0,
       "scored_count": 0,
       "mean": null,
-      "median": null
+      "median": null,
+      "coverage_mean": null,
+      "coverage_median": null,
+      "known_only_score_mean": null,
+      "known_only_score_median": null
     },
     {
       "expected_group": "partial_A",
       "jd_id": "jd-b",
+      "count": 0,
       "scored_count": 0,
       "mean": null,
-      "median": null
+      "median": null,
+      "coverage_mean": null,
+      "coverage_median": null,
+      "known_only_score_mean": null,
+      "known_only_score_median": null
     }
   ]
 }

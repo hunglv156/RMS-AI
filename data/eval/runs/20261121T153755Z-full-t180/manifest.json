@@ -1,0 +1,68 @@
+{
+  "run_id": "20261121T153755Z-full-t180",
+  "started_at": "2026-11-21T15:38:05.934163+00:00",
+  "ended_at": "2026-11-21T15:47:57.838033+00:00",
+  "git": {
+    "commit": "4064f5cb9da91cdbc0c1a5f6e584bc50ca7a4941",
+    "dirty": true
+  },
+  "identity": {
+    "eval_set_sha256": "54ea167125e03566dc5f2a15832f6a85f66090146f235c171db04f9afd460000",
+    "jd_file_sha256": {
+      "jd-a": "17f56943f8402dc9d5753fb1d6856b7e34c494f70581d3cb8705c5a53e6a8cd2",
+      "jd-b": "5247dcb72b43c2778947253997f0fb36bed77b1c6463c2066fe2439034b755f3"
+    },
+    "config": {
+      "context_mode": "full",
+      "retrieval_mode": "lexical",
+      "retrieval_k": 5,
+      "prompt_version": "screening-v1",
+      "min_coverage": 0.8,
+      "rubric_values": {
+        "strong": 1.0,
+        "adequate": 0.7,
+        "partial": 0.4,
+        "absent": 0.0
+      }
+    },
+    "requested_model": "ag/gemini-3.8-flash-high",
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "chunker": "chunk-v1",
+      "chunker_used": false
+    }
+  },
+  "invocations": [
+    {
+      "started_at": "2026-11-21T15:38:06.040796+00:00",
+      "ended_at": "2026-11-21T15:47:57.838033+00:00",
+      "concurrency": 4,
+      "limit": null,
+      "git": {
+        "commit": "4064f5cb9da91cdbc0c1a5f6e584bc50ca7a4941",
+        "dirty": true
+      },
+      "provider_config": {
+        "timeout_s": 180.0,
+        "max_retries": 2,
+        "temperature": 0.0
+      }
+    }
+  ],
+  "text_content_sha256": {
+    "python_dev-01": "ccd1dbb1606934face5a43ed8c730fd622f71c738c78aebbe8371a9adebd7d91",
+    "python_dev-02": "231d34c9676135ba4ac39a83ea76af775bd05bce1bff5a1421eb7cac22910a3f",
+    "python_dev-03": "6a69157cc5ee2fe5201b0081aad815965eae7eb00d341ac6d2fc88921f7f497b",
+    "devops-01": "9e374bbddb2d973d1bebc66154809e8b2e0436c901f5ca74dc2a8e68d3f8b29d",
+    "database-01": "93e113674ba0e0f7aa4abdc00d18028a71522f6ad093f325468fc8161ecadb3c",
+    "hr-01": "13bfaa6a2e117d8dbe650593332e31b61e096dfc2ab48a6146808d1f20f43f22",
+    "hr-02": "b1e77963a878d5d6424fcbbd4df659153351a506aba7d9cf8c69698cce8e6ea8",
+    "hr-03": "5f4a12678aab63194313d26f1be6e880270f853eb406bde9b3598134a2f77438",
+    "finance-01": "9f6f508056d7acd852b3cef021069121e3a94f8de1d53088af095a1efb1b9d94",
+    "designer-01": "03994ced08c80bf19f8d537d2287192b7cd96c7f89378274f7cc61e5b35bdaac"
+  },
+  "gateway_reported_models": [
+    "gemini-3.8-flash-n"
+  ]
+}
