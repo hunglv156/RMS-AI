@@ -1,0 +1,60 @@
+version = 5
+
+[project]
+name = "rms-ai"
+
+[routing.intent]
+decide = "decision_maker"
+plan = "planner"
+research = "researcher"
+review = "reviewer"
+test = "tester"
+
+[roles.decision_maker]
+mode = "read-only"
+prompt_prefix = "Decide the approach within delegated authority: outcome, rationale, constraints, acceptance criteria, and unresolved decisions. Do not produce an execution plan or invent Dylan's approval."
+
+[roles.planner]
+mode = "read-only"
+prompt_prefix = "Turn the supplied accepted decisions into an executable plan. Preserve their scope and constraints; return decision conflicts instead of silently changing direction."
+
+[roles.researcher]
+mode = "read-only"
+prompt_prefix = "Answer the supplied questions from local code and project documents. Edit nothing; write only the context pack at the supplied report_path. Cite exact path:line for every fact and mark gaps unknown."
+
+[roles.reviewer]
+mode = "read-only"
+prompt_prefix = "Review the bounded change without editing."
+
+[roles.tester]
+mode = "read-only"
+prompt_prefix = "Run the agreed checks without editing source files. Report commands, expected and actual results, PASS/FAIL, and evidence paths. Use only authorized test data and temporary artifacts; return fixes to the executor."
+
+[runtimes.DOCS]
+technology = "DOCS"
+cwd = "docs"
+worktree_root = "."
+allowed_paths = ["docs/"]
+forbidden_paths = ["data/", "apps/", "infra/"]
+
+[runtimes.DATA]
+technology = "DATA"
+cwd = "data"
+worktree_root = "."
+allowed_paths = ["data/"]
+forbidden_paths = ["docs/", "apps/", "infra/"]
+
+[runtimes.INFRA]
+technology = "INFRA"
+cwd = "."
+worktree_root = "."
+allowed_paths = ["infra/", "package.json", "pnpm-workspace.yaml", "pnpm-lock.yaml", "docker-compose.yml", ".gitignore", ".env.example", ".editorconfig", ".nvmrc", "README.md"]
+forbidden_paths = ["apps/", "docs/", "data/"]
+
+
+[runtimes.AI]
+technology = "AI"
+cwd = "apps/ai-service"
+worktree_root = "."
+allowed_paths = ["apps/ai-service/"]
+forbidden_paths = ["apps/api/", "apps/web/", "docs/", "data/", "infra/"]
