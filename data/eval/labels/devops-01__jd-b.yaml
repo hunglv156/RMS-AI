@@ -1,0 +1,31 @@
+cv_sheet_id: devops-01
+text_sha256: f7fff9d023f467550d221d079f97b7b8018f35ccdb2e95562ce72aaf2525426c
+jd_id: jd-b
+labeler: null
+labeled_at: null
+overall_fit: null
+criteria:
+  hr_experience:
+    level: null
+    evidence: []
+    note: ''
+  employment_law:
+    level: null
+    evidence: []
+    note: ''
+  hr_tools:
+    level: null
+    evidence: []
+    note: ''
+  education:
+    level: null
+    evidence: []
+    note: ''
+  communication:
+    level: null
+    evidence: []
+    note: ''
+  english:
+    level: null
+    evidence: []
+    note: ''

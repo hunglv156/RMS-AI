@@ -1,0 +1,31 @@
+cv_sheet_id: hr-01
+text_sha256: 21367b09bd5a2ce2495853eb9251a7fb7fd6586624e12d5cfa9e9bd32b5932b9
+jd_id: jd-b
+labeler: null
+labeled_at: null
+overall_fit: null
+criteria:
+  hr_experience:
+    level: null
+    evidence: []
+    note: ''
+  employment_law:
+    level: null
+    evidence: []
+    note: ''
+  hr_tools:
+    level: null
+    evidence: []
+    note: ''
+  education:
+    level: null
+    evidence: []
+    note: ''
+  communication:
+    level: null
+    evidence: []
+    note: ''
+  english:
+    level: null
+    evidence: []
+    note: ''

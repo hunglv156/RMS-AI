@@ -1,0 +1,65 @@
+# Weights are illustrative values set by Dylan's delegate; they are not calibrated.
+id: jd-b
+title: HR Generalist
+summary: Support generalist human resources work.
+criteria:
+- code: hr_experience
+  label: HR experience
+  description: Practical experience in recruitment, compensation and benefits, employee
+    relations or training
+  priority: must_have
+  weight: 30
+  keywords:
+  - recruitment
+  - compensation
+  - benefits
+  - employee relations
+  - training
+- code: employment_law
+  label: Employment law
+  description: Strong knowledge of employment law, employment contracts and insurance benefits
+  priority: must_have
+  weight: 20
+  keywords:
+  - employment law
+  - labor law
+  - labour law
+  - employment contracts
+  - insurance
+  - compliance
+- code: hr_tools
+  label: HR tools and processes
+  description: Use HRM software, Excel and HR processes
+  priority: nice_to_have
+  weight: 15
+  keywords:
+  - HRM
+  - Excel
+  - HR processes
+- code: education
+  label: Education
+  description: Graduated in human resource management, law or business administration
+  priority: nice_to_have
+  weight: 10
+  keywords:
+  - human resource management
+  - law
+  - business administration
+- code: communication
+  label: Communication and empathy
+  description: Communicate, listen and handle people issues
+  priority: nice_to_have
+  weight: 15
+  keywords:
+  - communication
+  - listening
+  - people issues
+- code: english
+  label: English
+  description: Read and understand professional English documentation and communicate
+    at a basic level, demonstrated through a certificate or CV
+  priority: nice_to_have
+  weight: 10
+  keywords:
+  - English
+  - documentation

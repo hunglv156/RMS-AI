@@ -1,0 +1,31 @@
+cv_sheet_id: finance-01
+text_sha256: 91f76edb62f5ec5f51a483922362ef165ec75baa10b55683993fa6afac7da713
+jd_id: jd-a
+labeler: null
+labeled_at: null
+overall_fit: null
+criteria:
+  python_backend:
+    level: null
+    evidence: []
+    note: ''
+  api_design:
+    level: null
+    evidence: []
+    note: ''
+  database:
+    level: null
+    evidence: []
+    note: ''
+  docker_cloud:
+    level: null
+    evidence: []
+    note: ''
+  teamwork:
+    level: null
+    evidence: []
+    note: ''
+  english:
+    level: null
+    evidence: []
+    note: ''

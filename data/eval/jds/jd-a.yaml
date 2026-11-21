@@ -1,0 +1,58 @@
+# Weights are illustrative values set by Dylan's delegate; they are not calibrated.
+id: jd-a
+title: Python Backend Developer
+summary: Develop Python backend applications and APIs.
+criteria:
+- code: python_backend
+  label: Python backend
+  description: Experience developing backends with Django, Flask or FastAPI
+  priority: must_have
+  weight: 25
+  keywords:
+  - Python
+  - Django
+  - Flask
+  - FastAPI
+- code: api_design
+  label: REST API
+  description: Design and build REST APIs
+  priority: must_have
+  weight: 25
+  keywords:
+  - REST API
+  - API design
+- code: database
+  label: Databases
+  description: Work with PostgreSQL, MySQL and SQL
+  priority: nice_to_have
+  weight: 15
+  keywords:
+  - PostgreSQL
+  - MySQL
+  - SQL
+- code: docker_cloud
+  label: Docker/Cloud
+  description: Deploy applications using Docker or cloud services
+  priority: nice_to_have
+  weight: 15
+  keywords:
+  - Docker
+  - cloud deployment
+- code: teamwork
+  label: Teamwork
+  description: Work in teams using Agile/Scrum and review code
+  priority: nice_to_have
+  weight: 10
+  keywords:
+  - Agile
+  - Scrum
+  - code review
+- code: english
+  label: English
+  description: Read and understand professional English documentation and communicate
+    at a basic level, demonstrated through a certificate or CV
+  priority: nice_to_have
+  weight: 10
+  keywords:
+  - English
+  - documentation

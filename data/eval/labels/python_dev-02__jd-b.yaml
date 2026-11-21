@@ -1,0 +1,31 @@
+cv_sheet_id: python_dev-02
+text_sha256: 1b279f463335db61fa8db8e58d399734a58491e1779015adc4f65abce8f7602b
+jd_id: jd-b
+labeler: null
+labeled_at: null
+overall_fit: null
+criteria:
+  hr_experience:
+    level: null
+    evidence: []
+    note: ''
+  employment_law:
+    level: null
+    evidence: []
+    note: ''
+  hr_tools:
+    level: null
+    evidence: []
+    note: ''
+  education:
+    level: null
+    evidence: []
+    note: ''
+  communication:
+    level: null
+    evidence: []
+    note: ''
+  english:
+    level: null
+    evidence: []
+    note: ''

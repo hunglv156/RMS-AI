@@ -1,0 +1,31 @@
+cv_sheet_id: hr-02
+text_sha256: 3dd65c19265ee452f579439b6e6b3d9dccb8e1c7f06d06fcd77dd29ed33fc860
+jd_id: jd-a
+labeler: null
+labeled_at: null
+overall_fit: null
+criteria:
+  python_backend:
+    level: null
+    evidence: []
+    note: ''
+  api_design:
+    level: null
+    evidence: []
+    note: ''
+  database:
+    level: null
+    evidence: []
+    note: ''
+  docker_cloud:
+    level: null
+    evidence: []
+    note: ''
+  teamwork:
+    level: null
+    evidence: []
+    note: ''
+  english:
+    level: null
+    evidence: []
+    note: ''

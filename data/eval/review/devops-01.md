@@ -1,25 +1,26 @@
 # devops-01  (chunker chunk-v1, 10 chunk)
 
-Ghi `evidence_chunks` bằng số `n` của `[đoạn n]`. Đọc `eval/GUIDELINES.md` trước khi gán.
+Đọc `data/eval/GUIDELINES.md` và ghi nhãn vào `data/eval/labels/devops-01__jd-a.yaml` hoặc `data/eval/labels/devops-01__jd-b.yaml`.
 Chunk chồng lấn nhau ~100 ký tự: phần chồng lấn nằm ở cuối chunk trước và đầu chunk sau.
 
 ## JD-A: Python Backend Developer
 
-- `python_backend` (must_have): Backend Python. Có kinh nghiệm phát triển backend bằng Django, Flask hoặc FastAPI
-- `api_design` (must_have): REST API. Thiết kế và xây dựng REST API
-- `database` (nice_to_have): Cơ sở dữ liệu. Làm việc với PostgreSQL, MySQL và SQL
-- `docker_cloud` (nice_to_have): Docker/Cloud. Triển khai ứng dụng bằng Docker hoặc dịch vụ cloud
-- `teamwork` (nice_to_have): Làm việc nhóm. Làm việc nhóm theo Agile/Scrum, review code
-- `english` (nice_to_have): Tiếng Anh. Đọc hiểu tài liệu chuyên ngành tiếng Anh và giao tiếp cơ bản, thể hiện qua chứng chỉ hoặc CV
+- `python_backend` (must_have): Python backend. Experience developing backends with Django, Flask or FastAPI
+- `api_design` (must_have): REST API. Design and build REST APIs
+- `database` (nice_to_have): Databases. Work with PostgreSQL, MySQL and SQL
+- `docker_cloud` (nice_to_have): Docker/Cloud. Deploy applications using Docker or cloud services
+- `teamwork` (nice_to_have): Teamwork. Work in teams using Agile/Scrum and review code
+- `english` (nice_to_have): English. Read and understand professional English documentation and communicate at a basic level, demonstrated through a certificate or CV
 
-## JD-B: Chuyên viên Nhân sự Tổng hợp (HR Generalist)
+## JD-B: HR Generalist
 
-- `hr_experience` (must_have): Kinh nghiệm nhân sự. Có kinh nghiệm thực tế về tuyển dụng, C&B, quan hệ lao động hoặc đào tạo
-- `labor_law` (must_have): Luật lao động. Nắm vững Luật Lao động, hợp đồng lao động và chế độ bảo hiểm
-- `hr_tools` (nice_to_have): Công cụ và quy trình HR. Sử dụng phần mềm HRM, Excel và quy trình nhân sự
-- `education` (nice_to_have): Học vấn. Tốt nghiệp ngành quản trị nhân lực, luật hoặc quản trị kinh doanh
-- `communication` (nice_to_have): Giao tiếp và đồng cảm. Giao tiếp, lắng nghe và xử lý vấn đề con người
-- `english` (nice_to_have): Tiếng Anh. Đọc hiểu tài liệu chuyên ngành tiếng Anh và giao tiếp cơ bản, thể hiện qua chứng chỉ hoặc CV
+- `hr_experience` (must_have): HR experience. Practical experience in recruitment, compensation and benefits, employee relations or training
+- `employment_law` (must_have): Employment law. Strong knowledge of employment law, employment contracts and insurance benefits
+- `hr_tools` (nice_to_have): HR tools and processes. Use HRM software, Excel and HR processes
+- `education` (nice_to_have): Education. Graduated in human resource management, law or business administration
+- `communication` (nice_to_have): Communication and empathy. Communicate, listen and handle people issues
+- `english` (nice_to_have): English. Read and understand professional English documentation and communicate at a basic level, demonstrated through a certificate or CV
+
 
 ## Nội dung CV
 
