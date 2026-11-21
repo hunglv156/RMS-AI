@@ -1,0 +1,15 @@
+{
+  "name": "rms-ai",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": ">=26"
+  },
+  "scripts": {
+    "check": "pnpm -r --if-present run check",
+    "infra:up": "docker compose up -d",
+    "infra:down": "docker compose down",
+    "infra:logs": "docker compose logs -f"
+  }
+}

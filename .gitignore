@@ -1,0 +1,23 @@
+# Node.js
+node_modules/
+dist/
+
+# pnpm
+.pnpm-store/
+
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+
+# Generated evaluation output
+data/eval/results/
