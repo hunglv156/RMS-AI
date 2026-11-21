@@ -1,8 +1,11 @@
-from importlib.metadata import version
+from importlib.metadata import PackageNotFoundError, version
 
 from fastapi import FastAPI
 
-SERVICE_VERSION = version("rms-ai-service")
+try:
+    SERVICE_VERSION = version("rms-ai-service")
+except PackageNotFoundError:
+    SERVICE_VERSION = "0.0.0+unknown"
 
 
 def create_app() -> FastAPI:

@@ -2,7 +2,7 @@
 name = "rms-ai-service"
 version = "0.1.0"
 description = "Internal AI service for the RMS recruitment platform"
-requires-python = ">=3.13"
+requires-python = ">=3.13,<3.15"
 dependencies = [
     "fastapi",
     "uvicorn[standard]",

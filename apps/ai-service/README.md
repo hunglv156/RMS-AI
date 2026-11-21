@@ -1,6 +1,6 @@
 # RMS AI service
 
-Run checks from this directory with `uv sync` followed by `uv run ruff check .`, `uv run ruff format --check .`, and `uv run pytest -q`. Start the local development server with `pnpm dev` (or the `uv run uvicorn` command in `package.json`); it listens on `http://127.0.0.1:8100`.
+Use Python 3.13 for this service (`.python-version` pins it; supported versions are `>=3.13,<3.15`). Run checks from this directory with `uv sync` followed by `uv run ruff check .`, `uv run ruff format --check .`, and `uv run pytest -q`. Start the local development server with `pnpm dev` (or the `uv run uvicorn` command in `package.json`); it listens on `http://127.0.0.1:8100`.
 
 
 ## Retrieval
