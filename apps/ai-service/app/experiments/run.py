@@ -1,6 +1,6 @@
 """Run canonical CV/JD pairs. --limit caps pairs, not CVs.
 
-Retrieved mode uses lexical retrieval. Resume requires identical inputs/config/model.
+Retrieved mode supports lexical, dense and hybrid retrieval. Resume requires identical identity.
 The eval-set text_sha256 field is a source-PDF hash used only as a text lookup key.
 Latency includes text loading/hashing and screening, excluding queue and persistence time.
 """
@@ -22,6 +22,7 @@ import yaml
 
 from app.chunking import CHUNKER_VERSION
 from app.config import Settings
+from app.embeddings import BgeM3Embedder
 from app.infrastructure.llm import get_llm_provider
 from app.pipelines.screening import ScreeningConfig, load_jd, screen
 from app.pipelines.screening.models import ScreeningVersions
@@ -244,6 +245,7 @@ class MeasuredProvider:
         self.provider = provider
         self.measurements = {
             "prompt_char_length": None,
+            "context_char_length": None,
             "input_tokens": None,
             "output_tokens": None,
             "reasoning_tokens": None,
@@ -253,6 +255,7 @@ class MeasuredProvider:
         # Counts trusted system + user text passed by the pipeline, excluding
         # provider-added schema/formatting. This definition is stable across models.
         self.measurements["prompt_char_length"] = len(kwargs["system"]) + len(kwargs["user"])
+        self.measurements["context_char_length"] = len(json.loads(kwargs["user"])["cv_context"])
         response = await self.provider.generate_structured(**kwargs)
         metadata = response.metadata.model_dump()
         details = metadata.get("completion_tokens_details") or {}
@@ -272,6 +275,8 @@ async def run_experiment(
     settings,
     provider=None,
     context_mode="full",
+    retrieval_mode="lexical",
+    retrieval_k=5,
     concurrency=4,
     limit=None,
     model=None,
@@ -281,7 +286,14 @@ async def run_experiment(
     if model is not None:
         settings = settings.model_copy(update={"llm_model": model, "gemini_model": model})
     eval_set, output_dir = Path(eval_set).resolve(), Path(output_dir).resolve()
-    config = ScreeningConfig(context_mode=context_mode, retrieval_mode="lexical")
+    config = ScreeningConfig(
+        context_mode=context_mode, retrieval_mode=retrieval_mode, retrieval_k=retrieval_k
+    )
+    embedder = (
+        BgeM3Embedder()
+        if context_mode == "retrieved" and retrieval_mode in {"dense", "hybrid"}
+        else None
+    )
     secrets = [k.get_secret_value() for k in (settings.llm_api_key, settings.gemini_api_key) if k]
     dataset = yaml.safe_load(eval_set.read_bytes())
     jd_ids = list(dict.fromkeys(jd_ids))
@@ -302,6 +314,7 @@ async def run_experiment(
         "eval_set_sha256": sha256(eval_set.read_bytes()),
         "jd_file_sha256": {jd: sha256(path.read_bytes()) for jd, path in jds.items()},
         "config": config.model_dump(),
+        "embedding_model_id": embedder.model_id if embedder is not None else None,
         "requested_model": (
             settings.llm_model
             if settings.llm_base_url and settings.llm_api_key is not None
@@ -372,7 +385,11 @@ async def run_experiment(
                     ):
                         return previous
                 result = await screen(
-                    data.decode("utf-8"), loaded_jds[jd], provider=measured, config=config
+                    data.decode("utf-8"),
+                    loaded_jds[jd],
+                    provider=measured,
+                    config=config,
+                    embedder=embedder,
                 )
                 pair.update(status="succeeded", result=result.model_dump(mode="json"))
             except Exception as exc:  # noqa: BLE001 — isolate pair failures and redact CLI errors
@@ -408,6 +425,10 @@ def main():
     parser.add_argument("--eval-set", type=Path)
     parser.add_argument("--jd-ids", nargs="+", default=["jd-a", "jd-b"])
     parser.add_argument("--context-mode", choices=["full", "retrieved"], default="full")
+    parser.add_argument(
+        "--retrieval-mode", choices=["lexical", "dense", "hybrid"], default="lexical"
+    )
+    parser.add_argument("--retrieval-k", type=int, default=5)
     parser.add_argument("--concurrency", type=int, default=4)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--model", help="Override the requested model for this run only")

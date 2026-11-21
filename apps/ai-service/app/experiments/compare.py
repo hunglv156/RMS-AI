@@ -5,11 +5,26 @@ import json
 import statistics
 from pathlib import Path
 
-from app.experiments.run import atomic_write, summarize
+from app.experiments.run import atomic_write, sha256, summarize
 
 
 def mean(values):
     return statistics.mean(values) if values else None
+
+
+def context_length(pair, directory, manifest):
+    if pair.get("context_char_length") is not None:
+        return pair["context_char_length"], "measured"
+    # Historical full runs predate measurement. Recover only from hash-verified
+    # canonical input text; never infer retrieved context or alter the input run.
+    if manifest["identity"]["config"]["context_mode"] == "full":
+        source_hash = pair.get("source_pdf_sha256")
+        path = directory.parent.parent / "text" / f"{source_hash}.txt"
+        if path.is_file():
+            data = path.read_bytes()
+            if sha256(data) == pair.get("text_content_sha256"):
+                return len(data.decode("utf-8")), "verified_full_input"
+    return None, None
 
 
 def compare_runs(run_dirs, output_dir):
@@ -21,6 +36,7 @@ def compare_runs(run_dirs, output_dir):
         raise ValueError("Comparison output must be outside input runs")
     runs = []
     baseline = None
+    baseline_context_mean = None
     for directory in run_dirs:
         pairs = [json.loads(p.read_text()) for p in sorted((directory / "pairs").glob("*.json"))]
         if not pairs:
@@ -63,6 +79,16 @@ def compare_runs(run_dirs, output_dir):
         prompt_lengths = [
             p["prompt_char_length"] for p in successful if p.get("prompt_char_length") is not None
         ]
+        contexts = [context_length(p, directory, manifest) for p in successful]
+        context_lengths = [length for length, _ in contexts if length is not None]
+        context_mean = mean(context_lengths)
+        if not runs:
+            baseline_context_mean = context_mean
+        reduction = (
+            1 - context_mean / baseline_context_mean
+            if context_mean is not None and baseline_context_mean
+            else None
+        )
         runs.append(
             {
                 "run": directory.name,
@@ -78,6 +104,16 @@ def compare_runs(run_dirs, output_dir):
                     if any(v is not None for v in reasoning)
                     else None,
                     "missing_reasoning_pairs": sum(v is None for v in reasoning),
+                },
+                "context_chars": {
+                    "mean": context_mean,
+                    "available_pairs": len(context_lengths),
+                    "measured_pairs": sum(origin == "measured" for _, origin in contexts),
+                    "reconstructed_full_pairs": sum(
+                        origin == "verified_full_input" for _, origin in contexts
+                    ),
+                    "reduction_vs_baseline": reduction,
+                    "definition": "Unicode characters in cv_context sent to the LLM; historical full input recovered only when source content hash matches",
                 },
                 "prompt_chars": {
                     "mean": mean(prompt_lengths),
@@ -109,7 +145,7 @@ def compare_runs(run_dirs, output_dir):
             }
         )
     result = {
-        "interpretation": "Diagnostics only, not accuracy: no human labels exist. Coverage, quote verification, agreement and known-only scores do not establish correctness.",
+        "interpretation": "Diagnostics only, not accuracy: no human labels are used. Coverage, quote verification, agreement and known-only scores do not establish correctness.",
         "baseline": run_dirs[0].name,
         "runs": runs,
     }
@@ -128,10 +164,10 @@ def markdown(result):
         "",
         result["interpretation"],
         "",
-        "Latency population: successful pairs; includes provider retries, excludes local semaphore queue and persistence. Token totals cover successful calls only; failed attempts may be unreported. Missing measurements remain null.",
+        "Latency population: successful pairs; includes provider retries, excludes local semaphore queue and persistence. Token totals cover successful calls only; failed attempts may be unreported. Context means use successful pairs with available context lengths; reduction is 1 - run mean / baseline mean. Missing measurements remain null.",
         "",
-        "| Run | Success | p50 s | p95 s | Max s | ≤40 s | Input tokens | Output tokens | Reasoning tokens | Quote verification | Mean coverage | State agreement | Known-only MAD |",
-        "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+        "| Run | Success | p50 s | p95 s | Max s | ≤40 s | Input tokens | Output tokens | Reasoning tokens | Quote verification | Mean coverage | Mean context chars | Context reduction | State agreement | Known-only MAD |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for run in result["runs"]:
         latency, tokens, vs = run["latency_s"], run["tokens"], run["versus_baseline"]
@@ -147,6 +183,8 @@ def markdown(result):
             tokens["reasoning"],
             run["quote_verification"]["rate"],
             run["mean_coverage"],
+            run["context_chars"]["mean"],
+            run["context_chars"]["reduction_vs_baseline"],
             vs["score_state_agreement"]["rate"],
             vs["known_only_score"]["mean_absolute_difference"],
         ]
@@ -156,6 +194,7 @@ def markdown(result):
             "",
             f"## {run['run']} versus baseline (not accuracy)",
             "",
+            f"Context characters: {json.dumps(run['context_chars'])}",
             f"Prompt characters: {json.dumps(run['prompt_chars'])}",
             f"Score-state agreement: {json.dumps(run['versus_baseline']['score_state_agreement'])}",
             f"Known-only diagnostic: {json.dumps(run['versus_baseline']['known_only_score'])}",

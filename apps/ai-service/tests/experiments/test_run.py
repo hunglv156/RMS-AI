@@ -320,9 +320,14 @@ def test_measurement_reads_exposed_reasoning_details():
             return scripted
 
     measured = MeasuredProvider(ExposedMetadataProvider([]))
-    asyncio.run(measured.generate_structured(system="abc", user="defg", response_model=None))
+    asyncio.run(
+        measured.generate_structured(
+            system="abc", user=json.dumps({"cv_context": "défg"}), response_model=None
+        )
+    )
     assert measured.measurements == {
-        "prompt_char_length": 7,
+        "prompt_char_length": 3 + len(json.dumps({"cv_context": "défg"})),
+        "context_char_length": 4,
         "input_tokens": 10,
         "output_tokens": 20,
         "reasoning_tokens": 7,
@@ -392,3 +397,137 @@ def test_comparison_excludes_failed_and_missing_pairs(fixture, tmp_path):
     }
     assert len(compared["versus_baseline"]["pairs"]) == 2
     assert all(p["coverage_delta"] is None for p in compared["versus_baseline"]["pairs"])
+
+
+@pytest.mark.parametrize("mode", ["lexical", "dense", "hybrid"])
+def test_retrieval_configuration_shared_embedder_and_context(fixture, monkeypatch, mode):
+    from app.embeddings import FakeEmbedder
+    from app.experiments import run as runner
+
+    args, _ = fixture
+    created, used = [], []
+
+    def factory():
+        embedder = FakeEmbedder()
+        created.append(embedder)
+        return embedder
+
+    original_screen = runner.screen
+
+    async def capture(*args, **kwargs):
+        used.append(kwargs["embedder"])
+        return await original_screen(*args, **kwargs)
+
+    monkeypatch.setattr(runner, "BgeM3Embedder", factory)
+    monkeypatch.setattr(runner, "screen", capture)
+    summary = run(
+        args, [response(), response()], context_mode="retrieved", retrieval_mode=mode, retrieval_k=2
+    )
+    assert summary["succeeded"] == 2
+    assert len(created) == (0 if mode == "lexical" else 1)
+    assert all(value is (created[0] if created else None) for value in used)
+    identity = json.loads((args["output_dir"] / "manifest.json").read_text())["identity"]
+    assert identity["config"]["retrieval_mode"] == mode
+    assert identity["config"]["retrieval_k"] == 2
+    assert identity["embedding_model_id"] == ("fake-sha256" if created else None)
+    for path in (args["output_dir"] / "pairs").glob("*.json"):
+        assert json.loads(path.read_text())["context_char_length"] == (
+            0 if mode == "lexical" else len(CV)
+        )
+    for changed in (
+        {"retrieval_k": 3},
+        {"retrieval_mode": "hybrid" if mode != "hybrid" else "dense"},
+    ):
+        with pytest.raises(ValueError, match="Resume inputs"):
+            run(
+                args,
+                [],
+                **(
+                    {"context_mode": "retrieved", "retrieval_mode": mode, "retrieval_k": 2}
+                    | changed
+                ),
+            )
+    if mode != "lexical":
+        monkeypatch.setattr(FakeEmbedder, "model_id", "different-model")
+        with pytest.raises(ValueError, match="Resume inputs"):
+            run(args, [], context_mode="retrieved", retrieval_mode=mode, retrieval_k=2)
+
+
+def test_full_context_length_and_no_embedder(fixture, monkeypatch):
+    def forbidden():
+        pytest.fail("full or lexical mode must not construct an embedder")
+
+    monkeypatch.setattr("app.experiments.run.BgeM3Embedder", forbidden)
+    args, _ = fixture
+    run(args, [response(), response()])
+    pair = json.loads((args["output_dir"] / "pairs/cv-1__jd-a.json").read_text())
+    assert pair["context_char_length"] == len(CV)
+    with pytest.raises(ValueError):
+        run(args, [], retrieval_k=0)
+
+
+def test_cli_retrieval_flags(fixture, monkeypatch):
+    import sys
+
+    from app.embeddings import FakeEmbedder
+    from app.experiments.run import main
+
+    args, _ = fixture
+    monkeypatch.setattr("app.experiments.run.BgeM3Embedder", FakeEmbedder)
+    monkeypatch.setattr("app.experiments.run.Settings", lambda: args["settings"])
+    monkeypatch.setattr(
+        "app.experiments.run.get_llm_provider", lambda _: FakeLLMProvider([response(), response()])
+    )
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "run",
+            "--eval-set",
+            str(args["eval_set"]),
+            "--jd-ids",
+            "jd-a",
+            "--output-dir",
+            str(args["output_dir"]),
+            "--context-mode",
+            "retrieved",
+            "--retrieval-mode",
+            "dense",
+            "--retrieval-k",
+            "3",
+        ],
+    )
+    assert main() == 0
+    identity = json.loads((args["output_dir"] / "manifest.json").read_text())["identity"]
+    assert identity["config"]["retrieval_mode"] == "dense"
+    assert identity["config"]["retrieval_k"] == 3
+    assert identity["embedding_model_id"] == "fake-sha256"
+
+
+def test_comparison_context_reduction_and_missing_measurements(fixture, tmp_path):
+    from app.experiments.compare import compare_runs, context_length
+
+    args, _ = fixture
+    run(args, [response(), response()])
+    other_args = args | {"output_dir": tmp_path / "other"}
+    run(other_args, [response(), response()])
+    for path in (other_args["output_dir"] / "pairs").glob("*.json"):
+        pair = json.loads(path.read_text())
+        pair["context_char_length"] = 3
+        path.write_text(json.dumps(pair))
+    result = compare_runs([args["output_dir"], other_args["output_dir"]], tmp_path / "comparison")
+    assert result["runs"][0]["context_chars"]["mean"] == len(CV)
+    assert result["runs"][1]["context_chars"]["mean"] == 3
+    assert result["runs"][1]["context_chars"]["reduction_vs_baseline"] == pytest.approx(
+        1 - 3 / len(CV)
+    )
+    pair.pop("context_char_length")
+    manifest = {"identity": {"config": {"context_mode": "full"}}}
+    assert context_length(pair, tmp_path / "runs/historical", manifest) == (
+        len(CV),
+        "verified_full_input",
+    )
+    pair["text_content_sha256"] = "changed"
+    assert context_length(pair, tmp_path / "runs/historical", manifest) == (None, None)
+    manifest["identity"]["config"]["context_mode"] = "retrieved"
+    assert context_length(pair, tmp_path / "runs/historical", manifest) == (None, None)

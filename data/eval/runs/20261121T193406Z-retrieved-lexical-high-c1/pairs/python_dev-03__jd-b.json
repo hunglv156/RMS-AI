@@ -1,0 +1,325 @@
+{
+  "sheet_id": "python_dev-03",
+  "jd_id": "jd-b",
+  "expected_group": "match_A",
+  "source_pdf_sha256": "27c4ddafa0d9a33b728a84b0c45ad467b431c928c006299b514cfe21305f7e77",
+  "text_content_sha256": "6a69157cc5ee2fe5201b0081aad815965eae7eb00d341ac6d2fc88921f7f497b",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "The CV contains no mention of practical experience in recruitment, compensation and benefits, employee relations, or training.",
+          "evidence": [],
+          "missing_information": [
+            "Practical experience in recruitment, compensation and benefits, employee relations, or training"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "There is no mention of knowledge regarding employment law, employment contracts, or insurance benefits.",
+          "evidence": [],
+          "missing_information": [
+            "Knowledge of employment law, employment contracts, and insurance benefits"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "The CV does not mention the use of HRM software, Excel, or HR processes.",
+          "evidence": [],
+          "missing_information": [
+            "Experience using HRM software, Excel, and HR processes"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV lists a degree in Computer Science, with no mention of graduation in human resource management, law, or business administration.",
+          "evidence": [],
+          "missing_information": [
+            "Degree in human resource management, law, or business administration"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention skills or experience related to communication, listening, or handling people issues.",
+          "evidence": [],
+          "missing_information": [
+            "Evidence of communication, listening, and handling people issues"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.9,
+          "reason": "The CV is written in professional English and demonstrates university education at a US institution, meeting the requirement to demonstrate basic English proficiency through the CV.",
+          "evidence": [
+            {
+              "quote": "Clemson University, Clemson, SC",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Used Python programming and language to develop a working and efficient network within the company.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Clemson University, Clemson, SC",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1444,
+              "end_offset": 1475,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Used Python programming and language to develop a working and efficient network within the company.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1052,
+              "end_offset": 1151,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.1,
+      "lower_bound": 7.0,
+      "upper_bound": 97.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:37:54.004409+00:00",
+      "latency_ms": 30773.624041990843,
+      "input_tokens": 5755,
+      "output_tokens": 618,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "hr_experience": [],
+          "employment_law": [],
+          "hr_tools": [],
+          "education": [
+            {
+              "chunk_index": 2,
+              "score": 1.3174746701914637,
+              "lexical_score": 1.3174746701914637,
+              "dense_score": null
+            }
+          ],
+          "communication": [],
+          "english": []
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 510,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 410,
+            "end_offset": 1050,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 950,
+            "end_offset": 1731,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "6a69157cc5ee2fe5201b0081aad815965eae7eb00d341ac6d2fc88921f7f497b",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "prompt_char_length": 3752,
+  "context_char_length": 781,
+  "input_tokens": 5755,
+  "output_tokens": 618,
+  "reasoning_tokens": null,
+  "latency_s": 30.775013000005856,
+  "finished_at": "2026-11-21T19:38:24.778906+00:00"
+}

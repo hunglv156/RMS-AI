@@ -1,0 +1,346 @@
+{
+  "interpretation": "Sanity check only, not accuracy: expected groups are not ground truth.",
+  "pair_count": 20,
+  "succeeded": 20,
+  "pairs": [
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-a",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 469.37168495799415,
+      "score": 91.0,
+      "coverage": 1.0,
+      "score_state": "scored",
+      "known_only_score": 91.0
+    },
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-b",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 37.19346524999128,
+      "score": null,
+      "coverage": 0.1,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 70.0
+    },
+    {
+      "sheet_id": "python_dev-02",
+      "jd_id": "jd-a",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 94.93317104200833,
+      "score": null,
+      "coverage": 0.35,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 57.14
+    },
+    {
+      "sheet_id": "python_dev-02",
+      "jd_id": "jd-b",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 45.64157604202046,
+      "score": null,
+      "coverage": 0.65,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 58.46
+    },
+    {
+      "sheet_id": "python_dev-03",
+      "jd_id": "jd-a",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 31.110686833009822,
+      "score": null,
+      "coverage": 0.35,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 48.57
+    },
+    {
+      "sheet_id": "python_dev-03",
+      "jd_id": "jd-b",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 171.10803820900037,
+      "score": null,
+      "coverage": 0.25,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 52.0
+    },
+    {
+      "sheet_id": "devops-01",
+      "jd_id": "jd-a",
+      "expected_group": "partial_A",
+      "status": "succeeded",
+      "latency_s": 36.13876233299379,
+      "score": null,
+      "coverage": 0.75,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 78.0
+    },
+    {
+      "sheet_id": "devops-01",
+      "jd_id": "jd-b",
+      "expected_group": "partial_A",
+      "status": "succeeded",
+      "latency_s": 50.262641832989175,
+      "score": null,
+      "coverage": 0.25,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 52.0
+    },
+    {
+      "sheet_id": "database-01",
+      "jd_id": "jd-a",
+      "expected_group": "partial_A",
+      "status": "succeeded",
+      "latency_s": 31.183327584003564,
+      "score": null,
+      "coverage": 0.35,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 48.57
+    },
+    {
+      "sheet_id": "database-01",
+      "jd_id": "jd-b",
+      "expected_group": "partial_A",
+      "status": "succeeded",
+      "latency_s": 41.64257933298359,
+      "score": null,
+      "coverage": 0.65,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 49.23
+    },
+    {
+      "sheet_id": "hr-01",
+      "jd_id": "jd-a",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 69.81137816599221,
+      "score": null,
+      "coverage": 0.2,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 70.0
+    },
+    {
+      "sheet_id": "hr-01",
+      "jd_id": "jd-b",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 49.8722739170189,
+      "score": 81.67,
+      "coverage": 0.9,
+      "score_state": "scored",
+      "known_only_score": 81.67
+    },
+    {
+      "sheet_id": "hr-02",
+      "jd_id": "jd-a",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 29.48561604198767,
+      "score": null,
+      "coverage": 0.1,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 70.0
+    },
+    {
+      "sheet_id": "hr-02",
+      "jd_id": "jd-b",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 63.38830612500897,
+      "score": 96.67,
+      "coverage": 0.9,
+      "score_state": "scored",
+      "known_only_score": 96.67
+    },
+    {
+      "sheet_id": "hr-03",
+      "jd_id": "jd-a",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 212.47508683399064,
+      "score": null,
+      "coverage": 0.1,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 70.0
+    },
+    {
+      "sheet_id": "hr-03",
+      "jd_id": "jd-b",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 32.76532274999772,
+      "score": 71.5,
+      "coverage": 1.0,
+      "score_state": "scored",
+      "known_only_score": 71.5
+    },
+    {
+      "sheet_id": "finance-01",
+      "jd_id": "jd-a",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 32.11346995900385,
+      "score": null,
+      "coverage": 0.1,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 70.0
+    },
+    {
+      "sheet_id": "finance-01",
+      "jd_id": "jd-b",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 48.062637666997034,
+      "score": null,
+      "coverage": 0.7,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 63.57
+    },
+    {
+      "sheet_id": "designer-01",
+      "jd_id": "jd-a",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 23.241625708993524,
+      "score": null,
+      "coverage": 0.1,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 70.0
+    },
+    {
+      "sheet_id": "designer-01",
+      "jd_id": "jd-b",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 66.45720858301502,
+      "score": null,
+      "coverage": 0.1,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 70.0
+    }
+  ],
+  "latency_s": {
+    "population": "successful pairs; excludes queue and persistence time",
+    "percentile_method": "linear interpolation at (n - 1) * quantile",
+    "p50": 46.85210685450875,
+    "p95": 225.319916740191,
+    "max": 469.37168495799415,
+    "within_40_s": 8
+  },
+  "tokens": {
+    "input": 196296,
+    "output": 15910,
+    "total": 212206,
+    "missing_usage_pairs": 0,
+    "scope": "successful calls only; failed/retried call usage may be unreported"
+  },
+  "quote_verification": {
+    "valid": 130,
+    "total": 132,
+    "rate": 0.9848484848484849
+  },
+  "failures": [],
+  "group_scores_not_accuracy": [
+    {
+      "expected_group": "match_A",
+      "jd_id": "jd-a",
+      "count": 3,
+      "scored_count": 1,
+      "mean": 91.0,
+      "median": 91.0,
+      "coverage_mean": 0.5666666666666667,
+      "coverage_median": 0.35,
+      "known_only_score_mean": 65.57,
+      "known_only_score_median": 57.14
+    },
+    {
+      "expected_group": "match_A",
+      "jd_id": "jd-b",
+      "count": 3,
+      "scored_count": 0,
+      "mean": null,
+      "median": null,
+      "coverage_mean": 0.33333333333333337,
+      "coverage_median": 0.25,
+      "known_only_score_mean": 60.153333333333336,
+      "known_only_score_median": 58.46
+    },
+    {
+      "expected_group": "match_B",
+      "jd_id": "jd-a",
+      "count": 3,
+      "scored_count": 0,
+      "mean": null,
+      "median": null,
+      "coverage_mean": 0.13333333333333333,
+      "coverage_median": 0.1,
+      "known_only_score_mean": 70.0,
+      "known_only_score_median": 70.0
+    },
+    {
+      "expected_group": "match_B",
+      "jd_id": "jd-b",
+      "count": 3,
+      "scored_count": 3,
+      "mean": 83.28,
+      "median": 81.67,
+      "coverage_mean": 0.9333333333333333,
+      "coverage_median": 0.9,
+      "known_only_score_mean": 83.28,
+      "known_only_score_median": 81.67
+    },
+    {
+      "expected_group": "none",
+      "jd_id": "jd-a",
+      "count": 2,
+      "scored_count": 0,
+      "mean": null,
+      "median": null,
+      "coverage_mean": 0.1,
+      "coverage_median": 0.1,
+      "known_only_score_mean": 70.0,
+      "known_only_score_median": 70.0
+    },
+    {
+      "expected_group": "none",
+      "jd_id": "jd-b",
+      "count": 2,
+      "scored_count": 0,
+      "mean": null,
+      "median": null,
+      "coverage_mean": 0.39999999999999997,
+      "coverage_median": 0.39999999999999997,
+      "known_only_score_mean": 66.785,
+      "known_only_score_median": 66.785
+    },
+    {
+      "expected_group": "partial_A",
+      "jd_id": "jd-a",
+      "count": 2,
+      "scored_count": 0,
+      "mean": null,
+      "median": null,
+      "coverage_mean": 0.55,
+      "coverage_median": 0.55,
+      "known_only_score_mean": 63.285,
+      "known_only_score_median": 63.285
+    },
+    {
+      "expected_group": "partial_A",
+      "jd_id": "jd-b",
+      "count": 2,
+      "scored_count": 0,
+      "mean": null,
+      "median": null,
+      "coverage_mean": 0.45,
+      "coverage_median": 0.45,
+      "known_only_score_mean": 50.614999999999995,
+      "known_only_score_median": 50.614999999999995
+    }
+  ]
+}

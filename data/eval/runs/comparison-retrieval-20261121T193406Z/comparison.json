@@ -1,0 +1,890 @@
+{
+  "interpretation": "Diagnostics only, not accuracy: no human labels are used. Coverage, quote verification, agreement and known-only scores do not establish correctness.",
+  "baseline": "20261121T185747Z-full-high-c1",
+  "runs": [
+    {
+      "run": "20261121T185747Z-full-high-c1",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m3-retrieval/data/eval/runs/20261121T185747Z-full-high-c1",
+      "requested_model": "ag/gemini-3.8-flash-high",
+      "concurrency": [
+        1
+      ],
+      "pair_count": 20,
+      "succeeded": 20,
+      "latency_s": {
+        "population": "successful pairs; excludes queue and persistence time",
+        "percentile_method": "linear interpolation at (n - 1) * quantile",
+        "p50": 43.65131670847768,
+        "p95": 82.52475239585769,
+        "max": 129.42445016701822,
+        "within_40_s": 7
+      },
+      "tokens": {
+        "input": 184509,
+        "output": 16326,
+        "total": 200835,
+        "missing_usage_pairs": 0,
+        "scope": "successful calls only; failed/retried call usage may be unreported",
+        "reasoning": null,
+        "missing_reasoning_pairs": 20
+      },
+      "context_chars": {
+        "mean": 6253.2,
+        "available_pairs": 20,
+        "measured_pairs": 0,
+        "reconstructed_full_pairs": 20,
+        "reduction_vs_baseline": 0.0,
+        "definition": "Unicode characters in cv_context sent to the LLM; historical full input recovered only when source content hash matches"
+      },
+      "prompt_chars": {
+        "mean": 9220.9,
+        "min": 4446,
+        "max": 15291,
+        "measured_pairs": 20,
+        "definition": "pipeline system + user characters; excludes provider-added schema/formatting"
+      },
+      "quote_verification": {
+        "valid": 142,
+        "total": 148,
+        "rate": 0.9594594594594594
+      },
+      "mean_coverage": 0.47750000000000004,
+      "versus_baseline": {
+        "pairs": [
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          }
+        ],
+        "score_state_agreement": {
+          "count": 20,
+          "compared": 20,
+          "rate": 1
+        },
+        "known_only_score": {
+          "both_known_pairs": 20,
+          "mean_absolute_difference": 0.0
+        }
+      }
+    },
+    {
+      "run": "20261121T193406Z-retrieved-lexical-high-c1",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m3-retrieval/data/eval/runs/20261121T193406Z-retrieved-lexical-high-c1",
+      "requested_model": "ag/gemini-3.8-flash-high",
+      "concurrency": [
+        1
+      ],
+      "pair_count": 20,
+      "succeeded": 20,
+      "latency_s": {
+        "population": "successful pairs; excludes queue and persistence time",
+        "percentile_method": "linear interpolation at (n - 1) * quantile",
+        "p50": 35.784179812515504,
+        "p95": 81.82576743061655,
+        "max": 99.7370938330132,
+        "within_40_s": 12
+      },
+      "tokens": {
+        "input": 147243,
+        "output": 15138,
+        "total": 162381,
+        "missing_usage_pairs": 0,
+        "scope": "successful calls only; failed/retried call usage may be unreported",
+        "reasoning": null,
+        "missing_reasoning_pairs": 20
+      },
+      "context_chars": {
+        "mean": 3826.7,
+        "available_pairs": 20,
+        "measured_pairs": 20,
+        "reconstructed_full_pairs": 0,
+        "reduction_vs_baseline": 0.38804132284270454,
+        "definition": "Unicode characters in cv_context sent to the LLM; historical full input recovered only when source content hash matches"
+      },
+      "prompt_chars": {
+        "mean": 6740.05,
+        "min": 2951,
+        "max": 11543,
+        "measured_pairs": 20,
+        "definition": "pipeline system + user characters; excludes provider-added schema/formatting"
+      },
+      "quote_verification": {
+        "valid": 119,
+        "total": 120,
+        "rate": 0.9916666666666667
+      },
+      "mean_coverage": 0.4225,
+      "versus_baseline": {
+        "pairs": [
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": -0.25,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": null
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 8.18
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": -0.1,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 11.659999999999997
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": -0.09999999999999998,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 2.6700000000000017
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": -0.2,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": null
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 4.5
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 8.57
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 11.240000000000009
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": -0.45000000000000007,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 24.549999999999997
+          }
+        ],
+        "score_state_agreement": {
+          "count": 20,
+          "compared": 20,
+          "rate": 1
+        },
+        "known_only_score": {
+          "both_known_pairs": 18,
+          "mean_absolute_difference": 3.9650000000000003
+        }
+      }
+    },
+    {
+      "run": "20261121T193406Z-retrieved-dense-high-c1",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m3-retrieval/data/eval/runs/20261121T193406Z-retrieved-dense-high-c1",
+      "requested_model": "ag/gemini-3.8-flash-high",
+      "concurrency": [
+        1
+      ],
+      "pair_count": 20,
+      "succeeded": 20,
+      "latency_s": {
+        "population": "successful pairs; excludes queue and persistence time",
+        "percentile_method": "linear interpolation at (n - 1) * quantile",
+        "p50": 46.85210685450875,
+        "p95": 225.319916740191,
+        "max": 469.37168495799415,
+        "within_40_s": 8
+      },
+      "tokens": {
+        "input": 196296,
+        "output": 15910,
+        "total": 212206,
+        "missing_usage_pairs": 0,
+        "scope": "successful calls only; failed/retried call usage may be unreported",
+        "reasoning": null,
+        "missing_reasoning_pairs": 20
+      },
+      "context_chars": {
+        "mean": 4995.3,
+        "available_pairs": 20,
+        "measured_pairs": 20,
+        "reconstructed_full_pairs": 0,
+        "reduction_vs_baseline": 0.2011610055651506,
+        "definition": "Unicode characters in cv_context sent to the LLM; historical full input recovered only when source content hash matches"
+      },
+      "prompt_chars": {
+        "mean": 7936.5,
+        "min": 4446,
+        "max": 13892,
+        "measured_pairs": 20,
+        "definition": "pipeline system + user characters; excludes provider-added schema/formatting"
+      },
+      "quote_verification": {
+        "valid": 130,
+        "total": 132,
+        "rate": 0.9848484848484849
+      },
+      "mean_coverage": 0.445,
+      "versus_baseline": {
+        "pairs": [
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": -0.15,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 18.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.1499999999999999,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 6.43
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 11.659999999999997
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": -0.09999999999999998,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 2.6700000000000017
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": -0.1,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 15.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 4.5
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": -0.15000000000000002,
+            "score_state_agrees": false,
+            "known_only_score_absolute_difference": 5.919999999999995
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": -0.30000000000000004,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 6.549999999999997
+          }
+        ],
+        "score_state_agreement": {
+          "count": 19,
+          "compared": 20,
+          "rate": 0.95
+        },
+        "known_only_score": {
+          "both_known_pairs": 20,
+          "mean_absolute_difference": 3.5364999999999993
+        }
+      }
+    },
+    {
+      "run": "20261121T193406Z-retrieved-hybrid-high-c1",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m3-retrieval/data/eval/runs/20261121T193406Z-retrieved-hybrid-high-c1",
+      "requested_model": "ag/gemini-3.8-flash-high",
+      "concurrency": [
+        1
+      ],
+      "pair_count": 20,
+      "succeeded": 20,
+      "latency_s": {
+        "population": "successful pairs; excludes queue and persistence time",
+        "percentile_method": "linear interpolation at (n - 1) * quantile",
+        "p50": 38.7813363539899,
+        "p95": 96.0435970768027,
+        "max": 101.47619095898699,
+        "within_40_s": 12
+      },
+      "tokens": {
+        "input": 175600,
+        "output": 16062,
+        "total": 191662,
+        "missing_usage_pairs": 0,
+        "scope": "successful calls only; failed/retried call usage may be unreported",
+        "reasoning": null,
+        "missing_reasoning_pairs": 20
+      },
+      "context_chars": {
+        "mean": 5492.75,
+        "available_pairs": 20,
+        "measured_pairs": 20,
+        "reconstructed_full_pairs": 0,
+        "reduction_vs_baseline": 0.12160973581526258,
+        "definition": "Unicode characters in cv_context sent to the LLM; historical full input recovered only when source content hash matches"
+      },
+      "prompt_chars": {
+        "mean": 8445.8,
+        "min": 4446,
+        "max": 14458,
+        "measured_pairs": 20,
+        "definition": "pipeline system + user characters; excludes provider-added schema/formatting"
+      },
+      "quote_verification": {
+        "valid": 131,
+        "total": 144,
+        "rate": 0.9097222222222222
+      },
+      "mean_coverage": 0.4525,
+      "versus_baseline": {
+        "pairs": [
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": -0.09999999999999998,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 1.230000000000004
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 16.659999999999997
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 3.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": -0.1,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 15.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 6.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": -0.14999999999999997,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 12.86
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": -0.15000000000000002,
+            "score_state_agrees": false,
+            "known_only_score_absolute_difference": 1.2999999999999972
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          }
+        ],
+        "score_state_agreement": {
+          "count": 19,
+          "compared": 20,
+          "rate": 0.95
+        },
+        "known_only_score": {
+          "both_known_pairs": 20,
+          "mean_absolute_difference": 2.8024999999999998
+        }
+      }
+    }
+  ]
+}

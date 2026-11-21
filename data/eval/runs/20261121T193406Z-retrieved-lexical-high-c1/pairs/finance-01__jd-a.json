@@ -1,0 +1,328 @@
+{
+  "sheet_id": "finance-01",
+  "jd_id": "jd-a",
+  "expected_group": "none",
+  "source_pdf_sha256": "91f76edb62f5ec5f51a483922362ef165ec75baa10b55683993fa6afac7da713",
+  "text_content_sha256": "9f6f508056d7acd852b3cef021069121e3a94f8de1d53088af095a1efb1b9d94",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-a",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "python_backend",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "The CV contains no mention of Python or backend development frameworks such as Django, Flask, or FastAPI.",
+          "evidence": [],
+          "missing_information": [
+            "Experience developing backends with Django, Flask, or FastAPI",
+            "Python programming experience"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "python_backend",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "api_design",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "The CV does not mention designing or building REST APIs.",
+          "evidence": [],
+          "missing_information": [
+            "Experience designing and building REST APIs"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "api_design",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "database",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "The CV does not mention experience with PostgreSQL, MySQL, or SQL.",
+          "evidence": [],
+          "missing_information": [
+            "Experience working with PostgreSQL, MySQL, or SQL"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "database",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "docker_cloud",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "The CV does not mention deploying applications using Docker or cloud services.",
+          "evidence": [],
+          "missing_information": [
+            "Experience deploying applications using Docker or cloud services"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "docker_cloud",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "teamwork",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "The CV does not mention working in teams using Agile/Scrum or performing code reviews.",
+          "evidence": [],
+          "missing_information": [
+            "Experience working in Agile/Scrum teams",
+            "Experience conducting code reviews"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "teamwork",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "The CV is written in English and explicitly lists multilingual proficiency in English.",
+          "evidence": [
+            {
+              "quote": "multilingual in Taiwanese, Mandarin Chinese, and English",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "multilingual in Taiwanese, Mandarin Chinese, and English",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 658,
+              "end_offset": 714,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.1,
+      "lower_bound": 7.0,
+      "upper_bound": 97.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:45:19.923178+00:00",
+      "latency_ms": 99735.34500002279,
+      "input_tokens": 5162,
+      "output_tokens": 557,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "python_backend": [],
+          "api_design": [],
+          "database": [],
+          "docker_cloud": [],
+          "teamwork": [],
+          "english": [
+            {
+              "chunk_index": 1,
+              "score": 0.862091456137966,
+              "lexical_score": 0.862091456137966,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.8468676297762635,
+              "lexical_score": 0.8468676297762635,
+              "dense_score": null
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 793,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 693,
+            "end_offset": 1459,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1359,
+            "end_offset": 2115,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 3,
+            "start_offset": 2015,
+            "end_offset": 2803,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 4,
+            "start_offset": 2703,
+            "end_offset": 3247,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "9f6f508056d7acd852b3cef021069121e3a94f8de1d53088af095a1efb1b9d94",
+      "jd_sha256": "94d0cf9c3acc9f0acaa919556282643680545533fd0a698c0f9c340a4ce00d74"
+    }
+  },
+  "prompt_char_length": 4154,
+  "context_char_length": 1459,
+  "input_tokens": 5162,
+  "output_tokens": 557,
+  "reasoning_tokens": null,
+  "latency_s": 99.7370938330132,
+  "finished_at": "2026-11-21T19:46:59.659964+00:00"
+}

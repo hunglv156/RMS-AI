@@ -1,0 +1,417 @@
+{
+  "sheet_id": "designer-01",
+  "jd_id": "jd-b",
+  "expected_group": "none",
+  "source_pdf_sha256": "37e62d338121af5abe474fbdc504cf82752fcdf3837cf840580016c47b1e08b3",
+  "text_content_sha256": "03994ced08c80bf19f8d537d2287192b7cd96c7f89378274f7cc61e5b35bdaac",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention any practical experience in recruitment, compensation and benefits, employee relations, or training.",
+          "evidence": [],
+          "missing_information": [
+            "Practical experience in recruitment, compensation and benefits, employee relations, or training"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV contains no mention of knowledge of employment law, employment contracts, or insurance benefits.",
+          "evidence": [],
+          "missing_information": [
+            "Knowledge of employment law, employment contracts, and insurance benefits"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention experience using HRM software, Excel, or HR processes.",
+          "evidence": [],
+          "missing_information": [
+            "Experience using HRM software, Excel, and HR processes"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV lists an Associate of Arts in Interior Design, but does not mention graduation in human resource management, law, or business administration.",
+          "evidence": [],
+          "missing_information": [
+            "Graduation or degree in human resource management, law, or business administration"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "unknown",
+          "confidence": 0.9,
+          "reason": "The CV does not mention communication skills, listening, or handling people issues.",
+          "evidence": [],
+          "missing_information": [
+            "Evidence of communication skills, listening ability, and handling people issues"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "The candidate's CV is written in professional English, satisfying the requirement to demonstrate English documentation and communication via the CV.",
+          "evidence": [
+            {
+              "quote": "Interior design graduate with an exceptional design instinct. Experience includes production design, decorating, home staging, visual\nmerchandising, furniture sales, personal shopping and custom closet design. Additionally I have 15 years of customer service\n\nexperience.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Interior design graduate with an exceptional design instinct. Experience includes production design, decorating, home staging, visual\nmerchandising, furniture sales, personal shopping and custom closet design. Additionally I have 15 years of customer service\n\nexperience.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 126,
+              "end_offset": 397,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.1,
+      "lower_bound": 7.0,
+      "upper_bound": 97.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T20:14:34.273233+00:00",
+      "latency_ms": 66153.4707089886,
+      "input_tokens": 10792,
+      "output_tokens": 631,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "dense",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": {
+          "model_id": "BAAI/bge-m3",
+          "version": "bge-m3-dense-v1:main",
+          "dimension": 1024
+        },
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "dense",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "hr_experience": [
+            {
+              "chunk_index": 2,
+              "score": 0.4255046248435974,
+              "lexical_score": 0.0,
+              "dense_score": 0.4255046248435974
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.400219589471817,
+              "lexical_score": 0.0,
+              "dense_score": 0.400219589471817
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.36027777194976807,
+              "lexical_score": 0.0,
+              "dense_score": 0.36027777194976807
+            }
+          ],
+          "employment_law": [
+            {
+              "chunk_index": 2,
+              "score": 0.45410943031311035,
+              "lexical_score": 0.0,
+              "dense_score": 0.45410943031311035
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.37461376190185547,
+              "lexical_score": 0.0,
+              "dense_score": 0.37461376190185547
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.3523179888725281,
+              "lexical_score": 0.0,
+              "dense_score": 0.3523179888725281
+            }
+          ],
+          "hr_tools": [
+            {
+              "chunk_index": 2,
+              "score": 0.33937227725982666,
+              "lexical_score": 0.0,
+              "dense_score": 0.33937227725982666
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.3205517530441284,
+              "lexical_score": 0.0,
+              "dense_score": 0.3205517530441284
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.2996029853820801,
+              "lexical_score": 0.0,
+              "dense_score": 0.2996029853820801
+            }
+          ],
+          "education": [
+            {
+              "chunk_index": 2,
+              "score": 0.47498762607574463,
+              "lexical_score": 0.0,
+              "dense_score": 0.47498762607574463
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.38228359818458557,
+              "lexical_score": 0.0,
+              "dense_score": 0.38228359818458557
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.3621533513069153,
+              "lexical_score": 0.0,
+              "dense_score": 0.3621533513069153
+            }
+          ],
+          "communication": [
+            {
+              "chunk_index": 2,
+              "score": 0.41411441564559937,
+              "lexical_score": 0.0,
+              "dense_score": 0.41411441564559937
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.3834288716316223,
+              "lexical_score": 0.0,
+              "dense_score": 0.3834288716316223
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.3634410798549652,
+              "lexical_score": 0.0,
+              "dense_score": 0.3634410798549652
+            }
+          ],
+          "english": [
+            {
+              "chunk_index": 2,
+              "score": 0.4519219994544983,
+              "lexical_score": 0.0,
+              "dense_score": 0.4519219994544983
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.3921697735786438,
+              "lexical_score": 0.0,
+              "dense_score": 0.3921697735786438
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.36159709095954895,
+              "lexical_score": 0.0,
+              "dense_score": 0.36159709095954895
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 756,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 656,
+            "end_offset": 1438,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1338,
+            "end_offset": 1915,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "03994ced08c80bf19f8d537d2287192b7cd96c7f89378274f7cc61e5b35bdaac",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "prompt_char_length": 4917,
+  "context_char_length": 1915,
+  "input_tokens": 10792,
+  "output_tokens": 631,
+  "reasoning_tokens": null,
+  "latency_s": 66.45720858301502,
+  "finished_at": "2026-11-21T20:15:40.426439+00:00"
+}

@@ -1,0 +1,458 @@
+{
+  "sheet_id": "python_dev-03",
+  "jd_id": "jd-a",
+  "expected_group": "match_A",
+  "source_pdf_sha256": "27c4ddafa0d9a33b728a84b0c45ad467b431c928c006299b514cfe21305f7e77",
+  "text_content_sha256": "6a69157cc5ee2fe5201b0081aad815965eae7eb00d341ac6d2fc88921f7f497b",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-a",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "python_backend",
+          "level": "partial",
+          "confidence": 0.8,
+          "reason": "The candidate has experience utilizing Python and Django to handle web hits, but there is limited detail on broader backend application development.",
+          "evidence": [
+            {
+              "quote": "Utilized Python in the handling of all hits on Django Redis and other applications.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Concrete experience developing full backend applications using Django, Flask, or FastAPI"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Utilized Python in the handling of all hits on Django Redis and other applications.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1157,
+              "end_offset": 1240,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "python_backend",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 10.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "api_design",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention designing or building REST APIs.",
+          "evidence": [],
+          "missing_information": [
+            "Experience designing and building REST APIs"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "api_design",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "database",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV mentions Redis, but contains no mention of PostgreSQL, MySQL, or SQL.",
+          "evidence": [],
+          "missing_information": [
+            "Experience working with PostgreSQL, MySQL, or SQL"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "database",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "docker_cloud",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention Docker or cloud service deployment.",
+          "evidence": [],
+          "missing_information": [
+            "Experience deploying applications using Docker or cloud platforms"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "docker_cloud",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "teamwork",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention working in Agile/Scrum teams or participating in code reviews.",
+          "evidence": [],
+          "missing_information": [
+            "Experience working in Agile/Scrum environments",
+            "Experience performing code reviews"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "teamwork",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.9,
+          "reason": "The CV is written in English, demonstrates communication through professional presentations and conference speaking in English, and includes an undergraduate degree from a US university.",
+          "evidence": [
+            {
+              "quote": "Speak at conferences and make presentations regarding Python as well as its applications and features",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Clemson University, Clemson, SC",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Speak at conferences and make presentations regarding Python as well as its applications and features",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Clemson University, Clemson, SC",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1444,
+              "end_offset": 1475,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.35,
+      "lower_bound": 17.0,
+      "upper_bound": 82.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T20:20:26.941311+00:00",
+      "latency_ms": 29773.04029199877,
+      "input_tokens": 6073,
+      "output_tokens": 630,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "hybrid",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": {
+          "model_id": "BAAI/bge-m3",
+          "version": "bge-m3-dense-v1:main",
+          "dimension": 1024
+        },
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "hybrid",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "python_backend": [
+            {
+              "chunk_index": 2,
+              "score": 0.03278688524590164,
+              "lexical_score": 1.1490043345782102,
+              "dense_score": 0.5162159204483032
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.03225806451612903,
+              "lexical_score": 0.2728182533852457,
+              "dense_score": 0.4590590298175812
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.031746031746031744,
+              "lexical_score": 0.25618962109780136,
+              "dense_score": 0.44011685252189636
+            }
+          ],
+          "api_design": [
+            {
+              "chunk_index": 2,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.4318217933177948
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.40537238121032715
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.3704361617565155
+            }
+          ],
+          "database": [
+            {
+              "chunk_index": 2,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.44694969058036804
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.41040661931037903
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.38726159930229187
+            }
+          ],
+          "docker_cloud": [
+            {
+              "chunk_index": 2,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.4261586666107178
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.4144858121871948
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.3891041576862335
+            }
+          ],
+          "teamwork": [
+            {
+              "chunk_index": 2,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.5016830563545227
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.46340519189834595
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.44471555948257446
+            }
+          ],
+          "english": [
+            {
+              "chunk_index": 1,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.5030885934829712
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.48982638120651245
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.47518056631088257
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 510,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 410,
+            "end_offset": 1050,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 950,
+            "end_offset": 1731,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "6a69157cc5ee2fe5201b0081aad815965eae7eb00d341ac6d2fc88921f7f497b",
+      "jd_sha256": "94d0cf9c3acc9f0acaa919556282643680545533fd0a698c0f9c340a4ce00d74"
+    }
+  },
+  "prompt_char_length": 4446,
+  "context_char_length": 1731,
+  "input_tokens": 6073,
+  "output_tokens": 630,
+  "reasoning_tokens": null,
+  "latency_s": 30.076549833000172,
+  "finished_at": "2026-11-21T20:20:56.714139+00:00"
+}

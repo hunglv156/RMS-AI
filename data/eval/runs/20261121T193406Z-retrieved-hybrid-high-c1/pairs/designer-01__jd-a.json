@@ -1,0 +1,438 @@
+{
+  "sheet_id": "designer-01",
+  "jd_id": "jd-a",
+  "expected_group": "none",
+  "source_pdf_sha256": "37e62d338121af5abe474fbdc504cf82752fcdf3837cf840580016c47b1e08b3",
+  "text_content_sha256": "03994ced08c80bf19f8d537d2287192b7cd96c7f89378274f7cc61e5b35bdaac",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-a",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "python_backend",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "The CV does not mention any experience with Python, Django, Flask, FastAPI, or backend development.",
+          "evidence": [],
+          "missing_information": [
+            "Experience developing backends with Python",
+            "Experience with Django, Flask, or FastAPI"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "python_backend",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "api_design",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "The CV contains no reference to REST APIs or API design.",
+          "evidence": [],
+          "missing_information": [
+            "Experience designing and building REST APIs"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "api_design",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "database",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "The CV does not mention any experience with databases, SQL, PostgreSQL, or MySQL.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with PostgreSQL, MySQL, or SQL databases"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "database",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "docker_cloud",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "The CV does not mention Docker, containerization, or deploying applications to cloud services.",
+          "evidence": [],
+          "missing_information": [
+            "Experience deploying applications using Docker or cloud services"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "docker_cloud",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "teamwork",
+          "level": "unknown",
+          "confidence": 1.0,
+          "reason": "The CV does not mention working in Agile or Scrum environments or participating in code reviews.",
+          "evidence": [],
+          "missing_information": [
+            "Experience working in Agile/Scrum teams",
+            "Experience with code review processes"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "teamwork",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "The candidate's CV is written in fluent professional English and documents education and professional roles conducted in the United States, meeting the requirement to demonstrate English communication via the CV.",
+          "evidence": [
+            {
+              "quote": "Interior design graduate with an exceptional design instinct. Experience includes production design, decorating, home staging, visual\nmerchandising, furniture sales, personal shopping and custom closet design. Additionally I have 15 years of customer service\n\nexperience.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Associate of Arts: Interior Design, 2004\nIDI - Newport Beach, CA",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Interior design graduate with an exceptional design instinct. Experience includes production design, decorating, home staging, visual\nmerchandising, furniture sales, personal shopping and custom closet design. Additionally I have 15 years of customer service\n\nexperience.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 126,
+              "end_offset": 397,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Associate of Arts: Interior Design, 2004\nIDI - Newport Beach, CA",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1785,
+              "end_offset": 1849,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.1,
+      "lower_bound": 7.0,
+      "upper_bound": 97.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T20:30:17.492577+00:00",
+      "latency_ms": 22078.987040993525,
+      "input_tokens": 5006,
+      "output_tokens": 658,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "hybrid",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": {
+          "model_id": "BAAI/bge-m3",
+          "version": "bge-m3-dense-v1:main",
+          "dimension": 1024
+        },
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "hybrid",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "python_backend": [
+            {
+              "chunk_index": 1,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.43408313393592834
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.41925352811813354
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.3630440831184387
+            }
+          ],
+          "api_design": [
+            {
+              "chunk_index": 2,
+              "score": 0.03252247488101534,
+              "lexical_score": 0.20064664755621986,
+              "dense_score": 0.4520116448402405
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.032266458495966696,
+              "lexical_score": 0.2380342216350186,
+              "dense_score": 0.37169310450553894
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.03200204813108039,
+              "lexical_score": 0.13026345915444593,
+              "dense_score": 0.40818676352500916
+            }
+          ],
+          "database": [
+            {
+              "chunk_index": 0,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.3648780882358551
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.3619508445262909
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.3137410879135132
+            }
+          ],
+          "docker_cloud": [
+            {
+              "chunk_index": 1,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.38966479897499084
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.37039831280708313
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.34025147557258606
+            }
+          ],
+          "teamwork": [
+            {
+              "chunk_index": 1,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.4473940432071686
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.44236162304878235
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.41037845611572266
+            }
+          ],
+          "english": [
+            {
+              "chunk_index": 2,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.4519219994544983
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.3921697735786438
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.36159709095954895
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 756,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 656,
+            "end_offset": 1438,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1338,
+            "end_offset": 1915,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "03994ced08c80bf19f8d537d2287192b7cd96c7f89378274f7cc61e5b35bdaac",
+      "jd_sha256": "94d0cf9c3acc9f0acaa919556282643680545533fd0a698c0f9c340a4ce00d74"
+    }
+  },
+  "prompt_char_length": 4631,
+  "context_char_length": 1915,
+  "input_tokens": 5006,
+  "output_tokens": 658,
+  "reasoning_tokens": null,
+  "latency_s": 22.389815000002272,
+  "finished_at": "2026-11-21T20:30:39.572014+00:00"
+}

@@ -1,0 +1,542 @@
+{
+  "sheet_id": "python_dev-03",
+  "jd_id": "jd-b",
+  "expected_group": "match_A",
+  "source_pdf_sha256": "27c4ddafa0d9a33b728a84b0c45ad467b431c928c006299b514cfe21305f7e77",
+  "text_content_sha256": "6a69157cc5ee2fe5201b0081aad815965eae7eb00d341ac6d2fc88921f7f497b",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "The candidate has experience conducting technical training for on-site programmers and developing curriculum, but lacks practical experience in core HR generalist functions such as recruitment, compensation and benefits, or employee relations.",
+          "evidence": [
+            {
+              "quote": "Work with companies to implement Python programming and train on-site Python\nProgrammers",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Develop readable and simple curriculum for the average user to get started with\nPython.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Practical experience in recruitment",
+            "Practical experience in compensation and benefits",
+            "Practical experience in employee relations",
+            "Practical experience in human resources training"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Work with companies to implement Python programming and train on-site Python\nProgrammers",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 623,
+              "end_offset": 711,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Develop readable and simple curriculum for the average user to get started with\nPython.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 898,
+              "end_offset": 985,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 12.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention any knowledge or experience related to employment law, employment contracts, or insurance benefits.",
+          "evidence": [],
+          "missing_information": [
+            "Knowledge of employment law",
+            "Experience with employment contracts",
+            "Experience with insurance benefits"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention the use of HRM software, Excel, or HR processes.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with HRM software",
+            "Experience using Excel",
+            "Knowledge of HR processes"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "unknown",
+          "confidence": 0.9,
+          "reason": "The candidate's listed education is in Computer Science. The CV does not mention graduation in human resource management, law, or business administration.",
+          "evidence": [],
+          "missing_information": [
+            "Graduation in human resource management, law, or business administration"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "The candidate demonstrates strong public speaking, presentation, and instructional communication skills, but there is no evidence of listening or handling people issues.",
+          "evidence": [
+            {
+              "quote": "Speak at conferences and make presentations regarding Python as well as its\napplications and features",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Act as guest speaker in college programs to educate students on\nprogramming options",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience listening and handling people issues"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Speak at conferences and make presentations regarding Python as well as its\napplications and features",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 712,
+              "end_offset": 813,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Act as guest speaker in college programs to educate students on\nprogramming options",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 814,
+              "end_offset": 897,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 6.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.9,
+          "reason": "The CV is written in English and provides clear evidence of English communication and documentation abilities through developing curriculum, speaking at conferences, and holding a degree from an English-language university.",
+          "evidence": [
+            {
+              "quote": "Develop readable and simple curriculum for the average user to get started with\nPython.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Speak at conferences and make presentations regarding Python as well as its\napplications and features",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Clemson University, Clemson, SC",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Develop readable and simple curriculum for the average user to get started with\nPython.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 898,
+              "end_offset": 985,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Speak at conferences and make presentations regarding Python as well as its\napplications and features",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 712,
+              "end_offset": 813,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Clemson University, Clemson, SC",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1444,
+              "end_offset": 1475,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.55,
+      "lower_bound": 25.0,
+      "upper_bound": 70.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T20:20:57.009075+00:00",
+      "latency_ms": 55707.42474999861,
+      "input_tokens": 9711,
+      "output_tokens": 841,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "hybrid",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": {
+          "model_id": "BAAI/bge-m3",
+          "version": "bge-m3-dense-v1:main",
+          "dimension": 1024
+        },
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "hybrid",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "hr_experience": [
+            {
+              "chunk_index": 2,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.47164440155029297
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.4687725305557251
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.44352471828460693
+            }
+          ],
+          "employment_law": [
+            {
+              "chunk_index": 1,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.48429879546165466
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.4751625061035156
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.4520963132381439
+            }
+          ],
+          "hr_tools": [
+            {
+              "chunk_index": 2,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.4681975543498993
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.4545998275279999
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.4500480592250824
+            }
+          ],
+          "education": [
+            {
+              "chunk_index": 2,
+              "score": 0.03278688524590164,
+              "lexical_score": 1.3174746701914637,
+              "dense_score": 0.48683488368988037
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.4055024981498718
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.39812642335891724
+            }
+          ],
+          "communication": [
+            {
+              "chunk_index": 1,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.48499608039855957
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.4679909348487854
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.4182555675506592
+            }
+          ],
+          "english": [
+            {
+              "chunk_index": 1,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.5030885934829712
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.48982638120651245
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.47518056631088257
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 510,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 410,
+            "end_offset": 1050,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 950,
+            "end_offset": 1731,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "6a69157cc5ee2fe5201b0081aad815965eae7eb00d341ac6d2fc88921f7f497b",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "prompt_char_length": 4732,
+  "context_char_length": 1731,
+  "input_tokens": 9711,
+  "output_tokens": 841,
+  "reasoning_tokens": null,
+  "latency_s": 56.00153779197717,
+  "finished_at": "2026-11-21T20:21:52.717169+00:00"
+}

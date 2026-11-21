@@ -1,0 +1,481 @@
+{
+  "sheet_id": "python_dev-01",
+  "jd_id": "jd-b",
+  "expected_group": "match_A",
+  "source_pdf_sha256": "18d279c1edf859c2c82c8f98f5456d1bbf7523c5104e672daa2890b5f6059e4e",
+  "text_content_sha256": "ccd1dbb1606934face5a43ed8c730fd622f71c738c78aebbe8371a9adebd7d91",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The candidate's CV focuses entirely on software and Python development; there is no mention of experience in recruitment, compensation and benefits, employee relations, or training.",
+          "evidence": [],
+          "missing_information": [
+            "Practical experience in recruitment, compensation and benefits, employee relations, or training"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "There is no mention of knowledge or experience regarding employment law, labor regulations, employment contracts, or insurance benefits.",
+          "evidence": [],
+          "missing_information": [
+            "Knowledge of employment law, labor regulations, employment contracts, and insurance benefits"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention the use of HRM software, Excel, or HR processes.",
+          "evidence": [],
+          "missing_information": [
+            "Experience using HRM software, Excel, and HR processes"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The candidate holds degrees in Computer Information Systems and an unspecified Bachelor of Science, with no mention of graduation in human resource management, law, or business administration.",
+          "evidence": [],
+          "missing_information": [
+            "Graduation or degree in human resource management, law, or business administration"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "unknown",
+          "confidence": 0.9,
+          "reason": "The CV does not provide evidence of interpersonal communication, active listening, or handling people issues in an HR or relevant context.",
+          "evidence": [],
+          "missing_information": [
+            "Demonstrated skills in interpersonal communication, listening, and handling people issues"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "The CV is written in professional English and demonstrates multiple years of professional employment and higher education within the United States.",
+          "evidence": [
+            {
+              "quote": "Master of Science: Computer Information Systems\nEastern Illinois University - Charleston, IL",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "08/2021 Full Stack Python Developer\nto Current Jpmorgan Chase & Co. — Louisville, KY",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Master of Science: Computer Information Systems\nEastern Illinois University - Charleston, IL",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 11908,
+              "end_offset": 12000,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "08/2021 Full Stack Python Developer\nto Current Jpmorgan Chase & Co. — Louisville, KY",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1247,
+              "end_offset": 1331,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.1,
+      "lower_bound": 7.0,
+      "upper_bound": 97.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:34:41.964436+00:00",
+      "latency_ms": 45798.41041599866,
+      "input_tokens": 8309,
+      "output_tokens": 670,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "hr_experience": [
+            {
+              "chunk_index": 18,
+              "score": 2.8970967157256893,
+              "lexical_score": 2.8970967157256893,
+              "dense_score": null
+            }
+          ],
+          "employment_law": [],
+          "hr_tools": [],
+          "education": [
+            {
+              "chunk_index": 14,
+              "score": 4.257457428820649,
+              "lexical_score": 4.257457428820649,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 15,
+              "score": 2.1382628320154624,
+              "lexical_score": 2.1382628320154624,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 13,
+              "score": 2.1287287144103244,
+              "lexical_score": 2.1287287144103244,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 7,
+              "score": 1.5338494096986162,
+              "lexical_score": 1.5338494096986162,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 1.4937093930085488,
+              "lexical_score": 1.4937093930085488,
+              "dense_score": null
+            }
+          ],
+          "communication": [
+            {
+              "chunk_index": 17,
+              "score": 2.1478827363611344,
+              "lexical_score": 2.1478827363611344,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 16,
+              "score": 2.0120982630835105,
+              "lexical_score": 2.0120982630835105,
+              "dense_score": null
+            }
+          ],
+          "english": []
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 674,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 574,
+            "end_offset": 1333,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1233,
+            "end_offset": 1993,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 3,
+            "start_offset": 1893,
+            "end_offset": 2688,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 4,
+            "start_offset": 2588,
+            "end_offset": 3341,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 5,
+            "start_offset": 3241,
+            "end_offset": 3945,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 6,
+            "start_offset": 3845,
+            "end_offset": 4570,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 7,
+            "start_offset": 4470,
+            "end_offset": 5263,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 8,
+            "start_offset": 5163,
+            "end_offset": 5924,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 9,
+            "start_offset": 5824,
+            "end_offset": 6523,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 10,
+            "start_offset": 6423,
+            "end_offset": 7163,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 11,
+            "start_offset": 7063,
+            "end_offset": 7800,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 12,
+            "start_offset": 7700,
+            "end_offset": 8455,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 13,
+            "start_offset": 8355,
+            "end_offset": 9097,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 14,
+            "start_offset": 8997,
+            "end_offset": 9752,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 15,
+            "start_offset": 9652,
+            "end_offset": 10297,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 16,
+            "start_offset": 10197,
+            "end_offset": 10968,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 17,
+            "start_offset": 10868,
+            "end_offset": 11561,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 18,
+            "start_offset": 11461,
+            "end_offset": 12078,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "ccd1dbb1606934face5a43ed8c730fd622f71c738c78aebbe8371a9adebd7d91",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "prompt_char_length": 8365,
+  "context_char_length": 5280,
+  "input_tokens": 8309,
+  "output_tokens": 670,
+  "reasoning_tokens": null,
+  "latency_s": 45.800307083991356,
+  "finished_at": "2026-11-21T19:35:27.763476+00:00"
+}

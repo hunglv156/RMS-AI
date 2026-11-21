@@ -1,0 +1,948 @@
+{
+  "sheet_id": "hr-02",
+  "jd_id": "jd-b",
+  "expected_group": "match_B",
+  "source_pdf_sha256": "3dd65c19265ee452f579439b6e6b3d9dccb8e1c7f06d06fcd77dd29ed33fc860",
+  "text_content_sha256": "b1e77963a878d5d6424fcbbd4df659153351a506aba7d9cf8c69698cce8e6ea8",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "strong",
+          "confidence": 1.0,
+          "reason": "The candidate has more than 15 years of HR experience with extensive leadership across recruitment, compensation, benefits administration, employee relations, and training.",
+          "evidence": [
+            {
+              "quote": "Employee & Labor Relations",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Payroll & Benefits\nAdministration",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Successful leader of organizational development initiatives, especially in recruitment and retention\nefforts to improve candidate and staff experience.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Provided leadership over workforce development training programs focusing on leadership and\nmanagement skills.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Developed compensation and benefit strategies based on market research and exit interviews.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Employee & Labor Relations",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 281,
+              "end_offset": 307,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Payroll & Benefits\nAdministration",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 559,
+              "end_offset": 592,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Successful leader of organizational development initiatives, especially in recruitment and retention\nefforts to improve candidate and staff experience.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3046,
+              "end_offset": 3197,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Provided leadership over workforce development training programs focusing on leadership and\nmanagement skills.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3201,
+              "end_offset": 3311,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Developed compensation and benefit strategies based on market research and exit interviews.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 7206,
+              "end_offset": 7297,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 30.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate demonstrates extensive background in employment law, compliance risk management, handling union contracts, DFEH responses, OSHA citations, and healthcare benefits.",
+          "evidence": [
+            {
+              "quote": "Employment Law & Compliance\nRisk Management",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Negotiated Union contracts that balanced positive outcomes for all stakeholders such as\nestablishing career progression opportunities, flexibile staff redeployment, balanced healthcare\ncost sharing and improved compensation.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Managed a staff of five; handled internal investigations and DFEH communication responses.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Investigated workplace accidents and successfully contested two OSHA citations.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Employment Law & Compliance\nRisk Management",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 376,
+              "end_offset": 419,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Negotiated Union contracts that balanced positive outcomes for all stakeholders such as\nestablishing career progression opportunities, flexibile staff redeployment, balanced healthcare\ncost sharing and improved compensation.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4224,
+              "end_offset": 4448,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Managed a staff of five; handled internal investigations and DFEH communication responses.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 5227,
+              "end_offset": 5317,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Investigated workplace accidents and successfully contested two OSHA citations.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 7467,
+              "end_offset": 7546,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 20.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "strong",
+          "confidence": 1.0,
+          "reason": "The candidate is an MS Office Power User with specific Excel expertise, possesses deep HRIS experience across multiple platforms, and has streamlined various HR processes.",
+          "evidence": [
+            {
+              "quote": "MS Office Power User\n(especially Excel & PPT)",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Deep HRIS expertise from\nmigrations to full optimization\ncycles (Examples: Paychex, ADP\nWorkforce Now, Silkroad,\nSuccessFactors)",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Managed the implementation of a new HRIS system and successfully streamlined workflows for\nrecruitment, onboarding, learning, and performance management.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "MS Office Power User\n(especially Excel & PPT)",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 458,
+              "end_offset": 503,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Deep HRIS expertise from\nmigrations to full optimization\ncycles (Examples: Paychex, ADP\nWorkforce Now, Silkroad,\nSuccessFactors)",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 596,
+              "end_offset": 724,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Managed the implementation of a new HRIS system and successfully streamlined workflows for\nrecruitment, onboarding, learning, and performance management.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4067,
+              "end_offset": 4220,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 15.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "The candidate holds an MS in Industrial/Organizational Psychology focusing on human behavior at work and a BS in Psychology, but does not explicitly hold a degree in human resource management, law, or business administration.",
+          "evidence": [
+            {
+              "quote": "Master of Science: INDUSTRIAL/\nORGANIZATIONAL PSYCHOLOGY\nAn applied discipline within\npsychology that focused on the\nscience of human behavior as it\npertains to work",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Bachelor of Science: PSYCHOLOGY",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Degree specifically in human resource management, law, or business administration"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Master of Science: INDUSTRIAL/\nORGANIZATIONAL PSYCHOLOGY\nAn applied discipline within\npsychology that focused on the\nscience of human behavior as it\npertains to work",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 782,
+              "end_offset": 947,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Bachelor of Science: PSYCHOLOGY",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 988,
+              "end_offset": 1019,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate has demonstrated expertise in audience-centered communications, conflict and grievance resolution, staff mediation, and facilitating two-way communication between staff and management.",
+          "evidence": [
+            {
+              "quote": "Conflict & Grievance Resolution",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "keen sensitivity to\naudience-centered communications to effectively convey the implications of statistical trends to\nmanagement teams.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Improved partnerships between staff and managers by facilitating communication flow upward and\ndownward.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Provided mediation and conducted exit interviews to assess turnover trends and the effectiveness\nof retention efforts.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Conflict & Grievance Resolution",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 423,
+              "end_offset": 454,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "keen sensitivity to\naudience-centered communications to effectively convey the implications of statistical trends to\nmanagement teams.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3503,
+              "end_offset": 3637,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Improved partnerships between staff and managers by facilitating communication flow upward and\ndownward.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 6976,
+              "end_offset": 7080,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Provided mediation and conducted exit interviews to assess turnover trends and the effectiveness\nof retention efforts.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 7084,
+              "end_offset": 7202,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 15.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "The candidate completed higher education at US universities, authored policy and training manuals in English, and presented a professional CV written entirely in English.",
+          "evidence": [
+            {
+              "quote": "SAN FRANCISCO STATE\nUNIVERSITY",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Developed a an integrated user-friendly Workplace Policies and Procedures Manual and a New\nManager’s Training Manual to improve communication and understanding of key expectations and\nshorten the learning curb for new managers.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Developed an employee handbook incorporating input from key stakeholders and legal counsel.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "SAN FRANCISCO STATE\nUNIVERSITY",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 750,
+              "end_offset": 780,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Developed a an integrated user-friendly Workplace Policies and Procedures Manual and a New\nManager’s Training Manual to improve communication and understanding of key expectations and\nshorten the learning curb for new managers.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4739,
+              "end_offset": 4966,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Developed an employee handbook incorporating input from key stakeholders and legal counsel.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 7882,
+              "end_offset": 7973,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "scored",
+      "observed_score": 91.0,
+      "coverage": 1.0,
+      "lower_bound": 91.0,
+      "upper_bound": 91.0,
+      "requires_manual_review": false
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T20:27:02.777805+00:00",
+      "latency_ms": 59346.70016699238,
+      "input_tokens": 11119,
+      "output_tokens": 1212,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "hybrid",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": {
+          "model_id": "BAAI/bge-m3",
+          "version": "bge-m3-dense-v1:main",
+          "dimension": 1024
+        },
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "hybrid",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "hr_experience": [
+            {
+              "chunk_index": 6,
+              "score": 0.03252247488101534,
+              "lexical_score": 2.684798362823046,
+              "dense_score": 0.5622546672821045
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.032266458495966696,
+              "lexical_score": 7.549367952625344,
+              "dense_score": 0.5334845781326294
+            },
+            {
+              "chunk_index": 5,
+              "score": 0.031754032258064516,
+              "lexical_score": 2.2773016065304184,
+              "dense_score": 0.5361508727073669
+            },
+            {
+              "chunk_index": 9,
+              "score": 0.031024531024531024,
+              "lexical_score": 2.4245581328337416,
+              "dense_score": 0.5195218324661255
+            },
+            {
+              "chunk_index": 7,
+              "score": 0.030090497737556562,
+              "lexical_score": 2.1783664625343353,
+              "dense_score": 0.5020310878753662
+            }
+          ],
+          "employment_law": [
+            {
+              "chunk_index": 0,
+              "score": 0.032266458495966696,
+              "lexical_score": 8.648887116309844,
+              "dense_score": 0.5526852011680603
+            },
+            {
+              "chunk_index": 6,
+              "score": 0.03225806451612903,
+              "lexical_score": 2.3246980746800268,
+              "dense_score": 0.5592444539070129
+            },
+            {
+              "chunk_index": 3,
+              "score": 0.02976190476190476,
+              "lexical_score": 1.609247277948527,
+              "dense_score": 0.44092053174972534
+            },
+            {
+              "chunk_index": 10,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.5656598210334778
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.015625,
+              "lexical_score": 0.0,
+              "dense_score": 0.5158572793006897
+            }
+          ],
+          "hr_tools": [
+            {
+              "chunk_index": 0,
+              "score": 0.032018442622950824,
+              "lexical_score": 3.120566387123697,
+              "dense_score": 0.5089022517204285
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.031754032258064516,
+              "lexical_score": 1.3398268461205691,
+              "dense_score": 0.5170459747314453
+            },
+            {
+              "chunk_index": 5,
+              "score": 0.031024531024531024,
+              "lexical_score": 1.3471972099106233,
+              "dense_score": 0.4905858635902405
+            },
+            {
+              "chunk_index": 4,
+              "score": 0.030090497737556562,
+              "lexical_score": 1.164216264591693,
+              "dense_score": 0.45232588052749634
+            },
+            {
+              "chunk_index": 12,
+              "score": 0.029827662395050816,
+              "lexical_score": 2.2891849857603273,
+              "dense_score": 0.42118969559669495
+            }
+          ],
+          "education": [
+            {
+              "chunk_index": 0,
+              "score": 0.03252247488101534,
+              "lexical_score": 5.459746034263475,
+              "dense_score": 0.5404455661773682
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.030886196246139225,
+              "lexical_score": 0.7716273256301319,
+              "dense_score": 0.600946843624115
+            },
+            {
+              "chunk_index": 10,
+              "score": 0.030798389007344232,
+              "lexical_score": 3.4742084766304218,
+              "dense_score": 0.5124379396438599
+            },
+            {
+              "chunk_index": 12,
+              "score": 0.030621785881252923,
+              "lexical_score": 4.167964154173637,
+              "dense_score": 0.481998085975647
+            },
+            {
+              "chunk_index": 5,
+              "score": 0.030309988518943745,
+              "lexical_score": 1.3471972099106233,
+              "dense_score": 0.521172821521759
+            }
+          ],
+          "communication": [
+            {
+              "chunk_index": 3,
+              "score": 0.03128054740957967,
+              "lexical_score": 2.367836848939573,
+              "dense_score": 0.46610528230667114
+            },
+            {
+              "chunk_index": 11,
+              "score": 0.031099324975891997,
+              "lexical_score": 3.1795776158402385,
+              "dense_score": 0.46457499265670776
+            },
+            {
+              "chunk_index": 7,
+              "score": 0.030117753623188408,
+              "lexical_score": 1.3834170307646771,
+              "dense_score": 0.44746798276901245
+            },
+            {
+              "chunk_index": 8,
+              "score": 0.029386529386529386,
+              "lexical_score": 1.48461748039016,
+              "dense_score": 0.3955710232257843
+            },
+            {
+              "chunk_index": 5,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.5279170870780945
+            }
+          ],
+          "english": [
+            {
+              "chunk_index": 10,
+              "score": 0.01639344262295082,
+              "lexical_score": 0.0,
+              "dense_score": 0.5267660617828369
+            },
+            {
+              "chunk_index": 5,
+              "score": 0.016129032258064516,
+              "lexical_score": 0.0,
+              "dense_score": 0.5112417936325073
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.015873015873015872,
+              "lexical_score": 0.0,
+              "dense_score": 0.5034187436103821
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.015625,
+              "lexical_score": 0.0,
+              "dense_score": 0.47907763719558716
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.015384615384615385,
+              "lexical_score": 0.0,
+              "dense_score": 0.4722426235675812
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 782,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 682,
+            "end_offset": 1200,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1100,
+            "end_offset": 1842,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 3,
+            "start_offset": 1742,
+            "end_offset": 2542,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 4,
+            "start_offset": 2442,
+            "end_offset": 3199,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 5,
+            "start_offset": 3099,
+            "end_offset": 3863,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 6,
+            "start_offset": 3763,
+            "end_offset": 4450,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 7,
+            "start_offset": 4350,
+            "end_offset": 5063,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 8,
+            "start_offset": 4963,
+            "end_offset": 5623,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 9,
+            "start_offset": 5523,
+            "end_offset": 6308,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 10,
+            "start_offset": 6208,
+            "end_offset": 6974,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 11,
+            "start_offset": 6874,
+            "end_offset": 7612,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 12,
+            "start_offset": 7512,
+            "end_offset": 8253,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 13,
+            "start_offset": 8153,
+            "end_offset": 8339,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "b1e77963a878d5d6424fcbbd4df659153351a506aba7d9cf8c69698cce8e6ea8",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "prompt_char_length": 11443,
+  "context_char_length": 8253,
+  "input_tokens": 11119,
+  "output_tokens": 1212,
+  "reasoning_tokens": null,
+  "latency_s": 60.16324283299036,
+  "finished_at": "2026-11-21T20:28:02.124295+00:00"
+}
