@@ -1,0 +1,14 @@
+{
+  "sheet_id": "database-01",
+  "jd_id": "jd-a",
+  "expected_group": "partial_A",
+  "source_pdf_sha256": "456827d30d3eac0171aaefa9852055ba34a863e1fe51959997e2cddf457f63b3",
+  "text_content_sha256": "93e113674ba0e0f7aa4abdc00d18028a71522f6ad093f325468fc8161ecadb3c",
+  "status": "failed",
+  "error": {
+    "class": "LLMTimeoutError",
+    "message": "LLM gateway call timed out"
+  },
+  "latency_s": 91.38303154098685,
+  "finished_at": "2026-11-21T11:46:35.913418+00:00"
+}

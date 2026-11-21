@@ -1,0 +1,14 @@
+{
+  "sheet_id": "python_dev-02",
+  "jd_id": "jd-a",
+  "expected_group": "match_A",
+  "source_pdf_sha256": "1b279f463335db61fa8db8e58d399734a58491e1779015adc4f65abce8f7602b",
+  "text_content_sha256": "231d34c9676135ba4ac39a83ea76af775bd05bce1bff5a1421eb7cac22910a3f",
+  "status": "failed",
+  "error": {
+    "class": "LLMTimeoutError",
+    "message": "LLM gateway call timed out"
+  },
+  "latency_s": 91.10791374999098,
+  "finished_at": "2026-11-21T11:45:04.529265+00:00"
+}

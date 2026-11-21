@@ -1,0 +1,317 @@
+{
+  "sheet_id": "finance-01",
+  "jd_id": "jd-b",
+  "expected_group": "none",
+  "source_pdf_sha256": "91f76edb62f5ec5f51a483922362ef165ec75baa10b55683993fa6afac7da713",
+  "text_content_sha256": "9f6f508056d7acd852b3cef021069121e3a94f8de1d53088af095a1efb1b9d94",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "adequate",
+          "confidence": 0.9,
+          "reason": "The candidate has demonstrated practical experience in recruitment of staff and administering compensation/benefits functions such as payroll and 401(k).",
+          "evidence": [
+            {
+              "quote": "perform a wide range of administrative functions, including processing payroll, 401(k), and 1099.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Recruitment of licensed and qualified teachers with comprehensive experience and dedication to guide students",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "needs_review",
+          "raw_level": "adequate",
+          "reason": "no_valid_evidence",
+          "evidence_valid": false
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "perform a wide range of administrative functions, including processing payroll, 401(k), and 1099.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Recruitment of licensed and qualified teachers with comprehensive experience and dedication to guide students",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "needs_review",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "unknown",
+          "confidence": 0.85,
+          "reason": "The CV mentions knowledge of taxation and business laws, but does not provide evidence of knowledge regarding employment law, employment contracts, or insurance benefits.",
+          "evidence": [],
+          "missing_information": [
+            "Knowledge of employment law",
+            "Experience with employment contracts",
+            "Knowledge of insurance benefits"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "unknown",
+          "confidence": 0.9,
+          "reason": "The CV lists accounting and financial software (TurboTax, QuickBooks) but does not mention HRM software, Excel, or specific HR processes.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with HRM software",
+            "Proficiency in Excel",
+            "Familiarity with standard HR processes"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not list an education section or mention any degrees completed in human resource management, law, or business administration.",
+          "evidence": [],
+          "missing_information": [
+            "Degree or graduation details in human resource management, law, or business administration"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "partial",
+          "confidence": 0.8,
+          "reason": "The candidate explicitly notes articulate communication and interpersonal skills in building positive work relationships, but specific details on listening and handling people issues are limited.",
+          "evidence": [
+            {
+              "quote": "Equipped with articulate communication and interpersonal skills in building positive work relationships with individuals of diverse sociocultural backgrounds;",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Concrete examples of handling people issues and conflict resolution"
+          ]
+        },
+        "validation": {
+          "level": "needs_review",
+          "raw_level": "partial",
+          "reason": "no_valid_evidence",
+          "evidence_valid": false
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Equipped with articulate communication and interpersonal skills in building positive work relationships with individuals of diverse sociocultural backgrounds;",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "needs_review",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "The candidate explicitly states being multilingual in English, and the resume is composed in professional English.",
+          "evidence": [
+            {
+              "quote": "multilingual in Taiwanese, Mandarin Chinese, and English, with working knowledge of Japanese and Spanish.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "needs_review",
+          "raw_level": "adequate",
+          "reason": "no_valid_evidence",
+          "evidence_valid": false
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "multilingual in Taiwanese, Mandarin Chinese, and English, with working knowledge of Japanese and Spanish.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "needs_review",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.0,
+      "lower_bound": 0.0,
+      "upper_bound": 100.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T11:48:06.549988+00:00",
+      "latency_ms": 90975.22475000005,
+      "input_tokens": 6301,
+      "output_tokens": 734,
+      "attempts": 3,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "full",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": null,
+        "embedding": null,
+        "retrieval": null
+      },
+      "extraction": null,
+      "cv_sha256": "9f6f508056d7acd852b3cef021069121e3a94f8de1d53088af095a1efb1b9d94",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "latency_s": 90.97626108300756,
+  "finished_at": "2026-11-21T11:49:37.525295+00:00"
+}

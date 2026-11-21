@@ -1,0 +1,331 @@
+{
+  "interpretation": "Sanity check only, not accuracy: expected groups are not ground truth.",
+  "pair_count": 20,
+  "succeeded": 6,
+  "pairs": [
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-a",
+      "expected_group": "match_A",
+      "status": "failed",
+      "latency_s": 91.07628066701,
+      "score": null
+    },
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-b",
+      "expected_group": "match_A",
+      "status": "failed",
+      "latency_s": 91.0163854159764,
+      "score": null
+    },
+    {
+      "sheet_id": "python_dev-02",
+      "jd_id": "jd-a",
+      "expected_group": "match_A",
+      "status": "failed",
+      "latency_s": 91.10791374999098,
+      "score": null
+    },
+    {
+      "sheet_id": "python_dev-02",
+      "jd_id": "jd-b",
+      "expected_group": "match_A",
+      "status": "failed",
+      "latency_s": 91.00946145900525,
+      "score": null
+    },
+    {
+      "sheet_id": "python_dev-03",
+      "jd_id": "jd-a",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 28.475040958990576,
+      "score": null
+    },
+    {
+      "sheet_id": "python_dev-03",
+      "jd_id": "jd-b",
+      "expected_group": "match_A",
+      "status": "failed",
+      "latency_s": 91.29679558399948,
+      "score": null
+    },
+    {
+      "sheet_id": "devops-01",
+      "jd_id": "jd-a",
+      "expected_group": "partial_A",
+      "status": "failed",
+      "latency_s": 91.18278924998594,
+      "score": null
+    },
+    {
+      "sheet_id": "devops-01",
+      "jd_id": "jd-b",
+      "expected_group": "partial_A",
+      "status": "failed",
+      "latency_s": 90.94591370798298,
+      "score": null
+    },
+    {
+      "sheet_id": "database-01",
+      "jd_id": "jd-a",
+      "expected_group": "partial_A",
+      "status": "failed",
+      "latency_s": 91.38303154098685,
+      "score": null
+    },
+    {
+      "sheet_id": "database-01",
+      "jd_id": "jd-b",
+      "expected_group": "partial_A",
+      "status": "failed",
+      "latency_s": 91.12631266700919,
+      "score": null
+    },
+    {
+      "sheet_id": "hr-01",
+      "jd_id": "jd-a",
+      "expected_group": "match_B",
+      "status": "failed",
+      "latency_s": 90.91776870802278,
+      "score": null
+    },
+    {
+      "sheet_id": "hr-01",
+      "jd_id": "jd-b",
+      "expected_group": "match_B",
+      "status": "failed",
+      "latency_s": 91.43084024998825,
+      "score": null
+    },
+    {
+      "sheet_id": "hr-02",
+      "jd_id": "jd-a",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 60.008648459013784,
+      "score": null
+    },
+    {
+      "sheet_id": "hr-02",
+      "jd_id": "jd-b",
+      "expected_group": "match_B",
+      "status": "failed",
+      "latency_s": 91.32449395899312,
+      "score": null
+    },
+    {
+      "sheet_id": "hr-03",
+      "jd_id": "jd-a",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 59.113246792025166,
+      "score": null
+    },
+    {
+      "sheet_id": "hr-03",
+      "jd_id": "jd-b",
+      "expected_group": "match_B",
+      "status": "failed",
+      "latency_s": 91.18178058299236,
+      "score": null
+    },
+    {
+      "sheet_id": "finance-01",
+      "jd_id": "jd-a",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 29.586299417016562,
+      "score": null
+    },
+    {
+      "sheet_id": "finance-01",
+      "jd_id": "jd-b",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 90.97626108300756,
+      "score": null
+    },
+    {
+      "sheet_id": "designer-01",
+      "jd_id": "jd-a",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 26.310377624991816,
+      "score": null
+    },
+    {
+      "sheet_id": "designer-01",
+      "jd_id": "jd-b",
+      "expected_group": "none",
+      "status": "failed",
+      "latency_s": 91.28802904201439,
+      "score": null
+    }
+  ],
+  "latency_s": {
+    "population": "successful pairs; excludes queue and persistence time",
+    "percentile_method": "linear interpolation at (n - 1) * quantile",
+    "p50": 44.349773104520864,
+    "p95": 83.23435792700911,
+    "max": 90.97626108300756,
+    "within_40_s": 3
+  },
+  "tokens": {
+    "input": 37954,
+    "output": 3799,
+    "total": 41753,
+    "missing_usage_pairs": 0,
+    "scope": "successful calls only; failed/retried call usage may be unreported"
+  },
+  "quote_verification": {
+    "valid": 7,
+    "total": 11,
+    "rate": 0.6363636363636364
+  },
+  "failures": [
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-a",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-b",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "python_dev-02",
+      "jd_id": "jd-a",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "python_dev-02",
+      "jd_id": "jd-b",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "python_dev-03",
+      "jd_id": "jd-b",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "devops-01",
+      "jd_id": "jd-a",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "devops-01",
+      "jd_id": "jd-b",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "database-01",
+      "jd_id": "jd-a",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "database-01",
+      "jd_id": "jd-b",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "hr-01",
+      "jd_id": "jd-a",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "hr-01",
+      "jd_id": "jd-b",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "hr-02",
+      "jd_id": "jd-b",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "hr-03",
+      "jd_id": "jd-b",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    },
+    {
+      "sheet_id": "designer-01",
+      "jd_id": "jd-b",
+      "class": "LLMTimeoutError",
+      "message": "LLM gateway call timed out"
+    }
+  ],
+  "group_scores_not_accuracy": [
+    {
+      "expected_group": "match_A",
+      "jd_id": "jd-a",
+      "scored_count": 0,
+      "mean": null,
+      "median": null
+    },
+    {
+      "expected_group": "match_A",
+      "jd_id": "jd-b",
+      "scored_count": 0,
+      "mean": null,
+      "median": null
+    },
+    {
+      "expected_group": "match_B",
+      "jd_id": "jd-a",
+      "scored_count": 0,
+      "mean": null,
+      "median": null
+    },
+    {
+      "expected_group": "match_B",
+      "jd_id": "jd-b",
+      "scored_count": 0,
+      "mean": null,
+      "median": null
+    },
+    {
+      "expected_group": "none",
+      "jd_id": "jd-a",
+      "scored_count": 0,
+      "mean": null,
+      "median": null
+    },
+    {
+      "expected_group": "none",
+      "jd_id": "jd-b",
+      "scored_count": 0,
+      "mean": null,
+      "median": null
+    },
+    {
+      "expected_group": "partial_A",
+      "jd_id": "jd-a",
+      "scored_count": 0,
+      "mean": null,
+      "median": null
+    },
+    {
+      "expected_group": "partial_A",
+      "jd_id": "jd-b",
+      "scored_count": 0,
+      "mean": null,
+      "median": null
+    }
+  ]
+}

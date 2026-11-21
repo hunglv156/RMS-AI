@@ -1,0 +1,14 @@
+{
+  "sheet_id": "hr-02",
+  "jd_id": "jd-b",
+  "expected_group": "match_B",
+  "source_pdf_sha256": "3dd65c19265ee452f579439b6e6b3d9dccb8e1c7f06d06fcd77dd29ed33fc860",
+  "text_content_sha256": "b1e77963a878d5d6424fcbbd4df659153351a506aba7d9cf8c69698cce8e6ea8",
+  "status": "failed",
+  "error": {
+    "class": "LLMTimeoutError",
+    "message": "LLM gateway call timed out"
+  },
+  "latency_s": 91.32449395899312,
+  "finished_at": "2026-11-21T11:49:07.252480+00:00"
+}

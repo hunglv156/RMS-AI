@@ -1,0 +1,14 @@
+{
+  "sheet_id": "devops-01",
+  "jd_id": "jd-a",
+  "expected_group": "partial_A",
+  "source_pdf_sha256": "f7fff9d023f467550d221d079f97b7b8018f35ccdb2e95562ce72aaf2525426c",
+  "text_content_sha256": "9e374bbddb2d973d1bebc66154809e8b2e0436c901f5ca74dc2a8e68d3f8b29d",
+  "status": "failed",
+  "error": {
+    "class": "LLMTimeoutError",
+    "message": "LLM gateway call timed out"
+  },
+  "latency_s": 91.18278924998594,
+  "finished_at": "2026-11-21T11:46:35.627796+00:00"
+}

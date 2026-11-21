@@ -1,0 +1,345 @@
+"""Run canonical CV/JD pairs. --limit caps pairs, not CVs.
+
+Retrieved mode uses lexical retrieval. Resume requires identical inputs/config/model.
+The eval-set text_sha256 field is a source-PDF hash used only as a text lookup key.
+Latency includes text loading/hashing and screening, excluding queue and persistence time.
+"""
+
+import argparse
+import asyncio
+import hashlib
+import json
+import os
+import re
+import statistics
+import subprocess
+import tempfile
+import time
+from datetime import UTC, datetime
+from pathlib import Path
+
+import yaml
+
+from app.chunking import CHUNKER_VERSION
+from app.config import Settings
+from app.infrastructure.llm import get_llm_provider
+from app.pipelines.screening import ScreeningConfig, load_jd, screen
+from app.pipelines.screening.models import ScreeningVersions
+
+
+def utc_now():
+    return datetime.now(UTC).isoformat()
+
+
+def sha256(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def redact(value, secrets):
+    if isinstance(value, str):
+        for secret in secrets:
+            if secret:
+                value = value.replace(secret, "[REDACTED]")
+        return value
+    if isinstance(value, dict):
+        return {redact(k, secrets): redact(v, secrets) for k, v in value.items()}
+    if isinstance(value, list):
+        return [redact(v, secrets) for v in value]
+    return value
+
+
+def atomic_write(path, content):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, temporary = tempfile.mkstemp(prefix=".writing-", dir=path.parent)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+            stream.write(content)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    finally:
+        Path(temporary).unlink(missing_ok=True)
+
+
+def write_json(path, value, secrets):
+    atomic_write(path, json.dumps(redact(value, secrets), ensure_ascii=False, indent=2) + "\n")
+
+
+def percentile(values, fraction):
+    if not values:
+        return None
+    ordered = sorted(values)
+    index = (len(ordered) - 1) * fraction
+    lower = int(index)
+    upper = min(lower + 1, len(ordered) - 1)
+    return ordered[lower] + (ordered[upper] - ordered[lower]) * (index - lower)
+
+
+def summarize(pairs):
+    successful = [p for p in pairs if p["status"] == "succeeded"]
+    latencies = [p["latency_s"] for p in successful]
+    quotes = [e for p in successful for c in p["result"]["criteria"] for e in c["evidence"]]
+    valid = sum(e["verification"]["valid"] for e in quotes)
+    groups = {}
+    for pair in pairs:
+        key = (pair["expected_group"], pair["jd_id"])
+        groups.setdefault(key, [])
+        score = pair.get("result", {}).get("total", {}).get("observed_score")
+        if score is not None:
+            groups[key].append(score)
+    usage = [p["result"]["llm"] for p in successful]
+    input_tokens = sum(m["input_tokens"] or 0 for m in usage)
+    output_tokens = sum(m["output_tokens"] or 0 for m in usage)
+    return {
+        "interpretation": "Sanity check only, not accuracy: expected groups are not ground truth.",
+        "pair_count": len(pairs),
+        "succeeded": len(successful),
+        "pairs": [
+            {k: p[k] for k in ("sheet_id", "jd_id", "expected_group", "status", "latency_s")}
+            | {"score": p.get("result", {}).get("total", {}).get("observed_score")}
+            for p in pairs
+        ],
+        "latency_s": {
+            "population": "successful pairs; excludes queue and persistence time",
+            "percentile_method": "linear interpolation at (n - 1) * quantile",
+            "p50": percentile(latencies, 0.5),
+            "p95": percentile(latencies, 0.95),
+            "max": max(latencies, default=None),
+            "within_40_s": sum(v <= 40 for v in latencies),
+        },
+        "tokens": {
+            "input": input_tokens,
+            "output": output_tokens,
+            "total": input_tokens + output_tokens,
+            "missing_usage_pairs": sum(
+                m["input_tokens"] is None or m["output_tokens"] is None for m in usage
+            ),
+            "scope": "successful calls only; failed/retried call usage may be unreported",
+        },
+        "quote_verification": {
+            "valid": valid,
+            "total": len(quotes),
+            "rate": valid / len(quotes) if quotes else None,
+        },
+        "failures": [
+            {"sheet_id": p["sheet_id"], "jd_id": p["jd_id"], **p["error"]}
+            for p in pairs
+            if p["status"] == "failed"
+        ],
+        "group_scores_not_accuracy": [
+            {
+                "expected_group": group,
+                "jd_id": jd,
+                "scored_count": len(scores),
+                "mean": statistics.mean(scores) if scores else None,
+                "median": statistics.median(scores) if scores else None,
+            }
+            for (group, jd), scores in sorted(groups.items())
+        ],
+    }
+
+
+def markdown(summary):
+    lines = [
+        "# Screening experiment",
+        "",
+        summary["interpretation"],
+        "Null scores mean insufficient coverage; excluded from group means/medians.",
+        "Latency includes input verification and screening; excludes queue and persistence time.",
+        "",
+        f"Succeeded: {summary['succeeded']}/{summary['pair_count']}",
+        f"Latency seconds: {json.dumps(summary['latency_s'])}",
+        f"Tokens: {json.dumps(summary['tokens'])}",
+        f"Quote verification: {json.dumps(summary['quote_verification'])}",
+        "",
+        "| CV | JD | Group | Status | Score | Latency (s) |",
+        "| --- | --- | --- | --- | --- | --- |",
+    ]
+    for p in summary["pairs"]:
+        lines.append(
+            f"| {p['sheet_id']} | {p['jd_id']} | {p['expected_group']} | "
+            f"{p['status']} | {p['score']} | {p['latency_s']:.3f} |"
+        )
+    lines += [
+        "",
+        "## Group sanity check (not accuracy)",
+        "",
+        "| Group | JD | Scored count | Mean | Median |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+    for g in summary["group_scores_not_accuracy"]:
+        lines.append(
+            f"| {g['expected_group']} | {g['jd_id']} | {g['scored_count']} | "
+            f"{g['mean']} | {g['median']} |"
+        )
+    lines += ["", "## Failures", "", json.dumps(summary["failures"], ensure_ascii=False), ""]
+    return "\n".join(lines)
+
+
+def git_state(directory):
+    def git(*args):
+        return subprocess.check_output(
+            ["git", "-C", str(directory), *args], text=True, stderr=subprocess.DEVNULL
+        ).strip()
+
+    try:
+        return {"commit": git("rev-parse", "HEAD"), "dirty": bool(git("status", "--porcelain"))}
+    except (OSError, subprocess.CalledProcessError):
+        return {"commit": None, "dirty": None}
+
+
+async def run_experiment(
+    *,
+    eval_set,
+    jd_ids,
+    output_dir,
+    settings,
+    provider=None,
+    context_mode="full",
+    concurrency=4,
+    limit=None,
+):
+    if concurrency < 1 or (limit is not None and limit < 1):
+        raise ValueError("concurrency and limit must be positive")
+    eval_set, output_dir = Path(eval_set).resolve(), Path(output_dir).resolve()
+    config = ScreeningConfig(context_mode=context_mode, retrieval_mode="lexical")
+    secrets = [k.get_secret_value() for k in (settings.llm_api_key, settings.gemini_api_key) if k]
+    dataset = yaml.safe_load(eval_set.read_bytes())
+    jd_ids = list(dict.fromkeys(jd_ids))
+    cvs = [{**cv, "source_pdf_sha256": cv["text_sha256"]} for cv in dataset["cvs"]]
+    for identifier in [*jd_ids, *(cv["sheet_id"] for cv in cvs)]:
+        if not re.fullmatch(r"[A-Za-z0-9_-]+", identifier):
+            raise ValueError("CV and JD identifiers must be safe filename components")
+    if len({cv["sheet_id"] for cv in cvs}) != len(cvs):
+        raise ValueError("Duplicate CV identifiers")
+    for cv in cvs:
+        if not re.fullmatch(r"[a-f0-9]{64}", cv["source_pdf_sha256"]):
+            raise ValueError("Invalid source-PDF SHA-256 text lookup key")
+    jds = {jd: eval_set.parent / "jds" / f"{jd}.yaml" for jd in jd_ids}
+    loaded_jds = {jd: load_jd(path) for jd, path in jds.items()}
+    if any(jd != value.id for jd, value in loaded_jds.items()):
+        raise ValueError("JD id differs from requested file id")
+    identity = {
+        "eval_set_sha256": sha256(eval_set.read_bytes()),
+        "jd_file_sha256": {jd: sha256(path.read_bytes()) for jd, path in jds.items()},
+        "config": config.model_dump(),
+        "requested_model": (
+            settings.llm_model
+            if settings.llm_base_url and settings.llm_api_key is not None
+            else settings.gemini_model
+        ),
+        "versions": {
+            "pipeline": ScreeningVersions.model_fields["pipeline"].default,
+            "prompt": config.prompt_version,
+            "chunker": CHUNKER_VERSION,
+            "chunker_used": context_mode == "retrieved",
+        },
+    }
+    manifest_path = output_dir / "manifest.json"
+    if manifest_path.exists():
+        manifest = json.loads(manifest_path.read_text())
+        if manifest["identity"] != redact(identity, secrets):
+            raise ValueError("Resume inputs/config/model differ; use a new output directory")
+    else:
+        manifest = {
+            "run_id": output_dir.name,
+            "started_at": utc_now(),
+            "ended_at": None,
+            "git": git_state(eval_set.parent),
+            "identity": identity,
+            "invocations": [],
+        }
+    manifest["invocations"].append(
+        {
+            "started_at": utc_now(),
+            "ended_at": None,
+            "concurrency": concurrency,
+            "limit": limit,
+            "git": git_state(eval_set.parent),
+            "provider_config": {
+                "timeout_s": settings.llm_timeout_s,
+                "max_retries": settings.llm_max_retries,
+                "temperature": 0.0,
+            },
+        }
+    )
+    manifest["ended_at"] = None
+    write_json(manifest_path, manifest, secrets)
+    provider = provider if provider is not None else get_llm_provider(settings)
+    semaphore = asyncio.Semaphore(concurrency)
+    selected = [(cv, jd) for cv in cvs for jd in jd_ids]
+    selected = selected[:limit] if limit else selected
+
+    async def process(cv, jd):
+        async with semaphore:
+            started = time.perf_counter()
+            path = output_dir / "pairs" / f"{cv['sheet_id']}__{jd}.json"
+            pair = {
+                "sheet_id": cv["sheet_id"],
+                "jd_id": jd,
+                "expected_group": cv["expected_group"],
+                "source_pdf_sha256": cv["source_pdf_sha256"],
+                "text_content_sha256": None,
+            }
+            try:
+                data = (eval_set.parent / "text" / f"{cv['source_pdf_sha256']}.txt").read_bytes()
+                pair["text_content_sha256"] = sha256(data)
+                if path.exists():
+                    previous = json.loads(path.read_text())
+                    if (
+                        previous["status"] == "succeeded"
+                        and previous["text_content_sha256"] == pair["text_content_sha256"]
+                    ):
+                        return previous
+                result = await screen(
+                    data.decode("utf-8"), loaded_jds[jd], provider=provider, config=config
+                )
+                pair.update(status="succeeded", result=result.model_dump(mode="json"))
+            except Exception as exc:  # noqa: BLE001 — isolate pair failures and redact CLI errors
+                pair.update(
+                    status="failed", error={"class": type(exc).__name__, "message": str(exc)}
+                )
+            pair["latency_s"] = time.perf_counter() - started
+            pair["finished_at"] = utc_now()
+            write_json(path, pair, secrets)
+            return redact(pair, secrets)
+
+    pairs = await asyncio.gather(*(process(cv, jd) for cv, jd in selected))
+    manifest["text_content_sha256"] = {p["sheet_id"]: p["text_content_sha256"] for p in pairs}
+    summary = summarize(pairs)
+    write_json(output_dir / "summary.json", summary, secrets)
+    atomic_write(output_dir / "summary.md", redact(markdown(summary), secrets))
+    manifest["gateway_reported_models"] = sorted(
+        {
+            p["result"]["llm"]["response_model"]
+            for p in pairs
+            if p["status"] == "succeeded" and p["result"]["llm"].get("response_model")
+        }
+    )
+    manifest["ended_at"] = utc_now()
+    manifest["invocations"][-1]["ended_at"] = manifest["ended_at"]
+    write_json(manifest_path, manifest, secrets)
+    return summary
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--eval-set", type=Path, required=True)
+    parser.add_argument("--jd-ids", nargs="+", default=["jd-a", "jd-b"])
+    parser.add_argument("--context-mode", choices=["full", "retrieved"], default="full")
+    parser.add_argument("--concurrency", type=int, default=4)
+    parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--limit", type=int)
+    args = parser.parse_args()
+    settings = Settings()
+    secrets = [k.get_secret_value() for k in (settings.llm_api_key, settings.gemini_api_key) if k]
+    try:
+        summary = asyncio.run(run_experiment(**vars(args), settings=settings))
+    except Exception as exc:  # noqa: BLE001 — isolate pair failures and redact CLI errors
+        parser.exit(2, redact(f"{type(exc).__name__}: {exc}\n", secrets))
+    print(f"Succeeded {summary['succeeded']}/{summary['pair_count']}; outputs: {args.output_dir}")
+    return 1 if summary["failures"] else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
