@@ -237,6 +237,33 @@ def git_state(directory):
         return {"commit": None, "dirty": None}
 
 
+class MeasuredProvider:
+    """Observe pipeline prompts and exposed metadata without changing the provider."""
+
+    def __init__(self, provider):
+        self.provider = provider
+        self.measurements = {
+            "prompt_char_length": None,
+            "input_tokens": None,
+            "output_tokens": None,
+            "reasoning_tokens": None,
+        }
+
+    async def generate_structured(self, **kwargs):
+        # Counts trusted system + user text passed by the pipeline, excluding
+        # provider-added schema/formatting. This definition is stable across models.
+        self.measurements["prompt_char_length"] = len(kwargs["system"]) + len(kwargs["user"])
+        response = await self.provider.generate_structured(**kwargs)
+        metadata = response.metadata.model_dump()
+        details = metadata.get("completion_tokens_details") or {}
+        self.measurements.update(
+            input_tokens=metadata.get("input_tokens"),
+            output_tokens=metadata.get("output_tokens"),
+            reasoning_tokens=details.get("reasoning_tokens", metadata.get("reasoning_tokens")),
+        )
+        return response
+
+
 async def run_experiment(
     *,
     eval_set,
@@ -247,9 +274,12 @@ async def run_experiment(
     context_mode="full",
     concurrency=4,
     limit=None,
+    model=None,
 ):
     if concurrency < 1 or (limit is not None and limit < 1):
         raise ValueError("concurrency and limit must be positive")
+    if model is not None:
+        settings = settings.model_copy(update={"llm_model": model, "gemini_model": model})
     eval_set, output_dir = Path(eval_set).resolve(), Path(output_dir).resolve()
     config = ScreeningConfig(context_mode=context_mode, retrieval_mode="lexical")
     secrets = [k.get_secret_value() for k in (settings.llm_api_key, settings.gemini_api_key) if k]
@@ -330,6 +360,7 @@ async def run_experiment(
                 "source_pdf_sha256": cv["source_pdf_sha256"],
                 "text_content_sha256": None,
             }
+            measured = MeasuredProvider(provider)
             try:
                 data = (eval_set.parent / "text" / f"{cv['source_pdf_sha256']}.txt").read_bytes()
                 pair["text_content_sha256"] = sha256(data)
@@ -341,13 +372,14 @@ async def run_experiment(
                     ):
                         return previous
                 result = await screen(
-                    data.decode("utf-8"), loaded_jds[jd], provider=provider, config=config
+                    data.decode("utf-8"), loaded_jds[jd], provider=measured, config=config
                 )
                 pair.update(status="succeeded", result=result.model_dump(mode="json"))
             except Exception as exc:  # noqa: BLE001 — isolate pair failures and redact CLI errors
                 pair.update(
                     status="failed", error={"class": type(exc).__name__, "message": str(exc)}
                 )
+            pair.update(measured.measurements)
             pair["latency_s"] = time.perf_counter() - started
             pair["finished_at"] = utc_now()
             write_json(path, pair, secrets)
@@ -378,6 +410,7 @@ def main():
     parser.add_argument("--context-mode", choices=["full", "retrieved"], default="full")
     parser.add_argument("--concurrency", type=int, default=4)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--model", help="Override the requested model for this run only")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--summarize-only", action="store_true")
     args = parser.parse_args()

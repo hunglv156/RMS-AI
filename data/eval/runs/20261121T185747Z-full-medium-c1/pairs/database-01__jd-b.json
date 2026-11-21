@@ -1,0 +1,364 @@
+{
+  "sheet_id": "database-01",
+  "jd_id": "jd-b",
+  "expected_group": "partial_A",
+  "source_pdf_sha256": "456827d30d3eac0171aaefa9852055ba34a863e1fe51959997e2cddf457f63b3",
+  "text_content_sha256": "93e113674ba0e0f7aa4abdc00d18028a71522f6ad093f325468fc8161ecadb3c",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "The candidate has experience conducting end-user training and mentoring staff, but lacks practical experience in core HR domains such as recruitment, compensation, benefits, and employee relations.",
+          "evidence": [
+            {
+              "quote": "End User Training and Support",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Training, mentoring and managing new report writing staff.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Practical experience in recruitment",
+            "Experience with compensation and benefits",
+            "Experience in employee relations or human resources"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "End User Training and Support",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 920,
+              "end_offset": 949,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Training, mentoring and managing new report writing staff.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4222,
+              "end_offset": 4280,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 12.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV contains no mention of employment law, employment contracts, or insurance benefits.",
+          "evidence": [],
+          "missing_information": [
+            "Knowledge of employment law",
+            "Experience handling employment contracts",
+            "Knowledge of insurance benefits"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "There is no mention of HRM software, Excel, or HR processes in the CV.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with HRM software",
+            "Proficiency in Microsoft Excel",
+            "Familiarity with HR processes"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "adequate",
+          "confidence": 1.0,
+          "reason": "The candidate holds a Bachelor of Science in Business Administration, meeting the educational requirement.",
+          "evidence": [
+            {
+              "quote": "Bachelor of Science: Computer Science, Business Administration\nSouthwest Minnesota State University - Marshall, MN",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Bachelor of Science: Computer Science, Business Administration\nSouthwest Minnesota State University - Marshall, MN",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 5869,
+              "end_offset": 5983,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "partial",
+          "confidence": 0.8,
+          "reason": "The candidate demonstrates collaboration, building trust-based relationships, and mentoring staff, but there is no specific evidence of handling interpersonal or HR-related people issues.",
+          "evidence": [
+            {
+              "quote": "Worked closely with physicians and nurses and have built working relationships involving trust and respect.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Training, mentoring and managing new report writing staff.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Direct experience handling employee disputes or people issues",
+            "Evidence of active listening skills in a people-management or HR context"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Worked closely with physicians and nurses and have built working relationships involving trust and respect.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 390,
+              "end_offset": 497,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Training, mentoring and managing new report writing staff.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4222,
+              "end_offset": 4280,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 6.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "The CV is written in fluent professional English and demonstrates education and extensive professional experience in an English-speaking environment.",
+          "evidence": [
+            {
+              "quote": "15+ years of IT experience with the last 12 years in healthcare. Responsibilities included finding ways to utilize technology to achieve\ncorporate strategic goals and bringing IT and healthcare professionals together to determine best practices and refine work flow processes.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "15+ years of IT experience with the last 12 years in healthcare. Responsibilities included finding ways to utilize technology to achieve\ncorporate strategic goals and bringing IT and healthcare professionals together to determine best practices and refine work flow processes.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 113,
+              "end_offset": 389,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.65,
+      "lower_bound": 32.0,
+      "upper_bound": 67.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-medium",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:18:25.235819+00:00",
+      "latency_ms": 23753.017750015715,
+      "input_tokens": 6242,
+      "output_tokens": 802,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-medium",
+      "config": {
+        "context_mode": "full",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": null,
+        "embedding": null,
+        "retrieval": null
+      },
+      "extraction": null,
+      "cv_sha256": "93e113674ba0e0f7aa4abdc00d18028a71522f6ad093f325468fc8161ecadb3c",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "prompt_char_length": 9217,
+  "input_tokens": 6242,
+  "output_tokens": 802,
+  "reasoning_tokens": null,
+  "latency_s": 23.753853666974464,
+  "finished_at": "2026-11-21T19:18:48.989425+00:00"
+}

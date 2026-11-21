@@ -1,0 +1,564 @@
+{
+  "sheet_id": "python_dev-01",
+  "jd_id": "jd-a",
+  "expected_group": "match_A",
+  "source_pdf_sha256": "18d279c1edf859c2c82c8f98f5456d1bbf7523c5104e672daa2890b5f6059e4e",
+  "text_content_sha256": "ccd1dbb1606934face5a43ed8c730fd622f71c738c78aebbe8371a9adebd7d91",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-a",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "python_backend",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate has extensive experience developing backends and backend modules using Python with both Django and Flask across multiple positions.",
+          "evidence": [
+            {
+              "quote": "Developed entire front end and back end modules using Python on Django Web Framework.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Responsible for Design and maintenance of databases using Python. Developed Python based APIs\n(RESTful Web services) by using Flask, SQL AlClaireemy and PostgreSQL.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Developed a chaibot using natural language processing techniques and the OpenAl GPT-2 framework.\nImplemented using Python and Flask.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Developed entire front end and back end modules using Python on Django Web Framework.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 10297,
+              "end_offset": 10382,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Responsible for Design and maintenance of databases using Python. Developed Python based APIs\n(RESTful Web services) by using Flask, SQL AlClaireemy and PostgreSQL.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 5263,
+              "end_offset": 5427,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Developed a chaibot using natural language processing techniques and the OpenAl GPT-2 framework.\nImplemented using Python and Flask.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1859,
+              "end_offset": 1991,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "python_backend",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 25.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "api_design",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate has clear and concrete experience designing, developing, and setting up RESTful APIs using Python, Flask, and Django.",
+          "evidence": [
+            {
+              "quote": "Responsible for Design and maintenance of databases using Python. Developed Python based APIs\n(RESTful Web services) by using Flask, SQL AlClaireemy and PostgreSQL.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Used AWS for application deployment and configuration. Responsible for setting up REST APIs using\nDjango.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Responsible for Design and maintenance of databases using Python. Developed Python based APIs\nusing databases like Oracle, Netezza and PostgreSQL.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Responsible for Design and maintenance of databases using Python. Developed Python based APIs\n(RESTful Web services) by using Flask, SQL AlClaireemy and PostgreSQL.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 5263,
+              "end_offset": 5427,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Used AWS for application deployment and configuration. Responsible for setting up REST APIs using\nDjango.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 7559,
+              "end_offset": 7664,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Responsible for Design and maintenance of databases using Python. Developed Python based APIs\nusing databases like Oracle, Netezza and PostgreSQL.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2540,
+              "end_offset": 2686,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "api_design",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 25.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "database",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate demonstrates strong experience working directly with PostgreSQL, MySQL, and SQL queries, including schema design, maintenance, and database migration.",
+          "evidence": [
+            {
+              "quote": "Migrated the Django database from SQLite to MySQL to PostgreSQL with complete data integrity.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Designed and developed a data management system using MySQL.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Developed various Python scripts to find vulnerabilities with SQL Queries by doing SQL injection,\npermission Claireecks and performance analysis.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Migrated the Django database from SQLite to MySQL to PostgreSQL with complete data integrity.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 7163,
+              "end_offset": 7256,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Designed and developed a data management system using MySQL.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 9624,
+              "end_offset": 9684,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Developed various Python scripts to find vulnerabilities with SQL Queries by doing SQL injection,\npermission Claireecks and performance analysis.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4423,
+              "end_offset": 4568,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "database",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 15.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "docker_cloud",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate has concrete experience building Docker images and deploying applications to cloud services such as AWS ECS and EC2.",
+          "evidence": [
+            {
+              "quote": "Implemented CI/CD process on Apache Airflow binary and DAG’s by building Airflow Docker images by\nDocker-Compose and uploading to Jfrog antifactory and deployment through AWS ECS cluster.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Used AWS for application deployment and configuration. Responsible for setting up REST APIs using\nDjango.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Designed, developed, implemented, and maintained solutions for using Docker, Jenkins, Git, and Puppet\nfor microservices and continuous deployment.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Implemented CI/CD process on Apache Airflow binary and DAG’s by building Airflow Docker images by\nDocker-Compose and uploading to Jfrog antifactory and deployment through AWS ECS cluster.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1993,
+              "end_offset": 2180,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Used AWS for application deployment and configuration. Responsible for setting up REST APIs using\nDjango.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 7559,
+              "end_offset": 7664,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Designed, developed, implemented, and maintained solutions for using Docker, Jenkins, Git, and Puppet\nfor microservices and continuous deployment.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 7974,
+              "end_offset": 8120,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "docker_cloud",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 15.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "teamwork",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "The candidate demonstrates experience working in Agile/Scrum teams and coordinating development, but there is no explicit mention of code review.",
+          "evidence": [
+            {
+              "quote": "Attending daily Scrum meetings for updates. Handling multiple applications with the different\nteClairenologies.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Responsible for debugging the project monitored on JIRA (Agile).",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Perform debugging and troubleshooting the web applications using Subversion version control tool to\ncoordinate team-development.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience conducting or participating in code reviews"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Attending daily Scrum meetings for updates. Handling multiple applications with the different\nteClairenologies.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4570,
+              "end_offset": 4681,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Responsible for debugging the project monitored on JIRA (Agile).",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 9686,
+              "end_offset": 9750,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Perform debugging and troubleshooting the web applications using Subversion version control tool to\ncoordinate team-development.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 11323,
+              "end_offset": 11451,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "teamwork",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.9,
+          "reason": "Professional English proficiency is demonstrated through a fully English-language CV, documentation work, and completing a Master of Science degree in the United States.",
+          "evidence": [
+            {
+              "quote": "Documented the entire build and deployment process including detailed step-by-step instructions.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Master of Science: Computer Information Systems\nEastern Illinois University - Charleston, IL",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Documented the entire build and deployment process including detailed step-by-step instructions.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 6343,
+              "end_offset": 6439,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Master of Science: Computer Information Systems\nEastern Illinois University - Charleston, IL",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 11908,
+              "end_offset": 12000,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "scored",
+      "observed_score": 91.0,
+      "coverage": 1.0,
+      "lower_bound": 91.0,
+      "upper_bound": 91.0,
+      "requires_manual_review": false
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T18:57:48.271497+00:00",
+      "latency_ms": 48898.78245900036,
+      "input_tokens": 10649,
+      "output_tokens": 1115,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "full",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": null,
+        "embedding": null,
+        "retrieval": null
+      },
+      "extraction": null,
+      "cv_sha256": "ccd1dbb1606934face5a43ed8c730fd622f71c738c78aebbe8371a9adebd7d91",
+      "jd_sha256": "94d0cf9c3acc9f0acaa919556282643680545533fd0a698c0f9c340a4ce00d74"
+    }
+  },
+  "prompt_char_length": 15005,
+  "input_tokens": 10649,
+  "output_tokens": 1115,
+  "reasoning_tokens": null,
+  "latency_s": 48.90082900002017,
+  "finished_at": "2026-11-21T18:58:37.171907+00:00"
+}

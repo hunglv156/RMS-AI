@@ -1,0 +1,285 @@
+{
+  "sheet_id": "python_dev-01",
+  "jd_id": "jd-b",
+  "expected_group": "match_A",
+  "source_pdf_sha256": "18d279c1edf859c2c82c8f98f5456d1bbf7523c5104e672daa2890b5f6059e4e",
+  "text_content_sha256": "ccd1dbb1606934face5a43ed8c730fd622f71c738c78aebbe8371a9adebd7d91",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The candidate's CV reflects a background in software development and IT, with no mention of practical experience in recruitment, compensation and benefits, employee relations, or training.",
+          "evidence": [],
+          "missing_information": [
+            "Experience in recruitment",
+            "Experience in compensation and benefits",
+            "Experience in employee relations",
+            "Experience in training"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "There is no mention of knowledge or experience regarding employment law, employment contracts, or insurance benefits in the CV.",
+          "evidence": [],
+          "missing_information": [
+            "Knowledge of employment law",
+            "Knowledge of employment contracts",
+            "Knowledge of insurance benefits"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention experience with HRM software, Excel, or HR processes.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with HRM software",
+            "Experience with Excel",
+            "Experience with HR processes"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "unknown",
+          "confidence": 0.9,
+          "reason": "The candidate holds degrees in Computer Information Systems and a Bachelor of Science (unspecified field), with no degree listed in human resource management, law, or business administration.",
+          "evidence": [],
+          "missing_information": [
+            "Degree in human resource management, law, or business administration"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "unknown",
+          "confidence": 0.85,
+          "reason": "The CV does not mention listening, handling people issues, or general HR interpersonal communication.",
+          "evidence": [],
+          "missing_information": [
+            "Evidence of handling people issues",
+            "Evidence of listening and communication skills in an HR context"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The CV is written in fluent professional English, documenting extensive technical experience, and the candidate earned a Master of Science degree in the United States.",
+          "evidence": [
+            {
+              "quote": "Master of Science: Computer Information Systems\nEastern Illinois University - Charleston, IL",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Documented the entire build and deployment process including detailed step-by-step instructions.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Master of Science: Computer Information Systems\nEastern Illinois University - Charleston, IL",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 11908,
+              "end_offset": 12000,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Documented the entire build and deployment process including detailed step-by-step instructions.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 6343,
+              "end_offset": 6439,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 10.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.1,
+      "lower_bound": 10.0,
+      "upper_bound": 100.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-low",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:22:01.921913+00:00",
+      "latency_ms": 6121.409707993735,
+      "input_tokens": 5713,
+      "output_tokens": 533,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-low",
+      "config": {
+        "context_mode": "full",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": null,
+        "embedding": null,
+        "retrieval": null
+      },
+      "extraction": null,
+      "cv_sha256": "ccd1dbb1606934face5a43ed8c730fd622f71c738c78aebbe8371a9adebd7d91",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "prompt_char_length": 15291,
+  "input_tokens": 5713,
+  "output_tokens": 533,
+  "reasoning_tokens": null,
+  "latency_s": 6.121847375005018,
+  "finished_at": "2026-11-21T19:22:08.043551+00:00"
+}

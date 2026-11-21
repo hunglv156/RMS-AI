@@ -1,0 +1,858 @@
+{
+  "interpretation": "Diagnostics only, not accuracy: no human labels exist. Coverage, quote verification, agreement and known-only scores do not establish correctness.",
+  "baseline": "20261121T153755Z-full-t180",
+  "runs": [
+    {
+      "run": "20261121T153755Z-full-t180",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m3-latency/data/eval/runs/20261121T153755Z-full-t180",
+      "requested_model": "ag/gemini-3.8-flash-high",
+      "concurrency": [
+        4
+      ],
+      "pair_count": 20,
+      "succeeded": 20,
+      "latency_s": {
+        "population": "successful pairs; excludes queue and persistence time",
+        "percentile_method": "linear interpolation at (n - 1) * quantile",
+        "p50": 76.3799025210028,
+        "p95": 266.51877293301806,
+        "max": 290.176622458006,
+        "within_40_s": 1
+      },
+      "tokens": {
+        "input": 198341,
+        "output": 15874,
+        "total": 214215,
+        "missing_usage_pairs": 0,
+        "scope": "successful calls only; failed/retried call usage may be unreported",
+        "reasoning": null,
+        "missing_reasoning_pairs": 20
+      },
+      "prompt_chars": {
+        "mean": null,
+        "min": null,
+        "max": null,
+        "measured_pairs": 0,
+        "definition": "pipeline system + user characters; excludes provider-added schema/formatting"
+      },
+      "quote_verification": {
+        "valid": 131,
+        "total": 140,
+        "rate": 0.9357142857142857
+      },
+      "mean_coverage": 0.4575,
+      "versus_baseline": {
+        "pairs": [
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": null
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          }
+        ],
+        "score_state_agreement": {
+          "count": 20,
+          "compared": 20,
+          "rate": 1
+        },
+        "known_only_score": {
+          "both_known_pairs": 19,
+          "mean_absolute_difference": 0.0
+        }
+      }
+    },
+    {
+      "run": "20261121T185747Z-full-high-c1",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m3-latency/data/eval/runs/20261121T185747Z-full-high-c1",
+      "requested_model": "ag/gemini-3.8-flash-high",
+      "concurrency": [
+        1
+      ],
+      "pair_count": 20,
+      "succeeded": 20,
+      "latency_s": {
+        "population": "successful pairs; excludes queue and persistence time",
+        "percentile_method": "linear interpolation at (n - 1) * quantile",
+        "p50": 43.65131670847768,
+        "p95": 82.52475239585769,
+        "max": 129.42445016701822,
+        "within_40_s": 7
+      },
+      "tokens": {
+        "input": 184509,
+        "output": 16326,
+        "total": 200835,
+        "missing_usage_pairs": 0,
+        "scope": "successful calls only; failed/retried call usage may be unreported",
+        "reasoning": null,
+        "missing_reasoning_pairs": 20
+      },
+      "prompt_chars": {
+        "mean": 9220.9,
+        "min": 4446,
+        "max": 15291,
+        "measured_pairs": 20,
+        "definition": "pipeline system + user characters; excludes provider-added schema/formatting"
+      },
+      "quote_verification": {
+        "valid": 142,
+        "total": 148,
+        "rate": 0.9594594594594594
+      },
+      "mean_coverage": 0.47750000000000004,
+      "versus_baseline": {
+        "pairs": [
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.09999999999999998,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 3.4299999999999997
+          },
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.1,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": null
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.1,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 11.659999999999997
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.1,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 15.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 10.5
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 8.57
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          }
+        ],
+        "score_state_agreement": {
+          "count": 20,
+          "compared": 20,
+          "rate": 1
+        },
+        "known_only_score": {
+          "both_known_pairs": 19,
+          "mean_absolute_difference": 2.5873684210526315
+        }
+      }
+    },
+    {
+      "run": "20261121T185747Z-full-medium-c1",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m3-latency/data/eval/runs/20261121T185747Z-full-medium-c1",
+      "requested_model": "ag/gemini-3.8-flash-medium",
+      "concurrency": [
+        1
+      ],
+      "pair_count": 20,
+      "succeeded": 20,
+      "latency_s": {
+        "population": "successful pairs; excludes queue and persistence time",
+        "percentile_method": "linear interpolation at (n - 1) * quantile",
+        "p50": 22.071836437506136,
+        "p95": 33.97514694199345,
+        "max": 39.09745716699399,
+        "within_40_s": 20
+      },
+      "tokens": {
+        "input": 117536,
+        "output": 14786,
+        "total": 132322,
+        "missing_usage_pairs": 0,
+        "scope": "successful calls only; failed/retried call usage may be unreported",
+        "reasoning": null,
+        "missing_reasoning_pairs": 20
+      },
+      "prompt_chars": {
+        "mean": 9220.9,
+        "min": 4446,
+        "max": 15291,
+        "measured_pairs": 20,
+        "definition": "pipeline system + user characters; excludes provider-added schema/formatting"
+      },
+      "quote_verification": {
+        "valid": 99,
+        "total": 130,
+        "rate": 0.7615384615384615
+      },
+      "mean_coverage": 0.3875,
+      "versus_baseline": {
+        "pairs": [
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.09999999999999998,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 3.4299999999999997
+          },
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": -0.09999999999999998,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 1.230000000000004
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": null
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": -0.4,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 6.659999999999997
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 16.5
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": -0.25,
+            "score_state_agrees": false,
+            "known_only_score_absolute_difference": 3.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": -0.35,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": null
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": -0.4,
+            "score_state_agrees": false,
+            "known_only_score_absolute_difference": 1.8799999999999955
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          }
+        ],
+        "score_state_agreement": {
+          "count": 18,
+          "compared": 20,
+          "rate": 0.9
+        },
+        "known_only_score": {
+          "both_known_pairs": 18,
+          "mean_absolute_difference": 1.8166666666666664
+        }
+      }
+    },
+    {
+      "run": "20261121T185747Z-full-low-c1",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m3-latency/data/eval/runs/20261121T185747Z-full-low-c1",
+      "requested_model": "ag/gemini-3.8-flash-low",
+      "concurrency": [
+        1
+      ],
+      "pair_count": 20,
+      "succeeded": 20,
+      "latency_s": {
+        "population": "successful pairs; excludes queue and persistence time",
+        "percentile_method": "linear interpolation at (n - 1) * quantile",
+        "p50": 6.722980958496919,
+        "p95": 8.577231256531377,
+        "max": 8.959778958000243,
+        "within_40_s": 20
+      },
+      "tokens": {
+        "input": 88454,
+        "output": 11848,
+        "total": 100302,
+        "missing_usage_pairs": 0,
+        "scope": "successful calls only; failed/retried call usage may be unreported",
+        "reasoning": null,
+        "missing_reasoning_pairs": 20
+      },
+      "prompt_chars": {
+        "mean": 9220.9,
+        "min": 4446,
+        "max": 15291,
+        "measured_pairs": 20,
+        "definition": "pipeline system + user characters; excludes provider-added schema/formatting"
+      },
+      "quote_verification": {
+        "valid": 118,
+        "total": 138,
+        "rate": 0.855072463768116
+      },
+      "mean_coverage": 0.4325,
+      "versus_baseline": {
+        "pairs": [
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.09999999999999998,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 3.4299999999999997
+          },
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 4.6200000000000045
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.1,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": null
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 10.909999999999997
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 30.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 11.659999999999997
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": -0.09999999999999998,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 2.6700000000000017
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 15.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": -0.25,
+            "score_state_agrees": false,
+            "known_only_score_absolute_difference": 3.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 30.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": -0.35,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": null
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 9.379999999999995
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-a",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-b",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          }
+        ],
+        "score_state_agreement": {
+          "count": 19,
+          "compared": 20,
+          "rate": 0.95
+        },
+        "known_only_score": {
+          "both_known_pairs": 18,
+          "mean_absolute_difference": 6.703888888888889
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,458 @@
+{
+  "sheet_id": "python_dev-02",
+  "jd_id": "jd-b",
+  "expected_group": "match_A",
+  "source_pdf_sha256": "1b279f463335db61fa8db8e58d399734a58491e1779015adc4f65abce8f7602b",
+  "text_content_sha256": "231d34c9676135ba4ac39a83ea76af775bd05bce1bff5a1421eb7cac22910a3f",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "adequate",
+          "confidence": 0.9,
+          "reason": "The candidate has clear, practical experience in training and curriculum development, as well as general administrative support in human resources, meeting the requirement's training aspect.",
+          "evidence": [
+            {
+              "quote": "Developed and implemented training procedures for all newly hired personnel.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Responsible for classroom and simulator instruction for all C-130J loadmasters.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Organized administrative professional with hands-on experience supporting business areas such as accounting, database management and human resources.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Direct experience in recruitment, compensation and benefits, or employee relations"
+          ]
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Developed and implemented training procedures for all newly hired personnel.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4275,
+              "end_offset": 4351,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Responsible for classroom and simulator instruction for all C-130J loadmasters.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 7209,
+              "end_offset": 7288,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Organized administrative professional with hands-on experience supporting business areas such as accounting, database management and human resources.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 21.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention knowledge or experience in employment law, employment contracts, or insurance benefits.",
+          "evidence": [],
+          "missing_information": [
+            "Knowledge of employment law",
+            "Experience with employment contracts",
+            "Knowledge of insurance benefits"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "unknown",
+          "confidence": 0.9,
+          "reason": "The candidate notes Microsoft Office proficiency and database management, but does not specifically mention HRM software, Excel, or HR processes.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with HRM software",
+            "Explicit experience using Excel",
+            "Experience with HR processes"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "The candidate has completed degrees in Professional Aeronautics and Operations Management with coursework in business management, but does not hold a degree specifically in human resource management, law, or business administration.",
+          "evidence": [
+            {
+              "quote": "Major: Professional Aeronautics",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Business Management, Logistics, Finance and Supply Chain coursework",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Operations Management",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Degree in human resource management, law, or business administration"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Major: Professional Aeronautics",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 9255,
+              "end_offset": 9286,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Business Management, Logistics, Finance and Supply Chain coursework",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 9341,
+              "end_offset": 9408,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Operations Management",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 9428,
+              "end_offset": 9449,
+              "reason": null,
+              "ambiguous": true
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "adequate",
+          "confidence": 0.9,
+          "reason": "The candidate highlights strong communication and interpersonal skills, along with experience in counseling methods and instruction.",
+          "evidence": [
+            {
+              "quote": "Collaborative team player with strong communication, decision-making and time management abilities.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Good interpersonal skills and effective communications are required daily: constant coordination and collaboration with other team members.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Knowledge of principles, techniques, and methods of instructions; use of visual aids; learning processes; curriculum development education and training evaluation; and counseling methods and techniques.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Specific experience handling HR-related employee grievances or people issues"
+          ]
+        },
+        "validation": {
+          "level": "needs_review",
+          "raw_level": "adequate",
+          "reason": "no_valid_evidence",
+          "evidence_valid": false
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Collaborative team player with strong communication, decision-making and time management abilities.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Good interpersonal skills and effective communications are required daily: constant coordination and collaboration with other team members.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Knowledge of principles, techniques, and methods of instructions; use of visual aids; learning processes; curriculum development education and training evaluation; and counseling methods and techniques.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "needs_review",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The CV demonstrates strong English documentation skills, including technical writing, drafting comprehensive reports, and proofreading content for adherence to grammar and style.",
+          "evidence": [
+            {
+              "quote": "Proofread and reviewed all print and electronic content for correct grammar and adherence to house style",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Logistics Specialist focused on drafting persuasive and comprehensive information papers, feedback reports and recommendations that influence company decision-making.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "needs_review",
+          "raw_level": "strong",
+          "reason": "no_valid_evidence",
+          "evidence_valid": false
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Proofread and reviewed all print and electronic content for correct grammar and adherence to house style",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Logistics Specialist focused on drafting persuasive and comprehensive information papers, feedback reports and recommendations that influence company decision-making.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "needs_review",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.4,
+      "lower_bound": 25.0,
+      "upper_bound": 85.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-medium",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:15:45.286923+00:00",
+      "latency_ms": 39095.45691599487,
+      "input_tokens": 8621,
+      "output_tokens": 934,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-medium",
+      "config": {
+        "context_mode": "full",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": null,
+        "embedding": null,
+        "retrieval": null
+      },
+      "extraction": null,
+      "cv_sha256": "231d34c9676135ba4ac39a83ea76af775bd05bce1bff5a1421eb7cac22910a3f",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "prompt_char_length": 13445,
+  "input_tokens": 8621,
+  "output_tokens": 934,
+  "reasoning_tokens": null,
+  "latency_s": 39.09745716699399,
+  "finished_at": "2026-11-21T19:16:24.384976+00:00"
+}

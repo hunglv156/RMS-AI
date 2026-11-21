@@ -1,0 +1,621 @@
+{
+  "sheet_id": "hr-01",
+  "jd_id": "jd-b",
+  "expected_group": "match_B",
+  "source_pdf_sha256": "21367b09bd5a2ce2495853eb9251a7fb7fd6586624e12d5cfa9e9bd32b5932b9",
+  "text_content_sha256": "13bfaa6a2e117d8dbe650593332e31b61e096dfc2ab48a6146808d1f20f43f22",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate has over 6 years of experience as an HR Specialist covering recruitment, compensation packages, employee retention/relations, benefits administration, and training.",
+          "evidence": [
+            {
+              "quote": "General Electric - Human Resources Specialist\nTampa, FL + 10/2016 - Current",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Analyzed job descriptions and determined recruitment plan, timeline and advertising efforts to fill\npositions.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Motivated Human Resources Specialist offering 6 years of\nexperience promoting employee retention through incentive programs and well-researched\ncompensation packages.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Diplomatic Human Resources Specialist with 6 years of comprehensive experience managing and guiding employees.\nPolished in conducting background checks, organizing and scheduling interviews and administering\nemployment benefits.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Goal-oriented\nprofessional with 6 years of comprehensive experience retaining employee relations.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "General Electric - Human Resources Specialist\nTampa, FL + 10/2016 - Current",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2955,
+              "end_offset": 3030,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Analyzed job descriptions and determined recruitment plan, timeline and advertising efforts to fill\npositions.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3264,
+              "end_offset": 3374,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Motivated Human Resources Specialist offering 6 years of\nexperience promoting employee retention through incentive programs and well-researched\ncompensation packages.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1404,
+              "end_offset": 1570,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Diplomatic Human Resources Specialist with 6 years of comprehensive experience managing and guiding employees.\nPolished in conducting background checks, organizing and scheduling interviews and administering\nemployment benefits.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Goal-oriented\nprofessional with 6 years of comprehensive experience retaining employee relations.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 878,
+              "end_offset": 975,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 30.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "adequate",
+          "confidence": 0.85,
+          "reason": "The candidate is well-versed in employment regulations, verifies HR compliance, administers employment benefits, and processes legal employment paperwork (I-9 forms), though drafting/reviewing employment contracts is not explicitly detailed.",
+          "evidence": [
+            {
+              "quote": "Well-versed in employment regulations and records management\nrequirements.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Established and generated various reports to verify HR compliance.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "administering\nemployment benefits.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Assisted candidates with application processes by answering questions about application,\nperforming background checks, providing I-9 forms and handling drug screening paperwork.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Explicit experience with drafting or managing employment contracts"
+          ]
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Well-versed in employment regulations and records management\nrequirements.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1571,
+              "end_offset": 1645,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Established and generated various reports to verify HR compliance.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3194,
+              "end_offset": 3260,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "administering\nemployment benefits.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1262,
+              "end_offset": 1296,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Assisted candidates with application processes by answering questions about application,\nperforming background checks, providing I-9 forms and handling drug screening paperwork.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4051,
+              "end_offset": 4228,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 14.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "strong",
+          "confidence": 0.9,
+          "reason": "The candidate explicitly demonstrates proficiency in HRIS applications, Microsoft Office, spreadsheet tracking/development (Excel), and defining/documenting HR procedures and processes.",
+          "evidence": [
+            {
+              "quote": "HRIS Applications Proficient",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Spreadsheet Development",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Spreadsheet Tracking",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Microsoft Office",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Developed and documented HR procedures to refine processes and drive compliance with policies.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "HRIS Applications Proficient",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 141,
+              "end_offset": 169,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Spreadsheet Development",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 192,
+              "end_offset": 215,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Spreadsheet Tracking",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 488,
+              "end_offset": 508,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Microsoft Office",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 275,
+              "end_offset": 291,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Developed and documented HR procedures to refine processes and drive compliance with policies.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3378,
+              "end_offset": 3472,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 15.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV lists an Associate of Arts in English and coursework in Real Estate, but does not mention graduation in human resource management, law, or business administration.",
+          "evidence": [],
+          "missing_information": [
+            "Graduation or degree in human resource management, law, or business administration"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate demonstrates strong written and verbal communication, active listening skills, and substantial experience resolving employee issues, concerns, and personnel matters.",
+          "evidence": [
+            {
+              "quote": "Verbal and Written\nCommunication",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Attentive listener committed to building strong,\ntrusting relationships with staff and management.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Identified and corrected performance and personnel issues to reduce impact to business\noperations.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Responded to employee concerns or complaints by coordinating with human resources team to\nsolve issues.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Verbal and Written\nCommunication",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 338,
+              "end_offset": 370,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Attentive listener committed to building strong,\ntrusting relationships with staff and management.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2272,
+              "end_offset": 2370,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Identified and corrected performance and personnel issues to reduce impact to business\noperations.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4463,
+              "end_offset": 4561,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Responded to employee concerns or complaints by coordinating with human resources team to\nsolve issues.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4983,
+              "end_offset": 5086,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 15.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate holds an Associate of Arts degree in English, has written and proofread business correspondence and documentation, and presents the CV in English.",
+          "evidence": [
+            {
+              "quote": "Associate of Arts: English",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Wrote email messages, memos and business letters for management and proofread documentation\nto provide error-free correspondence.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Associate of Arts: English",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 617,
+              "end_offset": 643,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Wrote email messages, memos and business letters for management and proofread documentation\nto provide error-free correspondence.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 6018,
+              "end_offset": 6147,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 10.0
+      }
+    ],
+    "total": {
+      "score_state": "scored",
+      "observed_score": 93.33,
+      "coverage": 0.9,
+      "lower_bound": 84.0,
+      "upper_bound": 94.0,
+      "requires_manual_review": false
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:07:28.833980+00:00",
+      "latency_ms": 47556.091249978635,
+      "input_tokens": 9416,
+      "output_tokens": 1135,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "full",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": null,
+        "embedding": null,
+        "retrieval": null
+      },
+      "extraction": null,
+      "cv_sha256": "13bfaa6a2e117d8dbe650593332e31b61e096dfc2ab48a6146808d1f20f43f22",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "prompt_char_length": 10473,
+  "input_tokens": 9416,
+  "output_tokens": 1135,
+  "reasoning_tokens": null,
+  "latency_s": 47.55832620797446,
+  "finished_at": "2026-11-21T19:08:16.392052+00:00"
+}

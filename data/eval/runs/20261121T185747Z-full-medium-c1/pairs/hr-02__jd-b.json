@@ -1,0 +1,621 @@
+{
+  "sheet_id": "hr-02",
+  "jd_id": "jd-b",
+  "expected_group": "match_B",
+  "source_pdf_sha256": "3dd65c19265ee452f579439b6e6b3d9dccb8e1c7f06d06fcd77dd29ed33fc860",
+  "text_content_sha256": "b1e77963a878d5d6424fcbbd4df659153351a506aba7d9cf8c69698cce8e6ea8",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate has over 15 years of HR leadership experience across recruitment, compensation and benefits, employee and labor relations, and workforce development training.",
+          "evidence": [
+            {
+              "quote": "Successful leader of organizational development initiatives, especially in recruitment and retention efforts to improve candidate and staff experience.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Provided leadership over workforce development training programs focusing on leadership and management skills.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "+ Employee & Labor Relations",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "+ Payroll & Benefits\nAdministration",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Developed compensation and benefit strategies based on market research and exit interviews.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Successful leader of organizational development initiatives, especially in recruitment and retention efforts to improve candidate and staff experience.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Provided leadership over workforce development training programs focusing on leadership and management skills.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "+ Employee & Labor Relations",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 279,
+              "end_offset": 307,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "+ Payroll & Benefits\nAdministration",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 557,
+              "end_offset": 592,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Developed compensation and benefit strategies based on market research and exit interviews.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 7206,
+              "end_offset": 7297,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 30.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate demonstrates strong experience with employment law compliance, union negotiations, DFEH responses, OSHA citations, and insurance/benefits administration.",
+          "evidence": [
+            {
+              "quote": "+ Employment Law & Compliance\nRisk Management",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Managed a staff of five; handled internal investigations and DFEH communication responses.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Investigated workplace accidents and successfully contested two OSHA citations.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Negotiated Union contracts that balanced positive outcomes for all stakeholders such as establishing career progression opportunities, flexibile staff redeployment, balanced healthcare cost sharing and improved compensation.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "+ Employment Law & Compliance\nRisk Management",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 374,
+              "end_offset": 419,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Managed a staff of five; handled internal investigations and DFEH communication responses.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 5227,
+              "end_offset": 5317,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Investigated workplace accidents and successfully contested two OSHA citations.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 7467,
+              "end_offset": 7546,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Negotiated Union contracts that balanced positive outcomes for all stakeholders such as establishing career progression opportunities, flexibile staff redeployment, balanced healthcare cost sharing and improved compensation.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 20.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate highlights advanced Excel proficiency, experience with multiple HRIS platforms, and extensive work establishing and streamlining HR processes.",
+          "evidence": [
+            {
+              "quote": "+ MS Office Power User\n(especially Excel & PPT)",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "+ Deep HRIS expertise from\nmigrations to full optimization\ncycles (Examples: Paychex, ADP\nWorkforce Now, Silkroad,\nSuccessFactors)",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Managed the implementation of a new HRIS system and successfully streamlined workflows for recruitment, onboarding, learning, and performance management.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "+ MS Office Power User\n(especially Excel & PPT)",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 456,
+              "end_offset": 503,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "+ Deep HRIS expertise from\nmigrations to full optimization\ncycles (Examples: Paychex, ADP\nWorkforce Now, Silkroad,\nSuccessFactors)",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 594,
+              "end_offset": 724,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Managed the implementation of a new HRIS system and successfully streamlined workflows for recruitment, onboarding, learning, and performance management.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 15.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "partial",
+          "confidence": 0.9,
+          "reason": "The candidate holds degrees in Industrial/Organizational Psychology and Psychology, which are closely related to HR behavior and organizational management, but does not list a degree specifically titled human resource management, law, or business administration.",
+          "evidence": [
+            {
+              "quote": "Master of Science: INDUSTRIAL/\nORGANIZATIONAL PSYCHOLOGY\nAn applied discipline within\npsychology that focused on the\nscience of human behavior as it\npertains to work",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Bachelor of Science: PSYCHOLOGY\nUniversity of California, Berkeley\nBerkeley, CA",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Degree specifically in human resource management, law, or business administration."
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Master of Science: INDUSTRIAL/\nORGANIZATIONAL PSYCHOLOGY\nAn applied discipline within\npsychology that focused on the\nscience of human behavior as it\npertains to work",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 782,
+              "end_offset": 947,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Bachelor of Science: PSYCHOLOGY\nUniversity of California, Berkeley\nBerkeley, CA",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 988,
+              "end_offset": 1067,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate demonstrates extensive communication and conflict resolution capabilities, including workplace mediation, upward and downward communication facilitation, and audience-centered communications.",
+          "evidence": [
+            {
+              "quote": "+ Conflict & Grievance Resolution",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Improved partnerships between staff and managers by facilitating communication flow upward and\ndownward.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Provided mediation and conducted exit interviews to assess turnover trends and the effectiveness\nof retention efforts.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "keen sensitivity to\naudience-centered communications to effectively convey the implications of statistical trends to\nmanagement teams.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "+ Conflict & Grievance Resolution",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 421,
+              "end_offset": 454,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Improved partnerships between staff and managers by facilitating communication flow upward and\ndownward.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 6976,
+              "end_offset": 7080,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Provided mediation and conducted exit interviews to assess turnover trends and the effectiveness\nof retention efforts.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 7084,
+              "end_offset": 7202,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "keen sensitivity to\naudience-centered communications to effectively convey the implications of statistical trends to\nmanagement teams.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3503,
+              "end_offset": 3637,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 15.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The entire CV is presented in proficient professional English, supported by higher education degrees completed in English at US universities.",
+          "evidence": [
+            {
+              "quote": "SAN FRANCISCO STATE\nUNIVERSITY\n\nMaster of Science: INDUSTRIAL/\nORGANIZATIONAL PSYCHOLOGY",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "THE UNIVERSITY oF CALIFORNIA\nBERKELEY\n\nBachelor of Science: PSYCHOLOGY",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "SAN FRANCISCO STATE\nUNIVERSITY\n\nMaster of Science: INDUSTRIAL/\nORGANIZATIONAL PSYCHOLOGY",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 750,
+              "end_offset": 838,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "THE UNIVERSITY oF CALIFORNIA\nBERKELEY\n\nBachelor of Science: PSYCHOLOGY",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 949,
+              "end_offset": 1019,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 10.0
+      }
+    ],
+    "total": {
+      "score_state": "scored",
+      "observed_score": 94.0,
+      "coverage": 1.0,
+      "lower_bound": 94.0,
+      "upper_bound": 94.0,
+      "requires_manual_review": false
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-medium",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:19:42.028010+00:00",
+      "latency_ms": 25302.286541002104,
+      "input_tokens": 6265,
+      "output_tokens": 1169,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-medium",
+      "config": {
+        "context_mode": "full",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": null,
+        "embedding": null,
+        "retrieval": null
+      },
+      "extraction": null,
+      "cv_sha256": "b1e77963a878d5d6424fcbbd4df659153351a506aba7d9cf8c69698cce8e6ea8",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "prompt_char_length": 11529,
+  "input_tokens": 6265,
+  "output_tokens": 1169,
+  "reasoning_tokens": null,
+  "latency_s": 25.303537625004537,
+  "finished_at": "2026-11-21T19:20:07.331397+00:00"
+}

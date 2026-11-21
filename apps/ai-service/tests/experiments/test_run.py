@@ -276,3 +276,119 @@ def test_unreported_gateway_model_is_not_replaced_by_requested_model(fixture):
     manifest = json.loads((args["output_dir"] / "manifest.json").read_text())
     assert manifest["identity"]["requested_model"] == "requested"
     assert manifest["gateway_reported_models"] == []
+
+
+def test_model_override_is_run_local_and_resume_refuses_different_model(fixture, monkeypatch):
+    args, _ = fixture
+    seen = []
+
+    def factory(settings):
+        seen.append(settings.llm_model)
+        return FakeLLMProvider([response(), response()])
+
+    monkeypatch.setattr("app.experiments.run.get_llm_provider", factory)
+    asyncio.run(run_experiment(**args, model="override"))
+    assert seen == ["override"]
+    assert args["settings"].llm_model == "requested"
+    manifest = json.loads((args["output_dir"] / "manifest.json").read_text())
+    assert manifest["identity"]["requested_model"] == "override"
+    pair = json.loads((args["output_dir"] / "pairs/cv-1__jd-a.json").read_text())
+    assert pair["prompt_char_length"] > len(CV)
+    assert pair["input_tokens"] == 10
+    assert pair["output_tokens"] == 20
+    assert pair["reasoning_tokens"] is None
+    with pytest.raises(ValueError, match="Resume inputs/config/model differ"):
+        asyncio.run(run_experiment(**args, model="different"))
+
+
+def test_measurement_reads_exposed_reasoning_details():
+    from types import SimpleNamespace
+
+    from app.experiments.run import MeasuredProvider
+
+    scripted = response()
+    scripted.metadata = SimpleNamespace(
+        model_dump=lambda: {
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "completion_tokens_details": {"reasoning_tokens": 7},
+        }
+    )
+
+    class ExposedMetadataProvider(FakeLLMProvider):
+        async def generate_structured(self, **kwargs):
+            return scripted
+
+    measured = MeasuredProvider(ExposedMetadataProvider([]))
+    asyncio.run(measured.generate_structured(system="abc", user="defg", response_model=None))
+    assert measured.measurements == {
+        "prompt_char_length": 7,
+        "input_tokens": 10,
+        "output_tokens": 20,
+        "reasoning_tokens": 7,
+    }
+
+
+def test_comparison_math_and_preserves_inputs(fixture, tmp_path):
+    from app.experiments.compare import compare_runs
+
+    args, _ = fixture
+    run(args, [response(), response()])
+    baseline = args["output_dir"]
+    other = tmp_path / "other"
+    (other / "pairs").mkdir(parents=True)
+    (other / "manifest.json").write_bytes((baseline / "manifest.json").read_bytes())
+    for index, path in enumerate(sorted((baseline / "pairs").glob("*.json"))):
+        pair = json.loads(path.read_text())
+        pair["latency_s"] = [20, 60][index]
+        pair["result"]["total"].update(coverage=[0.4, 0.8][index], score_state="changed")
+        pair["result"]["criteria"][0]["scoring"]["match_value"] = [0.4, None][index]
+        if index:
+            pair["result"]["criteria"][0]["evidence"][0]["verification"]["valid"] = False
+        (other / "pairs" / path.name).write_text(json.dumps(pair))
+    before = {p: p.read_bytes() for p in baseline.rglob("*") if p.is_file()}
+    result = compare_runs([baseline, other], tmp_path / "comparison")
+    compared = result["runs"][1]
+    assert compared["succeeded"] == 2
+    assert compared["latency_s"]["p50"] == 40
+    assert compared["latency_s"]["p95"] == 58
+    assert compared["latency_s"]["max"] == 60
+    assert compared["latency_s"]["within_40_s"] == 1
+    assert compared["tokens"]["total"] == 60
+    assert compared["tokens"]["reasoning"] is None
+    assert compared["quote_verification"]["rate"] == 0.5
+    assert compared["mean_coverage"] == pytest.approx(0.6)
+    vs = compared["versus_baseline"]
+    assert [p["coverage_delta"] for p in vs["pairs"]] == pytest.approx([-0.6, -0.2])
+    assert vs["score_state_agreement"] == {"count": 0, "compared": 2, "rate": 0}
+    assert vs["known_only_score"] == {"both_known_pairs": 1, "mean_absolute_difference": 60}
+    assert {p: p.read_bytes() for p in before} == before
+    assert "not accuracy" in (tmp_path / "comparison/comparison.md").read_text()
+    assert (tmp_path / "comparison/comparison.json").exists()
+    with pytest.raises(ValueError, match="outside input"):
+        compare_runs([baseline], baseline)
+
+
+def test_comparison_excludes_failed_and_missing_pairs(fixture, tmp_path):
+    from app.experiments.compare import compare_runs
+
+    args, _ = fixture
+    run(args, [response(), response()])
+    other_args = args | {"output_dir": tmp_path / "failed"}
+    run(other_args, [LLMProviderError("unavailable")], limit=1)
+    result = compare_runs([args["output_dir"], other_args["output_dir"]], tmp_path / "comparison")
+    compared = result["runs"][1]
+    assert compared["succeeded"] == 0
+    assert compared["mean_coverage"] is None
+    assert compared["latency_s"]["p50"] is None
+    assert compared["versus_baseline"]["score_state_agreement"] == {
+        "count": 0,
+        "compared": 0,
+        "rate": None,
+    }
+    assert compared["versus_baseline"]["known_only_score"] == {
+        "both_known_pairs": 0,
+        "mean_absolute_difference": None,
+    }
+    assert len(compared["versus_baseline"]["pairs"]) == 2
+    assert all(p["coverage_delta"] is None for p in compared["versus_baseline"]["pairs"])

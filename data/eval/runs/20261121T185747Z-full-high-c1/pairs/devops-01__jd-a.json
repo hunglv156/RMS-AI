@@ -1,0 +1,454 @@
+{
+  "sheet_id": "devops-01",
+  "jd_id": "jd-a",
+  "expected_group": "partial_A",
+  "source_pdf_sha256": "f7fff9d023f467550d221d079f97b7b8018f35ccdb2e95562ce72aaf2525426c",
+  "text_content_sha256": "9e374bbddb2d973d1bebc66154809e8b2e0436c901f5ca74dc2a8e68d3f8b29d",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-a",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "python_backend",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention any experience with Python or Python-based frameworks such as Django, Flask, or FastAPI; the candidate's background is primarily in C# and .NET.",
+          "evidence": [],
+          "missing_information": [
+            "Experience developing backend applications with Python",
+            "Experience using Django, Flask, or FastAPI"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "python_backend",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "api_design",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate provides clear evidence of designing and building RESTful Web APIs across several positions.",
+          "evidence": [
+            {
+              "quote": "Developed and integrated applications implementing SOA based architecture with REST web services.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Creating RestFul Web API to perform required CRUD operations on Database",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Developed and integrated applications implementing SOA based architecture with REST web services.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Creating RestFul Web API to perform required CRUD operations on Database",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3906,
+              "end_offset": 3978,
+              "reason": null,
+              "ambiguous": true
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "api_design",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 25.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "database",
+          "level": "partial",
+          "confidence": 0.9,
+          "reason": "The candidate demonstrates extensive experience with SQL and Microsoft SQL Server, but there is no mention of working with PostgreSQL or MySQL.",
+          "evidence": [
+            {
+              "quote": "Efficient Database skills in Microsoft SQL Server. Worked on Database Design, Developing Queries, Views, Stored Procedure, Packages and Functions, SSRS.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Writing complex queries and stored procedures to perform CRUD operations on Sql Server 2008R2",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience with PostgreSQL",
+            "Experience with MySQL"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Efficient Database skills in Microsoft SQL Server. Worked on Database Design, Developing Queries, Views, Stored Procedure, Packages and Functions, SSRS.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Writing complex queries and stored procedures to perform CRUD operations on Sql Server 2008R2",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3698,
+              "end_offset": 3791,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "database",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 6.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "docker_cloud",
+          "level": "adequate",
+          "confidence": 0.9,
+          "reason": "The candidate has clear experience deploying applications via cloud services and pipelines using Azure DevOps and MSAzure, although Docker is not specifically mentioned.",
+          "evidence": [
+            {
+              "quote": "Used Azure DevOPs for Continuous Integration and Continuous deployment in Lower Environments",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Worked on integrating the pipeline with different tasks like Nuget, IIS, MSAzure, Copy files.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience with Docker"
+          ]
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Used Azure DevOPs for Continuous Integration and Continuous deployment in Lower Environments",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3161,
+              "end_offset": 3253,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Worked on integrating the pipeline with different tasks like Nuget, IIS, MSAzure, Copy files.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2533,
+              "end_offset": 2626,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "docker_cloud",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 10.5
+      },
+      {
+        "assessment": {
+          "criterion_id": "teamwork",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate has extensive experience working within Agile/Scrum teams, participating in daily standups/scrum meetings, and conducting peer code reviews across multiple roles.",
+          "evidence": [
+            {
+              "quote": "Experience working with project teams delivering software through various Software Development Life Cycle (SDLC) phases like Requirement Gathering, Analysis, Designing, Coding, Testing and Implementing software and deployment using Agile Scrum methodology.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Worked in agile model with daily scrum meetings.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Performing peer code reviews in TFS",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Experience working with project teams delivering software through various Software Development Life Cycle (SDLC) phases like Requirement Gathering, Analysis, Designing, Coding, Testing and Implementing software and deployment using Agile Scrum methodology.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Worked in agile model with daily scrum meetings.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3109,
+              "end_offset": 3157,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Performing peer code reviews in TFS",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3867,
+              "end_offset": 3902,
+              "reason": null,
+              "ambiguous": true
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "teamwork",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 10.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "The CV is written in professional English and demonstrates experience communicating with stakeholders and creating technical documentation in US-based positions.",
+          "evidence": [
+            {
+              "quote": "Excellent communication and interpretation skills enabling effective interaction with application Developers, End Users, Project Managers and Business Analysts to review the requirement specifications.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Creating installation and update guide documents for the deployment team",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Excellent communication and interpretation skills enabling effective interaction with application Developers, End Users, Project Managers and Business Analysts to review the requirement specifications.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Creating installation and update guide documents for the deployment team",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3531,
+              "end_offset": 3603,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.75,
+      "lower_bound": 58.5,
+      "upper_bound": 83.5,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:04:38.140460+00:00",
+      "latency_ms": 42991.421542013995,
+      "input_tokens": 8146,
+      "output_tokens": 915,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "full",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": null,
+        "embedding": null,
+        "retrieval": null
+      },
+      "extraction": null,
+      "cv_sha256": "9e374bbddb2d973d1bebc66154809e8b2e0436c901f5ca74dc2a8e68d3f8b29d",
+      "jd_sha256": "94d0cf9c3acc9f0acaa919556282643680545533fd0a698c0f9c340a4ce00d74"
+    }
+  },
+  "prompt_char_length": 8988,
+  "input_tokens": 8146,
+  "output_tokens": 915,
+  "reasoning_tokens": null,
+  "latency_s": 42.99343062497792,
+  "finished_at": "2026-11-21T19:05:21.132923+00:00"
+}

@@ -1,0 +1,258 @@
+{
+  "sheet_id": "designer-01",
+  "jd_id": "jd-a",
+  "expected_group": "none",
+  "source_pdf_sha256": "37e62d338121af5abe474fbdc504cf82752fcdf3837cf840580016c47b1e08b3",
+  "text_content_sha256": "03994ced08c80bf19f8d537d2287192b7cd96c7f89378274f7cc61e5b35bdaac",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-a",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "python_backend",
+          "level": "unknown",
+          "confidence": 0.99,
+          "reason": "The candidate's CV is in interior and production design and does not mention any Python, Django, Flask, or FastAPI experience.",
+          "evidence": [],
+          "missing_information": [
+            "Experience developing backends with Python, Django, Flask, or FastAPI"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "python_backend",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "api_design",
+          "level": "unknown",
+          "confidence": 0.99,
+          "reason": "There is no mention of REST APIs or API design in the CV.",
+          "evidence": [],
+          "missing_information": [
+            "Experience designing and building REST APIs"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "api_design",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "database",
+          "level": "unknown",
+          "confidence": 0.99,
+          "reason": "The CV does not mention databases, SQL, PostgreSQL, or MySQL.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with PostgreSQL, MySQL, or SQL"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "database",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "docker_cloud",
+          "level": "unknown",
+          "confidence": 0.99,
+          "reason": "No experience with Docker or cloud deployment is mentioned in the CV.",
+          "evidence": [],
+          "missing_information": [
+            "Experience deploying applications using Docker or cloud services"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "docker_cloud",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "teamwork",
+          "level": "unknown",
+          "confidence": 0.99,
+          "reason": "There is no mention of Agile/Scrum methodologies or code review in the CV.",
+          "evidence": [],
+          "missing_information": [
+            "Experience working in teams using Agile/Scrum and performing code reviews"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "teamwork",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.85,
+          "reason": "The entire CV is written fluently in professional English and demonstrates education and extensive employment in the United States.",
+          "evidence": [
+            {
+              "quote": "Interior design graduate with an exceptional design instinct. Experience includes production design, decorating, home staging, visual\nmerchandising, furniture sales, personal shopping and custom closet design. Additionally I have 15 years of customer service\n\nexperience.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Interior design graduate with an exceptional design instinct. Experience includes production design, decorating, home staging, visual\nmerchandising, furniture sales, personal shopping and custom closet design. Additionally I have 15 years of customer service\n\nexperience.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 126,
+              "end_offset": 397,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.1,
+      "lower_bound": 7.0,
+      "upper_bound": 97.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-low",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:23:54.680315+00:00",
+      "latency_ms": 6709.585832984885,
+      "input_tokens": 3479,
+      "output_tokens": 604,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-low",
+      "config": {
+        "context_mode": "full",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": null,
+        "embedding": null,
+        "retrieval": null
+      },
+      "extraction": null,
+      "cv_sha256": "03994ced08c80bf19f8d537d2287192b7cd96c7f89378274f7cc61e5b35bdaac",
+      "jd_sha256": "94d0cf9c3acc9f0acaa919556282643680545533fd0a698c0f9c340a4ce00d74"
+    }
+  },
+  "prompt_char_length": 4631,
+  "input_tokens": 3479,
+  "output_tokens": 604,
+  "reasoning_tokens": null,
+  "latency_s": 6.710429625003599,
+  "finished_at": "2026-11-21T19:24:01.390579+00:00"
+}

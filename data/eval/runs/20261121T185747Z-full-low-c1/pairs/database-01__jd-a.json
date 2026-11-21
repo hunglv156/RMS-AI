@@ -1,0 +1,358 @@
+{
+  "sheet_id": "database-01",
+  "jd_id": "jd-a",
+  "expected_group": "partial_A",
+  "source_pdf_sha256": "456827d30d3eac0171aaefa9852055ba34a863e1fe51959997e2cddf457f63b3",
+  "text_content_sha256": "93e113674ba0e0f7aa4abdc00d18028a71522f6ad093f325468fc8161ecadb3c",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-a",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "python_backend",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The candidate does not mention any experience with Python, Django, Flask, or FastAPI.",
+          "evidence": [],
+          "missing_information": [
+            "Experience developing backends with Python, Django, Flask, or FastAPI"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "python_backend",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "api_design",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The candidate does not mention experience designing or building REST APIs.",
+          "evidence": [],
+          "missing_information": [
+            "Experience designing and building REST APIs"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "api_design",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "database",
+          "level": "partial",
+          "confidence": 0.95,
+          "reason": "The candidate has extensive experience with SQL, SQL Server, Oracle, and other databases, but there is no specific mention of PostgreSQL or MySQL.",
+          "evidence": [
+            {
+              "quote": "Programming in C++, Java, Visual Basic 6.0, SQL, MUMPS and\nVisual Basic -net.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Experience with SQL Server 2000, 2005, 2008, 2008R2, 2012 and =e Faxes, PLC\n\n2014.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Maintenance, Migration and Backup of SQL, ORACLE, ACCESS, DB2 and SYBASE databases.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience with PostgreSQL and MySQL specifically"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Programming in C++, Java, Visual Basic 6.0, SQL, MUMPS and\nVisual Basic -net.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1878,
+              "end_offset": 1955,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Experience with SQL Server 2000, 2005, 2008, 2008R2, 2012 and =e Faxes, PLC\n\n2014.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2412,
+              "end_offset": 2494,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Maintenance, Migration and Backup of SQL, ORACLE, ACCESS, DB2 and SYBASE databases.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3557,
+              "end_offset": 3640,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "database",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 6.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "docker_cloud",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The candidate mentions VMware and virtual environments, but does not mention Docker or cloud services.",
+          "evidence": [],
+          "missing_information": [
+            "Experience deploying applications using Docker or cloud services"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "docker_cloud",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "teamwork",
+          "level": "partial",
+          "confidence": 0.9,
+          "reason": "The candidate has extensive experience leading and working in teams on software implementations, but Agile/Scrum methodologies and code reviews are not mentioned.",
+          "evidence": [
+            {
+              "quote": "Served in the lead role on\nnumerous software implementations, process and work flow improvement teams.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Team Lead on several software implementations, most notably, EPIC implementation, Mckesson ERP Go Live, Willmar Regional Cancer\nCenter implementation, Quantum Enterprise Scheduling implementation and Quantum Document Management implementation.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience using Agile/Scrum methodologies",
+            "Experience performing code reviews"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Served in the lead role on\nnumerous software implementations, process and work flow improvement teams.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 498,
+              "end_offset": 600,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Team Lead on several software implementations, most notably, EPIC implementation, Mckesson ERP Go Live, Willmar Regional Cancer\nCenter implementation, Quantum Enterprise Scheduling implementation and Quantum Document Management implementation.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3222,
+              "end_offset": 3465,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "teamwork",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "The CV is written in professional English and documents a university degree obtained from an institution in the United States, demonstrating English proficiency.",
+          "evidence": [
+            {
+              "quote": "Bachelor of Science: Computer Science, Business Administration\nSouthwest Minnesota State University - Marshall, MN",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Bachelor of Science: Computer Science, Business Administration\nSouthwest Minnesota State University - Marshall, MN",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 5869,
+              "end_offset": 5983,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.35,
+      "lower_bound": 17.0,
+      "upper_bound": 82.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-low",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:22:49.612024+00:00",
+      "latency_ms": 5553.12470800709,
+      "input_tokens": 4481,
+      "output_tokens": 546,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-low",
+      "config": {
+        "context_mode": "full",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": null,
+        "embedding": null,
+        "retrieval": null
+      },
+      "extraction": null,
+      "cv_sha256": "93e113674ba0e0f7aa4abdc00d18028a71522f6ad093f325468fc8161ecadb3c",
+      "jd_sha256": "94d0cf9c3acc9f0acaa919556282643680545533fd0a698c0f9c340a4ce00d74"
+    }
+  },
+  "prompt_char_length": 8931,
+  "input_tokens": 4481,
+  "output_tokens": 546,
+  "reasoning_tokens": null,
+  "latency_s": 5.553903166990494,
+  "finished_at": "2026-11-21T19:22:55.165702+00:00"
+}

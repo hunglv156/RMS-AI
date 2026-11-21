@@ -1,0 +1,490 @@
+{
+  "sheet_id": "hr-03",
+  "jd_id": "jd-b",
+  "expected_group": "match_B",
+  "source_pdf_sha256": "58907fef82f78d143ae3acda26c849510259c47931b51595cd287ffddca519d4",
+  "text_content_sha256": "5f4a12678aab63194313d26f1be6e880270f853eb406bde9b3598134a2f77438",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate has substantial direct experience in human resources, including compensation and benefits design, onboarding and training of over 75 employees, and recruitment support.",
+          "evidence": [
+            {
+              "quote": "Structured compensation and benefits according to market conditions and budget demands.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Assessed and aligned compensation packages to market to attract highly qualified applicants for organizational vacancies.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Streamlined HR efficiencies, coordinated new hire orientations and provided onboarding and training for over 75\nnew employees.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Structured compensation and benefits according to market conditions and budget demands.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1015,
+              "end_offset": 1102,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Assessed and aligned compensation packages to market to attract highly qualified applicants for organizational vacancies.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Streamlined HR efficiencies, coordinated new hire orientations and provided onboarding and training for over 75\nnew employees.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1691,
+              "end_offset": 1817,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 30.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "strong",
+          "confidence": 0.9,
+          "reason": "The candidate demonstrates solid knowledge of compliance, EEOC statutes, risk mitigation against legal entanglements, and administration of insurance/benefit packages.",
+          "evidence": [
+            {
+              "quote": "Versed in EEOC\nand other relevant compliance statutes.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Educated management on successful policy implementation and enforcement actions to prevent employee legal\nentanglements.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Directed and controlled various benefit programs, including 401K, medical, dental and vision packages.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Versed in EEOC\nand other relevant compliance statutes.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 244,
+              "end_offset": 298,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Educated management on successful policy implementation and enforcement actions to prevent employee legal\nentanglements.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1106,
+              "end_offset": 1226,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Directed and controlled various benefit programs, including 401K, medical, dental and vision packages.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1230,
+              "end_offset": 1332,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 20.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "The candidate has demonstrated experience utilizing HRM software (PropelHR) and established HR processes, but specific experience with Excel is not mentioned.",
+          "evidence": [
+            {
+              "quote": "Utilized PropelHR system to convert all payroll and benefit programs.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Streamlined HR efficiencies, coordinated new hire orientations and provided onboarding and training for over 75\nnew employees.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Explicit mention or evidence of proficiency in Excel."
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Utilized PropelHR system to convert all payroll and benefit programs.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2005,
+              "end_offset": 2074,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Streamlined HR efficiencies, coordinated new hire orientations and provided onboarding and training for over 75\nnew employees.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1691,
+              "end_offset": 1817,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 6.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "partial",
+          "confidence": 0.8,
+          "reason": "The candidate holds an Associate of Science degree in Management, which is related to business administration and management, but is not an explicit degree in Human Resource Management, Law, or Business Administration.",
+          "evidence": [
+            {
+              "quote": "08/2021 Associate of Science: Management\nGreenville Technical College - Greenville, SC",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Degree specifically in Human Resource Management, Law, or Business Administration."
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "08/2021 Associate of Science: Management\nGreenville Technical College - Greenville, SC",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 5344,
+              "end_offset": 5430,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "strong",
+          "confidence": 0.9,
+          "reason": "The candidate provides concrete evidence of handling personnel issues, conflict resolution, negotiating agreements, and liaising between business divisions.",
+          "evidence": [
+            {
+              "quote": "Liaised between multiple business divisions to improve communications.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Addressed personnel issues and scheduling conflicts promptly.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Resolved conflicts and negotiated mutually beneficial agreements between parties.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Liaised between multiple business divisions to improve communications.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1461,
+              "end_offset": 1531,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Addressed personnel issues and scheduling conflicts promptly.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2884,
+              "end_offset": 2945,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Resolved conflicts and negotiated mutually beneficial agreements between parties.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4987,
+              "end_offset": 5068,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 15.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "The candidate demonstrates professional English proficiency throughout the CV, supported by professional and educational history in the United States.",
+          "evidence": [
+            {
+              "quote": "Educated management on successful policy implementation and enforcement actions to prevent employee legal\nentanglements.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Educated management on successful policy implementation and enforcement actions to prevent employee legal\nentanglements.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1106,
+              "end_offset": 1226,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "scored",
+      "observed_score": 82.0,
+      "coverage": 1.0,
+      "lower_bound": 82.0,
+      "upper_bound": 82.0,
+      "requires_manual_review": false
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-medium",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:20:24.087991+00:00",
+      "latency_ms": 25003.774415992666,
+      "input_tokens": 5904,
+      "output_tokens": 693,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-medium",
+      "config": {
+        "context_mode": "full",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": null,
+        "embedding": null,
+        "retrieval": null
+      },
+      "extraction": null,
+      "cv_sha256": "5f4a12678aab63194313d26f1be6e880270f853eb406bde9b3598134a2f77438",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "prompt_char_length": 8504,
+  "input_tokens": 5904,
+  "output_tokens": 693,
+  "reasoning_tokens": null,
+  "latency_s": 25.00456075000693,
+  "finished_at": "2026-11-21T19:20:49.092355+00:00"
+}

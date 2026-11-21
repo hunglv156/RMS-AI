@@ -1,0 +1,279 @@
+{
+  "sheet_id": "devops-01",
+  "jd_id": "jd-b",
+  "expected_group": "partial_A",
+  "source_pdf_sha256": "f7fff9d023f467550d221d079f97b7b8018f35ccdb2e95562ce72aaf2525426c",
+  "text_content_sha256": "9e374bbddb2d973d1bebc66154809e8b2e0436c901f5ca74dc2a8e68d3f8b29d",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-b",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV shows a background strictly in software development and DevOps engineering, with no mention of experience in recruitment, compensation and benefits, employee relations, or training.",
+          "evidence": [],
+          "missing_information": [
+            "Practical experience in recruitment, compensation and benefits, employee relations, or training"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 30.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "employment_law",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "There is no mention of knowledge or experience concerning employment law, employment contracts, or insurance benefits in the CV.",
+          "evidence": [],
+          "missing_information": [
+            "Knowledge of employment law, employment contracts, and insurance benefits"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employment_law",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_tools",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention the use of HRM software, Excel, or HR processes.",
+          "evidence": [],
+          "missing_information": [
+            "Experience using HRM software, Excel, or HR processes"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_tools",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "education",
+          "level": "unknown",
+          "confidence": 0.9,
+          "reason": "The candidate holds a Bachelor of Science in Electronics, Communication Engineering, but does not mention any graduation or degree in human resource management, law, or business administration.",
+          "evidence": [],
+          "missing_information": [
+            "Degree in human resource management, law, or business administration"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "education",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "The CV highlights excellent communication skills within a technical team setting, but there is no evidence of handling people issues or HR-related interpersonal resolution.",
+          "evidence": [
+            {
+              "quote": "Excellent communication and interpretation skills enabling effective interaction with application\nDevelopers, End Users, Project Managers and Business Analysts to review the requirement\nspecifications.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience handling people issues and conflict resolution"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Excellent communication and interpretation skills enabling effective interaction with application\nDevelopers, End Users, Project Managers and Business Analysts to review the requirement\nspecifications.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2067,
+              "end_offset": 2268,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication",
+          "weight": 15.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 6.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "english",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "The CV is written in fluent professional English and demonstrates regular professional English communication and technical documentation.",
+          "evidence": [
+            {
+              "quote": "Excellent communication and interpretation skills enabling effective interaction with application\nDevelopers, End Users, Project Managers and Business Analysts to review the requirement\nspecifications.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Excellent communication and interpretation skills enabling effective interaction with application\nDevelopers, End Users, Project Managers and Business Analysts to review the requirement\nspecifications.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2067,
+              "end_offset": 2268,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "english",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.25,
+      "lower_bound": 13.0,
+      "upper_bound": 88.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-medium",
+      "temperature": 0.0,
+      "started_at": "2026-11-21T19:17:27.389937+00:00",
+      "latency_ms": 26687.91350000538,
+      "input_tokens": 6338,
+      "output_tokens": 680,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-medium",
+      "config": {
+        "context_mode": "full",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": null,
+        "embedding": null,
+        "retrieval": null
+      },
+      "extraction": null,
+      "cv_sha256": "9e374bbddb2d973d1bebc66154809e8b2e0436c901f5ca74dc2a8e68d3f8b29d",
+      "jd_sha256": "a7fba812ccedfea71b94647db09a95333b3e60511df248fdd923666d2ece6c39"
+    }
+  },
+  "prompt_char_length": 9274,
+  "input_tokens": 6338,
+  "output_tokens": 680,
+  "reasoning_tokens": null,
+  "latency_s": 26.688508000021102,
+  "finished_at": "2026-11-21T19:17:54.078160+00:00"
+}
