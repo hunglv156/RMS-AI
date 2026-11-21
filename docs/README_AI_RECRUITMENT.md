@@ -5,9 +5,9 @@ Tài liệu nguồn duy nhất về sản phẩm và kỹ thuật của đồ á
 | | |
 |---|---|
 | **Luận văn** | *Design and Development of an AI-Assisted Recruitment Management System Using Large Language Models and Retrieval-Augmented Generation* (Master of Software Engineering, FPT School of Business and Technology) |
-| **Trạng thái** | Đang xây dựng. Repo mới có cấu hình hạ tầng và tài liệu, **chưa có code nghiệp vụ** |
-| **Quyết định kiến trúc** | Xem [`docs/adr/`](adr/) |
-| **Cập nhật** | 2026-11-07 |
+| **Trạng thái** | Đang xây dựng lại từ đầu. Repo hiện chỉ có `docs/` và `data/`, **chưa có code** |
+| **Quyết định kiến trúc** | Xem [Nhật ký quyết định](#21-nhật-ký-quyết-định) |
+| **Cập nhật** | 2026-11-21 |
 
 > **Không được coi bất kỳ nội dung nào ở đây là đã triển khai, đã đo đạc hay đã kiểm chứng.** Mọi endpoint, bảng, công thức và ngưỡng đều là thiết kế cho đến khi có code và số liệu thực tế.
 
@@ -32,15 +32,15 @@ authorization nếu liên quan.
 
 | Nhãn | Ý nghĩa | Cách xử lý |
 |---|---|---|
-| **[Chốt]** | Hướng đã thống nhất, khớp với luận văn | Muốn đổi phải có architecture decision record (ADR) |
+| **[Chốt]** | Hướng đã thống nhất, khớp với luận văn | Muốn đổi cần ghi nhận trong [nhật ký quyết định](#21-nhật-ký-quyết-định) |
 | **[Đề xuất]** | Chi tiết thiết kế hợp lý, chưa được xác nhận | Dùng làm mặc định, được phép điều chỉnh trước khi code |
 | **[Mở]** | Chưa quyết định (xem [mục 17](#17-các-quyết-định-còn-mở)) | Không tự chọn thay; hỏi hoặc ghi rõ giả định |
 
-Những gì **[Chốt]**: React + TypeScript, NestJS, FastAPI, PostgreSQL + pgvector, S3-compatible private storage, Redis + BullMQ, multi-tenant SaaS, JD do người duyệt, parsing + embedding + RAG, scoring engine deterministic tách riêng, kết quả giải thích được bằng bằng chứng, audit trail, recruiter giữ quyền quyết định. Ngoài ra là các quyết định trong [`docs/adr/`](adr/): chạy local, Qwen3 14B tự host, `bge-m3` + `bge-reranker-v2-m3`, chỉ dùng pgvector, auth tự làm, `match_value` theo rubric, phạm vi hệ thống.
+Những gì **[Chốt]**: React + TypeScript, NestJS, FastAPI, PostgreSQL + pgvector, S3-compatible private storage, Redis + BullMQ, multi-tenant SaaS, JD do người duyệt, parsing + embedding + RAG, scoring engine deterministic tách riêng, kết quả giải thích được bằng bằng chứng, audit trail, recruiter giữ quyền quyết định, Gemini API với model `gemini-3.8-flash-high`. Các quyết định kiến trúc khác được ghi trong [nhật ký quyết định](#21-nhật-ký-quyết-định).
 
 Mọi nội dung còn lại (JSON mẫu, cột và index, công thức coverage, cấu trúc thư mục, KPI, lộ trình) là **[Đề xuất]**, trừ khi được ghi khác.
 
-Hướng cũ Next.js / FastAPI-only / Chroma / Ollama từng được cân nhắc nhưng **không** còn là baseline.
+Hướng cũ Next.js / FastAPI-only / Chroma từng được cân nhắc nhưng **không** còn là baseline. Qwen3/Ollama cũng không còn là baseline; quyết định này đã được thay bằng Gemini API.
 
 ---
 
@@ -160,10 +160,10 @@ Khi cần chỉnh, hệ thống **tạo version mới**, không sửa JD hay ti�
 | Object storage | S3-compatible private bucket | CV gốc và artifact xử lý |
 | Bất đồng bộ | Redis + BullMQ | Điều phối từ NestJS, retry, trạng thái |
 | Giám sát | Structured log, metric, trace | Lỗi, chi phí, độ trễ, khả năng audit |
-| LLM | Qwen3 bản nhỏ qua Ollama (ADR 0002) | Soạn JD, trích xuất, đánh giá tiêu chí, gọi qua interface `LLMProvider` |
-| Embedding, rerank | `bge-m3`, `bge-reranker-v2-m3` (ADR 0003) | Retrieval trong phạm vi một CV |
+| LLM | Gemini API, model `gemini-3.8-flash-high` [Chốt] | Soạn JD, trích xuất, đánh giá tiêu chí, gọi qua interface `LLMProvider` |
+| Embedding, rerank | `bge-m3`, `bge-reranker-v2-m3` | Retrieval trong phạm vi một CV |
 
-PostgreSQL, Redis và object storage RustFS (ADR 0007) chạy trong Docker; Ollama và AI service chạy native trên macOS vì Docker trên Mac không dùng được GPU (ADR 0001).
+PostgreSQL, Redis và object storage RustFS chạy trong Docker; AI service chạy native/local. Chỉ các lời gọi LLM qua Gemini API rời khỏi máy.
 
 ### 3.2 Sơ đồ logic
 
@@ -177,7 +177,7 @@ flowchart LR
     W --> AI["FastAPI AI Service"]
     AI --> PG
     AI --> S3
-    AI --> LLM["Ollama: Qwen3"]
+    AI --> LLM["Gemini API: gemini-3.8-flash-high"]
     AI --> EMB["bge-m3, reranker"]
     AI --> SCR["Scoring Module"]
     API --> AUD["Audit / Observability"]
@@ -525,7 +525,7 @@ Vì vậy kho truy xuất không phải tập CV của mọi ứng viên, mà l�
   -> kết quả theo tiêu chí
 ```
 
-**Đã cài đặt ([ADR 0010](adr/0010-hybrid-retrieval.md)):** retrieval chạy trong AI service, tìm chính xác trên các chunk của đúng một CV (`app/retrieval/`). Chunk (`chunk-v1`, ~400–800 ký tự, chồng lấn ~100) và embedding `bge-m3` được tạo ở bước `index` của pipeline tài liệu và lưu ở bảng `resume_chunks` (pgvector, RLS). Mỗi tiêu chí lấy top-K chunk bằng BM25 (từ khoá tiếng Anh trong `evidence_guidance`) + cosine (nhãn và mô tả tiêu chí) gộp bằng RRF; hợp các chunk, sắp theo thứ tự CV rồi đưa vào **một** lượt chấm gộp (ADR 0008). Chọn chế độ bằng `screening_configs.context_mode` (`full` | `retrieved`, mặc định `full`), `retrieval_mode` (`lexical` | `dense` | `hybrid`) và `retrieval_k`. Reranker chưa nằm trong hệ thống, chỉ là ablation offline.
+**[Đề xuất] Thiết kế retrieval ([quyết định lịch sử 0010](#21-nhật-ký-quyết-định)):** retrieval chạy trong AI service, tìm chính xác trên các chunk của đúng một CV (dự kiến đặt trong `app/retrieval/`). Chunk (`chunk-v1`, ~400–800 ký tự, chồng lấn ~100) và embedding `bge-m3` được tạo ở bước `index` của pipeline tài liệu và lưu ở bảng `resume_chunks` (pgvector, RLS). Mỗi tiêu chí lấy top-K chunk bằng BM25 (từ khoá tiếng Anh trong `evidence_guidance`) + cosine (nhãn và mô tả tiêu chí) gộp bằng RRF; hợp các chunk, sắp theo thứ tự CV rồi đưa vào **một** lượt chấm gộp ([quyết định lịch sử 0008](#21-nhật-ký-quyết-định)). Chọn chế độ bằng `screening_configs.context_mode` (`full` | `retrieved`, mặc định `full`), `retrieval_mode` (`lexical` | `dense` | `hybrid`) và `retrieval_k`. Reranker chưa nằm trong hệ thống, chỉ là ablation offline.
 
 Hybrid là giả thuyết cần kiểm chứng, không phải kết luận: phải so với dense-only và lexical-only trên cùng tập dữ liệu ([mục 13](#13-đánh-giá-trước-khi-ra-mắt)). Gửi ít đoạn đã chọn lọc thay vì toàn bộ CV cũng là giả thuyết, dựa trên việc model dùng kém thông tin nằm giữa ngữ cảnh dài, và chỉ đúng khi Recall@k đủ cao.
 
@@ -600,7 +600,7 @@ Trọng số trong ví dụ chỉ để minh hoạ. Tiêu chí và mức quan tr
 
 `start_offset` và `end_offset` là vị trí nửa mở `[start, end)` trên text chuẩn hoá của phiên bản CV. `quote` phải khớp chính xác đoạn đó, nên không được rút gọn bằng dấu `...`.
 
-LLM chỉ chọn `level`. Code suy ra `status`, còn `match_value` lấy từ `rubric_values` trong `screening_configs` (ADR 0005). Số dưới đây là mặc định minh hoạ, chưa hiệu chuẩn.
+LLM chỉ chọn `level`. Code suy ra `status`, còn `match_value` lấy từ `rubric_values` trong `screening_configs` (xem [quyết định lịch sử 0005](#21-nhật-ký-quyết-định)). Số dưới đây là mặc định minh hoạ, chưa hiệu chuẩn.
 
 | `level` | Ý nghĩa | `status` suy ra | `match_value` | Tính vào điểm |
 |---|---|---|---:|---|
@@ -615,12 +615,12 @@ LLM chỉ chọn `level`. Code suy ra `status`, còn `match_value` lấy từ `r
 
 ### 10.4 Quy tắc đánh giá
 
-- **[Đã đổi theo [ADR 0008](adr/0008-batch-assessment.md)]** Mọi tiêu chí của một CV được chấm trong **một** lượt gọi LLM (tối đa 8 tiêu chí mỗi lượt, nhiều hơn thì chia lượt và dùng chung phần đầu prompt). Khi có retrieval, vẫn truy xuất theo từng tiêu chí nhưng hợp các đoạn đã truy xuất vào cùng một lượt.
+- **[Chốt]** Mọi tiêu chí của một CV được chấm trong **một** lượt gọi LLM (tối đa 8 tiêu chí mỗi lượt, nhiều hơn thì chia lượt và dùng chung phần đầu prompt). Khi có retrieval, vẫn truy xuất theo từng tiêu chí nhưng hợp các đoạn đã truy xuất vào cùng một lượt.
 - LLM chỉ được dùng bằng chứng đã truy xuất. Cấm suy diễn bằng cấp, ngày tháng, số năm kinh nghiệm, chứng chỉ, nhà tuyển dụng hay kỹ năng.
 - Validate schema và xác minh `quote`/offset trỏ tới text có thật.
 - Lấy nhiều đoạn khi cần; khi có mâu thuẫn hoặc độ tin cậy thấp thì chuyển `needs_review`.
 - OCR thiếu hoặc kém là sự không chắc chắn của quá trình trích xuất, không phải lỗi của ứng viên.
-- **Tối thiểu dữ liệu [Đề xuất]:** bỏ tên, ảnh, địa chỉ, ngày sinh và thông tin liên hệ khỏi ngữ cảnh gửi LLM khi đánh giá. Việc này vừa giảm PII gửi ra provider, vừa giảm cơ hội model bị ảnh hưởng bởi thuộc tính nhân khẩu học.
+- **[Đề xuất] Tối thiểu dữ liệu:** bỏ tên, ảnh, địa chỉ, ngày sinh và thông tin liên hệ khỏi ngữ cảnh gửi LLM khi đánh giá. CV text được gửi tới Google Gemini API; trước khi dùng tier cụ thể cần ghi nhận điều khoản sử dụng dữ liệu của provider áp dụng cho tier đó. Dữ liệu Kaggle được cấp phép MIT và công khai; CV thật cần được rà soát pháp lý/riêng tư riêng trước khi xử lý.
 - Lưu riêng output thô, bản đã validate, đầu vào scoring và override của con người.
 - `level` khác `unknown`, `needs_review` phải có bằng chứng hợp lệ. Trích dẫn không qua được kiểm tra thì hạ xuống `needs_review`.
 
@@ -774,7 +774,7 @@ Trước khi dùng thật cần kiểm tra thêm: bộ tiêu chí có đủ so v
 - [ ] Test ranh giới tenant cho API, query/RLS, download, search, queue, cache key.
 - [ ] Mã hoá khi truyền và khi lưu; quản lý và xoay vòng secret/key.
 - [ ] S3 private, TTL cho presigned URL, kiểm tra content-type và checksum.
-- [ ] Validate file, giới hạn trang/dung lượng, giới hạn tài nguyên OCR. Quét malware ngoài phạm vi đợt này (ADR 0006).
+- [ ] Validate file, giới hạn trang/dung lượng, giới hạn tài nguyên OCR. Quét malware ngoài phạm vi đợt này.
 - [ ] Chống prompt injection trong CV/JD, tách phần tin cậy và không tin cậy của prompt.
 - [ ] Không có CV thô hay secret trong log thường; trace an toàn với PII.
 - [ ] Rà soát và ghi lại cấu hình privacy/data-processing của model provider.
@@ -783,13 +783,17 @@ Trước khi dùng thật cần kiểm tra thêm: bộ tiêu chí có đủ so v
 - [ ] Audit cho phê duyệt, đánh giá, override, download, thay đổi membership.
 - [ ] Diễn tập backup/restore, rà soát quyền truy cập, ứng phó sự cố.
 
-### 12.2 Observability
+### 12.2 LLM API bên ngoài [Đề xuất]
+
+CV text được gửi tới Google Gemini API qua model `gemini-3.8-flash-high`. Trước khi dùng một tier, ghi nhận điều khoản provider về việc sử dụng dữ liệu áp dụng cho tier đó; không giả định chính sách chưa được xác minh. Loại bỏ tên, ảnh, địa chỉ, ngày sinh và thông tin liên hệ trước khi gửi. Kaggle là dữ liệu công khai, giấy phép MIT; CV thật cần rà soát pháp lý và quyền riêng tư riêng. Để tái lập, lưu model id, temperature và thời điểm gọi trong `pipeline_versions_json`, vì model hosted có thể thay đổi.
+
+### 12.3 Observability
 
 Theo dõi theo giai đoạn pipeline và theo tenant, không để lộ nội dung tài liệu: độ trễ request, thời gian chờ queue, thời gian parse/OCR, lỗi trích xuất, thời gian retrieval, token và chi phí LLM, lỗi provider, lỗi validate, hàng đợi review thủ công, audit event.
 
 Đặt cảnh báo cho vi phạm ranh giới tenant, số lần từ chối quyền tăng đột biến, hành vi export/download bất thường và chi phí provider bất thường.
 
-### 12.3 Responsible AI
+### 12.4 Responsible AI
 
 Hệ thống tuyển dụng có AI có thể gây loại trừ bất công khi tiêu chí, dữ liệu hoặc proxy mang định kiến. Các nghiên cứu trong luận văn cũng cho thấy chấm điểm có cấu trúc không tự động bảo đảm công bằng, và kết quả LLM có thể đổi theo ngữ cảnh prompt.
 
@@ -804,6 +808,8 @@ Hệ thống tuyển dụng có AI có thể gây loại trừ bất công khi t
 ---
 
 ## 13. Đánh giá trước khi ra mắt
+
+**[Chốt] Phạm vi ngôn ngữ:** English-first; xử lý và đánh giá CV tiếng Việt được để cho giai đoạn sau. i18n vi/en của giao diện là mối quan tâm riêng và vẫn nằm trong phạm vi. OCR mặc định dùng Tesseract `eng`; hỗ trợ `vie` để sau.
 
 **Chưa có baseline hay target nào được kiểm chứng.** Ngưỡng phải được xác định từ thực nghiệm trên tập đánh giá đại diện. **Không được bịa số liệu** trong báo cáo hay slide.
 
@@ -827,8 +833,9 @@ Hệ thống tuyển dụng có AI có thể gây loại trừ bất công khi t
 ### 13.1 Thiết kế thực nghiệm
 
 - **Baseline so sánh:** lexical-only, dense-only, hybrid với cùng tập dữ liệu và K cố định; thêm phương án gửi toàn bộ CV cho LLM để đo giá trị của bước retrieval.
-- **Dữ liệu:** CV có đồng ý sử dụng, đã ẩn danh hoặc tổng hợp; đủ layout PDF/DOCX và bản scan.
-- **Độ phủ:** tiếng Việt/Anh, thiếu thông tin, mâu thuẫn, nhiễu định dạng, chỉ dẫn prompt injection.
+- **Dữ liệu [Chốt]:** Kaggle `hadikp/resume-data-pdf` (MIT), PDF tiếng Anh dạng scan chỉ có ảnh, cần OCR; bộ test đã được thu nhỏ.
+- **Lần chạy đầu [Chốt]:** 10 CV × 2 JD từ eval set Kaggle: JD-A Python Backend Developer và JD-B HR Generalist.
+- **Độ phủ:** English-first; thiếu thông tin, mâu thuẫn, nhiễu định dạng, chỉ dẫn prompt injection. Tiếng Việt để sau.
 - **Gán nhãn:** đoạn bằng chứng đúng cho từng tiêu chí, theo hướng dẫn gán nhãn; có nhãn độc lập khi có thể.
 - **Chia dữ liệu:** development để tinh chỉnh, test để báo cáo cuối; chia theo ứng viên/tài liệu để tránh rò rỉ; ghi version model và prompt.
 - **Phân tích lỗi:** phân loại thành parsing, retrieval, JD mơ hồ, sinh không có căn cứ. Đo cả **tự tin sai**, không chỉ độ chính xác tổng.
@@ -848,16 +855,16 @@ Các giai đoạn dưới đây là luồng công việc, không phải cam kế
 - [ ] Chọn LLM, embedding, OCR provider và điều khoản privacy.
 - [ ] Xây tập gold-standard nhỏ cho bằng chứng CV/JD.
 
-**Hoàn thành khi:** có acceptance criteria rõ ràng và các ADR.
+**Hoàn thành khi:** có acceptance criteria rõ ràng và các quyết định được ghi trong mục 21.
 
 ### Phase 1 — Nền tảng SaaS (phải chạy được khi chưa có AI)
 
-- [x] Monorepo, docker-compose/dev environment (`pnpm check`; chưa có CI hosted vì chạy local).
-- [x] NestJS auth, membership, RBAC, tenant guard.
-- [x] Migration PostgreSQL, index theo tenant, test cách ly.
-- [x] Khung dashboard React, CRUD job/candidate.
-- [x] Private object storage, upload/download có authorize.
-- [x] Audit event và logging an toàn.
+- [ ] Monorepo, docker-compose/dev environment (`pnpm check`; chưa có CI hosted vì chạy local).
+- [ ] NestJS auth, membership, RBAC, tenant guard.
+- [ ] Migration PostgreSQL, index theo tenant, test cách ly.
+- [ ] Khung dashboard React, CRUD job/candidate.
+- [ ] Private object storage, upload/download có authorize.
+- [ ] Audit event và logging an toàn.
 
 **Hoàn thành khi:** chạy được tạo tổ chức → job → ứng viên → upload CV mà không rò dữ liệu chéo tenant.
 
@@ -910,7 +917,7 @@ ai-recruitment-saas/
 ├── README.md
 ├── docs/
 │   ├── architecture.md
-│   ├── adr/                         # architecture decision records
+│   ├── decisions                    # quyết định kiến trúc (ghi trong README)
 │   ├── api/openapi.yaml
 │   ├── database/erd.md
 │   ├── ai/evaluation-plan.md
@@ -975,7 +982,7 @@ Khi làm một tính năng, cần bàn giao đủ:
 4. **Bất đồng bộ:** retry, idempotency, chuyển trạng thái, huỷ và xử lý lỗi.
 5. **Truy vết AI:** version prompt/model/retrieval, validate trích dẫn, trường hợp `unknown`.
 6. **Test:** unit + integration; test âm tính chéo tenant; CV hỏng; prompt injection; xử lý trùng cùng request.
-7. **Tài liệu:** cập nhật README này, ví dụ API, ADR, giới hạn đã biết.
+7. **Tài liệu:** cập nhật README này, ví dụ API, nhật ký quyết định, giới hạn đã biết.
 
 ### Các bẫy hay gặp
 
@@ -998,11 +1005,11 @@ Khi làm một tính năng, cần bàn giao đủ:
 
 | Vấn đề | Hướng dẫn hiện tại |
 |---|---|
-| Tenant context | Đã chốt ([ADR 0009](adr/0009-tenant-context.md)): `org_id` trong access token, kiểm tra lại membership mỗi request, RLS làm lớp thứ hai |
-| LLM | Đã chọn Qwen3 14B tự host (ADR 0002); còn chờ kiểm tra tay tiếng Việt ở gate M1 |
-| Chấm tiêu chí | Chấm gộp một lượt cho mỗi CV (ADR 0008); chưa có nhãn nên chưa biết chất lượng so với chấm từng tiêu chí |
-| Retrieval | Hybrid BM25 + bge-m3 + RRF trong AI service (ADR 0010), chế độ `full`/`retrieved`; mặc định `full` cho tới khi có số liệu trên tập dev (`eval/`). K và từ khoá chỉnh trên dev, chạy test một lần |
-| OCR | Tesseract `vie+eng` là mặc định; đổi nếu chất lượng trên CV scan không đạt |
+| Tenant context | Đã chốt: `org_id` trong access token, kiểm tra lại membership mỗi request, RLS làm lớp thứ hai |
+| LLM | Đã chốt Gemini API, model `gemini-3.8-flash-high`; gọi qua `LLMProvider` |
+| Chấm tiêu chí | Chấm gộp một lượt cho mỗi CV; chưa có nhãn nên chưa biết chất lượng so với chấm từng tiêu chí |
+| Retrieval | Hybrid BM25 + bge-m3 + RRF trong AI service, chế độ `full`/`retrieved`; mặc định `full` cho tới khi có số liệu trên tập dev. K và từ khoá chỉnh trên dev, chạy test một lần |
+| OCR | Tesseract `eng` là mặc định; hỗ trợ `vie` để sau |
 | Retention | Thời gian lưu CV và kết quả |
 | Scoring | Giá trị `rubric_values`, ngưỡng `min_coverage`, chính sách must-have |
 | Quyền dữ liệu | Retention, consent/cơ sở pháp lý, log truy cập, quy trình xoá |
@@ -1030,10 +1037,10 @@ Khi làm một tính năng, cần bàn giao đủ:
 |---|---|---|
 | 1. Introduction | Đã có bản thảo | Mục 1, 2 |
 | 2. Background Study | Đã có bản thảo | Mục 9, 11, 13 |
-| 3. System Design | **Chưa viết** | Yêu cầu chức năng/phi chức năng (2), kiến trúc (3), tenant và bảo mật (4, 12), ERD (5), API (6), pipeline JD/CV (7, 8), retrieval (9), scoring (10, 11) |
-| 4. Experiments And Results | **Chưa viết** | Mục 13, số liệu từ prototype |
+| 3. System Design | Có bản nháp | Yêu cầu chức năng/phi chức năng (2), kiến trúc (3), tenant và bảo mật (4, 12), ERD (5), API (6), pipeline JD/CV (7, 8), retrieval (9), scoring (10, 11) |
+| 4. Experiments And Results | Có bản nháp; cần viết lại với kết quả từ hệ thống Gemini được dựng lại | Mục 13, số liệu từ prototype mới |
 
-Luận văn phải tách bạch **kết quả đã cài đặt và đo được** với **thiết kế đề xuất và hành vi kỳ vọng**.
+Luận văn phải tách bạch **kết quả đã đo được** với **thiết kế đề xuất và hành vi kỳ vọng**. Chương 4 cần được viết lại với kết quả từ hệ thống dựa trên Gemini sau khi dựng lại.
 
 ---
 
@@ -1074,4 +1081,28 @@ Luận văn phải tách bạch **kết quả đã cài đặt và đo được*
 
 ---
 
-Tài liệu này là ngữ cảnh kỹ thuật cho các phiên làm việc sau, không thay thế việc đọc source code hay ADR. Hãy cập nhật khi các quyết định triển khai được chốt.
+## 21. Nhật ký quyết định
+
+Các mục lịch sử dưới đây chỉ ghi lại nội dung README cũ; số thứ tự là nhãn lịch sử. Những điểm đã được thay đổi được đánh dấu superseded.
+
+| Nhãn / ngày | Quyết định | Trạng thái / ghi chú |
+|---|---|---|
+| 0001 (lịch sử) | PostgreSQL, Redis và RustFS chạy trong Docker; Ollama và AI service chạy native trên macOS do Docker trên Mac không dùng được GPU. | Qwen/Ollama đã được thay thế; hạ tầng vẫn chạy local, ngoại trừ lời gọi LLM. |
+| 0002 (lịch sử) | Qwen3 14B tự host qua Ollama. | Superseded bởi D1; không còn là baseline. |
+| 0003 (lịch sử) | `bge-m3` và `bge-reranker-v2-m3`; reranker chỉ dùng ablation offline. | Ghi theo thiết kế trong README. |
+| (lịch sử) | Chỉ dùng pgvector. | Ghi theo danh sách quyết định cũ trong README. |
+| (lịch sử) | Auth tự làm. | Ghi theo danh sách quyết định cũ trong README. |
+| 0005 (lịch sử) | `match_value` lấy từ `rubric_values` trong `screening_configs`. | Ghi theo thiết kế trong README. |
+| 0006 (lịch sử) | Quét malware ngoài phạm vi đợt này. | Giới hạn đã biết trong README. |
+| 0007 (lịch sử) | RustFS làm object storage S3-compatible. | Ghi theo thiết kế trong README. |
+| 0008 (lịch sử) | Chấm gộp các tiêu chí của một CV trong một lượt LLM (tối đa 8 tiêu chí/lượt; nhiều hơn thì chia lượt). | Ghi theo thiết kế trong README. |
+| 0009 (lịch sử) | `org_id` trong access token, kiểm tra membership mỗi request, RLS lớp thứ hai. | Ghi theo hướng dẫn trong README. |
+| 0010 (lịch sử) | Hybrid BM25 + bge-m3 + RRF trong AI service; retrieval theo CV; context mode `full`/`retrieved`, retrieval mode `lexical`/`dense`/`hybrid`; mặc định `full`; reranker chưa nằm trong hệ thống và chỉ là ablation offline. | Thiết kế, chưa triển khai. |
+| D1 — 2026-11-21 | Dùng Gemini API với model id `gemini-3.8-flash-high`; bỏ Qwen3 14B/Ollama do độ trễ local end-to-end không đạt mục tiêu 40 giây/CV. | [Chốt] API không bị giới hạn ngân sách; AI service chạy native/local, chỉ lời gọi LLM rời máy. |
+| D2 — 2026-11-21 | Chỉ dùng Kaggle `hadikp/resume-data-pdf` (MIT), PDF tiếng Anh scan dạng ảnh cần OCR; bỏ Hugging Face và giảm test set. | [Chốt] |
+| D3 — 2026-11-21 | English-first; xử lý và đánh giá CV tiếng Việt để sau. | [Chốt] i18n vi/en UI là việc riêng, vẫn giữ. |
+| D4 — 2026-11-21 | Dựng lại code từ đầu; repo hiện chỉ có `docs/` và `data/`, chưa có code. | [Chốt] Không mô tả nội dung là đã triển khai, đo hay kiểm thử. |
+| D5 — 2026-11-21 | Thay các tham chiếu ADR bằng nhật ký quyết định trong tài liệu này. | [Chốt] |
+| D6 — 2026-11-21 | Lần chạy thực nghiệm đầu dùng 10 CV × 2 JD từ Kaggle eval set: JD-A Python Backend Developer và JD-B HR Generalist. | [Chốt] |
+
+Tài liệu này là ngữ cảnh kỹ thuật cho các phiên làm việc sau; hãy cập nhật khi các quyết định triển khai được chốt.
