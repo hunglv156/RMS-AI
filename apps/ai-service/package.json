@@ -1,0 +1,8 @@
+{
+  "name": "@rms-ai/ai-service",
+  "private": true,
+  "scripts": {
+    "check": "uv run ruff check . && uv run ruff format --check . && uv run pytest -q",
+    "dev": "uv run uvicorn app.main:app --reload --host 127.0.0.1 --port 8100"
+  }
+}
