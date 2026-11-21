@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from pydantic import SecretStr
+from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 _REPO_ROOT_ENV = Path(__file__).resolve().parents[3] / ".env"
@@ -14,6 +14,8 @@ class Settings(BaseSettings):
     s3_bucket: str | None = None
     gemini_api_key: SecretStr | None = None
     gemini_model: str = "gemini-3.8-flash-high"
+    llm_timeout_s: float = Field(default=30.0, gt=0)
+    llm_max_retries: int = Field(default=2, ge=0, le=10)
     ai_service_host: str = "127.0.0.1"
     ai_service_port: int = 8100
 

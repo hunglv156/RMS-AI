@@ -35,3 +35,9 @@ The result includes normalized text, one-based pages with half-open Unicode char
 Pass `limits=ExtractionLimits(...)` to change the 25 MiB, 100-page, 25-million-pixel-per-page and 60-second-per-page OCR limits. Invalid, encrypted or oversized PDFs raise typed `ExtractionError` subclasses; failed or unavailable OCR raises `OCRError`. Isolate parsing of untrusted uploads in a worker; this library does not provide a sandbox.
 
 Run `uv run python -m app.extraction.compare_eval --data-root /path/to/data` for the opt-in evaluation comparison. It matches source PDFs by SHA-256, reports unmatched hashes, and never writes into the dataset. The generated-fixture extraction tests skip OCR integration cases when Tesseract is missing.
+
+## LLM provider
+
+Set `GEMINI_API_KEY` to use Gemini. `GEMINI_MODEL` defaults to `gemini-3.8-flash-high`; `LLM_TIMEOUT_S` (default 30 seconds) and `LLM_MAX_RETRIES` (default 2) control each attempt and retries. Pass trusted instructions and untrusted input separately to `generate_structured`, along with a Pydantic response model. Schema failures are not retried.
+
+Offline tests run with `uv run pytest -q`. To run the live, non-PII smoke test, set `GEMINI_API_KEY` and run `uv run pytest -q -m live` (or pass `--run-live`).
