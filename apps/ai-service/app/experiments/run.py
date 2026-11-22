@@ -24,7 +24,13 @@ from app.chunking import CHUNKER_VERSION
 from app.config import Settings
 from app.embeddings import BgeM3Embedder
 from app.infrastructure.llm import get_llm_provider
-from app.pipelines.screening import ScreeningConfig, load_jd, screen
+from app.pipelines.screening import (
+    EscalationRule,
+    ScreeningConfig,
+    load_jd,
+    screen,
+    screen_with_escalation,
+)
 from app.pipelines.screening.models import ScreeningVersions
 
 
@@ -95,9 +101,15 @@ def summarize(pairs):
             if value is not None:
                 groups[key][name].append(value)
     usage = [p["result"]["llm"] for p in successful]
+    escalation = [p["result"]["escalation"] for p in successful if "escalation" in p["result"]]
+    usage += [
+        e["primary_result_summary"]["llm"]
+        for e in escalation
+        if e["triggered"] and e["error"] is None
+    ]
     input_tokens = sum(m["input_tokens"] or 0 for m in usage)
     output_tokens = sum(m["output_tokens"] or 0 for m in usage)
-    return {
+    summary = {
         "interpretation": "Sanity check only, not accuracy: expected groups are not ground truth.",
         "pair_count": len(pairs),
         "succeeded": len(successful),
@@ -162,6 +174,20 @@ def summarize(pairs):
             for (group, jd), values in sorted(groups.items())
         ],
     }
+    if escalation:
+        summary["escalation"] = {
+            "escalated_pairs": sum(e["triggered"] for e in escalation),
+            "failed_pairs": sum(e["error"] is not None for e in escalation),
+            "reasons": {
+                reason: sum(reason in e["reasons"] for e in escalation)
+                for reason in ("needs_review", "coverage_band")
+            },
+            "latency_s": {
+                key: sum(e[key] for e in escalation)
+                for key in ("primary_latency_s", "escalation_latency_s", "total_latency_s")
+            },
+        }
+    return summary
 
 
 def _known_only_score(result):
@@ -223,6 +249,8 @@ def markdown(summary):
             f"{g['coverage_mean']} | {g['coverage_median']} | {g['known_only_score_mean']} | {g['known_only_score_median']} |"
         )
     lines += ["", "## Failures", "", json.dumps(summary["failures"], ensure_ascii=False), ""]
+    if "escalation" in summary:
+        lines += ["## Escalation", "", json.dumps(summary["escalation"]), ""]
     return "\n".join(lines)
 
 
@@ -282,9 +310,17 @@ async def run_experiment(
     limit=None,
     model=None,
     hedge_after_s=None,
+    escalate_model=None,
+    escalate_coverage_band=(0.7, 0.9),
+    escalation_provider=None,
 ):
     if concurrency < 1 or (limit is not None and limit < 1):
         raise ValueError("concurrency and limit must be positive")
+    escalation_rule = EscalationRule(
+        coverage_low=escalate_coverage_band[0], coverage_high=escalate_coverage_band[1]
+    )
+    if escalation_provider is not None and escalate_model is None:
+        raise ValueError("escalation_provider requires escalate_model")
     if model is not None:
         settings = settings.model_copy(update={"llm_model": model, "gemini_model": model})
     if hedge_after_s is not None:
@@ -338,6 +374,12 @@ async def run_experiment(
             "chunker_used": context_mode == "retrieved",
         },
     }
+    # Omit default escalation settings to preserve historical manifests and resume.
+    if escalate_model is not None or tuple(escalate_coverage_band) != (0.7, 0.9):
+        identity["escalation"] = {
+            "model": escalate_model,
+            "coverage_band": [escalation_rule.coverage_low, escalation_rule.coverage_high],
+        }
     manifest_path = output_dir / "manifest.json"
     if manifest_path.exists():
         manifest = json.loads(manifest_path.read_text())
@@ -372,6 +414,11 @@ async def run_experiment(
     manifest["ended_at"] = None
     write_json(manifest_path, manifest, secrets)
     provider = provider if provider is not None else get_llm_provider(settings)
+    if escalate_model is not None and escalation_provider is None:
+        escalation_settings = settings.model_copy(
+            update={"llm_model": escalate_model, "gemini_model": escalate_model}
+        )
+        escalation_provider = get_llm_provider(escalation_settings)
     semaphore = asyncio.Semaphore(concurrency)
     selected = [(cv, jd) for cv in cvs for jd in jd_ids]
     selected = selected[:limit] if limit else selected
@@ -398,13 +445,35 @@ async def run_experiment(
                         and previous["text_content_sha256"] == pair["text_content_sha256"]
                     ):
                         return previous
-                result = await screen(
+                screening = screen
+                extra = {}
+                if escalate_model is not None:
+                    screening = screen_with_escalation
+                    escalation_measured = MeasuredProvider(escalation_provider)
+                    extra = {
+                        "escalation_provider": escalation_measured,
+                        "escalation_model": escalate_model,
+                        "rule": escalation_rule,
+                    }
+                result = await screening(
                     data.decode("utf-8"),
                     loaded_jds[jd],
                     provider=measured,
                     config=config,
                     embedder=embedder,
+                    **extra,
                 )
+                if escalate_model is not None and result.escalation.triggered:
+                    for key in ("input_tokens", "output_tokens", "reasoning_tokens"):
+                        primary_value = measured.measurements[key]
+                        escalation_value = escalation_measured.measurements[key]
+                        # Preserve fallback usage and signal missing successful-call usage.
+                        if result.escalation.error is None:
+                            measured.measurements[key] = (
+                                primary_value + escalation_value
+                                if primary_value is not None and escalation_value is not None
+                                else None
+                            )
                 pair.update(status="succeeded", result=result.model_dump(mode="json"))
             except Exception as exc:  # noqa: BLE001 — isolate pair failures and redact CLI errors
                 pair.update(
@@ -450,6 +519,15 @@ def main():
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--model", help="Override the requested model for this run only")
     parser.add_argument("--hedge-after-s", type=float, help="Override LLM hedging delay in seconds")
+    parser.add_argument("--escalate-model", help="Re-screen hard cases with this model")
+    parser.add_argument(
+        "--escalate-coverage-band",
+        nargs=2,
+        type=float,
+        default=(0.7, 0.9),
+        metavar=("LOW", "HIGH"),
+        help="Escalate when LOW <= coverage < HIGH",
+    )
     parser.add_argument("--limit", type=int)
     parser.add_argument("--summarize-only", action="store_true")
     args = parser.parse_args()

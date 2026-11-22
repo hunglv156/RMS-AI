@@ -8,6 +8,7 @@ one batched call. Default scoring values are illustrative, not calibrated.
 
 import hashlib
 import json
+import time
 from dataclasses import asdict
 from pathlib import Path
 
@@ -25,6 +26,9 @@ from app.scoring.engine import CriterionResult, resolve_level, score_criteria
 
 from .models import (
     CheckedEvidence,
+    EscalationMetadata,
+    EscalationRule,
+    EscalationScreeningResult,
     JobDescription,
     ScreenedCriterion,
     ScreeningConfig,
@@ -33,7 +37,15 @@ from .models import (
     ScreeningVersions,
 )
 
-__all__ = ["JobDescription", "ScreeningConfig", "ScreeningResult", "load_jd", "screen"]
+__all__ = [
+    "EscalationRule",
+    "JobDescription",
+    "ScreeningConfig",
+    "ScreeningResult",
+    "load_jd",
+    "screen",
+    "screen_with_escalation",
+]
 
 
 def load_jd(path: str | Path) -> JobDescription:
@@ -58,7 +70,11 @@ async def screen(
     JD may be a validated model or YAML path. Quote offsets always reference the
     exact input text, including when retrieval supplies only selected passages.
     """
-    config = config or ScreeningConfig()
+    prepared = _prepare_screen(cv, jd, config or ScreeningConfig(), embedder)
+    return await _screen_prepared(provider=provider, **prepared)
+
+
+def _prepare_screen(cv, jd, config, embedder):
     jd = load_jd(jd) if isinstance(jd, (str, Path)) else jd
     extraction = None
     if isinstance(cv, Path):
@@ -95,6 +111,21 @@ async def screen(
             "chunks": [asdict(chunk) | {"text": None} for chunk in chunks],
         }
     system, user = screening_prompt(config.prompt_version, jd.model_dump(), context)
+    return {
+        "text": text,
+        "jd": jd,
+        "config": config,
+        "context": context,
+        "extraction": extraction,
+        "retrieval_versions": retrieval_versions,
+        "system": system,
+        "user": user,
+    }
+
+
+async def _screen_prepared(
+    *, text, jd, config, context, extraction, retrieval_versions, system, user, provider
+):
     response = await provider.generate_structured(
         system=system, user=user, response_model=ScreeningResponse, temperature=0.0
     )
@@ -161,3 +192,53 @@ async def screen(
             jd_sha256=_sha256(json.dumps(jd.model_dump(), sort_keys=True)),
         ),
     )
+
+
+async def screen_with_escalation(
+    cv: str | Path,
+    jd: JobDescription | str | Path,
+    *,
+    provider: LLMProvider,
+    escalation_provider: LLMProvider,
+    escalation_model: str,
+    rule: EscalationRule | None = None,
+    config: ScreeningConfig | None = None,
+    embedder: Embedder | None = None,
+) -> EscalationScreeningResult:
+    """Re-screen hard cases using identical prepared inputs, falling back on failure.
+
+    Latencies measure each complete screening pass (primary includes preparation).
+    Cancellation propagates; ordinary escalation failures preserve the primary.
+    """
+    rule = rule or EscalationRule()
+    started = time.perf_counter()
+    prepared = _prepare_screen(cv, jd, config or ScreeningConfig(), embedder)
+    primary = await _screen_prepared(provider=provider, **prepared)
+    primary_latency = time.perf_counter() - started
+    reasons = []
+    if any(c.validation.level == "needs_review" for c in primary.criteria):
+        reasons.append("needs_review")
+    if rule.coverage_low <= primary.total.coverage < rule.coverage_high:
+        reasons.append("coverage_band")
+    metadata = EscalationMetadata(
+        triggered=bool(reasons),
+        reasons=reasons,
+        primary_result_summary={
+            "total": primary.total.model_dump(),
+            "llm": primary.llm.model_dump(),
+            "levels": {c.assessment.criterion_id: c.validation.level for c in primary.criteria},
+        },
+        primary_latency_s=primary_latency,
+        escalation_model=escalation_model,
+        total_latency_s=primary_latency,
+    )
+    result = primary
+    if reasons:
+        started = time.perf_counter()
+        try:
+            result = await _screen_prepared(provider=escalation_provider, **prepared)
+        except Exception as exc:  # noqa: BLE001 — second opinions must not fail the pair
+            metadata.error = {"class": type(exc).__name__, "message": str(exc)}
+        metadata.escalation_latency_s = time.perf_counter() - started
+        metadata.total_latency_s += metadata.escalation_latency_s
+    return EscalationScreeningResult(**result.model_dump(), escalation=metadata)

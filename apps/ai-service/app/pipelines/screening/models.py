@@ -107,3 +107,30 @@ class ScreeningResult(StrictModel):
     total: ScoreOutput
     llm: LLMMetadata
     versions: ScreeningVersions
+
+
+class EscalationRule(StrictModel):
+    coverage_low: float = Field(default=0.7, ge=0, le=1)
+    coverage_high: float = Field(default=0.9, ge=0, le=1)
+
+    @model_validator(mode="after")
+    def validate_band(self):
+        if self.coverage_low >= self.coverage_high:
+            raise ValueError("Escalation coverage band requires LOW < HIGH")
+        return self
+
+
+class EscalationMetadata(StrictModel):
+    triggered: bool
+    reasons: list[Literal["needs_review", "coverage_band"]]
+    primary_result_summary: dict
+    primary_latency_s: float
+    escalation_latency_s: float = 0.0
+    total_latency_s: float
+    escalation_model: str
+    error: dict[str, str] | None = None
+
+
+class EscalationScreeningResult(ScreeningResult):
+    # Separate result type preserves legacy screen() serialization byte-for-byte.
+    escalation: EscalationMetadata

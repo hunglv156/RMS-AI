@@ -661,3 +661,121 @@ def test_resume_historical_manifest_without_hedge_setting(fixture):
     assert run(args, [])["succeeded"] == 2
     with pytest.raises(ValueError, match="Resume inputs/config/model differ"):
         run(args, [], hedge_after_s=10)
+
+
+@pytest.mark.parametrize("failure", [False, True])
+def test_escalation_results_manifest_summary_and_resume(fixture, failure):
+    args, _ = fixture
+    primary = response()
+    primary.value["criteria"][0]["evidence"] = []
+    stronger = response()
+    stronger.metadata.model = "stronger"
+    args |= {
+        "escalate_model": "stronger",
+        "escalation_provider": FakeLLMProvider(
+            [
+                LLMProviderError(f"Failure {SECRET}") if failure else stronger,
+            ]
+        ),
+        "limit": 1,
+    }
+    summary = run(args, [primary])
+    pair_path = args["output_dir"] / "pairs/cv-1__jd-a.json"
+    pair = json.loads(pair_path.read_text())
+    assert pair["status"] == "succeeded"
+    assert pair["result"]["llm"]["model"] == ("requested" if failure else "stronger")
+    metadata = pair["result"]["escalation"]
+    assert metadata["triggered"]
+    assert metadata["reasons"] == ["needs_review"]
+    assert metadata["primary_result_summary"]["total"]["coverage"] == 0
+    assert metadata["total_latency_s"] == (
+        metadata["primary_latency_s"] + metadata["escalation_latency_s"]
+    )
+    assert pair["latency_s"] >= metadata["total_latency_s"]
+    assert (metadata["error"] is not None) is failure
+    assert summary["escalation"]["escalated_pairs"] == 1
+    assert summary["escalation"]["failed_pairs"] == int(failure)
+    assert summary["escalation"]["reasons"] == {"needs_review": 1, "coverage_band": 0}
+    assert summary["escalation"]["latency_s"]["primary_latency_s"] == metadata["primary_latency_s"]
+    assert summary["tokens"]["total"] == (30 if failure else 60)
+    assert pair["input_tokens"] == (10 if failure else 20)
+    assert pair["output_tokens"] == (20 if failure else 40)
+    manifest = json.loads((args["output_dir"] / "manifest.json").read_text())
+    assert manifest["identity"]["escalation"] == {"model": "stronger", "coverage_band": [0.7, 0.9]}
+    assert "Escalation" in (args["output_dir"] / "summary.md").read_text()
+    before = {path: path.read_bytes() for path in args["output_dir"].rglob("*") if path.is_file()}
+    for changed in (
+        {"escalate_model": "different"},
+        {"escalate_model": None, "escalation_provider": None},
+        {"escalate_coverage_band": (0.6, 0.9)},
+        {"escalate_coverage_band": (0.7, 0.95)},
+    ):
+        with pytest.raises(ValueError, match="Resume inputs"):
+            run(args, [], **changed)
+        assert {path: path.read_bytes() for path in before} == before
+    assert run(args, [])["succeeded"] == 1
+    assert pair_path.read_bytes() == before[pair_path]
+    for path in before:
+        assert SECRET not in path.read_text()
+
+
+def test_default_output_has_no_escalation_fields_and_cannot_resume_enabled(fixture):
+    args, _ = fixture
+    summary = run(args, [response(), response()])
+    assert "escalation" not in summary
+    manifest = json.loads((args["output_dir"] / "manifest.json").read_text())
+    assert "escalation" not in manifest["identity"]
+    for path in (args["output_dir"] / "pairs").glob("*.json"):
+        assert "escalation" not in json.loads(path.read_text())["result"]
+    with pytest.raises(ValueError, match="Resume inputs"):
+        run(args, [], escalate_model="stronger")
+
+
+def test_escalation_cli_and_shared_hedging(fixture, monkeypatch):
+    import sys
+
+    from app.experiments.run import main
+
+    args, _ = fixture
+    seen = []
+    primary = response()
+    primary.value["criteria"][0]["evidence"] = []
+
+    def factory(settings):
+        seen.append((settings.llm_model, settings.gemini_model, settings.llm_hedge_after_s))
+        return FakeLLMProvider([primary if settings.llm_model == "fast" else response()])
+
+    def settings_factory():
+        return args["settings"]
+
+    settings_factory.model_validate = Settings.model_validate
+    monkeypatch.setattr("app.experiments.run.Settings", settings_factory)
+    monkeypatch.setattr("app.experiments.run.get_llm_provider", factory)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "run",
+            "--eval-set",
+            str(args["eval_set"]),
+            "--output-dir",
+            str(args["output_dir"]),
+            "--jd-ids",
+            "jd-a",
+            "--limit",
+            "1",
+            "--model",
+            "fast",
+            "--escalate-model",
+            "stronger",
+            "--escalate-coverage-band",
+            "0.6",
+            "0.95",
+            "--hedge-after-s",
+            "2.5",
+        ],
+    )
+    assert main() == 0
+    assert seen == [("fast", "fast", 2.5), ("stronger", "stronger", 2.5)]
+    manifest = json.loads((args["output_dir"] / "manifest.json").read_text())
+    assert manifest["identity"]["escalation"] == {"model": "stronger", "coverage_band": [0.6, 0.95]}
