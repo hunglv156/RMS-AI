@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     llm_api_key: SecretStr | None = None
     llm_model: str = "ag/gemini-3.8-flash-high"
     llm_timeout_s: float = Field(default=30.0, gt=0)
+    llm_hedge_after_s: float | None = Field(default=None, gt=0)
     llm_max_retries: int = Field(default=2, ge=0, le=10)
     ai_service_host: str = "127.0.0.1"
     ai_service_port: int = 8100

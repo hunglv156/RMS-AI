@@ -211,3 +211,238 @@ def test_live_openai_compat():
         )
     )
     assert result.value.name and result.value.count == 1
+
+
+def test_hedging_fast_response(monkeypatch):
+    provider, handler, requests = build(json_response, llm_hedge_after_s=0.02)
+    install_client(monkeypatch, handler)
+    result = run(generate(provider))
+    assert len(requests) == 1
+    assert result.metadata.hedged is False
+    assert result.metadata.winner == "primary"
+
+
+@pytest.mark.parametrize("winner", ["primary", "hedge"])
+def test_hedging_race_and_loser_cancellation(monkeypatch, winner):
+    async def scenario():
+        release_primary = asyncio.Event()
+        cancelled = []
+        requests = []
+
+        async def handler(request):
+            name = "primary" if not requests else "hedge"
+            requests.append(request)
+            try:
+                if name == "primary":
+                    await release_primary.wait()
+                elif winner == "primary":
+                    release_primary.set()
+                    await asyncio.Event().wait()
+                return json_response(request)
+            except asyncio.CancelledError:
+                cancelled.append(name)
+                raise
+
+        provider, _, _ = build(json_response, llm_hedge_after_s=0.001)
+        install_client(monkeypatch, handler)
+        result = await asyncio.wait_for(generate(provider), timeout=0.5)
+        assert len(requests) == 2
+        assert requests[0].content == requests[1].content
+        assert requests[0].headers == requests[1].headers
+        assert result.metadata.hedged is True
+        assert result.metadata.winner == winner
+        assert result.metadata.latency_ms >= 1
+        assert (result.metadata.input_tokens, result.metadata.output_tokens) == (5, 7)
+        assert cancelled == (["hedge"] if winner == "primary" else ["primary"])
+
+    run(scenario())
+
+
+@pytest.mark.parametrize("failed", ["primary", "hedge"])
+@pytest.mark.parametrize("failure", ["http", "schema", "timeout"])
+def test_hedging_waits_for_valid_success(monkeypatch, failed, failure):
+    async def scenario():
+        hedge_started = asyncio.Event()
+        failure_returned = asyncio.Event()
+        requests = []
+
+        async def handler(request):
+            name = "primary" if not requests else "hedge"
+            requests.append(request)
+            if name == "primary":
+                await hedge_started.wait()
+            else:
+                hedge_started.set()
+            if name == failed:
+                failure_returned.set()
+                if failure == "timeout":
+                    raise httpx.ReadTimeout("private timeout")
+                if failure == "http":
+                    return httpx.Response(400)
+                return httpx.Response(
+                    200,
+                    json={
+                        "choices": [{"message": {"content": "{}"}}],
+                        "usage": {"prompt_tokens": 2},
+                    },
+                )
+            await failure_returned.wait()
+            return json_response(request)
+
+        provider, _, _ = build(json_response, llm_hedge_after_s=0.001, llm_max_retries=0)
+        install_client(monkeypatch, handler)
+        result = await asyncio.wait_for(generate(provider), timeout=0.5)
+        assert result.value == Answer(name="ok", count=2)
+        assert result.metadata.winner == ("hedge" if failed == "primary" else "primary")
+        assert result.metadata.attempts == 1
+        assert result.metadata.input_tokens == (7 if failure == "schema" else 5)
+        assert result.metadata.output_tokens == 7
+        assert len(requests) == 2
+
+    run(scenario())
+
+
+def test_hedging_counts_both_reported_responses(monkeypatch):
+    async def scenario():
+        release = asyncio.Event()
+        count = 0
+
+        async def handler(request):
+            nonlocal count
+            count += 1
+            if count == 2:
+                release.set()
+            await release.wait()
+            return json_response(request)
+
+        provider, _, _ = build(json_response, llm_hedge_after_s=0.001)
+        install_client(monkeypatch, handler)
+        result = await asyncio.wait_for(generate(provider), timeout=0.5)
+        assert result.metadata.input_tokens == 10
+        assert result.metadata.output_tokens == 14
+
+    run(scenario())
+
+
+def test_hedging_caller_cancellation_cleans_up_both(monkeypatch):
+    async def scenario():
+        both_started = asyncio.Event()
+        started = []
+        cancelled = []
+
+        async def handler(request):
+            name = len(started)
+            started.append(name)
+            if len(started) == 2:
+                both_started.set()
+            try:
+                await asyncio.Event().wait()
+            except asyncio.CancelledError:
+                cancelled.append(name)
+                raise
+
+        provider, _, _ = build(json_response, llm_hedge_after_s=0.001)
+        install_client(monkeypatch, handler)
+        task = asyncio.create_task(generate(provider))
+        await asyncio.wait_for(both_started.wait(), timeout=0.5)
+        task.cancel()
+        with pytest.raises(asyncio.CancelledError):
+            await task
+        assert sorted(cancelled) == [0, 1]
+
+    run(scenario())
+
+
+def test_default_path_never_schedules_hedge(monkeypatch):
+    provider, handler, requests = build(json_response, llm_hedge_after_s=None)
+    install_client(monkeypatch, handler)
+    with patch.object(provider, "_hedged_attempt", side_effect=AssertionError("hedging disabled")):
+        result = run(generate(provider))
+    assert len(requests) == 1
+    assert result.metadata.hedged is None
+    assert result.metadata.winner is None
+
+
+@pytest.mark.parametrize("delay", [0, -1])
+def test_hedging_rejects_nonpositive_delay(delay):
+    with pytest.raises(ValueError):
+        Settings(_env_file=None, llm_hedge_after_s=delay)
+
+
+def test_hedging_setting_from_environment(monkeypatch):
+    monkeypatch.setenv("LLM_HEDGE_AFTER_S", "12.5")
+    assert Settings(_env_file=None).llm_hedge_after_s == 12.5
+
+
+@pytest.mark.parametrize(
+    "status,expected", [(503, LLMProviderError), (429, LLMRateLimitError), (400, LLMProviderError)]
+)
+def test_hedging_both_fail_preserves_retry_policy(monkeypatch, status, expected):
+    async def scenario():
+        releases = [asyncio.Event(), asyncio.Event()]
+        requests = []
+
+        async def handler(request):
+            index = len(requests)
+            requests.append(request)
+            release = releases[index // 2]
+            if index % 2:
+                release.set()
+            await release.wait()
+            return httpx.Response(status)
+
+        provider, _, _ = build(json_response, llm_hedge_after_s=0.001, llm_max_retries=1)
+        install_client(monkeypatch, handler)
+        with (
+            patch("app.infrastructure.llm.openai_compat._backoff", autospec=True),
+            pytest.raises(expected),
+        ):
+            await asyncio.wait_for(generate(provider), timeout=0.5)
+        assert len(requests) == (2 if status == 400 else 4)
+
+    run(scenario())
+
+
+def test_hedging_schema_retry_retains_reported_usage(monkeypatch):
+    async def scenario():
+        release = asyncio.Event()
+        requests = []
+
+        async def handler(request):
+            index = len(requests)
+            requests.append(request)
+            if index >= 2:
+                return json_response(request)
+            if index == 1:
+                release.set()
+            await release.wait()
+            return httpx.Response(
+                200,
+                json={"choices": [{"message": {"content": "{}"}}], "usage": {"prompt_tokens": 2}},
+            )
+
+        provider, _, _ = build(json_response, llm_hedge_after_s=0.001, llm_max_retries=1)
+        install_client(monkeypatch, handler)
+        with patch("app.infrastructure.llm.openai_compat._backoff", autospec=True):
+            result = await asyncio.wait_for(generate(provider), timeout=0.5)
+        assert len(requests) == 3
+        assert result.metadata.attempts == 2
+        assert result.metadata.hedged is True
+        assert result.metadata.winner == "primary"
+        assert result.metadata.input_tokens == 9
+        assert result.metadata.output_tokens == 7
+
+    run(scenario())
+
+
+def test_hedging_reports_unknown_usage_as_none(monkeypatch):
+    provider, handler, _ = build(
+        lambda request: httpx.Response(
+            200, json={"choices": [{"message": {"content": '{"name":"ok","count":2}'}}]}
+        ),
+        llm_hedge_after_s=0.01,
+    )
+    install_client(monkeypatch, handler)
+    result = run(generate(provider))
+    assert result.metadata.input_tokens is None
+    assert result.metadata.output_tokens is None

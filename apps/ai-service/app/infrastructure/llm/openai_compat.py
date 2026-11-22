@@ -31,6 +31,7 @@ class OpenAICompatProvider:
         self._model = settings.llm_model
         self._timeout = settings.llm_timeout_s
         self._max_retries = settings.llm_max_retries
+        self._hedge_after = settings.llm_hedge_after_s
         if not self._base_url or settings.llm_api_key is None:
             raise LLMProviderError("OpenAI-compatible gateway URL and API key are required")
         self._api_key = settings.llm_api_key.get_secret_value()
@@ -58,29 +59,47 @@ class OpenAICompatProvider:
         if max_output_tokens is not None:
             body["max_tokens"] = max_output_tokens
 
+        reported_usage: list[dict] = []
+        hedge_state = {"hedged": False, "winner": "primary"}
         for attempt in range(1, self._max_retries + 2):
             try:
-                async with httpx.AsyncClient(timeout=self._timeout) as client:
-                    response = await client.post(
-                        f"{self._base_url}/chat/completions",
-                        headers={"Authorization": f"Bearer {self._api_key}"},
-                        json=body,
-                    )
-                if response.status_code == 429:
-                    raise LLMRateLimitError("LLM gateway rate limit exceeded")
-                if response.status_code >= 500:
-                    raise _TransientProviderError
-                response.raise_for_status()
-                raw_text, finish_reason, usage, actual_model = _read_response(response)
-                match = _FENCE.match(raw_text)
-                validated_text = match.group(1) if match else raw_text
-                try:
-                    value = response_model.model_validate_json(validated_text)
-                except (ValidationError, ValueError, TypeError):
-                    if attempt <= self._max_retries:
-                        await _backoff(attempt)
-                        continue
-                    raise LLMSchemaError("LLM response failed schema validation") from None
+                if self._hedge_after is None:
+                    async with httpx.AsyncClient(timeout=self._timeout) as client:
+                        response = await client.post(
+                            f"{self._base_url}/chat/completions",
+                            headers={"Authorization": f"Bearer {self._api_key}"},
+                            json=body,
+                        )
+                    if response.status_code == 429:
+                        raise LLMRateLimitError("LLM gateway rate limit exceeded")
+                    if response.status_code >= 500:
+                        raise _TransientProviderError
+                    response.raise_for_status()
+                    raw_text, finish_reason, usage, actual_model = _read_response(response)
+                    match = _FENCE.match(raw_text)
+                    validated_text = match.group(1) if match else raw_text
+                    try:
+                        value = response_model.model_validate_json(validated_text)
+                    except (ValidationError, ValueError, TypeError):
+                        if attempt <= self._max_retries:
+                            await _backoff(attempt)
+                            continue
+                        raise LLMSchemaError("LLM response failed schema validation") from None
+                else:
+                    try:
+                        value, raw_text, finish_reason, actual_model = await self._hedged_attempt(
+                            body, response_model, reported_usage, hedge_state
+                        )
+                    except LLMSchemaError:
+                        if attempt <= self._max_retries:
+                            await _backoff(attempt)
+                            continue
+                        raise
+                    usage = {
+                        key: sum(values) if values else None
+                        for key in ("prompt_tokens", "completion_tokens")
+                        for values in [[u[key] for u in reported_usage if u.get(key) is not None]]
+                    }
                 metadata = LLMMetadata(
                     provider="openai_compat",
                     model=self._model,
@@ -92,6 +111,8 @@ class OpenAICompatProvider:
                     output_tokens=usage.get("completion_tokens"),
                     attempts=attempt,
                     finish_reason=finish_reason,
+                    hedged=hedge_state["hedged"] if self._hedge_after is not None else None,
+                    winner=hedge_state["winner"] if self._hedge_after is not None else None,
                 )
                 logger.info(
                     "LLM call model=%s latency_ms=%.2f input_tokens=%s output_tokens=%s attempts=%s",
@@ -125,6 +146,66 @@ class OpenAICompatProvider:
                 raise error from None
             await _backoff(attempt)
         raise AssertionError("unreachable")
+
+    async def _hedged_attempt(self, body, response_model, reported_usage, state):
+        """Race valid responses; retain the primary error when both requests fail.
+
+        Each request keeps the configured HTTP timeout. Hedging reduces tail
+        latency probabilistically; it does not impose a total call deadline.
+        """
+        async with httpx.AsyncClient(timeout=self._timeout) as client:
+            successes = []
+
+            async def request(name):
+                response = await client.post(
+                    f"{self._base_url}/chat/completions",
+                    headers={"Authorization": f"Bearer {self._api_key}"},
+                    json=body,
+                )
+                if response.status_code == 429:
+                    raise LLMRateLimitError("LLM gateway rate limit exceeded")
+                if response.status_code >= 500:
+                    raise _TransientProviderError
+                response.raise_for_status()
+                raw_text, finish_reason, usage, actual_model = _read_response(response)
+                reported_usage.append(usage)
+                match = _FENCE.match(raw_text)
+                try:
+                    value = response_model.model_validate_json(
+                        match.group(1) if match else raw_text
+                    )
+                except (ValidationError, ValueError, TypeError):
+                    raise LLMSchemaError("LLM response failed schema validation") from None
+                successes.append(name)
+                return value, raw_text, finish_reason, actual_model
+
+            primary = asyncio.create_task(request("primary"))
+            tasks = {primary: "primary"}
+            try:
+                done, _ = await asyncio.wait(tasks, timeout=self._hedge_after)
+                if done:
+                    state["winner"] = "primary"
+                    return primary.result()
+                state["hedged"] = True
+                tasks[asyncio.create_task(request("hedge"))] = "hedge"
+                pending = set(tasks)
+                errors = {}
+                while pending:
+                    done, pending = await asyncio.wait(pending, return_when=asyncio.FIRST_COMPLETED)
+                    if successes:
+                        state["winner"] = successes[0]
+                        winner = next(task for task, name in tasks.items() if name == successes[0])
+                        return winner.result()
+                    for task in tasks:
+                        if task not in done:
+                            continue
+                        errors[task] = task.exception()
+                raise errors[primary]
+            finally:
+                for task in tasks:
+                    if not task.done():
+                        task.cancel()
+                await asyncio.gather(*tasks, return_exceptions=True)
 
 
 class _TransientProviderError(Exception):

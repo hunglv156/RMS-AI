@@ -281,11 +281,17 @@ async def run_experiment(
     concurrency=4,
     limit=None,
     model=None,
+    hedge_after_s=None,
 ):
     if concurrency < 1 or (limit is not None and limit < 1):
         raise ValueError("concurrency and limit must be positive")
     if model is not None:
         settings = settings.model_copy(update={"llm_model": model, "gemini_model": model})
+    if hedge_after_s is not None:
+        # Validate overrides through Settings; model_copy does not validate updates.
+        settings = Settings.model_validate(
+            settings.model_dump() | {"llm_hedge_after_s": hedge_after_s}
+        )
     eval_set, output_dir = Path(eval_set).resolve(), Path(output_dir).resolve()
     config = ScreeningConfig(
         context_mode=context_mode,
@@ -324,6 +330,7 @@ async def run_experiment(
             if settings.llm_base_url and settings.llm_api_key is not None
             else settings.gemini_model
         ),
+        "hedge_after_s": settings.llm_hedge_after_s,
         "versions": {
             "pipeline": ScreeningVersions.model_fields["pipeline"].default,
             "prompt": config.prompt_version,
@@ -334,6 +341,8 @@ async def run_experiment(
     manifest_path = output_dir / "manifest.json"
     if manifest_path.exists():
         manifest = json.loads(manifest_path.read_text())
+        # Historical manifests predate hedging and implicitly used no hedge.
+        manifest["identity"].setdefault("hedge_after_s", None)
         if manifest["identity"] != redact(identity, secrets):
             raise ValueError("Resume inputs/config/model differ; use a new output directory")
     else:
@@ -355,6 +364,7 @@ async def run_experiment(
             "provider_config": {
                 "timeout_s": settings.llm_timeout_s,
                 "max_retries": settings.llm_max_retries,
+                "hedge_after_s": settings.llm_hedge_after_s,
                 "temperature": 0.0,
             },
         }
@@ -439,6 +449,7 @@ def main():
     parser.add_argument("--concurrency", type=int, default=4)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--model", help="Override the requested model for this run only")
+    parser.add_argument("--hedge-after-s", type=float, help="Override LLM hedging delay in seconds")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--summarize-only", action="store_true")
     args = parser.parse_args()

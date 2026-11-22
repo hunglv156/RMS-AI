@@ -588,3 +588,76 @@ def test_comparison_context_reduction_and_missing_measurements(fixture, tmp_path
     assert context_length(pair, tmp_path / "runs/historical", manifest) == (None, None)
     manifest["identity"]["config"]["context_mode"] = "retrieved"
     assert context_length(pair, tmp_path / "runs/historical", manifest) == (None, None)
+
+
+def test_hedge_override_is_local_recorded_and_resume_checked(fixture, monkeypatch):
+    args, _ = fixture
+    args["settings"] = args["settings"].model_copy(update={"llm_hedge_after_s": 20.0})
+    seen = []
+
+    def factory(settings):
+        seen.append(settings.llm_hedge_after_s)
+        return FakeLLMProvider([response(), response()])
+
+    monkeypatch.setattr("app.experiments.run.get_llm_provider", factory)
+    asyncio.run(run_experiment(**args, hedge_after_s=10.0))
+    assert seen == [10.0]
+    assert args["settings"].llm_hedge_after_s == 20.0
+    manifest = json.loads((args["output_dir"] / "manifest.json").read_text())
+    assert manifest["identity"]["hedge_after_s"] == 10.0
+    assert manifest["invocations"][0]["provider_config"]["hedge_after_s"] == 10.0
+    asyncio.run(run_experiment(**args, hedge_after_s=10.0))
+    for override in (None, 11.0):
+        with pytest.raises(ValueError, match="Resume inputs/config/model differ"):
+            asyncio.run(run_experiment(**args, hedge_after_s=override))
+
+
+def test_hedge_setting_recorded_without_override(fixture):
+    args, _ = fixture
+    args["settings"] = args["settings"].model_copy(update={"llm_hedge_after_s": 15.0})
+    run(args, [response(), response()])
+    manifest = json.loads((args["output_dir"] / "manifest.json").read_text())
+    assert manifest["identity"]["hedge_after_s"] == 15.0
+
+
+def test_hedge_cli_override(fixture, monkeypatch):
+    import sys
+
+    from app.experiments.run import main
+
+    args, _ = fixture
+    monkeypatch.setattr("app.experiments.run.Settings", lambda: args["settings"])
+    seen = []
+
+    async def experiment(**kwargs):
+        seen.append(kwargs["hedge_after_s"])
+        return {"succeeded": 0, "pair_count": 0, "failures": []}
+
+    monkeypatch.setattr("app.experiments.run.run_experiment", experiment)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "run",
+            "--eval-set",
+            str(args["eval_set"]),
+            "--output-dir",
+            str(args["output_dir"]),
+            "--hedge-after-s",
+            "10.5",
+        ],
+    )
+    assert main() == 0
+    assert seen == [10.5]
+
+
+def test_resume_historical_manifest_without_hedge_setting(fixture):
+    args, _ = fixture
+    run(args, [response(), response()])
+    path = args["output_dir"] / "manifest.json"
+    manifest = json.loads(path.read_text())
+    del manifest["identity"]["hedge_after_s"]
+    path.write_text(json.dumps(manifest))
+    assert run(args, [])["succeeded"] == 2
+    with pytest.raises(ValueError, match="Resume inputs/config/model differ"):
+        run(args, [], hedge_after_s=10)

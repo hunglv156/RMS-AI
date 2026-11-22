@@ -1,4 +1,4 @@
-from typing import Protocol, TypeVar, runtime_checkable
+from typing import Literal, Protocol, TypeVar, runtime_checkable
 
 from pydantic import BaseModel
 
@@ -16,6 +16,10 @@ class LLMMetadata(BaseModel):
     attempts: int
     finish_reason: str | None = None
     response_model: str | None = None
+    # Hedged calls sum only reported usage, including invalid responses and retries.
+    # Cancelled requests may still be billed by the gateway without reporting usage.
+    hedged: bool | None = None
+    winner: Literal["primary", "hedge"] | None = None
 
 
 class LLMResult[T: BaseModel](BaseModel):
