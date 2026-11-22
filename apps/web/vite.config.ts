@@ -4,9 +4,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api/ai": {
-        target: "http://127.0.0.1:8100",
-        rewrite: (path) => path.replace(/^\/api\/ai/, ""),
+      "/api": {
+        target: "http://127.0.0.1:3100",
       },
     },
   },

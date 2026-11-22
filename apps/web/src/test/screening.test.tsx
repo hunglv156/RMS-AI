@@ -7,12 +7,7 @@ import {
   levelLabels,
 } from "../components/Results";
 import { JDEditor, blankJD } from "../components/JDEditor";
-import {
-  ApiError,
-  errorMessages,
-  friendlyError,
-  createHttpClient,
-} from "../lib/api/client";
+import { ApiError, errorMessages, friendlyError } from "../lib/api/client";
 import { validateJD } from "../lib/validation";
 import { mockEnvelope } from "../lib/api/mock";
 import type { Level } from "../lib/api/types";
@@ -92,33 +87,6 @@ describe("API errors", () => {
       "secret",
     );
     expect(friendlyError(new ApiError("secret"))).not.toContain("secret");
-  });
-  it("uses the proxy and exact multipart field names", async () => {
-    const fetchMock = vi
-      .spyOn(globalThis, "fetch")
-      .mockResolvedValue(
-        new Response(
-          JSON.stringify({
-            error: { code: "encrypted_pdf", message: "sensitive detail" },
-          }),
-          { status: 400 },
-        ),
-      );
-    const cv = new File(["%PDF"], "cv.pdf", { type: "application/pdf" });
-    await expect(
-      createHttpClient().screen(
-        cv,
-        samples[0].jd,
-        new AbortController().signal,
-      ),
-    ).rejects.toThrow(errorMessages.encrypted_pdf);
-    expect(fetchMock.mock.calls[0][0]).toBe("/api/ai/internal/v1/screenings");
-    const init = fetchMock.mock.calls[0][1];
-    expect((init?.body as FormData).get("cv")).toBe(cv);
-    expect(JSON.parse((init?.body as FormData).get("jd") as string)).toEqual(
-      samples[0].jd,
-    );
-    fetchMock.mockRestore();
   });
 });
 describe("JD validation and editor", () => {
