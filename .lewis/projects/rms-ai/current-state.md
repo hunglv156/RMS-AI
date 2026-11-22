@@ -39,3 +39,9 @@ health: unknown
 - `main` `b300840` (not pushed). Real JDs jd-py-real/jd-hr-real; silver labels raw (claude, gpt) + adjudicated final (GUIDELINES v1.1).
 - Accuracy vs final silver labels (`accuracy-real-jds-20261122T075133Z`), high/medium lexical c1: exact acc .67/.68, κ .52/.53, collapsed κ .66/.62, evidence F1 .93/.90, fit acc .90/.90. Main errors: absent→unknown (system almost never outputs absent), adequate→partial.
 - Latency on real JDs: high p50 61 s, medium 43 s (shared gateway; not comparable with earlier runs).
+- Held-out silver labels (v1+v1.1 from the start): exact κ 0.81, collapsed κ 0.93, overall_fit 20/20 — v1.1 resolved the dev-set ambiguity.
+- Bake-off (dev, v2, lexical, c1): flash-low p50 7 s / p95 26.5 s / max 54 s, 19/20 ≤ 40 s, exact κ 0.64, collapsed κ 0.71, evidence F1 0.84, fit 0.95 — best and fastest; argon-low highest collapsed κ 0.73 but p95 187 s.
+
+## Final held-out result (2026-11-22, `d63f821`)
+
+- Selected config flash-low + screening-v2 + lexical k5 + hedge 20 s: p50 8.2 s / p95 33.6 s / max 41.1 s (19/20 ≤ 40 s); exact κ 0.59, collapsed κ 0.70 (strict 0.75), evidence F1 0.85, fit 20/20, absent recall 0.95. Baseline flash-high v1: p95 176 s, κ 0.46/0.59, fit 0.95. Hedges 8 fired, 0 won. Gateway reports same model name for low and high.

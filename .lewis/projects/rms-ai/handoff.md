@@ -8,7 +8,7 @@ to: next session
 
 ## Resume From
 
-- M4 (real JDs, silver labels, accuracy) complete on local `main` `b300840`. Orca Run `run_bcb6ee23b3af`. Awaiting Dylan: screening-v2 prompt (absent rule) with held-out check?, production model choice, push.
+- M5 final held-out test done on local `main` `d63f821` (9 commits ahead of origin). Next: thesis .docx update (D28), push when Dylan confirms.
 
 ## Next Actions
 

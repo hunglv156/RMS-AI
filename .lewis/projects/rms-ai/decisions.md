@@ -42,3 +42,9 @@ Statuses: `proposed`, `accepted`, `superseded`, or `rejected`.
 | D26 | 2026-11-22 | accepted | Production config must be both fast and good per CV (each CV ≤ 40 s, not just p50) — select by model/config bake-off on the dev set | Dylan ("vừa nhanh vừa ngon, mỗi CV") | D1 (flash-high) pending outcome |
 | D27 | 2026-11-22 | accepted | Push main to origin | Dylan ("Oke") | — |
 | D28 | 2026-11-22 | accepted | Thesis .docx updated at the end, after final results | Dylan | — |
+| D29 | 2026-11-22 | accepted | Held-out final labels keep dev-set scope conventions (15 agreed labels overturned for consistency); conventions documented as GUIDELINES v1.2 after the fact; final test also reports a strict agreement-retention sensitivity variant | Lewis under D22 | — |
+| D30 | 2026-11-22 | accepted | Production/final-test config: ag/gemini-3.8-flash-low + screening-v2 + retrieved lexical k5, plus hedged requests (T5.6) to cap tail latency; selected on dev by D26 rule | Lewis under D26 | D1 (flash-high) |
+| D31 | 2026-11-22 | accepted | Add escalation safety net: re-screen pairs with any needs_review or coverage in [0.7, 0.9) using a stronger model; escalation model chosen on dev between flash-high (Dylan's suggestion) and gemini-4-argon-medium; then one held-out run | Dylan (chose safety net) + Lewis (band fixed a priori, compare two escalation models) | extends D30 |
+| D32 | 2026-11-23 | accepted | Production config stays flash-low + screening-v2 + lexical k5 + hedge 20 s WITHOUT escalation; escalation (argon-medium) reported as supplementary analysis only | Dylan ("oke giữ flash-low") | D31 escalation as default |
+| D33 | 2026-11-23 | accepted | Push main to origin (this push) | Dylan ("push đi") | — |
+| D34 | 2026-11-23 | accepted | Thesis update not started yet | Dylan ("chưa") | — |
