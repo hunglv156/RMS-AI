@@ -1,0 +1,35 @@
+cv_sheet_id: hr-h1
+text_sha256: bd29635ff765a7ceeb31a29754c3cc69bfa208dc125e0209a396b3808133402a
+jd_id: jd-hr-real
+labeler: null
+labeled_at: null
+overall_fit: null
+criteria:
+  hr_experience:
+    level: null
+    evidence: []
+    note: ''
+  talent_acquisition:
+    level: null
+    evidence: []
+    note: ''
+  employee_relations_compliance:
+    level: null
+    evidence: []
+    note: ''
+  hris_office_tools:
+    level: null
+    evidence: []
+    note: ''
+  interpersonal_communication:
+    level: null
+    evidence: []
+    note: ''
+  education_hr_business:
+    level: null
+    evidence: []
+    note: ''
+  hr_programs:
+    level: null
+    evidence: []
+    note: ''

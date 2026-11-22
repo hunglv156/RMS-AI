@@ -1,0 +1,35 @@
+cv_sheet_id: devops-h1
+text_sha256: 7951c1d4026e04fd8b3fae1d90c2f2bcf4d11516599d4a7cc9187c80fa734b3a
+jd_id: jd-py-real
+labeler: null
+labeled_at: null
+overall_fit: null
+criteria:
+  python_frameworks:
+    level: null
+    evidence: []
+    note: ''
+  postgresql_database:
+    level: null
+    evidence: []
+    note: ''
+  cloud_docker_linux:
+    level: null
+    evidence: []
+    note: ''
+  backend_experience:
+    level: null
+    evidence: []
+    note: ''
+  software_architecture:
+    level: null
+    evidence: []
+    note: ''
+  communication_collaboration:
+    level: null
+    evidence: []
+    note: ''
+  education_cs:
+    level: null
+    evidence: []
+    note: ''

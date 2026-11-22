@@ -1,0 +1,35 @@
+cv_sheet_id: python_dev-h2
+text_sha256: f57c4afb2f55df979951bdd2308b2caecf0714799fdbd7f2ddb4938babeedc57
+jd_id: jd-py-real
+labeler: null
+labeled_at: null
+overall_fit: null
+criteria:
+  python_frameworks:
+    level: null
+    evidence: []
+    note: ''
+  postgresql_database:
+    level: null
+    evidence: []
+    note: ''
+  cloud_docker_linux:
+    level: null
+    evidence: []
+    note: ''
+  backend_experience:
+    level: null
+    evidence: []
+    note: ''
+  software_architecture:
+    level: null
+    evidence: []
+    note: ''
+  communication_collaboration:
+    level: null
+    evidence: []
+    note: ''
+  education_cs:
+    level: null
+    evidence: []
+    note: ''

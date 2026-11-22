@@ -1,0 +1,35 @@
+cv_sheet_id: finance-h1
+text_sha256: 0bbcf1fa7e05a8101d0a7452a63a3524a4ab35a6f428caa872afa5796726991a
+jd_id: jd-hr-real
+labeler: null
+labeled_at: null
+overall_fit: null
+criteria:
+  hr_experience:
+    level: null
+    evidence: []
+    note: ''
+  talent_acquisition:
+    level: null
+    evidence: []
+    note: ''
+  employee_relations_compliance:
+    level: null
+    evidence: []
+    note: ''
+  hris_office_tools:
+    level: null
+    evidence: []
+    note: ''
+  interpersonal_communication:
+    level: null
+    evidence: []
+    note: ''
+  education_hr_business:
+    level: null
+    evidence: []
+    note: ''
+  hr_programs:
+    level: null
+    evidence: []
+    note: ''

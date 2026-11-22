@@ -1,0 +1,35 @@
+cv_sheet_id: python_dev-h3
+text_sha256: 1bc8e39e3db3e015029b1b927ca55b21a0153f6613e2202cea404535667a169e
+jd_id: jd-hr-real
+labeler: null
+labeled_at: null
+overall_fit: null
+criteria:
+  hr_experience:
+    level: null
+    evidence: []
+    note: ''
+  talent_acquisition:
+    level: null
+    evidence: []
+    note: ''
+  employee_relations_compliance:
+    level: null
+    evidence: []
+    note: ''
+  hris_office_tools:
+    level: null
+    evidence: []
+    note: ''
+  interpersonal_communication:
+    level: null
+    evidence: []
+    note: ''
+  education_hr_business:
+    level: null
+    evidence: []
+    note: ''
+  hr_programs:
+    level: null
+    evidence: []
+    note: ''

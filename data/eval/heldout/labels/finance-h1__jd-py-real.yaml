@@ -1,0 +1,35 @@
+cv_sheet_id: finance-h1
+text_sha256: 0bbcf1fa7e05a8101d0a7452a63a3524a4ab35a6f428caa872afa5796726991a
+jd_id: jd-py-real
+labeler: null
+labeled_at: null
+overall_fit: null
+criteria:
+  python_frameworks:
+    level: null
+    evidence: []
+    note: ''
+  postgresql_database:
+    level: null
+    evidence: []
+    note: ''
+  cloud_docker_linux:
+    level: null
+    evidence: []
+    note: ''
+  backend_experience:
+    level: null
+    evidence: []
+    note: ''
+  software_architecture:
+    level: null
+    evidence: []
+    note: ''
+  communication_collaboration:
+    level: null
+    evidence: []
+    note: ''
+  education_cs:
+    level: null
+    evidence: []
+    note: ''

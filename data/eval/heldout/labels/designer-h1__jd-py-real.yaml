@@ -1,0 +1,35 @@
+cv_sheet_id: designer-h1
+text_sha256: c200f519e89b0de2b47a0c0d3bdc728dae59233f99b60d499e18d9df7444ce3a
+jd_id: jd-py-real
+labeler: null
+labeled_at: null
+overall_fit: null
+criteria:
+  python_frameworks:
+    level: null
+    evidence: []
+    note: ''
+  postgresql_database:
+    level: null
+    evidence: []
+    note: ''
+  cloud_docker_linux:
+    level: null
+    evidence: []
+    note: ''
+  backend_experience:
+    level: null
+    evidence: []
+    note: ''
+  software_architecture:
+    level: null
+    evidence: []
+    note: ''
+  communication_collaboration:
+    level: null
+    evidence: []
+    note: ''
+  education_cs:
+    level: null
+    evidence: []
+    note: ''
