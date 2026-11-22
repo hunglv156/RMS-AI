@@ -1,0 +1,143 @@
+cv_sheet_id: hr-01
+text_sha256: 21367b09bd5a2ce2495853eb9251a7fb7fd6586624e12d5cfa9e9bd32b5932b9
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: good
+criteria:
+  hr_experience:
+    level: adequate
+    evidence:
+    - quote: General Electric - Human Resources Specialist
+      start_offset: 2955
+      end_offset: 3000
+    - quote: Tampa, FL + 10/2016 - Current
+      start_offset: 3001
+      end_offset: 3030
+    - quote: professional with 6 years of comprehensive experience retaining employee relations.
+      start_offset: 892
+      end_offset: 975
+    - quote: Provided essential support to address individual HR needs of employees.
+      start_offset: 3034
+      end_offset: 3105
+    - quote: Developed and documented HR procedures to refine processes and drive compliance with policies.
+      start_offset: 3378
+      end_offset: 3472
+    note: '[adjudicated] Annotators split adequate/strong. Dated HR Specialist role since 10/2016 and
+      a stated 6 years meet the 3+ year requirement with broad HR duties, but v1.1 rule 4: no concrete
+      scope or results (scale, numbers of employees, ownership) and only one HR role (progression not
+      shown), so adequate. Summary contains unfilled template placeholders.'
+  talent_acquisition:
+    level: adequate
+    evidence:
+    - quote: 'Analyzed job descriptions and determined recruitment plan, timeline and advertising efforts
+        to fill
+
+        positions.'
+      start_offset: 3264
+      end_offset: 3374
+    - quote: 'Consulted with internal clients to evaluate labor trends and competitor talent insights
+        for pointed
+
+        candidate selection.'
+      start_offset: 3927
+      end_offset: 4047
+    - quote: Researched and analyzed recruitment data to provide detailed statistical reports.
+      start_offset: 3109
+      end_offset: 3190
+    - quote: Interviewed applicants, recommended individuals for hiring and evaluated staff performance.
+      start_offset: 4667
+      end_offset: 4758
+    note: '[agree] Recruitment planning to fill positions and consulting internal clients on candidate
+      selection; number of open positions not stated. Truncated duplicate quotes merged into full lines.'
+  employee_relations_compliance:
+    level: adequate
+    evidence:
+    - quote: Established and generated various reports to verify HR compliance.
+      start_offset: 3194
+      end_offset: 3260
+    - quote: Developed and documented HR procedures to refine processes and drive compliance with policies.
+      start_offset: 3378
+      end_offset: 3472
+    - quote: Well-versed in employment regulations and records management
+      start_offset: 1571
+      end_offset: 1631
+    - quote: 'Identified and corrected performance and personnel issues to reduce impact to business
+
+        operations.'
+      start_offset: 4463
+      end_offset: 4561
+    - quote: 'Responded to employee concerns or complaints by coordinating with human resources team to
+
+        solve issues.'
+      start_offset: 4983
+      end_offset: 5086
+    note: '[adjudicated] Annotators split adequate/strong. HR compliance reporting, policy procedures,
+      performance/personnel issues and employee complaints are clearly evidenced, but v1.1 rule 4: no
+      concrete scope or results, so adequate.'
+  hris_office_tools:
+    level: adequate
+    evidence:
+    - quote: HRIS Applications Proficient
+      start_offset: 141
+      end_offset: 169
+    - quote: Microsoft Office
+      start_offset: 275
+      end_offset: 291
+    - quote: Spreadsheet Development
+      start_offset: 192
+      end_offset: 215
+    note: '[agree] HRIS and Microsoft Office proficiency claimed in skills; no specific system or recruiting
+      platform named.'
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: 'Verbal and Written
+
+        Communication'
+      start_offset: 338
+      end_offset: 370
+    - quote: 'Wrote email messages, memos and business letters for management and proofread documentation
+
+        to provide error-free correspondence.'
+      start_offset: 6018
+      end_offset: 6147
+    - quote: 'Attentive listener committed to building strong,
+
+        trusting relationships with staff and management.'
+      start_offset: 2272
+      end_offset: 2370
+    - quote: 'Responded to employee concerns or complaints by coordinating with human resources team to
+
+        solve issues.'
+      start_offset: 4983
+      end_offset: 5086
+    - quote: performing background checks, providing I-9 forms and handling drug screening paperwork.
+      start_offset: 4140
+      end_offset: 4228
+    note: '[adjudicated] Annotators split adequate/strong. Written and verbal communication with management
+      and staff and handling of sensitive screening paperwork are evidenced, but v1.1 rule 4: no concrete
+      scope or results, so adequate.'
+  education_hr_business:
+    level: absent
+    evidence:
+    - quote: 'Associate of Arts: English'
+      start_offset: 617
+      end_offset: 643
+    note: '[adjudicated] Annotators split absent/unknown. v1.1 rule 2: the stated degree is an associate
+      degree in English (plus Real Estate study), not HR, business administration or a related field,
+      so absent.'
+  hr_programs:
+    level: adequate
+    evidence:
+    - quote: Identified opportunities to improve HR programs and proposed solutions to increase efficiencies.
+      start_offset: 3648
+      end_offset: 3744
+    - quote: Developed incentives to drive employee retention and improve work culture.
+      start_offset: 3570
+      end_offset: 3644
+    - quote: experience promoting employee retention through incentive programs and well-researched
+      start_offset: 1461
+      end_offset: 1547
+    note: '[agree] Retention incentive initiatives and HR program improvements are explicit; no internship
+      or early-career program.'

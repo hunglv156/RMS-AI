@@ -1,0 +1,74 @@
+cv_sheet_id: hr-01
+text_sha256: 21367b09bd5a2ce2495853eb9251a7fb7fd6586624e12d5cfa9e9bd32b5932b9
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: '[agree] PostgreSQL and database tuning are not mentioned; HRIS and spreadsheet skills are not
+      database engineering.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: '[agree] Linux, Bash, Docker and AWS are not mentioned.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: General Electric - Human Resources Specialist
+      start_offset: 2955
+      end_offset: 3000
+    - quote: Tampa, FL + 10/2016 - Current
+      start_offset: 3001
+      end_offset: 3030
+    - quote: Road & Rail Services - Supervisor
+      start_offset: 4230
+      end_offset: 4263
+    - quote: Wentzville, MO - 09/2012 - 05/2016
+      start_offset: 4264
+      end_offset: 4298
+    - quote: Danbury Health Systems - Administrative Secretary
+      start_offset: 5472
+      end_offset: 5521
+    - quote: Brewster, NY + 06/1984 - 05/2012
+      start_offset: 5522
+      end_offset: 5554
+    note: '[adjudicated] Annotators split absent/unknown. v1.1 rule 1: dated work history (1984-current)
+      lists HR, supervisory and secretarial roles, none backend engineering, so absent.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: '[agree] Software design patterns are not mentioned; HR procedure development is not software
+      architecture.'
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Compiled and produced presentations and reports as directed by leadership team.
+      start_offset: 6610
+      end_offset: 6689
+    - quote: Produced and distributed memos, newsletters and other forms of communication.
+      start_offset: 6365
+      end_offset: 6442
+    - quote: 'Consulted with internal clients to evaluate labor trends and competitor talent insights
+        for pointed
+
+        candidate selection.'
+      start_offset: 3927
+      end_offset: 4047
+    note: '[agree] Presentations, written communications and internal-client consultation are evidenced;
+      explaining complex technical ideas to non-technical colleagues is not. Summary placeholders not
+      relied on.'
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Associate of Arts: English'
+      start_offset: 617
+      end_offset: 643
+    note: '[adjudicated] Annotators split absent/unknown. v1.1 rule 2: the stated degree is an associate
+      degree in English (plus Real Estate study), not computer science or software engineering, so absent.'

@@ -1,0 +1,80 @@
+cv_sheet_id: python_dev-02
+text_sha256: 1b279f463335db61fa8db8e58d399734a58491e1779015adc4f65abce8f7602b
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned; the CV covers military, logistics and courseware
+      work.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: '[agree] Generic database record maintenance is mentioned, but PostgreSQL, SQL and tuning are
+      not.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: '[agree] Linux, Bash, Docker and AWS are not mentioned.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: COURSEWARE DEVELOPER 09/2014 to 11/2015
+      start_offset: 1914
+      end_offset: 1953
+    - quote: CONTRACTOR SECURITY MANAGEMENT 03/2014 to 09/2014
+      start_offset: 3329
+      end_offset: 3378
+    - quote: SECIIOR MASTER SERGEANT 06/1992 to 06/2014
+      start_offset: 4353
+      end_offset: 4395
+    - quote: PROGRAM MANAGER/JOPES/LOGISTICS SUPERINTENDENT 06/2008 to 02/2013
+      start_offset: 5914
+      end_offset: 5979
+    - quote: UCT DEPLOYMENT MANAGER 03/2001 to 06/2008
+      start_offset: 7740
+      end_offset: 7781
+    note: '[adjudicated] Annotators split absent/unknown. v1.1 rule 1: dated work history (1992-2015)
+      lists military, logistics, security and courseware roles, none backend engineering, so absent.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: '[agree] Instructional System Design is training design, not software architecture or design
+      patterns.'
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: 'Present plans, recommendations, analysis, and other advice within a broad functional area
+        to the task
+
+        leader, fellow employee levels and Government representatives in support of Training.'
+      start_offset: 2688
+      end_offset: 2875
+    - quote: Developed slideshows and other forms of media to present project progress to the executive
+        team
+      start_offset: 6886
+      end_offset: 6981
+    - quote: Responsible for classroom and simulator instruction for all C-130J loadmasters.
+      start_offset: 7209
+      end_offset: 7288
+    note: '[agree] Presenting analyses and plans to leadership, executives and government representatives,
+      plus classroom instruction; no measured outcome and not software-technical. Truncated duplicate
+      quote merged.'
+  education_cs:
+    level: absent
+    evidence:
+    - quote: Bachelor's Degree | Professional Aeronatuics 03/2006
+      start_offset: 9106
+      end_offset: 9158
+    - quote: M£›ter's Degree | Operations Management
+      start_offset: 9410
+      end_offset: 9449
+    - quote: AsCociate's Degree | Aircrew Operations 2012
+      start_offset: 9708
+      end_offset: 9752
+    note: '[adjudicated] Annotators split absent/unknown. v1.1 rule 2: stated degrees are in Professional
+      Aeronautics, Operations Management and Aircrew Operations (OCR-garbled but legible), not computer
+      science or software engineering, so absent.'

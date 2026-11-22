@@ -1,0 +1,101 @@
+cv_sheet_id: python_dev-02
+text_sha256: 1b279f463335db61fa8db8e58d399734a58491e1779015adc4f65abce8f7602b
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: 'Organized administrative professional with hands-on experience supporting business
+
+        areas such as accounting, database management and human resources.'
+      start_offset: 530
+      end_offset: 679
+    - quote: Developed and implemented training procedures for all newly hired personnel.
+      start_offset: 4275
+      end_offset: 4351
+    note: '[agree] Administrative support to HR and new-hire training are stated, but no dated role is
+      in HR and three years of progressive HR work are not shown. Overlapping quotes merged; an orders-clerk
+      quote was dropped as not clearly HR.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: '[agree] Recruitment, hiring-manager partnership and open-position management are not mentioned.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: '[agree] Security policies and student counseling are mentioned, not employee relations, performance
+      management or employment law.'
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: Microsoft Office proficiency
+      start_offset: 1794
+      end_offset: 1822
+    - quote: Created PowerPoint presentations used for business development.
+      start_offset: 3101
+      end_offset: 3164
+    note: '[agree] Microsoft Office proficiency and concrete PowerPoint use; HRIS and recruiting technology
+      are not mentioned.'
+  interpersonal_communication:
+    level: strong
+    evidence:
+    - quote: 'Good interpersonal skills and effective communications are required daily: constant coordination
+        and'
+      start_offset: 2308
+      end_offset: 2408
+    - quote: 'Produced and distributed daily Situation Report for executive level
+
+        Commanders worldwide.'
+      start_offset: 440
+      end_offset: 529
+    - quote: 'Present plans, recommendations, analysis, and other advice within a broad functional area
+        to the task
+
+        leader, fellow employee levels and Government representatives in support of Training.'
+      start_offset: 2688
+      end_offset: 2875
+    - quote: Maintain Top Secret Clearance.
+      start_offset: 1447
+      end_offset: 1477
+    - quote: Logged and filed classified documents.
+      start_offset: 4614
+      end_offset: 4652
+    - quote: 'Maintain databases which reflect receipt, storage, inventory, and disposition of classified
+        information to
+
+        include data entry, updates, and generation of reports.'
+      start_offset: 3419
+      end_offset: 3581
+    note: '[agree] Written and verbal communication from peers to executive commanders worldwide, and
+      concrete handling of classified information under Top Secret clearance; scale and concrete sensitive-matter
+      responsibility satisfy v1.1 rule 4. Overlapping quotes merged; a bare skills-list quote dropped.'
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: Bachelor's Degree | Professional Aeronatuics 03/2006
+      start_offset: 9106
+      end_offset: 9158
+    - quote: Business Management, Logistics, Finance and Supply Chain coursework
+      start_offset: 9341
+      end_offset: 9408
+    - quote: M£›ter's Degree | Operations Management
+      start_offset: 9410
+      end_offset: 9449
+    - quote: Coursework in Business, Management and Communications
+      start_offset: 9517
+      end_offset: 9570
+    note: '[agree] Bachelor in Professional Aeronautics with business coursework plus a master in Operations
+      Management (a business-related field) meet the related-field degree requirement; OCR damage does
+      not obscure the degrees.'
+  hr_programs:
+    level: partial
+    evidence:
+    - quote: Developed and implemented training procedures for all newly hired personnel.
+      start_offset: 4275
+      end_offset: 4351
+    note: '[adjudicated] Annotators split partial/adequate. New-hire training procedures were developed
+      within a contractor security-management role; this overlaps onboarding but is security training
+      rather than an HR program or initiative, so partial.'

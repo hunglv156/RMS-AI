@@ -1,0 +1,49 @@
+cv_sheet_id: finance-01
+text_sha256: 91f76edb62f5ec5f51a483922362ef165ec75baa10b55683993fa6afac7da713
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: '[agree] PostgreSQL and database tuning are not mentioned.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: '[agree] Linux, Bash, Docker and AWS are not mentioned.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: Vice President 2012-Present
+      start_offset: 1005
+      end_offset: 1032
+    - quote: Finance Department Head, Investment Banking Unit 2004-2010
+      start_offset: 2115
+      end_offset: 2173
+    note: '[adjudicated] Annotators split absent/unknown. v1.1 rule 1: dated work history (2004-2010,
+      2012-present) lists only finance and school-management roles, none backend engineering, so absent.
+      Text is page 1 only.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: '[agree] Software design patterns are not mentioned; the risk management system is described
+      without software design details.'
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: articulate communication and interpersonal skills in building positive work relationships
+        with individuals of diverse
+      start_offset: 513
+      end_offset: 630
+    note: '[agree] Self-described communication skills only; explaining complex ideas to non-technical
+      colleagues is not shown. A list-of-financial-tasks quote was dropped as not supporting this criterion.'
+  education_cs:
+    level: unknown
+    evidence: []
+    note: '[agree] No education section in the text (page 1 only); no degree stated.'

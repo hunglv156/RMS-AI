@@ -38,3 +38,13 @@ api_design:
 ## Additional evaluation JDs
 
 `jd-py-real` (Enveritas Backend Software Engineer - Python/Postgres) and `jd-hr-real` (Surmodics HR Generalist) are sourced from real job postings; see `data/eval/jds/sources/` for provenance. The existing `jd-a` and `jd-b` remain unchanged for reproducibility of earlier runs.
+
+## v1.1 clarifications (2026-11-22)
+
+Các quy tắc sau bổ sung cho v1 và được ưu tiên áp dụng khi có xung đột; phần v1 ở trên giữ nguyên. Các ví dụ là dữ liệu tự tạo.
+
+1. **Criterion về kinh nghiệm (số năm, vai trò, lĩnh vực)**: nếu CV có lịch sử làm việc kèm mốc thời gian và không vai trò nào được liệt kê liên quan đến criterion, dùng `absent` và trích các mục (hoặc tiêu đề) lịch sử làm việc cho thấy điều đó; nếu CV không có lịch sử làm việc kèm mốc thời gian, dùng `unknown`. Ví dụ: với criterion "7 năm backend software engineer", CV chỉ ghi `Accountant, 01/2015 to Current` và `Bookkeeper, 2012 to 2014` → `absent`, trích hai dòng đó; CV chỉ có phần tóm tắt và kỹ năng, không có mốc thời gian → `unknown`.
+2. **Criterion về học vấn**: nếu CV nêu bằng cấp và ngành của bằng không khớp với criterion, dùng `absent` và trích dòng bằng cấp; nếu CV không nêu bằng cấp, dùng `unknown`. Ví dụ: criterion "Bachelor’s degree in computer science", CV ghi `Bachelor of Arts: History` → `absent`, trích dòng đó; CV không có mục học vấn → `unknown`.
+3. **Criterion về kỹ năng/công cụ**: không được đề cập vẫn là `unknown` (giữ nguyên như v1). Ví dụ: CV của kế toán không nhắc đến Docker → criterion Docker là `unknown`, không phải `absent`.
+4. **`strong`** đòi hỏi quote có phạm vi hoặc kết quả cụ thể (con số, quy mô, quyền sở hữu/chịu trách nhiệm chính); nếu không, dùng `adequate`. Ví dụ: `Led recruiting for 40 open positions per year` → `strong`; `Managed full-cycle recruiting` → `adequate`.
+5. **`overall_fit`**: `poor` nếu không có criterion `must_have` nào có bằng chứng ở mức `partial` trở lên; `good` nếu mọi criterion `must_have` đều là `adequate` hoặc `strong`; các trường hợp còn lại là `partial`. Ví dụ: JD có bốn `must_have` với level `unknown`, `absent`, `unknown`, `absent` → `poor`; `strong`, `adequate`, `adequate`, `adequate` → `good`; `adequate`, `partial`, `unknown`, `strong` → `partial`.

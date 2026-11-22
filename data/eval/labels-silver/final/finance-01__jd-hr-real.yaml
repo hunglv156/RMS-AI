@@ -1,0 +1,74 @@
+cv_sheet_id: finance-01
+text_sha256: 91f76edb62f5ec5f51a483922362ef165ec75baa10b55683993fa6afac7da713
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: Vice President 2012-Present
+      start_offset: 1005
+      end_offset: 1032
+    - quote: wide range of administrative functions, including processing payroll, 401(k), and 1099.
+      start_offset: 1370
+      end_offset: 1457
+    - quote: 'Recruitment of licensed and qualified teachers with comprehensive experience and dedication
+        to guide
+
+        students'
+      start_offset: 1778
+      end_offset: 1887
+    note: '[agree] Some HR tasks (payroll, 401(k), teacher recruitment) inside a general/financial management
+      role; no dedicated or progressive HR role. Overlapping duplicate quotes merged; a supervision-only
+      quote was dropped as not HR-specific.'
+  talent_acquisition:
+    level: partial
+    evidence:
+    - quote: 'Recruitment of licensed and qualified teachers with comprehensive experience and dedication
+        to guide
+
+        students'
+      start_offset: 1778
+      end_offset: 1887
+    note: '[agree] Teacher recruitment is explicit; partnering with hiring managers and managing multiple
+      open positions are not stated. Duplicate quotes merged.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: '[agree] Taxation and business laws are mentioned, but not employee relations, performance management
+      or employment law.'
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: '[agree] Only TurboTax and QuickBooks are named; Microsoft Office, HRIS and recruiting technology
+      are not mentioned.'
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: 'articulate communication and interpersonal skills in building positive work relationships
+        with individuals of diverse
+
+        sociocultural backgrounds; multilingual in Taiwanese, Mandarin Chinese, and English, with working
+        knowledge of
+
+        Japanese and Spanish.'
+      start_offset: 513
+      end_offset: 763
+    - quote: Collaborated with senior-level managers in formulating and implementing strategic solutions
+      start_offset: 2710
+      end_offset: 2801
+    note: '[agree] Explicit interpersonal and multilingual communication skills and collaboration with
+      senior managers; handling confidential matters is not stated. Overlapping quotes merged; a financial-reporting
+      quote was dropped as weak support.'
+  education_hr_business:
+    level: unknown
+    evidence: []
+    note: '[agree] No education section (page 1 only); Business Administration appears only as an area
+      of expertise, not a degree.'
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: '[agree] HR programs or initiatives are not mentioned; school restructuring is not described
+      as an HR program.'

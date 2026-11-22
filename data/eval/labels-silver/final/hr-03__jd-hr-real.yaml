@@ -1,0 +1,117 @@
+cv_sheet_id: hr-03
+text_sha256: 58907fef82f78d143ae3acda26c849510259c47931b51595cd287ffddca519d4
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: adequate
+    evidence:
+    - quote: 01/2019 to Current Human Resources
+      start_offset: 867
+      end_offset: 901
+    - quote: Led and provided direction for human resources team of 5.
+      start_offset: 954
+      end_offset: 1011
+    - quote: Structured compensation and benefits according to market conditions and budget demands.
+      start_offset: 1015
+      end_offset: 1102
+    - quote: Liaised between multiple business divisions to improve communications.
+      start_offset: 1461
+      end_offset: 1531
+    note: '[adjudicated] Annotators split strong/adequate. HR leadership since 01/2019 (team of 5) covers
+      compensation, benefits, onboarding, training and compliance across business divisions, but the 3+
+      year tenure depends on an unstated CV date (education 08/2021 implies at least ~2.6 years) and earlier
+      roles are production, not HR, so progression in HR is not shown; adequate.'
+  talent_acquisition:
+    level: partial
+    evidence:
+    - quote: Recruitment / Human Resources
+      start_offset: 453
+      end_offset: 482
+    - quote: 'Assessed and aligned compensation packages to market to attract highly qualified applicants
+        for organizational
+
+        vacancies.'
+      start_offset: 1336
+      end_offset: 1457
+    - quote: Streamlined HR efficiencies, coordinated new hire orientations and provided onboarding and
+        training for over 75
+      start_offset: 1691
+      end_offset: 1802
+    note: '[agree] Recruitment is listed and applicant attraction is described; direct recruiting with
+      hiring managers and managing multiple open positions are not. Overlapping quotes merged.'
+  employee_relations_compliance:
+    level: adequate
+    evidence:
+    - quote: 'Versed in EEOC
+
+        and other relevant compliance statutes.'
+      start_offset: 244
+      end_offset: 298
+    - quote: 'Educated management on successful policy implementation and enforcement actions to prevent
+        employee legal
+
+        entanglements.'
+      start_offset: 1106
+      end_offset: 1226
+    - quote: OSHA regulations
+      start_offset: 486
+      end_offset: 502
+    - quote: Evaluated team member performance every year to identify and resolve productivity concems.
+      start_offset: 4133
+      end_offset: 4223
+    note: '[adjudicated] Annotators split strong/adequate. EEOC/OSHA compliance knowledge, policy enforcement
+      guidance and annual performance evaluation are clear, but v1.1 rule 4: no concrete scope or results
+      in the quotes, so adequate.'
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: Utilized PropelHR system to convert all payroll and benefit programs.
+      start_offset: 2005
+      end_offset: 2074
+    note: '[agree] An HR system (PropelHR) is used; Microsoft Office and recruiting technology are not
+      mentioned.'
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: Liaised between multiple business divisions to improve communications.
+      start_offset: 1461
+      end_offset: 1531
+    - quote: Resolved conflicts and negotiated mutually beneficial agreements between parties.
+      start_offset: 4987
+      end_offset: 5068
+    - quote: Collaborated with senior management and performed helpful tasks, including benefits analysis,
+        corrective action
+      start_offset: 1535
+      end_offset: 1646
+    note: '[agree] Cross-division liaison, conflict resolution and work with senior management; handling
+      confidential matters is not explicit.'
+  education_hr_business:
+    level: partial
+    evidence:
+    - quote: '08/2021 Associate of Science: Management'
+      start_offset: 5344
+      end_offset: 5384
+    note: '[agree] Management is a related field, but the degree is an associate, not the required bachelor.'
+  hr_programs:
+    level: strong
+    evidence:
+    - quote: 'Streamlined HR efficiencies, coordinated new hire orientations and provided onboarding and
+        training for over 75
+
+        new employees.'
+      start_offset: 1691
+      end_offset: 1817
+    - quote: Reduced workers’ compensation claims by instituting corporate safety training program.
+      start_offset: 2078
+      end_offset: 2164
+    - quote: Directed and controlled various benefit programs, including 401K, medical, dental and vision
+        packages.
+      start_offset: 1230
+      end_offset: 1332
+    note: '[adjudicated] Annotators split strong/adequate. Coordinated onboarding for over 75 new employees,
+      instituted a safety training program with a stated result (reduced workers comp claims) and directed
+      benefit programs; scale and ownership satisfy v1.1 rule 4. No internship/early-career program (preferred
+      only).'

@@ -1,0 +1,66 @@
+cv_sheet_id: database-01
+text_sha256: 456827d30d3eac0171aaefa9852055ba34a863e1fe51959997e2cddf457f63b3
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: Database Administrator/Programmer Analyst, 02/2006 - Current
+      start_offset: 3039
+      end_offset: 3099
+    - quote: Computer Programmer / Technician / Network Manager, 05/2004 - 02/2006
+      start_offset: 4679
+      end_offset: 4748
+    - quote: Computer Systems Builder, 09/2002 - 01/2004
+      start_offset: 5689
+      end_offset: 5732
+    note: '[adjudicated] Annotators split unknown/absent. v1.1 rule 1: dated work history (2002-current)
+      lists only IT, programming and database roles, none in HR, so absent.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: '[agree] Recruitment, open-position management and hiring-manager partnership are not mentioned.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: '[agree] Employee relations, performance management and employment law are not mentioned; record-retention
+      and user security policies are IT/records policies.'
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: Database creation using Microsoft Access.
+      start_offset: 4403
+      end_offset: 4444
+    note: '[agree] Microsoft Access use is evidenced; Excel, Word, PowerPoint, HRIS and recruiting technology
+      are not. An Exchange Server quote was dropped as it is server administration, not an Office application.'
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: Worked closely with physicians and nurses and have built working relationships involving
+        trust and respect.
+      start_offset: 390
+      end_offset: 497
+    - quote: 'Direct working relationships with directors, administrators and upper management to write
+        custom reports in SQL, MS ACCESS, EPIC
+
+        Reporting Work Bench, Crystal Reports, ORACLE PLSQL and MUMPS Query language.'
+      start_offset: 3642
+      end_offset: 3848
+    note: '[agree] Relationship-building with clinical staff and upper management is explicit; handling
+      confidential matters is not directly described. Truncated duplicate quote merged.'
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor of Science: Computer Science, Business Administration'
+      start_offset: 5869
+      end_offset: 5931
+    note: '[agree] The bachelor degree explicitly includes Business Administration.'
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: '[adjudicated] Annotators split partial/unknown. Training and mentoring new report-writing staff
+      is team supervision, not an HR program or initiative; HR programs are not mentioned, so unknown
+      (v1.1 rule 3 treats this activity criterion as not mentioned).'

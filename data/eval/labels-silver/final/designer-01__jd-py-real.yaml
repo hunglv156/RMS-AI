@@ -1,0 +1,57 @@
+cv_sheet_id: designer-01
+text_sha256: 37e62d338121af5abe474fbdc504cf82752fcdf3837cf840580016c47b1e08b3
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: '[agree] PostgreSQL and database tuning are not mentioned.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: '[agree] Linux, Bash, Docker and AWS are not mentioned; the employer name Amazon.Com does not
+      establish AWS use.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: Designer, 04/2016 to Current
+      start_offset: 685
+      end_offset: 713
+    - quote: Design Consultant/Sales Associate, 02/2014 to 03/2016
+      start_offset: 909
+      end_offset: 962
+    - quote: Visual Merchandiser/Sales Associate part time, 11/2011 to 08/2014
+      start_offset: 1216
+      end_offset: 1281
+    - quote: Art Director/Interior Designer, 09/2009 to 11/2011
+      start_offset: 1495
+      end_offset: 1545
+    note: '[adjudicated] Annotators split absent/unknown. v1.1 rule 1: dated work history (2009-current)
+      lists only design, merchandising and sales roles, none backend engineering, so absent.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: '[agree] Software design patterns are not mentioned; interior/set design is not software architecture.'
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Developed client relationships effectively closing sales.
+      start_offset: 756
+      end_offset: 813
+    note: '[adjudicated] Annotators split partial/unknown. Client-facing communication is evidenced, but
+      nothing shows presenting or explaining complex ideas to non-technical colleagues, so partial.'
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Associate of Arts: Interior Design, 2004'
+      start_offset: 1785
+      end_offset: 1825
+    note: '[adjudicated] Annotators split absent/unknown. v1.1 rule 2: a stated degree in Interior Design
+      does not match computer science or software engineering, so absent.'

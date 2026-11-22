@@ -1,0 +1,66 @@
+cv_sheet_id: hr-03
+text_sha256: 58907fef82f78d143ae3acda26c849510259c47931b51595cd287ffddca519d4
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned; unspecified automation does not establish
+      them.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: '[agree] PostgreSQL and database tuning are not mentioned.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: '[agree] Linux, Bash, Docker and AWS are not mentioned.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: 01/2019 to Current Human Resources
+      start_offset: 867
+      end_offset: 901
+    - quote: 10/2016 to 01/2019 Production Manager
+      start_offset: 2166
+      end_offset: 2203
+    - quote: 01/2013 to 10/2016 Production Supervisor
+      start_offset: 3845
+      end_offset: 3885
+    - quote: 08/2010 to 12/2012 Mailing Inkjet Supervisor
+      start_offset: 4728
+      end_offset: 4772
+    note: '[adjudicated] Annotators split absent/unknown. v1.1 rule 1: dated work history (2010-current)
+      lists HR and production roles, none backend engineering, so absent.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: '[agree] Software design patterns are not mentioned; operational process work is not software
+      architecture.'
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: 'Educated management on successful policy implementation and enforcement actions to prevent
+        employee legal
+
+        entanglements.'
+      start_offset: 1106
+      end_offset: 1226
+    - quote: Liaised between multiple business divisions to improve communications.
+      start_offset: 1461
+      end_offset: 1531
+    note: '[adjudicated] Annotators split partial/adequate. Educating management on legal/compliance policy
+      is explaining specialist ideas to non-specialist colleagues, plus cross-division communication;
+      not technical, no concrete scope, so adequate (consistent with conveying statistical trends to managers
+      elsewhere).'
+  education_cs:
+    level: absent
+    evidence:
+    - quote: '08/2021 Associate of Science: Management'
+      start_offset: 5344
+      end_offset: 5384
+    note: '[adjudicated] Annotators split absent/unknown. v1.1 rule 2: the stated degree is an associate
+      in Management, not computer science or software engineering, so absent.'

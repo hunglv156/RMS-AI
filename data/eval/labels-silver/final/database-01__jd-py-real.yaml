@@ -1,0 +1,86 @@
+cv_sheet_id: database-01
+text_sha256: 456827d30d3eac0171aaefa9852055ba34a863e1fe51959997e2cddf457f63b3
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned; listed languages are C++, Java, Visual
+      Basic, SQL and MUMPS.'
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: Iam also the Database Administrator, so I am responsible for all database related tasks.
+      start_offset: 3467
+      end_offset: 3555
+    - quote: Maintenance, Migration and Backup of SQL, ORACLE, ACCESS, DB2 and SYBASE databases.
+      start_offset: 3557
+      end_offset: 3640
+    - quote: Experience with SQL Server 2000, 2005, 2008, 2008R2, 2012 and
+      start_offset: 2412
+      end_offset: 2473
+    - quote: 'Direct working relationships with directors, administrators and upper management to write
+        custom reports in SQL, MS ACCESS, EPIC
+
+        Reporting Work Bench, Crystal Reports, ORACLE PLSQL and MUMPS Query language.'
+      start_offset: 3642
+      end_offset: 3848
+    note: '[agree] Long DBA and SQL reporting experience on SQL Server, Oracle, DB2 and Sybase; PostgreSQL,
+      query optimization and performance tuning are not established.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: '[agree] Linux, Bash, Docker and AWS are not mentioned; experience is Windows Server and VMware.'
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: Database Administrator/Programmer Analyst, 02/2006 - Current
+      start_offset: 3039
+      end_offset: 3099
+    - quote: Computer Programmer / Technician / Network Manager, 05/2004 - 02/2006
+      start_offset: 4679
+      end_offset: 4748
+    - quote: Programming in Visual Basic.net and Visual Basic 6.0.
+      start_offset: 4950
+      end_offset: 5003
+    - quote: Maintenance, Migration and Backup of SQL, ORACLE, ACCESS, DB2 and SYBASE databases.
+      start_offset: 3557
+      end_offset: 3640
+    note: '[adjudicated] Annotators split partial/absent. Dated history includes Programmer Analyst/DBA
+      (2006-current) and Computer Programmer roles with database and programming work, which are relevant
+      to backend engineering, so v1.1 rule 1 absent does not apply; but no role is a backend software
+      engineer and seven years of backend engineering is not shown, so partial.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: '[agree] Software design patterns are not mentioned; implementation leadership and report governance
+      are not software architecture.'
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: bringing IT and healthcare professionals together to determine best practices
+      start_offset: 280
+      end_offset: 357
+    - quote: Worked closely with physicians and nurses and have built working relationships involving
+        trust and respect.
+      start_offset: 390
+      end_offset: 497
+    - quote: End User Training and Support
+      start_offset: 920
+      end_offset: 949
+    - quote: Training, mentoring and managing new report writing staff.
+      start_offset: 4222
+      end_offset: 4280
+    note: '[adjudicated] Annotators split partial/adequate. Bridging IT and clinical (non-technical) staff
+      and end-user training show explaining technical matters to non-technical colleagues; no concrete
+      scope, so adequate.'
+  education_cs:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor of Science: Computer Science, Business Administration'
+      start_offset: 5869
+      end_offset: 5931
+    note: '[agree] A Bachelor of Science in Computer Science is stated.'

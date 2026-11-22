@@ -1,0 +1,60 @@
+cv_sheet_id: designer-01
+text_sha256: 37e62d338121af5abe474fbdc504cf82752fcdf3837cf840580016c47b1e08b3
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: Designer, 04/2016 to Current
+      start_offset: 685
+      end_offset: 713
+    - quote: Design Consultant/Sales Associate, 02/2014 to 03/2016
+      start_offset: 909
+      end_offset: 962
+    - quote: Visual Merchandiser/Sales Associate part time, 11/2011 to 08/2014
+      start_offset: 1216
+      end_offset: 1281
+    - quote: Art Director/Interior Designer, 09/2009 to 11/2011
+      start_offset: 1495
+      end_offset: 1545
+    note: '[adjudicated] Annotators split unknown/absent. v1.1 rule 1: dated work history (2009-current)
+      lists only design, merchandising and sales roles, none in HR, so absent.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: '[agree] Recruitment and work with hiring managers are not mentioned.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: '[agree] Employee relations, performance management and employment law are not mentioned.'
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: '[agree] Only CAD and Sketchup Pro are listed; Microsoft Office, HRIS and recruiting technology
+      are not mentioned.'
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: Developed client relationships effectively closing sales.
+      start_offset: 756
+      end_offset: 813
+    - quote: Hosted in store events for local Interior Designers.
+      start_offset: 1162
+      end_offset: 1214
+    note: '[agree] Client relationship-building is evidenced; communication across organizational levels
+      and handling confidential matters are not.'
+  education_hr_business:
+    level: absent
+    evidence:
+    - quote: 'Associate of Arts: Interior Design, 2004'
+      start_offset: 1785
+      end_offset: 1825
+    note: '[adjudicated] Annotators split unknown/absent. v1.1 rule 2: the stated degree is in Interior
+      Design, not HR, business administration or a related field, so absent.'
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: '[agree] HR programs or initiatives are not mentioned; design projects are not HR programs.'

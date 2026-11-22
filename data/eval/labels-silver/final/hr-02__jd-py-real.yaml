@@ -1,0 +1,80 @@
+cv_sheet_id: hr-02
+text_sha256: 3dd65c19265ee452f579439b6e6b3d9dccb8e1c7f06d06fcd77dd29ed33fc860
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: '[agree] PostgreSQL and database tuning are not mentioned; HRIS optimization is not database
+      engineering.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: '[agree] Linux, Bash, Docker and AWS are not mentioned.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: Lyondellbasell Industries - Vice President of HR & Talent Strategy
+      start_offset: 1740
+      end_offset: 1806
+    - quote: Bay City, MI s 02/2019 - Current
+      start_offset: 1808
+      end_offset: 1840
+    - quote: Cedar Fair Entertainment Company - HR Consultant
+      start_offset: 2578
+      end_offset: 2626
+    - quote: Cedar Fair Entertainment Company - HUMAN RESOURCES DIRECTOR
+      start_offset: 2818
+      end_offset: 2877
+    - quote: SERPICO, INC - HUMAN RESOURCES DIRECTOR
+      start_offset: 6089
+      end_offset: 6128
+    - quote: JUMA VENTURES - STAFF DIRECTOR
+      start_offset: 7548
+      end_offset: 7578
+    note: '[adjudicated] Annotators split absent/unknown. v1.1 rule 1: dated work history (2002-current)
+      lists only HR leadership and staff-director roles, none backend engineering, so absent.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: '[agree] Software design patterns are not mentioned; HR systems work is not software architecture.'
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: 'Value driven understanding of HR metrics and research methods, with a keen sensitivity to
+
+        audience-centered communications to effectively convey the implications of statistical trends
+        to
+
+        management teams.'
+      start_offset: 3433
+      end_offset: 3637
+    - quote: Designed and delivered training to managers and end-users on an array of behavioral
+      start_offset: 5820
+      end_offset: 5903
+    note: '[adjudicated] Annotators split adequate/strong. Conveying statistical trends to management
+      teams and delivering training show explaining complex ideas to non-specialists, but v1.1 rule 4:
+      no concrete scope or results in the quotes, so adequate.'
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Master of Science: INDUSTRIAL/
+
+        ORGANIZATIONAL PSYCHOLOGY'
+      start_offset: 782
+      end_offset: 838
+    - quote: 'Bachelor of Science: PSYCHOLOGY'
+      start_offset: 988
+      end_offset: 1019
+    - quote: 'Bachelor of Arts: Chicano Studies'
+      start_offset: 1069
+      end_offset: 1102
+    note: '[adjudicated] Annotators split absent/unknown. v1.1 rule 2: stated degrees are in psychology,
+      I/O psychology and Chicano Studies, not computer science or software engineering, so absent.'

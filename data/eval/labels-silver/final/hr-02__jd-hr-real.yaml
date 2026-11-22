@@ -1,0 +1,162 @@
+cv_sheet_id: hr-02
+text_sha256: 3dd65c19265ee452f579439b6e6b3d9dccb8e1c7f06d06fcd77dd29ed33fc860
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: good
+criteria:
+  hr_experience:
+    level: strong
+    evidence:
+    - quote: 'An agile, trusted Human Resources executive leader with more than 15 years of broad experience
+        in
+
+        non-profit, community, and healthcare settings.'
+      start_offset: 1200
+      end_offset: 1345
+    - quote: Proven ability to ensure integrated HR support to all areas of an organization.
+      start_offset: 1485
+      end_offset: 1564
+    - quote: Lyondellbasell Industries - Vice President of HR & Talent Strategy
+      start_offset: 1740
+      end_offset: 1806
+    - quote: Cedar Fair Entertainment Company - HUMAN RESOURCES DIRECTOR
+      start_offset: 2818
+      end_offset: 2877
+    - quote: Healthcare, 1300 Headcount, $106M) Partnered with leadership team on strategic planning and
+      start_offset: 2915
+      end_offset: 3006
+    - quote: 'Partnered with functional leaders to develop innovative ways to reduce the administrative
+        burden
+
+        of operational responsibilities as company expanded to four branches.'
+      start_offset: 6626
+      end_offset: 6792
+    note: '[agree] 15+ years of HR roles progressing from HR Director to VP of HR, with concrete scope
+      (1300 headcount, four branches); satisfies v1.1 rule 4. Overlapping quotes merged.'
+  talent_acquisition:
+    level: adequate
+    evidence:
+    - quote: 'Successful leader of organizational development initiatives, especially in recruitment and
+        retention
+
+        efforts to improve candidate and staff experience.'
+      start_offset: 3046
+      end_offset: 3197
+    - quote: 'Identified optimal recruitment sources, decreased dependency on staffing firms, and negotiated
+
+        improved contractual guarantees resulting in reduced recruitment costs.'
+      start_offset: 5921
+      end_offset: 6087
+    - quote: Defined core job competencies; positively impacted hiring practices and workforce development
+      start_offset: 6203
+      end_offset: 6296
+    note: '[agree] Recruitment leadership and sourcing improvements are clear; partnering with hiring
+      managers on multiple open positions is not described and no numbers are given. Overlapping quotes
+      merged.'
+  employee_relations_compliance:
+    level: strong
+    evidence:
+    - quote: Employee & Labor Relations
+      start_offset: 281
+      end_offset: 307
+    - quote: Employment Law & Compliance
+      start_offset: 376
+      end_offset: 403
+    - quote: Managed a staff of five; handled internal investigations and DFEH communication responses.
+      start_offset: 5227
+      end_offset: 5317
+    - quote: 'Designed and implemented a Pay-for-Performance initiative in conjunction with a web-based
+
+        performance management tool that incorporated organizationally aligned objectives.'
+      start_offset: 5449
+      end_offset: 5621
+    - quote: Investigated workplace accidents and successfully contested two OSHA citations.
+      start_offset: 7467
+      end_offset: 7546
+    note: '[agree] Investigations, DFEH responses, performance management design and OSHA outcomes with
+      concrete results (two citations contested); satisfies v1.1 rule 4. Overlapping quotes merged.'
+  hris_office_tools:
+    level: strong
+    evidence:
+    - quote: 'MS Office Power User
+
+        (especially Excel & PPT)'
+      start_offset: 458
+      end_offset: 503
+    - quote: Managed the implementation of a new HRIS system and successfully streamlined workflows for
+      start_offset: 4067
+      end_offset: 4157
+    - quote: 'Partnered with IT and Finance; played a lead role in identifying and implementing a new
+        HRIS and
+
+        applicant tracking system; moved the organization from paper to electronic benefit enrollment.'
+      start_offset: 5625
+      end_offset: 5816
+    - quote: 'cycles (Examples: Paychex, ADP'
+      start_offset: 653
+      end_offset: 683
+    note: '[agree] Office power user plus owned HRIS and applicant-tracking implementations with a concrete
+      result (paper to electronic enrollment); ownership satisfies v1.1 rule 4. Overlapping quotes merged.'
+  interpersonal_communication:
+    level: strong
+    evidence:
+    - quote: consulting skills, able to build trusting partnerships across all levels of an organization
+        with a
+      start_offset: 1581
+      end_offset: 1679
+    - quote: 'Improved partnerships between staff and managers by facilitating communication flow upward
+        and
+
+        downward.'
+      start_offset: 6976
+      end_offset: 7080
+    - quote: 'Developed a an integrated user-friendly Workplace Policies and Procedures Manual and a New
+
+        Manager’s Training Manual to improve communication and understanding of key expectations and
+
+        shorten the learning curb for new managers.'
+      start_offset: 4739
+      end_offset: 4966
+    - quote: Managed a staff of five; handled internal investigations and DFEH communication responses.
+      start_offset: 5227
+      end_offset: 5317
+    note: '[agree] Communication across all levels, owned communication deliverables (policies and new-manager
+      manuals) and handling of internal investigations (sensitive matters); ownership satisfies v1.1 rule
+      4. Overlapping quotes merged.'
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor of Science: PSYCHOLOGY'
+      start_offset: 988
+      end_offset: 1019
+    - quote: 'Master of Science: INDUSTRIAL/
+
+        ORGANIZATIONAL PSYCHOLOGY'
+      start_offset: 782
+      end_offset: 838
+    note: '[agree] Bachelor of Science in Psychology is a related field, reinforced by an MS in Industrial/Organizational
+      Psychology.'
+  hr_programs:
+    level: strong
+    evidence:
+    - quote: 'Guided the development of a leadership training program (“Heroic Leadership Institute”)
+        and a
+
+        management development program focused on the development of technical skills, knowledge and
+
+        abilities.'
+      start_offset: 3664
+      end_offset: 3861
+    - quote: 'Developed a Workforce Engagement program that included an internally developed annual
+
+        engagement survey with a 75% participation level to cultivate an optimal work experience for staff
+
+        and managers.'
+      start_offset: 3865
+      end_offset: 4063
+    - quote: This initiative helped reduced healthcare cost by $2M and also helped improve the agency’s
+      start_offset: 4583
+      end_offset: 4673
+    note: '[agree] Several HR programs with measurable results (75% participation, $2M healthcare saving);
+      no internship or early-career program. Overlapping quotes merged.'

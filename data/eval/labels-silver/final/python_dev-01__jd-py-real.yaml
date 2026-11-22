@@ -1,0 +1,147 @@
+cv_sheet_id: python_dev-01
+text_sha256: 18d279c1edf859c2c82c8f98f5456d1bbf7523c5104e672daa2890b5f6059e4e
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: strong
+    evidence:
+    - quote: 'Developed a chaibot using natural language processing techniques and the OpenAl GPT-2 framework.
+
+        Implemented using Python and Flask.'
+      start_offset: 1859
+      end_offset: 1991
+    - quote: 'Responsible for Design and maintenance of databases using Python. Developed Python based
+        APIs
+
+        (RESTful Web services) by using Flask, SQL AlClaireemy and PostgreSQL.'
+      start_offset: 5263
+      end_offset: 5427
+    - quote: Developed entire front end and back end modules using Python on Django Web Framework.
+      start_offset: 10297
+      end_offset: 10382
+    - quote: Used Analytical Python Libraries like Pandas and Numpy to work on Data Manipulations.
+      start_offset: 6256
+      end_offset: 6341
+    note: '[agree] Python across three roles since 2016 with Django and Flask applications and Pandas
+      data processing; ownership of entire Django modules satisfies v1.1 rule 4. A Scala/Java Spark quote
+      was dropped as not Python evidence; split quotes merged. Quotes keep OCR spelling.'
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: 'Responsible for Design and maintenance of databases using Python. Developed Python based
+        APIs
+
+        (RESTful Web services) by using Flask, SQL AlClaireemy and PostgreSQL.'
+      start_offset: 5263
+      end_offset: 5427
+    - quote: using databases like Oracle, Netezza and PostgreSQL.
+      start_offset: 2634
+      end_offset: 2686
+    - quote: Migrated the Django database from SQLite to MySQL to PostgreSQL with complete data integrity.
+      start_offset: 7163
+      end_offset: 7256
+    note: '[agree] PostgreSQL used behind APIs and a migration to PostgreSQL; query optimization, stored
+      procedures and PostgreSQL tuning are not shown (tuning evidence is for Spark).'
+  cloud_docker_linux:
+    level: adequate
+    evidence:
+    - quote: 'Implemented CI/CD process on Apache Airflow binary and DAG’s by building Airflow Docker
+        images by
+
+        Docker-Compose and uploading to Jfrog antifactory and deployment through AWS ECS cluster.'
+      start_offset: 1993
+      end_offset: 2180
+    - quote: 'Designed test cases and test plans and developed an embedded software data driven test automation
+
+        framework in Linux/Python.'
+      start_offset: 5429
+      end_offset: 5553
+    - quote: 'Developed an autonomous continuous integration system by using Git, Gerrit, Jenkins, MySQL
+        and
+
+        custom tools developed in Python and Bash.'
+      start_offset: 5555
+      end_offset: 5692
+    - quote: 'Creating job flow using Airflow in Python language and automating the jobs. Airflow will
+        have separate
+
+        stack for deploying Dags on and will run jobs on EMR or EC2 cluster.'
+      start_offset: 3467
+      end_offset: 3638
+    - quote: Lambda, SES, EC2 and ECS.
+      start_offset: 6980
+      end_offset: 7005
+    note: '[adjudicated] Annotators split adequate/strong. Practical Docker, AWS (ECS, EC2), Linux and
+      Bash work is explicit, but RDS appears only in the skills list, CloudFront is not mentioned, and
+      v1.1 rule 4: no concrete scale or results in the quotes, so adequate.'
+  backend_experience:
+    level: adequate
+    evidence:
+    - quote: Above 7+ years of experience in the field of Information Technology.
+      start_offset: 98
+      end_offset: 166
+    - quote: '05/2016 Software Developer
+
+        to University Of California — Los Angeles, CA
+
+
+        08/2019 .'
+      start_offset: 9097
+      end_offset: 9180
+    - quote: '05/2019 Python Developer
+
+        to General Dynamics — New York, NY
+
+
+        06/2021'
+      start_offset: 5193
+      end_offset: 5261
+    - quote: '08/2021 Full Stack Python Developer
+
+        to Current Jpmorgan Chase & Co. — Louisville, KY'
+      start_offset: 1247
+      end_offset: 1331
+    - quote: Developed entire front end and back end modules using Python on Django Web Framework.
+      start_offset: 10297
+      end_offset: 10382
+    note: '[agree] Dated developer roles run from 05/2016 to current (about seven years depending on the
+      unstated CV date) with substantial backend work; roles are full-stack. Overlapping heading quotes
+      merged.'
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: 'Revised, modularized and updated old code bases to modern development standards, reducing
+
+        operating costs, and improving functionality.'
+      start_offset: 11561
+      end_offset: 11696
+    - quote: Architected data engineering pipelines to support machine leaming performance.
+      start_offset: 10718
+      end_offset: 10796
+    note: '[agree] Modularization and pipeline architecture are described; named design-pattern application
+      and teaching others are not shown.'
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: 'Built an AWS and REDIS server for storing the data and performed defect analysis and interaction
+        with
+
+        Business Users during UAT/SIT.'
+      start_offset: 7666
+      end_offset: 7798
+    - quote: Documented the entire build and deployment process including detailed step-by-step instructions.
+      start_offset: 6343
+      end_offset: 6439
+    note: '[agree] Interaction with business users during UAT and process documentation; presenting complex
+      ideas to non-technical colleagues is not explicit. Split quotes merged.'
+  education_cs:
+    level: adequate
+    evidence:
+    - quote: 'Master of Science: Computer Information Systems'
+      start_offset: 11908
+      end_offset: 11955
+    note: '[agree] MS in Computer Information Systems counts as equivalent computing education; the bachelor
+      field is unstated, so that quote was dropped as non-supporting.'

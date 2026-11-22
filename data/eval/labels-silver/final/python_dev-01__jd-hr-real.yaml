@@ -1,0 +1,69 @@
+cv_sheet_id: python_dev-01
+text_sha256: 18d279c1edf859c2c82c8f98f5456d1bbf7523c5104e672daa2890b5f6059e4e
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: '08/2021 Full Stack Python Developer
+
+        to Current Jpmorgan Chase & Co. — Louisville, KY'
+      start_offset: 1247
+      end_offset: 1331
+    - quote: '05/2019 Python Developer
+
+        to General Dynamics — New York, NY'
+      start_offset: 5193
+      end_offset: 5252
+    - quote: '05/2016 Software Developer
+
+        to University Of California — Los Angeles, CA'
+      start_offset: 9097
+      end_offset: 9169
+    note: '[adjudicated] Annotators split unknown/absent. v1.1 rule 1: dated work history (2016-current)
+      lists only software developer roles, none in HR, so absent.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: '[agree] Recruitment and hiring-manager partnership are not mentioned.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: '[agree] Employee relations, performance management and employment law are not mentioned; system
+      performance tuning is unrelated.'
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: '[agree] Many software tools are listed, but Microsoft Office, HRIS and recruiting technology
+      are not mentioned.'
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: Documented the entire build and deployment process including detailed step-by-step instructions.
+      start_offset: 6343
+      end_offset: 6439
+    - quote: 'Built an AWS and REDIS server for storing the data and performed defect analysis and interaction
+        with
+
+        Business Users during UAT/SIT.'
+      start_offset: 7666
+      end_offset: 7798
+    - quote: Collaborated with quality assurance team to verify correct implementation of software development
+      start_offset: 4683
+      end_offset: 4780
+    note: '[agree] Written technical documentation, business-user interaction and team collaboration;
+      communication across organizational levels and confidential matters are not established. Split quotes
+      merged.'
+  education_hr_business:
+    level: unknown
+    evidence: []
+    note: '[agree] MS in Computer Information Systems is not an HR/business bachelor; a Bachelor of Science
+      is stated without a field, so whether it matches cannot be determined and v1.1 rule 2 absent does
+      not apply.'
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: '[agree] HR programs, onboarding or early-career programs are not mentioned.'

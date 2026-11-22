@@ -1,0 +1,114 @@
+cv_sheet_id: devops-01
+text_sha256: f7fff9d023f467550d221d079f97b7b8018f35ccdb2e95562ce72aaf2525426c
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned; the stack is C#/.NET.'
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: 'Efficient Database skills in Microsoft SQL Server. Worked on Database Design, Developing
+
+        Queries, Views, Stored Procedure, Packages and Functions, SSRS.'
+      start_offset: 683
+      end_offset: 835
+    - quote: Writing complex queries and stored procedures to perform CRUD operations on Sql Server 2008R2
+      start_offset: 3698
+      end_offset: 3791
+    note: '[agree] Complex queries and stored procedures on SQL Server, not PostgreSQL; no performance
+      tuning shown. Split quotes merged.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: '[agree] Linux, Bash, Docker and AWS are not mentioned; CI/CD is on Azure DevOps/Jenkins with
+      Windows/IIS.'
+  backend_experience:
+    level: adequate
+    evidence:
+    - quote: 10+ years of professional work experience in C#, .Net, Angularjs, DevOps, jQuery, SharePoint.
+      start_offset: 375
+      end_offset: 468
+    - quote: 'Pepco Energy Services - Software Engineer
+
+        Elgin, IL + 09/2010 - 08/2013'
+      start_offset: 4801
+      end_offset: 4872
+    - quote: 'Hewlett Packard Enterprise - Senior Software Engineer
+
+        El Paso, TX + 09/2013 - 02/2016'
+      start_offset: 4038
+      end_offset: 4123
+    - quote: 'Transwestern - Lead Engineer
+
+        Phoenix, AZ + 03/2016 - 05/2019'
+      start_offset: 3255
+      end_offset: 3315
+    - quote: Development using C#, WCF and Windows Services.
+      start_offset: 3319
+      end_offset: 3366
+    - quote: Creating RestFul Web API to perform required CRUD operations on Database
+      start_offset: 3906
+      end_offset: 3978
+    - quote: 'Building Custom software using .NET for Retailers and Sales Managers which include sales,
+
+        purchase, and reporting and Dash board; building an application for the sales force to capture
+        the
+
+        field surveys with Restful JSON'
+      start_offset: 5224
+      end_offset: 5444
+    note: '[agree] About 8.5 years (09/2010-05/2019) of .NET software engineering with Web API/WCF/SQL
+      backend work, then DevOps from 2019; roles are full-stack rather than purely backend. Overlapping
+      heading quotes merged.'
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: 'Developed and integrated applications implementing SOA based architecture with REST web
+
+        services.'
+      start_offset: 1125
+      end_offset: 1222
+    - quote: 'Good Understanding of Object-Oriented Analysis Design (OOAD), Design Patterns, Architectural
+
+        Patterns, MVC and .NET framework.'
+      start_offset: 1226
+      end_offset: 1352
+    note: '[agree] SOA work and self-claimed design-pattern knowledge; no concrete pattern application
+      or teaching others architecture. A peer-code-review quote was dropped as not supporting design patterns.'
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: 'Excellent communication and interpretation skills enabling effective interaction with application
+
+        Developers, End Users, Project Managers and Business Analysts to review the requirement
+
+        specifications.'
+      start_offset: 2067
+      end_offset: 2268
+    - quote: 'Understanding business requirements and created necessary technical specifications and design
+
+        documents'
+      start_offset: 4876
+      end_offset: 4979
+    - quote: Creating installation and update guide documents for the deployment team
+      start_offset: 3531
+      end_offset: 3603
+    note: '[adjudicated] Annotators split adequate/partial. Reviewing requirements with end users, project
+      managers and business analysts and translating business requirements into specifications show communicating
+      technical matters with non-technical colleagues; no concrete scope, so adequate.'
+  education_cs:
+    level: partial
+    evidence:
+    - quote: 'Bachelor of Science: Electronics,
+
+        Communication Engineering'
+      start_offset: 290
+      end_offset: 349
+    note: '[adjudicated] Annotators split unknown/partial. A degree is stated, so unknown does not apply
+      (v1.1 rule 2). Electronics & Communication Engineering is an adjacent engineering field, not computer
+      science or software engineering training, so it partly but not fully matches; partial.'
