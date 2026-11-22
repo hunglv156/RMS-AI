@@ -90,3 +90,35 @@ test("audit rejects raw personal data, secrets, provider payloads and free-text 
     await tx.rollback();
   }
 });
+test("only JD return events accept a bounded trimmed return reason", async () => {
+  const tx = await db.transaction();
+  try {
+    const id = randomUUID();
+    await writer.append(tx, {
+      ...event(null, id),
+      action: "jd.returned_to_draft",
+      safe_metadata_json: { return_reason: "  Clarify criteria  " },
+    });
+    assert.equal(
+      (await tx("audit_events").where({ request_id: id }).first())
+        .safe_metadata_json.return_reason,
+      "Clarify criteria",
+    );
+    for (const value of ["", " ", "x".repeat(2001), 42])
+      await assert.rejects(
+        writer.append(tx, {
+          ...event(null, randomUUID()),
+          action: "jd.returned_to_draft",
+          safe_metadata_json: { return_reason: value },
+        }),
+      );
+    await assert.rejects(
+      writer.append(tx, {
+        ...event(null, randomUUID()),
+        safe_metadata_json: { return_reason: "Forbidden free text" },
+      }),
+    );
+  } finally {
+    await tx.rollback();
+  }
+});

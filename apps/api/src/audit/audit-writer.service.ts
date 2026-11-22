@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import type { AuditEvent, AuditService } from "../common/interfaces";
 import type { Transaction } from "../db/database";
-/** Metadata is deliberately limited to operational identifiers/enums, never free text. */
+/** Free text is allowed only for the bounded JD return reason. */
 const allowed = new Set([
   "role",
   "previous_role",
@@ -14,6 +14,17 @@ export class AuditWriter implements AuditService {
   async append(tx: Transaction, event: AuditEvent): Promise<void> {
     const metadata: Record<string, unknown> = {};
     for (const [key, value] of Object.entries(event.safe_metadata_json)) {
+      if (key === "return_reason") {
+        if (
+          event.action !== "jd.returned_to_draft" ||
+          typeof value !== "string" ||
+          !value.trim() ||
+          value.trim().length > 2000
+        )
+          throw new Error("Invalid JD return reason");
+        metadata[key] = value.trim();
+        continue;
+      }
       if (!allowed.has(key)) throw new Error("Unsafe audit metadata key");
       if (key === "changed_fields") {
         if (
