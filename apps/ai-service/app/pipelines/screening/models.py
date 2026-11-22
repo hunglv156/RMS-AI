@@ -112,6 +112,9 @@ class ScreeningResult(StrictModel):
 class EscalationRule(StrictModel):
     coverage_low: float = Field(default=0.7, ge=0, le=1)
     coverage_high: float = Field(default=0.9, ge=0, le=1)
+    triggers: frozenset[Literal["needs_review", "coverage_band"]] = Field(
+        default=frozenset({"needs_review", "coverage_band"}), min_length=1
+    )
 
     @model_validator(mode="after")
     def validate_band(self):

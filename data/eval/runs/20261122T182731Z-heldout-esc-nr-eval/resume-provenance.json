@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-11-22T18:39:05.658590+00:00",
+  "staged_sha256": "ce42cfbff2bd031b7d984d272fd3680a483855290917f47e5271edfa20e97a6f",
+  "prior_session_succeeded": 17,
+  "prior_pair_hashes": {
+    "database-h1__jd-hr-real.json": "f76ba84deea732a9ddc204fded9ecd39601986df380b150eb492e190d08790f9",
+    "database-h1__jd-py-real.json": "8b2d256067ab4bf4e5faacfb861df170c697943f932ee96fad34b894c30983ba",
+    "devops-h1__jd-hr-real.json": "23bc7c635f42f23980d05bbbe7d85219dbe96723118550219a4057db8de9d2dd",
+    "devops-h1__jd-py-real.json": "e86ffc53c477a839101861be0149b459968810581609f1720a9704f5afea2034",
+    "finance-h1__jd-py-real.json": "59256cc82f3bd7ba2f8be08bbd4b83de1e531fe97d174b4a96082b3222dd735b",
+    "hr-h1__jd-hr-real.json": "f39ab7b2996633aa3972a2694279f297e3d2e8ab2b8d3d682bfa48b010d560bc",
+    "hr-h1__jd-py-real.json": "9064b1502ea0e819e962ae46dc729c98d45ee22ce9d5e5c8adff8bd86ef4e7ef",
+    "hr-h2__jd-hr-real.json": "34122abf398692eaa8067fa40861b8b65e8d705a5fbd8a6a868e555b1fd9f1af",
+    "hr-h2__jd-py-real.json": "84760df46c7d7ae40adccb69bf1b14cd32880c462cf513520a451491793a5765",
+    "hr-h3__jd-hr-real.json": "f8fa6ecad9c241ba3e6df66941b79e393216a81896079a3547c588f0306c9092",
+    "hr-h3__jd-py-real.json": "bdf5cee0ef7441d8b417db11ab920610985ba697d7da4b75a4b1f047b628cff6",
+    "python_dev-h1__jd-hr-real.json": "4d6c97f913bc8fb91cdd09a8992a5f7aa249b133aa82adc4960d526edef9e7c0",
+    "python_dev-h1__jd-py-real.json": "c5fed2cdb9037d3e1538fd0aee951fea0d9dee11aca97f948835da03c30d9081",
+    "python_dev-h2__jd-hr-real.json": "493bb29a75fdcd6497ead938f986607b70a5c1bd7bdad80456052a7b1e2517bd",
+    "python_dev-h2__jd-py-real.json": "a251b1e49e04f518e32462e1452b4eaee8c3e0fabb335aec075a68c2035b5953",
+    "python_dev-h3__jd-hr-real.json": "87bae05d8ccbd95a2134f7fd12432dd577c45cb9087ce9e79c7d4b628059e8b4",
+    "python_dev-h3__jd-py-real.json": "a469f0d53702306c91f35904855728f83884b57ff164f68448bc9db6fe517e3c"
+  },
+  "validation": {
+    "pytest": "253 passed, 3 skipped",
+    "ruff_check": "passed",
+    "ruff_format_check": "49 files already formatted"
+  },
+  "resume_allowance": 1,
+  "completed_at": "2026-11-22T18:41:57.191023+00:00",
+  "resumed_session_pairs": 3,
+  "resumed_pair_files": [
+    "designer-h1__jd-hr-real.json",
+    "designer-h1__jd-py-real.json",
+    "finance-h1__jd-hr-real.json"
+  ],
+  "successful_prior_files_preserved": true,
+  "total_succeeded": 20,
+  "total_invocations": 2
+}

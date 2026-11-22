@@ -1,0 +1,5062 @@
+{
+  "created_at": "2026-11-22T18:27:14.822360+00:00",
+  "labels": "/Users/hung/orca/workspaces/RMS-AI/m5-esc-nr/data/eval/labels-silver/final",
+  "seed": 20261122,
+  "resamples": 2000,
+  "numpy_version": "2.5.5",
+  "method": [
+    "System level: result.criteria[].validation.level, the post-quote-verification level in ScreenedCriterion/AssessmentValidation (app/pipelines/screening/models.py and app/assessment/evidence.py). assessment.level and validation.raw_level are pre-validation and are not evaluated.",
+    "Six exact classes: strong, adequate, partial, absent, unknown, needs_review. Unweighted \u03ba keeps unknown and needs_review as distinct nominal classes. Macro-F1 averages the union of classes present in labels or predictions. Undefined \u03ba (zero expected disagreement) and constant-rank Spearman are null; no-positive binary precision/recall/F1 are 0.",
+    "Linear-weighted \u03ba uses the fixed absent < partial < adequate < strong scale; pairs with either unknown or needs_review are excluded, with retained criterion n reported. Three-class mapping: strong/adequate/partial \u2192 evidence, absent \u2192 absent, unknown/needs_review \u2192 unknown. Binary positive = evidence; all other levels are negative.",
+    "System overall_fit: GUIDELINES v1.1 rule 5 applied to validated must_have levels (none with evidence \u2192 poor; all adequate/strong \u2192 good; otherwise partial). Labelled fit is used as recorded and checked against rule 5 for final labels.",
+    "Coverage = sum(JD weights with a validated ordinal level)/sum(all JD weights). Known-only score = 100 \u00d7 sum(weight \u00d7 configured rubric[level])/known weight, independent of the min_coverage threshold; null if no known weight. Spearman uses average ranks for ties and pairwise exclusion of null scores, with n reported.",
+    "95% percentile bootstrap: 2000 resamples of CV\u00d7JD pairs retaining all their criteria, NumPy default_rng seed=20261122, restarted per scope/run for comparable draws; undefined \u03ba draws are omitted and their counts reported. JD scopes resample within JD; priority scopes resample full pairs then select criteria. Fit/correlations in priority scopes still use whole-pair fit and scores, so are identical to all-pair metrics.",
+    "Every run must have exactly the labelled pair set and successful records with exactly the JD criterion set; failures are rejected rather than silently dropped. Criteria have equal weight in classification metrics; JD weights affect coverage and known-only score only. No LLM calls."
+  ],
+  "runs": [
+    {
+      "run": "20261122T083536Z-v2-lexical-gemini-3-8-flash-low-c1",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m5-esc-nr/data/eval/runs/20261122T083536Z-v2-lexical-gemini-3-8-flash-low-c1",
+      "scopes": {
+        "all": {
+          "exact": {
+            "accuracy": {
+              "value": 0.7285714285714285,
+              "n": 140
+            },
+            "macro_f1": {
+              "value": 0.5724041585445093,
+              "n": 140
+            },
+            "kappa": {
+              "value": 0.6356164383561644,
+              "n": 140
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown",
+              "needs_review"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 140,
+              "matrix": [
+                [
+                  6,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  5,
+                  18,
+                  3,
+                  1,
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  2,
+                  10,
+                  4,
+                  8,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  20,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  1,
+                  9,
+                  48,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7707731520815633,
+              "n": 71
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.8142857142857143,
+              "n": 140
+            },
+            "macro_f1": {
+              "value": 0.8017634195004225,
+              "n": 140
+            },
+            "kappa": {
+              "value": 0.7107438016528926,
+              "n": 140
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 140,
+              "matrix": [
+                [
+                  46,
+                  5,
+                  11
+                ],
+                [
+                  0,
+                  20,
+                  0
+                ],
+                [
+                  1,
+                  9,
+                  48
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.8785714285714286,
+              "n": 140
+            },
+            "macro_f1": {
+              "value": 0.872310746284672,
+              "n": 140
+            },
+            "kappa": {
+              "value": 0.7476675148430874,
+              "n": 140
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 140,
+              "matrix": [
+                [
+                  46,
+                  16
+                ],
+                [
+                  1,
+                  77
+                ]
+              ]
+            },
+            "precision": {
+              "value": 0.9787234042553191,
+              "n": 140
+            },
+            "recall": {
+              "value": 0.7419354838709677,
+              "n": 140
+            },
+            "f1": {
+              "value": 0.8440366972477065,
+              "n": 140
+            },
+            "positive_support": 62,
+            "predicted_positive": 47
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.95,
+              "n": 20
+            },
+            "macro_f1": {
+              "value": 0.9619047619047619,
+              "n": 20
+            },
+            "kappa": {
+              "value": 0.9130434782608696,
+              "n": 20
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial",
+              "good"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 20,
+              "matrix": [
+                [
+                  10,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  7,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.6346177794762744,
+              "n": 20
+            },
+            "known_only_score_spearman": {
+              "value": 0.8396104639829826,
+              "n": 20
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.6285714285714286,
+              "high": 0.8142857142857143,
+              "n": 140,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.511302277821282,
+              "high": 0.7447845105924897,
+              "n": 140,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.5816311334805313,
+              "high": 0.8279911415588456,
+              "n": 140,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.7472527472527473,
+              "high": 0.9247311827956989,
+              "n": 140,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.85,
+              "high": 1.0,
+              "n": 20,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 20
+        },
+        "jd/jd-hr-real": {
+          "exact": {
+            "accuracy": {
+              "value": 0.6714285714285714,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.6654428341384864,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.5821437840643654,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  5,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  3,
+                  10,
+                  2,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  7,
+                  2,
+                  3,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  9,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  1,
+                  9,
+                  16,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7535070140280561,
+              "n": 41
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.7714285714285715,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.7344729344729345,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.6463530154720556,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  29,
+                  3,
+                  3
+                ],
+                [
+                  0,
+                  9,
+                  0
+                ],
+                [
+                  1,
+                  9,
+                  16
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.9,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.8994871794871795,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.8,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  29,
+                  6
+                ],
+                [
+                  1,
+                  34
+                ]
+              ]
+            },
+            "precision": {
+              "value": 0.9666666666666667,
+              "n": 70
+            },
+            "recall": {
+              "value": 0.8285714285714286,
+              "n": 70
+            },
+            "f1": {
+              "value": 0.8923076923076924,
+              "n": 70
+            },
+            "positive_support": 35,
+            "predicted_positive": 30
+          },
+          "fit": {
+            "accuracy": {
+              "value": 1.0,
+              "n": 10
+            },
+            "macro_f1": {
+              "value": 1.0,
+              "n": 10
+            },
+            "kappa": {
+              "value": 1.0,
+              "n": 10
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial",
+              "good"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 10,
+              "matrix": [
+                [
+                  4,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  4,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.9194621406122842,
+              "n": 10
+            },
+            "known_only_score_spearman": {
+              "value": 0.8979991308594849,
+              "n": 10
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.5285714285714286,
+              "high": 0.8,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.38767102854664637,
+              "high": 0.7341124522217172,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.45783310105764724,
+              "high": 0.7962641420490257,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.758574091332712,
+              "high": 0.976204318936877,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 1.0,
+              "high": 1.0,
+              "n": 10,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 10
+        },
+        "jd/jd-py-real": {
+          "exact": {
+            "accuracy": {
+              "value": 0.7857142857142857,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.5654660414890594,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.6900826446280992,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown",
+              "needs_review"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  8,
+                  1,
+                  0,
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  2,
+                  3,
+                  2,
+                  5,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  11,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  32,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7870182555780934,
+              "n": 30
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.8571428571428571,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.8594276094276094,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.7680583167660703,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  17,
+                  2,
+                  8
+                ],
+                [
+                  0,
+                  11,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  32
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.8571428571428571,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.834280303030303,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.6762257169287696,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  17,
+                  10
+                ],
+                [
+                  0,
+                  43
+                ]
+              ]
+            },
+            "precision": {
+              "value": 1.0,
+              "n": 70
+            },
+            "recall": {
+              "value": 0.6296296296296297,
+              "n": 70
+            },
+            "f1": {
+              "value": 0.7727272727272727,
+              "n": 70
+            },
+            "positive_support": 27,
+            "predicted_positive": 17
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.9,
+              "n": 10
+            },
+            "macro_f1": {
+              "value": 0.8901098901098901,
+              "n": 10
+            },
+            "kappa": {
+              "value": 0.7826086956521738,
+              "n": 10
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 10,
+              "matrix": [
+                [
+                  6,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  3,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.7749130248475835,
+              "n": 10
+            },
+            "known_only_score_spearman": {
+              "value": 0.8580188337201025,
+              "n": 10
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.6571428571428571,
+              "high": 0.9,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.5441476684091694,
+              "high": 0.8383944949642038,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.6178302421691126,
+              "high": 0.901442683881064,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.6666666666666666,
+              "high": 0.8717948717948718,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.7,
+              "high": 1.0,
+              "n": 10,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 10
+        },
+        "priority/must_have": {
+          "exact": {
+            "accuracy": {
+              "value": 0.75,
+              "n": 80
+            },
+            "macro_f1": {
+              "value": 0.5746972934472935,
+              "n": 80
+            },
+            "kappa": {
+              "value": 0.642537980339589,
+              "n": 80
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown",
+              "needs_review"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 80,
+              "matrix": [
+                [
+                  4,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  5,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  11,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  1,
+                  7,
+                  34,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.8126721763085399,
+              "n": 34
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.8125,
+              "n": 80
+            },
+            "macro_f1": {
+              "value": 0.7902777777777779,
+              "n": 80
+            },
+            "kappa": {
+              "value": 0.7004493260109834,
+              "n": 80
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 80,
+              "matrix": [
+                [
+                  20,
+                  3,
+                  4
+                ],
+                [
+                  0,
+                  11,
+                  0
+                ],
+                [
+                  1,
+                  7,
+                  34
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.9,
+              "n": 80
+            },
+            "macro_f1": {
+              "value": 0.8809523809523809,
+              "n": 80
+            },
+            "kappa": {
+              "value": 0.7634885439763489,
+              "n": 80
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 80,
+              "matrix": [
+                [
+                  20,
+                  7
+                ],
+                [
+                  1,
+                  52
+                ]
+              ]
+            },
+            "precision": {
+              "value": 0.9523809523809523,
+              "n": 80
+            },
+            "recall": {
+              "value": 0.7407407407407407,
+              "n": 80
+            },
+            "f1": {
+              "value": 0.8333333333333334,
+              "n": 80
+            },
+            "positive_support": 27,
+            "predicted_positive": 21
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.95,
+              "n": 20
+            },
+            "macro_f1": {
+              "value": 0.9619047619047619,
+              "n": 20
+            },
+            "kappa": {
+              "value": 0.9130434782608696,
+              "n": 20
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial",
+              "good"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 20,
+              "matrix": [
+                [
+                  10,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  7,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.6346177794762744,
+              "n": 20
+            },
+            "known_only_score_spearman": {
+              "value": 0.8396104639829826,
+              "n": 20
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.6625,
+              "high": 0.8375,
+              "n": 80,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.5191328239105114,
+              "high": 0.7551197703782146,
+              "n": 80,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.552385882877878,
+              "high": 0.837896705757848,
+              "n": 80,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.6486089030206678,
+              "high": 0.9629629629629629,
+              "n": 80,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.85,
+              "high": 1.0,
+              "n": 20,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 20
+        },
+        "priority/nice_to_have": {
+          "exact": {
+            "accuracy": {
+              "value": 0.7,
+              "n": 60
+            },
+            "macro_f1": {
+              "value": 0.5619889369889369,
+              "n": 60
+            },
+            "kappa": {
+              "value": 0.6117900790797987,
+              "n": 60
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown",
+              "needs_review"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 60,
+              "matrix": [
+                [
+                  2,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  12,
+                  3,
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  5,
+                  1,
+                  6,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  9,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  2,
+                  14,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7229407760381212,
+              "n": 37
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.8166666666666667,
+              "n": 60
+            },
+            "macro_f1": {
+              "value": 0.8091325304440059,
+              "n": 60
+            },
+            "kappa": {
+              "value": 0.7049620026821636,
+              "n": 60
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 60,
+              "matrix": [
+                [
+                  26,
+                  2,
+                  7
+                ],
+                [
+                  0,
+                  9,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  14
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.85,
+              "n": 60
+            },
+            "macro_f1": {
+              "value": 0.8499583217560434,
+              "n": 60
+            },
+            "kappa": {
+              "value": 0.7065217391304348,
+              "n": 60
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 60,
+              "matrix": [
+                [
+                  26,
+                  9
+                ],
+                [
+                  0,
+                  25
+                ]
+              ]
+            },
+            "precision": {
+              "value": 1.0,
+              "n": 60
+            },
+            "recall": {
+              "value": 0.7428571428571429,
+              "n": 60
+            },
+            "f1": {
+              "value": 0.8524590163934426,
+              "n": 60
+            },
+            "positive_support": 35,
+            "predicted_positive": 26
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.95,
+              "n": 20
+            },
+            "macro_f1": {
+              "value": 0.9619047619047619,
+              "n": 20
+            },
+            "kappa": {
+              "value": 0.9130434782608696,
+              "n": 20
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial",
+              "good"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 20,
+              "matrix": [
+                [
+                  10,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  7,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.6346177794762744,
+              "n": 20
+            },
+            "known_only_score_spearman": {
+              "value": 0.8396104639829826,
+              "n": 20
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.5666666666666667,
+              "high": 0.8166666666666667,
+              "n": 60,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.4367101264601607,
+              "high": 0.7555555555555555,
+              "n": 60,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.5293963658761934,
+              "high": 0.8538405413723105,
+              "n": 60,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.7540983606557377,
+              "high": 0.9310344827586207,
+              "n": 60,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.85,
+              "high": 1.0,
+              "n": 20,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 20
+        }
+      },
+      "validation_changes": [
+        {
+          "pair": "python_dev-01__jd-py-real",
+          "criterion": "postgresql_database",
+          "raw": "partial",
+          "validated": "needs_review"
+        },
+        {
+          "pair": "python_dev-01__jd-py-real",
+          "criterion": "cloud_docker_linux",
+          "raw": "adequate",
+          "validated": "needs_review"
+        },
+        {
+          "pair": "python_dev-03__jd-py-real",
+          "criterion": "communication_collaboration",
+          "raw": "adequate",
+          "validated": "needs_review"
+        }
+      ],
+      "errors": {
+        "transitions": {
+          "unknown \u2192 absent": 9,
+          "partial \u2192 unknown": 8,
+          "adequate \u2192 strong": 5,
+          "partial \u2192 absent": 4,
+          "adequate \u2192 partial": 3,
+          "partial \u2192 adequate": 2,
+          "adequate \u2192 needs_review": 2,
+          "unknown \u2192 partial": 1,
+          "strong \u2192 partial": 1,
+          "partial \u2192 needs_review": 1,
+          "strong \u2192 adequate": 1,
+          "adequate \u2192 absent": 1
+        },
+        "by_criterion": {
+          "jd-hr-real/talent_acquisition": {
+            "errors": 7,
+            "n": 10
+          },
+          "jd-py-real/communication_collaboration": {
+            "errors": 5,
+            "n": 10
+          },
+          "jd-hr-real/education_hr_business": {
+            "errors": 4,
+            "n": 10
+          },
+          "jd-hr-real/hr_experience": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-hr-real/employee_relations_compliance": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-hr-real/interpersonal_communication": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-hr-real/hr_programs": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-py-real/postgresql_database": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-py-real/backend_experience": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-py-real/education_cs": {
+            "errors": 2,
+            "n": 10
+          },
+          "jd-py-real/cloud_docker_linux": {
+            "errors": 1,
+            "n": 10
+          },
+          "jd-py-real/software_architecture": {
+            "errors": 1,
+            "n": 10
+          },
+          "jd-hr-real/hris_office_tools": {
+            "errors": 0,
+            "n": 10
+          },
+          "jd-py-real/python_frameworks": {
+            "errors": 0,
+            "n": 10
+          }
+        },
+        "fit_errors": [
+          {
+            "pair": "database-01__jd-py-real",
+            "label": "partial",
+            "system": "poor"
+          }
+        ],
+        "pairs": [
+          {
+            "pair": "database-01__jd-hr-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.75,
+            "known_only_score": 26.666666666666668
+          },
+          {
+            "pair": "database-01__jd-py-real",
+            "label_fit": "partial",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 40.0
+          },
+          {
+            "pair": "designer-01__jd-hr-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.6,
+            "known_only_score": 6.666666666666667
+          },
+          {
+            "pair": "designer-01__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.2,
+            "known_only_score": 0.0
+          },
+          {
+            "pair": "devops-01__jd-hr-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.6,
+            "known_only_score": 6.666666666666667
+          },
+          {
+            "pair": "devops-01__jd-py-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.4,
+            "known_only_score": 72.5
+          },
+          {
+            "pair": "finance-01__jd-hr-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.7,
+            "known_only_score": 32.857142857142854
+          },
+          {
+            "pair": "finance-01__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.25,
+            "known_only_score": 16.0
+          },
+          {
+            "pair": "hr-01__jd-hr-real",
+            "label_fit": "good",
+            "system_fit": "good",
+            "coverage": 1.0,
+            "known_only_score": 63.0
+          },
+          {
+            "pair": "hr-01__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.2,
+            "known_only_score": 0.0
+          },
+          {
+            "pair": "hr-02__jd-hr-real",
+            "label_fit": "good",
+            "system_fit": "good",
+            "coverage": 1.0,
+            "known_only_score": 94.0
+          },
+          {
+            "pair": "hr-02__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 23.333333333333332
+          },
+          {
+            "pair": "hr-03__jd-hr-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.9,
+            "known_only_score": 70.0
+          },
+          {
+            "pair": "hr-03__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 13.333333333333334
+          },
+          {
+            "pair": "python_dev-01__jd-hr-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.7,
+            "known_only_score": 0.0
+          },
+          {
+            "pair": "python_dev-01__jd-py-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.55,
+            "known_only_score": 78.18181818181819
+          },
+          {
+            "pair": "python_dev-02__jd-hr-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.75,
+            "known_only_score": 17.333333333333332
+          },
+          {
+            "pair": "python_dev-02__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 23.333333333333332
+          },
+          {
+            "pair": "python_dev-03__jd-hr-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.65,
+            "known_only_score": 6.153846153846154
+          },
+          {
+            "pair": "python_dev-03__jd-py-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.55,
+            "known_only_score": 64.54545454545455
+          }
+        ]
+      }
+    },
+    {
+      "run": "20261122T162215Z-dev-esc-argonmedium",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m5-esc-nr/data/eval/runs/20261122T162215Z-dev-esc-argonmedium",
+      "scopes": {
+        "all": {
+          "exact": {
+            "accuracy": {
+              "value": 0.7357142857142858,
+              "n": 140
+            },
+            "macro_f1": {
+              "value": 0.6842408735265879,
+              "n": 140
+            },
+            "kappa": {
+              "value": 0.6454725891451646,
+              "n": 140
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 140,
+              "matrix": [
+                [
+                  5,
+                  3,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  5,
+                  16,
+                  8,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  15,
+                  3,
+                  6,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  20,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  11,
+                  47,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7635345364032359,
+              "n": 76
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.8571428571428571,
+              "n": 140
+            },
+            "macro_f1": {
+              "value": 0.8364422393407901,
+              "n": 140
+            },
+            "kappa": {
+              "value": 0.7770700636942676,
+              "n": 140
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 140,
+              "matrix": [
+                [
+                  53,
+                  3,
+                  6
+                ],
+                [
+                  0,
+                  20,
+                  0
+                ],
+                [
+                  0,
+                  11,
+                  47
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.9357142857142857,
+              "n": 140
+            },
+            "macro_f1": {
+              "value": 0.933596837944664,
+              "n": 140
+            },
+            "kappa": {
+              "value": 0.8677581863979849,
+              "n": 140
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 140,
+              "matrix": [
+                [
+                  53,
+                  9
+                ],
+                [
+                  0,
+                  78
+                ]
+              ]
+            },
+            "precision": {
+              "value": 1.0,
+              "n": 140
+            },
+            "recall": {
+              "value": 0.8548387096774194,
+              "n": 140
+            },
+            "f1": {
+              "value": 0.9217391304347826,
+              "n": 140
+            },
+            "positive_support": 62,
+            "predicted_positive": 53
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.9,
+              "n": 20
+            },
+            "macro_f1": {
+              "value": 0.9220779220779219,
+              "n": 20
+            },
+            "kappa": {
+              "value": 0.8245614035087719,
+              "n": 20
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial",
+              "good"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 20,
+              "matrix": [
+                [
+                  10,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  6,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.69168210792541,
+              "n": 20
+            },
+            "known_only_score_spearman": {
+              "value": 0.7985408284419346,
+              "n": 20
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.6357142857142857,
+              "high": 0.8357142857142857,
+              "n": 140,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.525627864429634,
+              "high": 0.7652127542855751,
+              "n": 140,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.6649316708794866,
+              "high": 0.8758097032767417,
+              "n": 140,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.870582788671024,
+              "high": 0.9635036496350365,
+              "n": 140,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.75,
+              "high": 1.0,
+              "n": 20,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 20
+        },
+        "jd/jd-hr-real": {
+          "exact": {
+            "accuracy": {
+              "value": 0.6428571428571429,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.6393078083185393,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.5489690721649485,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  5,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  3,
+                  9,
+                  4,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  7,
+                  2,
+                  2,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  9,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  11,
+                  15,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7536656891495601,
+              "n": 42
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.7857142857142857,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.739237839762971,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.6692913385826772,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  31,
+                  2,
+                  2
+                ],
+                [
+                  0,
+                  9,
+                  0
+                ],
+                [
+                  0,
+                  11,
+                  15
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.9428571428571428,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.9426699426699428,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.8857142857142857,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  31,
+                  4
+                ],
+                [
+                  0,
+                  35
+                ]
+              ]
+            },
+            "precision": {
+              "value": 1.0,
+              "n": 70
+            },
+            "recall": {
+              "value": 0.8857142857142857,
+              "n": 70
+            },
+            "f1": {
+              "value": 0.9393939393939394,
+              "n": 70
+            },
+            "positive_support": 35,
+            "predicted_positive": 31
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.9,
+              "n": 10
+            },
+            "macro_f1": {
+              "value": 0.9153439153439153,
+              "n": 10
+            },
+            "kappa": {
+              "value": 0.84375,
+              "n": 10
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial",
+              "good"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 10,
+              "matrix": [
+                [
+                  4,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  3,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.7188464719145241,
+              "n": 10
+            },
+            "known_only_score_spearman": {
+              "value": 0.9237022282378736,
+              "n": 10
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.5142857142857142,
+              "high": 0.7857142857142857,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.386107080432806,
+              "high": 0.7050746266768759,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.5043141592920355,
+              "high": 0.8071889505264349,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.8888888888888888,
+              "high": 0.984139194139194,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.7,
+              "high": 1.0,
+              "n": 10,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 10
+        },
+        "jd/jd-py-real": {
+          "exact": {
+            "accuracy": {
+              "value": 0.8285714285714286,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.6408729752770673,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.7495527728085868,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  7,
+                  4,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  8,
+                  1,
+                  4,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  11,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  32,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7638888888888888,
+              "n": 34
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.9285714285714286,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.9318857977973799,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.8841826604897419,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  22,
+                  1,
+                  4
+                ],
+                [
+                  0,
+                  11,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  32
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.9285714285714286,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.9215070643642072,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.8438893844781445,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  22,
+                  5
+                ],
+                [
+                  0,
+                  43
+                ]
+              ]
+            },
+            "precision": {
+              "value": 1.0,
+              "n": 70
+            },
+            "recall": {
+              "value": 0.8148148148148148,
+              "n": 70
+            },
+            "f1": {
+              "value": 0.8979591836734694,
+              "n": 70
+            },
+            "positive_support": 27,
+            "predicted_positive": 22
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.9,
+              "n": 10
+            },
+            "macro_f1": {
+              "value": 0.8901098901098901,
+              "n": 10
+            },
+            "kappa": {
+              "value": 0.7826086956521738,
+              "n": 10
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 10,
+              "matrix": [
+                [
+                  6,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  3,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.7580980435789034,
+              "n": 10
+            },
+            "known_only_score_spearman": {
+              "value": 0.8633316946034312,
+              "n": 10
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.7,
+              "high": 0.9428571428571428,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.5908594534884081,
+              "high": 0.8967674042560623,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.7705691093716934,
+              "high": 0.9756012547926106,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.7878787878787878,
+              "high": 0.9696969696969697,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.7,
+              "high": 1.0,
+              "n": 10,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 10
+        },
+        "priority/must_have": {
+          "exact": {
+            "accuracy": {
+              "value": 0.7375,
+              "n": 80
+            },
+            "macro_f1": {
+              "value": 0.6498539189361974,
+              "n": 80
+            },
+            "kappa": {
+              "value": 0.61939284096058,
+              "n": 80
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 80,
+              "matrix": [
+                [
+                  3,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  5,
+                  2,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  6,
+                  2,
+                  3,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  11,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  8,
+                  34,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7631935047361299,
+              "n": 35
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.8375,
+              "n": 80
+            },
+            "macro_f1": {
+              "value": 0.8154062257814519,
+              "n": 80
+            },
+            "kappa": {
+              "value": 0.7413578711763242,
+              "n": 80
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 80,
+              "matrix": [
+                [
+                  22,
+                  2,
+                  3
+                ],
+                [
+                  0,
+                  11,
+                  0
+                ],
+                [
+                  0,
+                  8,
+                  34
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.9375,
+              "n": 80
+            },
+            "macro_f1": {
+              "value": 0.9264570693142122,
+              "n": 80
+            },
+            "kappa": {
+              "value": 0.8535871156661786,
+              "n": 80
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 80,
+              "matrix": [
+                [
+                  22,
+                  5
+                ],
+                [
+                  0,
+                  53
+                ]
+              ]
+            },
+            "precision": {
+              "value": 1.0,
+              "n": 80
+            },
+            "recall": {
+              "value": 0.8148148148148148,
+              "n": 80
+            },
+            "f1": {
+              "value": 0.8979591836734694,
+              "n": 80
+            },
+            "positive_support": 27,
+            "predicted_positive": 22
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.9,
+              "n": 20
+            },
+            "macro_f1": {
+              "value": 0.9220779220779219,
+              "n": 20
+            },
+            "kappa": {
+              "value": 0.8245614035087719,
+              "n": 20
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial",
+              "good"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 20,
+              "matrix": [
+                [
+                  10,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  6,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.69168210792541,
+              "n": 20
+            },
+            "known_only_score_spearman": {
+              "value": 0.7985408284419346,
+              "n": 20
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.6125,
+              "high": 0.85,
+              "n": 80,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.4620736008764681,
+              "high": 0.7654646513191559,
+              "n": 80,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.5881988332523093,
+              "high": 0.8772519155541433,
+              "n": 80,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.7315964523281596,
+              "high": 0.9836065573770492,
+              "n": 80,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.75,
+              "high": 1.0,
+              "n": 20,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 20
+        },
+        "priority/nice_to_have": {
+          "exact": {
+            "accuracy": {
+              "value": 0.7333333333333333,
+              "n": 60
+            },
+            "macro_f1": {
+              "value": 0.7109289903644742,
+              "n": 60
+            },
+            "kappa": {
+              "value": 0.6554199569274946,
+              "n": 60
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 60,
+              "matrix": [
+                [
+                  2,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  11,
+                  6,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  9,
+                  1,
+                  3,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  9,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  3,
+                  13,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7610722610722611,
+              "n": 41
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.8833333333333333,
+              "n": 60
+            },
+            "macro_f1": {
+              "value": 0.8566919191919192,
+              "n": 60
+            },
+            "kappa": {
+              "value": 0.803921568627451,
+              "n": 60
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 60,
+              "matrix": [
+                [
+                  31,
+                  1,
+                  3
+                ],
+                [
+                  0,
+                  9,
+                  0
+                ],
+                [
+                  0,
+                  3,
+                  13
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.9333333333333333,
+              "n": 60
+            },
+            "macro_f1": {
+              "value": 0.9326599326599327,
+              "n": 60
+            },
+            "kappa": {
+              "value": 0.8659217877094972,
+              "n": 60
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 60,
+              "matrix": [
+                [
+                  31,
+                  4
+                ],
+                [
+                  0,
+                  25
+                ]
+              ]
+            },
+            "precision": {
+              "value": 1.0,
+              "n": 60
+            },
+            "recall": {
+              "value": 0.8857142857142857,
+              "n": 60
+            },
+            "f1": {
+              "value": 0.9393939393939394,
+              "n": 60
+            },
+            "positive_support": 35,
+            "predicted_positive": 31
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.9,
+              "n": 20
+            },
+            "macro_f1": {
+              "value": 0.9220779220779219,
+              "n": 20
+            },
+            "kappa": {
+              "value": 0.8245614035087719,
+              "n": 20
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial",
+              "good"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 20,
+              "matrix": [
+                [
+                  10,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  6,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.69168210792541,
+              "n": 20
+            },
+            "known_only_score_spearman": {
+              "value": 0.7985408284419346,
+              "n": 20
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.6333333333333333,
+              "high": 0.8333333333333334,
+              "n": 60,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.5231127669178589,
+              "high": 0.7838089883283569,
+              "n": 60,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.6703255515099593,
+              "high": 0.9178559924984174,
+              "n": 60,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.8846153846153846,
+              "high": 0.9855072463768116,
+              "n": 60,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.75,
+              "high": 1.0,
+              "n": 20,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 20
+        }
+      },
+      "validation_changes": [],
+      "errors": {
+        "transitions": {
+          "unknown \u2192 absent": 11,
+          "adequate \u2192 partial": 8,
+          "partial \u2192 unknown": 6,
+          "adequate \u2192 strong": 5,
+          "partial \u2192 absent": 3,
+          "strong \u2192 adequate": 3,
+          "partial \u2192 adequate": 1
+        },
+        "by_criterion": {
+          "jd-hr-real/talent_acquisition": {
+            "errors": 8,
+            "n": 10
+          },
+          "jd-hr-real/interpersonal_communication": {
+            "errors": 5,
+            "n": 10
+          },
+          "jd-py-real/communication_collaboration": {
+            "errors": 4,
+            "n": 10
+          },
+          "jd-hr-real/employee_relations_compliance": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-hr-real/education_hr_business": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-hr-real/hr_programs": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-py-real/backend_experience": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-hr-real/hr_experience": {
+            "errors": 2,
+            "n": 10
+          },
+          "jd-py-real/postgresql_database": {
+            "errors": 2,
+            "n": 10
+          },
+          "jd-hr-real/hris_office_tools": {
+            "errors": 1,
+            "n": 10
+          },
+          "jd-py-real/python_frameworks": {
+            "errors": 1,
+            "n": 10
+          },
+          "jd-py-real/cloud_docker_linux": {
+            "errors": 1,
+            "n": 10
+          },
+          "jd-py-real/education_cs": {
+            "errors": 1,
+            "n": 10
+          },
+          "jd-py-real/software_architecture": {
+            "errors": 0,
+            "n": 10
+          }
+        },
+        "fit_errors": [
+          {
+            "pair": "database-01__jd-hr-real",
+            "label": "partial",
+            "system": "poor"
+          },
+          {
+            "pair": "database-01__jd-py-real",
+            "label": "partial",
+            "system": "poor"
+          }
+        ],
+        "pairs": [
+          {
+            "pair": "database-01__jd-hr-real",
+            "label_fit": "partial",
+            "system_fit": "poor",
+            "coverage": 0.85,
+            "known_only_score": 12.941176470588236
+          },
+          {
+            "pair": "database-01__jd-py-real",
+            "label_fit": "partial",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 40.0
+          },
+          {
+            "pair": "designer-01__jd-hr-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.6,
+            "known_only_score": 6.666666666666667
+          },
+          {
+            "pair": "designer-01__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.2,
+            "known_only_score": 0.0
+          },
+          {
+            "pair": "devops-01__jd-hr-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.6,
+            "known_only_score": 6.666666666666667
+          },
+          {
+            "pair": "devops-01__jd-py-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.4,
+            "known_only_score": 70.0
+          },
+          {
+            "pair": "finance-01__jd-hr-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.55,
+            "known_only_score": 21.818181818181817
+          },
+          {
+            "pair": "finance-01__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.25,
+            "known_only_score": 16.0
+          },
+          {
+            "pair": "hr-01__jd-hr-real",
+            "label_fit": "good",
+            "system_fit": "good",
+            "coverage": 1.0,
+            "known_only_score": 63.0
+          },
+          {
+            "pair": "hr-01__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 13.333333333333334
+          },
+          {
+            "pair": "hr-02__jd-hr-real",
+            "label_fit": "good",
+            "system_fit": "good",
+            "coverage": 1.0,
+            "known_only_score": 91.0
+          },
+          {
+            "pair": "hr-02__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 23.333333333333332
+          },
+          {
+            "pair": "hr-03__jd-hr-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.9,
+            "known_only_score": 80.0
+          },
+          {
+            "pair": "hr-03__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 13.333333333333334
+          },
+          {
+            "pair": "python_dev-01__jd-hr-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.6,
+            "known_only_score": 6.666666666666667
+          },
+          {
+            "pair": "python_dev-01__jd-py-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.9,
+            "known_only_score": 50.0
+          },
+          {
+            "pair": "python_dev-02__jd-hr-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 1.0,
+            "known_only_score": 28.0
+          },
+          {
+            "pair": "python_dev-02__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 13.333333333333334
+          },
+          {
+            "pair": "python_dev-03__jd-hr-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.6,
+            "known_only_score": 6.666666666666667
+          },
+          {
+            "pair": "python_dev-03__jd-py-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.65,
+            "known_only_score": 58.46153846153846
+          }
+        ]
+      }
+    },
+    {
+      "run": "20261122T182040Z-dev-esc-nr-argonmedium",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m5-esc-nr/data/eval/runs/20261122T182040Z-dev-esc-nr-argonmedium",
+      "scopes": {
+        "all": {
+          "exact": {
+            "accuracy": {
+              "value": 0.7642857142857142,
+              "n": 140
+            },
+            "macro_f1": {
+              "value": 0.7012887310695839,
+              "n": 140
+            },
+            "kappa": {
+              "value": 0.6796116504854369,
+              "n": 140
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 140,
+              "matrix": [
+                [
+                  5,
+                  3,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  5,
+                  19,
+                  4,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  12,
+                  4,
+                  7,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  20,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  7,
+                  51,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7646689676812048,
+              "n": 75
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.8642857142857143,
+              "n": 140
+            },
+            "macro_f1": {
+              "value": 0.847132752305166,
+              "n": 140
+            },
+            "kappa": {
+              "value": 0.7871318822023048,
+              "n": 140
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 140,
+              "matrix": [
+                [
+                  50,
+                  5,
+                  7
+                ],
+                [
+                  0,
+                  20,
+                  0
+                ],
+                [
+                  0,
+                  7,
+                  51
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.9142857142857143,
+              "n": 140
+            },
+            "macro_f1": {
+              "value": 0.9107142857142858,
+              "n": 140
+            },
+            "kappa": {
+              "value": 0.8227848101265822,
+              "n": 140
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 140,
+              "matrix": [
+                [
+                  50,
+                  12
+                ],
+                [
+                  0,
+                  78
+                ]
+              ]
+            },
+            "precision": {
+              "value": 1.0,
+              "n": 140
+            },
+            "recall": {
+              "value": 0.8064516129032258,
+              "n": 140
+            },
+            "f1": {
+              "value": 0.8928571428571429,
+              "n": 140
+            },
+            "positive_support": 62,
+            "predicted_positive": 50
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.95,
+              "n": 20
+            },
+            "macro_f1": {
+              "value": 0.9619047619047619,
+              "n": 20
+            },
+            "kappa": {
+              "value": 0.9130434782608696,
+              "n": 20
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial",
+              "good"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 20,
+              "matrix": [
+                [
+                  10,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  7,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.7058429610857402,
+              "n": 20
+            },
+            "known_only_score_spearman": {
+              "value": 0.8640053083452971,
+              "n": 20
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.6571428571428571,
+              "high": 0.85,
+              "n": 140,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.5423247442835071,
+              "high": 0.7914161782425737,
+              "n": 140,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.667958562873093,
+              "high": 0.8778235782006207,
+              "n": 140,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.8115942028985508,
+              "high": 0.9538461538461539,
+              "n": 140,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.85,
+              "high": 1.0,
+              "n": 20,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 20
+        },
+        "jd/jd-hr-real": {
+          "exact": {
+            "accuracy": {
+              "value": 0.7142857142857143,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.693220551378446,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.6308990245188505,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  5,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  3,
+                  11,
+                  1,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  6,
+                  2,
+                  3,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  9,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  7,
+                  19,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7723372034326098,
+              "n": 41
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.8142857142857143,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.7802579365079364,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.7103755569700827,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  29,
+                  3,
+                  3
+                ],
+                [
+                  0,
+                  9,
+                  0
+                ],
+                [
+                  0,
+                  7,
+                  19
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.9142857142857143,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.9136513157894737,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.8285714285714285,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  29,
+                  6
+                ],
+                [
+                  0,
+                  35
+                ]
+              ]
+            },
+            "precision": {
+              "value": 1.0,
+              "n": 70
+            },
+            "recall": {
+              "value": 0.8285714285714286,
+              "n": 70
+            },
+            "f1": {
+              "value": 0.90625,
+              "n": 70
+            },
+            "positive_support": 35,
+            "predicted_positive": 29
+          },
+          "fit": {
+            "accuracy": {
+              "value": 1.0,
+              "n": 10
+            },
+            "macro_f1": {
+              "value": 1.0,
+              "n": 10
+            },
+            "kappa": {
+              "value": 1.0,
+              "n": 10
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial",
+              "good"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 10,
+              "matrix": [
+                [
+                  4,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  4,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.769038708036539,
+              "n": 10
+            },
+            "known_only_score_spearman": {
+              "value": 0.9063269671749657,
+              "n": 10
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.5428571428571428,
+              "high": 0.8571428571428571,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.41130091984231276,
+              "high": 0.8099465647113706,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.5182946367507398,
+              "high": 0.8436041234439834,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.7727272727272727,
+              "high": 0.9803921568627451,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 1.0,
+              "high": 1.0,
+              "n": 10,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 10
+        },
+        "jd/jd-py-real": {
+          "exact": {
+            "accuracy": {
+              "value": 0.8142857142857143,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.6197899713244981,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.7288438617401669,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  8,
+                  3,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  6,
+                  2,
+                  4,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  11,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  32,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.739795918367347,
+              "n": 34
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.9142857142857143,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.9109477124183005,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.8617511520737328,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  21,
+                  2,
+                  4
+                ],
+                [
+                  0,
+                  11,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  32
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.9142857142857143,
+              "n": 70
+            },
+            "macro_f1": {
+              "value": 0.9048913043478262,
+              "n": 70
+            },
+            "kappa": {
+              "value": 0.8113207547169812,
+              "n": 70
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 70,
+              "matrix": [
+                [
+                  21,
+                  6
+                ],
+                [
+                  0,
+                  43
+                ]
+              ]
+            },
+            "precision": {
+              "value": 1.0,
+              "n": 70
+            },
+            "recall": {
+              "value": 0.7777777777777778,
+              "n": 70
+            },
+            "f1": {
+              "value": 0.875,
+              "n": 70
+            },
+            "positive_support": 27,
+            "predicted_positive": 21
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.9,
+              "n": 10
+            },
+            "macro_f1": {
+              "value": 0.8901098901098901,
+              "n": 10
+            },
+            "kappa": {
+              "value": 0.7826086956521738,
+              "n": 10
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 10,
+              "matrix": [
+                [
+                  6,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  3,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.7580980435789034,
+              "n": 10
+            },
+            "known_only_score_spearman": {
+              "value": 0.8633316946034312,
+              "n": 10
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.7,
+              "high": 0.9142857142857143,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.5922231028333663,
+              "high": 0.865211810012837,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.7386041593660333,
+              "high": 0.9738918512498015,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.7567267267267268,
+              "high": 0.9629629629629629,
+              "n": 70,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.7,
+              "high": 1.0,
+              "n": 10,
+              "clusters": 10,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 10
+        },
+        "priority/must_have": {
+          "exact": {
+            "accuracy": {
+              "value": 0.775,
+              "n": 80
+            },
+            "macro_f1": {
+              "value": 0.6863799283154122,
+              "n": 80
+            },
+            "kappa": {
+              "value": 0.671082686158063,
+              "n": 80
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 80,
+              "matrix": [
+                [
+                  3,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  5,
+                  3,
+                  2,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  11,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  6,
+                  36,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7662337662337662,
+              "n": 36
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.8625,
+              "n": 80
+            },
+            "macro_f1": {
+              "value": 0.8358788676761026,
+              "n": 80
+            },
+            "kappa": {
+              "value": 0.7794486215538847,
+              "n": 80
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 80,
+              "matrix": [
+                [
+                  22,
+                  3,
+                  2
+                ],
+                [
+                  0,
+                  11,
+                  0
+                ],
+                [
+                  0,
+                  6,
+                  36
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.9375,
+              "n": 80
+            },
+            "macro_f1": {
+              "value": 0.9264570693142122,
+              "n": 80
+            },
+            "kappa": {
+              "value": 0.8535871156661786,
+              "n": 80
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 80,
+              "matrix": [
+                [
+                  22,
+                  5
+                ],
+                [
+                  0,
+                  53
+                ]
+              ]
+            },
+            "precision": {
+              "value": 1.0,
+              "n": 80
+            },
+            "recall": {
+              "value": 0.8148148148148148,
+              "n": 80
+            },
+            "f1": {
+              "value": 0.8979591836734694,
+              "n": 80
+            },
+            "positive_support": 27,
+            "predicted_positive": 22
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.95,
+              "n": 20
+            },
+            "macro_f1": {
+              "value": 0.9619047619047619,
+              "n": 20
+            },
+            "kappa": {
+              "value": 0.9130434782608696,
+              "n": 20
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial",
+              "good"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 20,
+              "matrix": [
+                [
+                  10,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  7,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.7058429610857402,
+              "n": 20
+            },
+            "known_only_score_spearman": {
+              "value": 0.8640053083452971,
+              "n": 20
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.675,
+              "high": 0.8625,
+              "n": 80,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.5341285074672244,
+              "high": 0.7973372538379511,
+              "n": 80,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.6523472926113631,
+              "high": 0.8862691278724119,
+              "n": 80,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.7333333333333333,
+              "high": 0.9830647402056126,
+              "n": 80,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.85,
+              "high": 1.0,
+              "n": 20,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 20
+        },
+        "priority/nice_to_have": {
+          "exact": {
+            "accuracy": {
+              "value": 0.75,
+              "n": 60
+            },
+            "macro_f1": {
+              "value": 0.7098343685300208,
+              "n": 60
+            },
+            "kappa": {
+              "value": 0.6755587599134824,
+              "n": 60
+            },
+            "macro_f1_levels": [
+              "strong",
+              "adequate",
+              "partial",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "strong",
+                "adequate",
+                "partial",
+                "absent",
+                "unknown",
+                "needs_review"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 60,
+              "matrix": [
+                [
+                  2,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  12,
+                  3,
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  7,
+                  1,
+                  5,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  9,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  1,
+                  15,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            },
+            "linear_weighted_kappa": {
+              "value": 0.7607361963190185,
+              "n": 39
+            }
+          },
+          "collapsed": {
+            "accuracy": {
+              "value": 0.8666666666666667,
+              "n": 60
+            },
+            "macro_f1": {
+              "value": 0.8597883597883599,
+              "n": 60
+            },
+            "kappa": {
+              "value": 0.781021897810219,
+              "n": 60
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "absent",
+              "unknown"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "absent",
+                "unknown"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 60,
+              "matrix": [
+                [
+                  28,
+                  2,
+                  5
+                ],
+                [
+                  0,
+                  9,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  15
+                ]
+              ]
+            }
+          },
+          "evidence": {
+            "accuracy": {
+              "value": 0.8833333333333333,
+              "n": 60
+            },
+            "macro_f1": {
+              "value": 0.8830409356725146,
+              "n": 60
+            },
+            "kappa": {
+              "value": 0.7692307692307693,
+              "n": 60
+            },
+            "macro_f1_levels": [
+              "evidence",
+              "not"
+            ],
+            "confusion": {
+              "classes": [
+                "evidence",
+                "not"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 60,
+              "matrix": [
+                [
+                  28,
+                  7
+                ],
+                [
+                  0,
+                  25
+                ]
+              ]
+            },
+            "precision": {
+              "value": 1.0,
+              "n": 60
+            },
+            "recall": {
+              "value": 0.8,
+              "n": 60
+            },
+            "f1": {
+              "value": 0.8888888888888888,
+              "n": 60
+            },
+            "positive_support": 35,
+            "predicted_positive": 28
+          },
+          "fit": {
+            "accuracy": {
+              "value": 0.95,
+              "n": 20
+            },
+            "macro_f1": {
+              "value": 0.9619047619047619,
+              "n": 20
+            },
+            "kappa": {
+              "value": 0.9130434782608696,
+              "n": 20
+            },
+            "macro_f1_levels": [
+              "poor",
+              "partial",
+              "good"
+            ],
+            "confusion": {
+              "classes": [
+                "poor",
+                "partial",
+                "good"
+              ],
+              "rows": "labels",
+              "columns": "system",
+              "n": 20,
+              "matrix": [
+                [
+                  10,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  7,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2
+                ]
+              ]
+            },
+            "coverage_spearman": {
+              "value": 0.7058429610857402,
+              "n": 20
+            },
+            "known_only_score_spearman": {
+              "value": 0.8640053083452971,
+              "n": 20
+            }
+          },
+          "bootstrap_95_ci": {
+            "accuracy": {
+              "low": 0.6166666666666667,
+              "high": 0.8666666666666667,
+              "n": 60,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "kappa": {
+              "low": 0.5016206342098837,
+              "high": 0.8168078357558646,
+              "n": 60,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "collapsed_kappa": {
+              "low": 0.592844723680747,
+              "high": 0.9191783029390037,
+              "n": 60,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "evidence_f1": {
+              "low": 0.7941059757236227,
+              "high": 0.9577464788732394,
+              "n": 60,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            },
+            "fit_accuracy": {
+              "low": 0.85,
+              "high": 1.0,
+              "n": 20,
+              "clusters": 20,
+              "defined_resamples": 2000,
+              "undefined_resamples": 0
+            }
+          },
+          "pair_count": 20
+        }
+      },
+      "validation_changes": [],
+      "errors": {
+        "transitions": {
+          "unknown \u2192 absent": 7,
+          "partial \u2192 unknown": 7,
+          "adequate \u2192 strong": 5,
+          "partial \u2192 absent": 4,
+          "adequate \u2192 partial": 4,
+          "strong \u2192 adequate": 3,
+          "partial \u2192 adequate": 2,
+          "adequate \u2192 absent": 1
+        },
+        "by_criterion": {
+          "jd-hr-real/talent_acquisition": {
+            "errors": 7,
+            "n": 10
+          },
+          "jd-hr-real/education_hr_business": {
+            "errors": 4,
+            "n": 10
+          },
+          "jd-py-real/communication_collaboration": {
+            "errors": 4,
+            "n": 10
+          },
+          "jd-hr-real/hr_experience": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-hr-real/interpersonal_communication": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-py-real/backend_experience": {
+            "errors": 3,
+            "n": 10
+          },
+          "jd-hr-real/hr_programs": {
+            "errors": 2,
+            "n": 10
+          },
+          "jd-py-real/postgresql_database": {
+            "errors": 2,
+            "n": 10
+          },
+          "jd-py-real/education_cs": {
+            "errors": 2,
+            "n": 10
+          },
+          "jd-hr-real/employee_relations_compliance": {
+            "errors": 1,
+            "n": 10
+          },
+          "jd-py-real/python_frameworks": {
+            "errors": 1,
+            "n": 10
+          },
+          "jd-py-real/cloud_docker_linux": {
+            "errors": 1,
+            "n": 10
+          },
+          "jd-hr-real/hris_office_tools": {
+            "errors": 0,
+            "n": 10
+          },
+          "jd-py-real/software_architecture": {
+            "errors": 0,
+            "n": 10
+          }
+        },
+        "fit_errors": [
+          {
+            "pair": "database-01__jd-py-real",
+            "label": "partial",
+            "system": "poor"
+          }
+        ],
+        "pairs": [
+          {
+            "pair": "database-01__jd-hr-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.75,
+            "known_only_score": 30.666666666666668
+          },
+          {
+            "pair": "database-01__jd-py-real",
+            "label_fit": "partial",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 40.0
+          },
+          {
+            "pair": "designer-01__jd-hr-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.6,
+            "known_only_score": 6.666666666666667
+          },
+          {
+            "pair": "designer-01__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.2,
+            "known_only_score": 0.0
+          },
+          {
+            "pair": "devops-01__jd-hr-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.6,
+            "known_only_score": 6.666666666666667
+          },
+          {
+            "pair": "devops-01__jd-py-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.4,
+            "known_only_score": 65.0
+          },
+          {
+            "pair": "finance-01__jd-hr-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.5,
+            "known_only_score": 30.0
+          },
+          {
+            "pair": "finance-01__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.25,
+            "known_only_score": 16.0
+          },
+          {
+            "pair": "hr-01__jd-hr-real",
+            "label_fit": "good",
+            "system_fit": "good",
+            "coverage": 1.0,
+            "known_only_score": 63.0
+          },
+          {
+            "pair": "hr-01__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 13.333333333333334
+          },
+          {
+            "pair": "hr-02__jd-hr-real",
+            "label_fit": "good",
+            "system_fit": "good",
+            "coverage": 1.0,
+            "known_only_score": 91.0
+          },
+          {
+            "pair": "hr-02__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 23.333333333333332
+          },
+          {
+            "pair": "hr-03__jd-hr-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.9,
+            "known_only_score": 78.33333333333333
+          },
+          {
+            "pair": "hr-03__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 13.333333333333334
+          },
+          {
+            "pair": "python_dev-01__jd-hr-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.5,
+            "known_only_score": 0.0
+          },
+          {
+            "pair": "python_dev-01__jd-py-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.9,
+            "known_only_score": 55.0
+          },
+          {
+            "pair": "python_dev-02__jd-hr-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.75,
+            "known_only_score": 17.333333333333332
+          },
+          {
+            "pair": "python_dev-02__jd-py-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.3,
+            "known_only_score": 13.333333333333334
+          },
+          {
+            "pair": "python_dev-03__jd-hr-real",
+            "label_fit": "poor",
+            "system_fit": "poor",
+            "coverage": 0.6,
+            "known_only_score": 6.666666666666667
+          },
+          {
+            "pair": "python_dev-03__jd-py-real",
+            "label_fit": "partial",
+            "system_fit": "partial",
+            "coverage": 0.65,
+            "known_only_score": 65.38461538461539
+          }
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Silver (LLM) labels are not human ground truth.",
+    "The adjudicator was Claude, the same model family as one annotator; agreement is not independent validation.",
+    "GUIDELINES v1.1 codifies that annotator's absent/poor conventions, potentially favoring its decisions.",
+    "Small n: 10 CVs \u00d7 2 JDs (20 pairs, 140 criteria); criteria within a pair are dependent, and the same CV occurs under both JDs.",
+    "expected_group is sampling metadata, not ground truth; it is never used in evaluation.",
+    "Latency was measured on a shared gateway and is not an accuracy measure or a controlled speed comparison.",
+    "Bootstrap resamples CV\u00d7JD pairs, as specified, not CVs; cross-JD dependence for the same CV is not preserved. Intervals are descriptive percentile intervals, not a test of run differences.",
+    "Illustrative JD weights and configured rubric values are not calibrated. Fit is a deterministic rule-5 proxy, not a hiring recommendation."
+  ],
+  "inter_annotator": {
+    "claude vs gpt": {
+      "accuracy": {
+        "value": 0.7071428571428572,
+        "n": 140
+      },
+      "kappa": {
+        "value": 0.5799487742407611,
+        "n": 140
+      },
+      "collapsed_kappa": {
+        "value": 0.6777905638665133,
+        "n": 140
+      },
+      "evidence_kappa": {
+        "value": 0.9128449885868437,
+        "n": 140
+      },
+      "fit_kappa": {
+        "value": 0.11764705882352944,
+        "n": 20
+      }
+    },
+    "claude vs final": {
+      "accuracy": {
+        "value": 0.95,
+        "n": 140
+      },
+      "kappa": {
+        "value": 0.9316787506971556,
+        "n": 140
+      },
+      "collapsed_kappa": {
+        "value": 0.9883662954960944,
+        "n": 140
+      },
+      "evidence_kappa": {
+        "value": 0.9855012427506213,
+        "n": 140
+      },
+      "fit_kappa": {
+        "value": 0.5652173913043479,
+        "n": 20
+      }
+    },
+    "gpt vs final": {
+      "accuracy": {
+        "value": 0.75,
+        "n": 140
+      },
+      "kappa": {
+        "value": 0.6409467282186561,
+        "n": 140
+      },
+      "collapsed_kappa": {
+        "value": 0.688501245995016,
+        "n": 140
+      },
+      "evidence_kappa": {
+        "value": 0.9275062137531069,
+        "n": 140
+      },
+      "fit_kappa": {
+        "value": 0.20634920634920628,
+        "n": 20
+      }
+    }
+  }
+}

@@ -1,0 +1,599 @@
+{
+  "sheet_id": "devops-h1",
+  "jd_id": "jd-py-real",
+  "expected_group": "partial_A",
+  "source_pdf_sha256": "7951c1d4026e04fd8b3fae1d90c2f2bcf4d11516599d4a7cc9187c80fa734b3a",
+  "text_content_sha256": "9ae608f45a8c1d4a2d70772ebfbcb8b29ba0bf7c70aee3756630a89458aafa86",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-py-real",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "python_frameworks",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention Python, Django, or Flask anywhere in skills or work experience.",
+          "evidence": [],
+          "missing_information": [
+            "Python experience",
+            "Django or Flask framework experience"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "python_frameworks",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "postgresql_database",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV lists MySQL and MongoDB, but does not mention PostgreSQL or PostgreSQL tuning.",
+          "evidence": [],
+          "missing_information": [
+            "PostgreSQL experience",
+            "Database performance tuning"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "postgresql_database",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "cloud_docker_linux",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "Candidate has hands-on AWS (EC2, etc.) and Linux security/iptables experience, but Docker and Bash are not mentioned.",
+          "evidence": [
+            {
+              "quote": "Familiar with AWS services like EC2, ELB, $3, VPC, EBS, LAM etc Using knife and test kitchen to test cookbooks locally before\ndeploying to AWS environments.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Setting up complex environments which include Load Balancers, Application Servers and DB servers using Chef and AWS.Using AWS\nsecurity groups and iptables to keep the environments secure.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Docker containers",
+            "Bash scripting"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Familiar with AWS services like EC2, ELB, $3, VPC, EBS, LAM etc Using knife and test kitchen to test cookbooks locally before\ndeploying to AWS environments.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 978,
+              "end_offset": 1134,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Setting up complex environments which include Load Balancers, Application Servers and DB servers using Chef and AWS.Using AWS\nsecurity groups and iptables to keep the environments secure.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 788,
+              "end_offset": 975,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "cloud_docker_linux",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 6.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "backend_experience",
+          "level": "strong",
+          "confidence": 0.9,
+          "reason": "Candidate has over 7 years of full-time software engineering and DevOps experience (from May 2010 to Current/ongoing as of 2016+).",
+          "evidence": [
+            {
+              "quote": "Senior PHP Developer, 05/2010 - 07/2015\nFeedonomics — Phoenix, AZ\n¢ Developed the price tracking REST API using Symfony and Doctrine.\nThe API used MySQL as the data storage.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "DevOps Engineer, 06/2016 - Current\nComputer Services, Inc. — Oklahoma City, OK",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Senior PHP Developer, 05/2010 - 07/2015\nFeedonomics — Phoenix, AZ\n¢ Developed the price tracking REST API using Symfony and Doctrine.\nThe API used MySQL as the data storage.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "DevOps Engineer, 06/2016 - Current\nComputer Services, Inc. — Oklahoma City, OK",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 468,
+              "end_offset": 546,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "backend_experience",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 15.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "software_architecture",
+          "level": "unknown",
+          "confidence": 0.8,
+          "reason": "Mentions design to implementation and MVC framework development, but does not demonstrate teaching or architectural design patterns.",
+          "evidence": [],
+          "missing_information": [
+            "Experience applying design patterns",
+            "Teaching architectural problem-solving"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "software_architecture",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication_collaboration",
+          "level": "adequate",
+          "confidence": 0.8,
+          "reason": "CV notes skill at technical leadership, communication, and presentations, although presentation specifically to non-technical colleagues lacks detail.",
+          "evidence": [
+            {
+              "quote": "Software Developer skilled at technical leadership, communication and presentations.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience presenting complex ideas specifically to non-technical colleagues"
+          ]
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Software Developer skilled at technical leadership, communication and presentations.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 126,
+              "end_offset": 210,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication_collaboration",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education_cs",
+          "level": "absent",
+          "confidence": 0.95,
+          "reason": "Candidate holds a Master of Science in Electrical Engineering, not Computer Science or software engineering.",
+          "evidence": [
+            {
+              "quote": "Master of Science: Electrical Engineering, 2009\nUniversity of North Texas - Denton, TX",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Degree in Computer Science"
+          ]
+        },
+        "validation": {
+          "level": "absent",
+          "raw_level": "absent",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Master of Science: Electrical Engineering, 2009\nUniversity of North Texas - Denton, TX",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2576,
+              "end_offset": 2662,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education_cs",
+          "weight": 5.0,
+          "priority": "nice_to_have",
+          "status": "not_supported",
+          "match_value": 0.0,
+          "validated": true
+        },
+        "score": 0.0,
+        "weighted_points": 0.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.45,
+      "lower_bound": 28.0,
+      "upper_bound": 83.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-low",
+      "temperature": 0.0,
+      "started_at": "2026-11-22T18:28:43.445644+00:00",
+      "latency_ms": 6713.488459005021,
+      "input_tokens": 4223,
+      "output_tokens": 724,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n",
+      "hedged": false,
+      "winner": "primary"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v2",
+      "model": "ag/gemini-3.8-flash-low",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v2",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "python_frameworks": [],
+          "postgresql_database": [],
+          "cloud_docker_linux": [
+            {
+              "chunk_index": 1,
+              "score": 2.2535293896045103,
+              "lexical_score": 2.2535293896045103,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.7354149023179285,
+              "lexical_score": 0.7354149023179285,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.6307112859876614,
+              "lexical_score": 0.6307112859876614,
+              "dense_score": null
+            }
+          ],
+          "backend_experience": [
+            {
+              "chunk_index": 0,
+              "score": 3.2773323874209677,
+              "lexical_score": 3.2773323874209677,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 2.1269118658724055,
+              "lexical_score": 2.1269118658724055,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 1.8328085145533697,
+              "lexical_score": 1.8328085145533697,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 4,
+              "score": 1.2274115916678232,
+              "lexical_score": 1.2274115916678232,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.47505127939107217,
+              "lexical_score": 0.47505127939107217,
+              "dense_score": null
+            }
+          ],
+          "software_architecture": [
+            {
+              "chunk_index": 0,
+              "score": 2.2528952854585604,
+              "lexical_score": 2.2528952854585604,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 0.5868546234056119,
+              "lexical_score": 0.5868546234056119,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.505706027523447,
+              "lexical_score": 0.505706027523447,
+              "dense_score": null
+            }
+          ],
+          "communication_collaboration": [
+            {
+              "chunk_index": 0,
+              "score": 3.244367998941798,
+              "lexical_score": 3.244367998941798,
+              "dense_score": null
+            }
+          ],
+          "education_cs": [
+            {
+              "chunk_index": 4,
+              "score": 2.700937221707582,
+              "lexical_score": 2.700937221707582,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 1.6968790815519688,
+              "lexical_score": 1.6968790815519688,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 1.1737092468112238,
+              "lexical_score": 1.1737092468112238,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 1.011412055046894,
+              "lexical_score": 1.011412055046894,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.6307112859876614,
+              "lexical_score": 0.6307112859876614,
+              "dense_score": null
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 468,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 368,
+            "end_offset": 1167,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1067,
+            "end_offset": 1722,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 3,
+            "start_offset": 1622,
+            "end_offset": 2118,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 4,
+            "start_offset": 2018,
+            "end_offset": 2662,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "9ae608f45a8c1d4a2d70772ebfbcb8b29ba0bf7c70aee3756630a89458aafa86",
+      "jd_sha256": "6ad85bef9f5c74b0ad16d8e02ade393cb543209f127eb3627955593a2feff9c5"
+    },
+    "escalation": {
+      "triggered": false,
+      "reasons": [],
+      "primary_result_summary": {
+        "total": {
+          "score_state": "insufficient_coverage",
+          "observed_score": null,
+          "coverage": 0.45,
+          "lower_bound": 28.0,
+          "upper_bound": 83.0,
+          "requires_manual_review": true
+        },
+        "llm": {
+          "provider": "openai_compat",
+          "model": "ag/gemini-3.8-flash-low",
+          "temperature": 0.0,
+          "started_at": "2026-11-22T18:28:43.445644+00:00",
+          "latency_ms": 6713.488459005021,
+          "input_tokens": 4223,
+          "output_tokens": 724,
+          "attempts": 1,
+          "finish_reason": "stop",
+          "response_model": "gemini-3.8-flash-n",
+          "hedged": false,
+          "winner": "primary"
+        },
+        "levels": {
+          "python_frameworks": "unknown",
+          "postgresql_database": "unknown",
+          "cloud_docker_linux": "partial",
+          "backend_experience": "strong",
+          "software_architecture": "unknown",
+          "communication_collaboration": "adequate",
+          "education_cs": "absent"
+        }
+      },
+      "primary_latency_s": 6.715167916001519,
+      "escalation_latency_s": 0.0,
+      "total_latency_s": 6.715167916001519,
+      "escalation_model": "ag/gemini-4-argon-medium",
+      "error": null
+    }
+  },
+  "prompt_char_length": 8269,
+  "context_char_length": 2662,
+  "input_tokens": 4223,
+  "output_tokens": 724,
+  "reasoning_tokens": null,
+  "latency_s": 6.715915333013982,
+  "finished_at": "2026-11-22T18:28:50.160595+00:00"
+}

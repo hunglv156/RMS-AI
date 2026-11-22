@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-11-22T18:27:16.226035+00:00",
+  "rule": "20/20 success AND at least 17/20 pairs <=40 s AND collapsed kappa >= reference - 0.01 AND evidence F1 >= reference - 0.01",
+  "model": "ag/gemini-4-argon-medium",
+  "triggers": [
+    "needs_review"
+  ],
+  "checks": {
+    "success_20_of_20": true,
+    "at_least_17_within_40_s": true,
+    "collapsed_kappa_within_0_01_of_reference": true,
+    "evidence_f1_within_0_01_of_reference": true
+  },
+  "heldout_required": true,
+  "new": {
+    "success": 20,
+    "within_40_s": 20,
+    "collapsed_kappa": 0.7871318822023048,
+    "evidence_f1": 0.8928571428571429
+  },
+  "reference": {
+    "collapsed_kappa": 0.7107438016528926,
+    "evidence_f1": 0.8440366972477065
+  },
+  "deltas": {
+    "collapsed_kappa": 0.07638808054941215,
+    "evidence_f1": 0.048820445609436436
+  }
+}

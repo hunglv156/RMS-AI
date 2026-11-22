@@ -779,3 +779,60 @@ def test_escalation_cli_and_shared_hedging(fixture, monkeypatch):
     assert seen == [("fast", "fast", 2.5), ("stronger", "stronger", 2.5)]
     manifest = json.loads((args["output_dir"] / "manifest.json").read_text())
     assert manifest["identity"]["escalation"] == {"model": "stronger", "coverage_band": [0.6, 0.95]}
+
+
+@pytest.mark.parametrize(
+    "triggers", [["needs_review"], ["coverage_band"], ["coverage_band", "needs_review"]]
+)
+def test_escalate_on_cli_manifest_and_resume(fixture, monkeypatch, triggers):
+    import sys
+
+    from app.experiments.run import main
+
+    args, _ = fixture
+    monkeypatch.setattr("app.experiments.run.Settings", lambda: args["settings"])
+    monkeypatch.setattr(
+        "app.experiments.run.get_llm_provider", lambda _: FakeLLMProvider([response()])
+    )
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "run",
+            "--eval-set",
+            str(args["eval_set"]),
+            "--output-dir",
+            str(args["output_dir"]),
+            "--jd-ids",
+            "jd-a",
+            "--limit",
+            "1",
+            "--escalate-model",
+            "stronger",
+            "--escalate-on",
+            *triggers,
+        ],
+    )
+    assert main() == 0
+    identity = json.loads((args["output_dir"] / "manifest.json").read_text())["identity"]
+    if len(triggers) == 1:
+        assert identity["escalation"]["triggers"] == triggers
+        with pytest.raises(ValueError, match="Resume inputs"):
+            run(args, [], limit=1, escalate_model="stronger")
+    else:
+        assert "triggers" not in identity["escalation"]
+    assert main() == 0
+
+
+@pytest.mark.parametrize("triggers", [[], ["invalid"]])
+def test_escalate_on_cli_rejects_invalid(tmp_path, monkeypatch, triggers):
+    import sys
+
+    from app.experiments.run import main
+
+    monkeypatch.setattr(
+        sys, "argv", ["run", "--output-dir", str(tmp_path), "--escalate-on", *triggers]
+    )
+    with pytest.raises(SystemExit) as error:
+        main()
+    assert error.value.code == 2

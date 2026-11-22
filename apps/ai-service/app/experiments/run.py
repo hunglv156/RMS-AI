@@ -312,12 +312,15 @@ async def run_experiment(
     hedge_after_s=None,
     escalate_model=None,
     escalate_coverage_band=(0.7, 0.9),
+    escalate_on=("needs_review", "coverage_band"),
     escalation_provider=None,
 ):
     if concurrency < 1 or (limit is not None and limit < 1):
         raise ValueError("concurrency and limit must be positive")
     escalation_rule = EscalationRule(
-        coverage_low=escalate_coverage_band[0], coverage_high=escalate_coverage_band[1]
+        coverage_low=escalate_coverage_band[0],
+        coverage_high=escalate_coverage_band[1],
+        triggers=escalate_on,
     )
     if escalation_provider is not None and escalate_model is None:
         raise ValueError("escalation_provider requires escalate_model")
@@ -375,11 +378,18 @@ async def run_experiment(
         },
     }
     # Omit default escalation settings to preserve historical manifests and resume.
-    if escalate_model is not None or tuple(escalate_coverage_band) != (0.7, 0.9):
+    nondefault_triggers = escalation_rule.triggers != EscalationRule().triggers
+    if (
+        escalate_model is not None
+        or tuple(escalate_coverage_band) != (0.7, 0.9)
+        or nondefault_triggers
+    ):
         identity["escalation"] = {
             "model": escalate_model,
             "coverage_band": [escalation_rule.coverage_low, escalation_rule.coverage_high],
         }
+        if nondefault_triggers:
+            identity["escalation"]["triggers"] = sorted(escalation_rule.triggers)
     manifest_path = output_dir / "manifest.json"
     if manifest_path.exists():
         manifest = json.loads(manifest_path.read_text())
@@ -520,6 +530,13 @@ def main():
     parser.add_argument("--model", help="Override the requested model for this run only")
     parser.add_argument("--hedge-after-s", type=float, help="Override LLM hedging delay in seconds")
     parser.add_argument("--escalate-model", help="Re-screen hard cases with this model")
+    parser.add_argument(
+        "--escalate-on",
+        choices=["needs_review", "coverage_band"],
+        nargs="+",
+        default=("needs_review", "coverage_band"),
+        help="Active escalation triggers (default: both)",
+    )
     parser.add_argument(
         "--escalate-coverage-band",
         nargs=2,

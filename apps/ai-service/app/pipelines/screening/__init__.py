@@ -216,9 +216,14 @@ async def screen_with_escalation(
     primary = await _screen_prepared(provider=provider, **prepared)
     primary_latency = time.perf_counter() - started
     reasons = []
-    if any(c.validation.level == "needs_review" for c in primary.criteria):
+    if "needs_review" in rule.triggers and any(
+        c.validation.level == "needs_review" for c in primary.criteria
+    ):
         reasons.append("needs_review")
-    if rule.coverage_low <= primary.total.coverage < rule.coverage_high:
+    if (
+        "coverage_band" in rule.triggers
+        and rule.coverage_low <= primary.total.coverage < rule.coverage_high
+    ):
         reasons.append("coverage_band")
     metadata = EscalationMetadata(
         triggered=bool(reasons),

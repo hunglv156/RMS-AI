@@ -241,3 +241,44 @@ def test_both_reasons_trigger_only_one_second_opinion(monkeypatch):
     assert result.escalation.reasons == ["needs_review", "coverage_band"]
     assert len(stronger.calls) == 1
     assert prepared == [True]
+
+
+@pytest.mark.parametrize("needs_review", [False, True])
+def test_needs_review_only(needs_review):
+    primary = response()
+    if needs_review:
+        primary.value["criteria"][1]["level"] = "needs_review"
+    stronger = RecordingProvider([response(model="stronger")])
+    result = asyncio.run(
+        screen_with_escalation(
+            CV,
+            jd(0.8),
+            provider=FakeLLMProvider([primary]),
+            escalation_provider=stronger,
+            escalation_model="stronger",
+            rule=EscalationRule(triggers={"needs_review"}),
+        )
+    )
+    assert result.escalation.primary_result_summary["total"]["coverage"] == 0.8
+    assert result.escalation.reasons == (["needs_review"] if needs_review else [])
+    assert len(stronger.calls) == int(needs_review)
+
+
+@pytest.mark.parametrize("triggers", [[], ["invalid"]])
+def test_invalid_triggers(triggers):
+    with pytest.raises(ValueError):
+        EscalationRule(triggers=triggers)
+
+
+def test_coverage_only_ignores_needs_review():
+    result = asyncio.run(
+        screen_with_escalation(
+            CV,
+            jd(1),
+            provider=FakeLLMProvider([response(level="needs_review")]),
+            escalation_provider=RecordingProvider([]),
+            escalation_model="stronger",
+            rule=EscalationRule(triggers={"coverage_band"}),
+        )
+    )
+    assert not result.escalation.triggered

@@ -1,0 +1,7 @@
+{
+  "commands_cwd": "apps/ai-service",
+  "uv run pytest": {"exit_code": 0, "passed": 253, "skipped": 3},
+  "uv run ruff check .": {"exit_code": 0},
+  "uv run ruff format --check .": {"exit_code": 0, "formatted_files": 49},
+  "git diff --check": {"exit_code": 0}
+}

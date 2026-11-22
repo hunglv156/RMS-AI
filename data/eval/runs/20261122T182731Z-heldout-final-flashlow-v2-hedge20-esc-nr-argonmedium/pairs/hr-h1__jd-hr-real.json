@@ -1,0 +1,825 @@
+{
+  "sheet_id": "hr-h1",
+  "jd_id": "jd-hr-real",
+  "expected_group": "match_B",
+  "source_pdf_sha256": "bd29635ff765a7ceeb31a29754c3cc69bfa208dc125e0209a396b3808133402a",
+  "text_content_sha256": "119d782063ea245c8901e2b9efc81db3b7097eed0333584fc3d3c65eb3cce913",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-hr-real",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate documents over 12 years of comprehensive HR experience across multiple roles spanning operations, generalist duties, and HR leadership.",
+          "evidence": [
+            {
+              "quote": "Accomplished Director of Human Resources & Operations offering twelve years of comprehensive\nexperience developing HR functions, cultivating positive work environment and collaborating with all\nlevels of management.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Accomplished Director of Human Resources & Operations offering twelve years of comprehensive\nexperience developing HR functions, cultivating positive work environment and collaborating with all\nlevels of management.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 731,
+              "end_offset": 946,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 20.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "talent_acquisition",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "The candidate worked as a Talent Acquisition Specialist partnering with hiring managers and sourcing/screening candidates for various roles.",
+          "evidence": [
+            {
+              "quote": "Sourced and screened candidates for various roles and worked with hiring managers to coordinate\ninterviews, offers and onboarding.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Evaluated resumes, interviewed and presented qualified candidates to hiring managers and\nsolicited feedback to refine recruiting strategy.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Sourced and screened candidates for various roles and worked with hiring managers to coordinate\ninterviews, offers and onboarding.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4098,
+              "end_offset": 4228,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Evaluated resumes, interviewed and presented qualified candidates to hiring managers and\nsolicited feedback to refine recruiting strategy.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4366,
+              "end_offset": 4504,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "talent_acquisition",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 20.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "employee_relations_compliance",
+          "level": "strong",
+          "confidence": 0.95,
+          "reason": "Candidate has direct experience managing employee relations, conflict resolution, performance reviews, FMLA, workers compensation, and company-wide policies.",
+          "evidence": [
+            {
+              "quote": "Expertise in planning and managing employee and labor relations and\ndeveloping and communicating company-wide policies and procedures.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "HR duties, Workers compensation, FMLA, and payroll",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "strong",
+          "raw_level": "strong",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Expertise in planning and managing employee and labor relations and\ndeveloping and communicating company-wide policies and procedures.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 947,
+              "end_offset": 1081,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "HR duties, Workers compensation, FMLA, and payroll",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2900,
+              "end_offset": 2950,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "employee_relations_compliance",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 1.0,
+          "validated": true
+        },
+        "score": 100.0,
+        "weighted_points": 20.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "hris_office_tools",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "Candidate has experience managing HRIS systems including ADP Workforce Now and strong computer skills including Microsoft Office and ATS.",
+          "evidence": [
+            {
+              "quote": "Manage HRIS system, payroll, ADP workforce now",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Strong computer skills, including Microsoft Office, Internet and Applicant Tracking Systems.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Manage HRIS system, payroll, ADP workforce now",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2047,
+              "end_offset": 2093,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Strong computer skills, including Microsoft Office, Internet and Applicant Tracking Systems.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4888,
+              "end_offset": 4980,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hris_office_tools",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 10.5
+      },
+      {
+        "assessment": {
+          "criterion_id": "interpersonal_communication",
+          "level": "adequate",
+          "confidence": 0.9,
+          "reason": "Candidate demonstrates strong cross-level communication, dispute mediation, handling sensitive/confidential records, and serving as communicator to all employees.",
+          "evidence": [
+            {
+              "quote": "There are four roles that | am apart of in this position; a strategic partner, operations manager,\nemergency responder and employee mediator -In addition, this position | am the internal voice and\ncommunicator to all employees",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Confidential Records\nManagement\n\n+ Dispute Mediation",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "There are four roles that | am apart of in this position; a strategic partner, operations manager,\nemergency responder and employee mediator -In addition, this position | am the internal voice and\ncommunicator to all employees",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1598,
+              "end_offset": 1824,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Confidential Records\nManagement\n\n+ Dispute Mediation",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 460,
+              "end_offset": 512,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "interpersonal_communication",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education_hr_business",
+          "level": "partial",
+          "confidence": 0.8,
+          "reason": "Candidate holds a Bachelor's degree in Technical Management and Bio-medical Engineering, which combines technical management rather than pure HR/Business Administration.",
+          "evidence": [
+            {
+              "quote": "Bachelors degree: Technical\nManagement, Bio-medical\nEngineering",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Bachelors degree: Technical\nManagement, Bio-medical\nEngineering",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 613,
+              "end_offset": 676,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education_hr_business",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_programs",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "Candidate demonstrates experience developing HR functions, policies, training, and benefit programs, but does not mention internship or early-career talent programs.",
+          "evidence": [
+            {
+              "quote": "Selected medical, dental, short and long-term disability, life insurance and workers compensation\nprograms for employees.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Customer Service training\nclass, Sexual Harassment\ntraining, Sensitivity training,\nUnconscious Bias training",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience establishing an internship or early-career talent program"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Selected medical, dental, short and long-term disability, life insurance and workers compensation\nprograms for employees.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3882,
+              "end_offset": 4003,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Customer Service training\nclass, Sexual Harassment\ntraining, Sensitivity training,\nUnconscious Bias training",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 104,
+              "end_offset": 212,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_programs",
+          "weight": 5.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 2.0
+      }
+    ],
+    "total": {
+      "score_state": "scored",
+      "observed_score": 83.5,
+      "coverage": 1.0,
+      "lower_bound": 83.5,
+      "upper_bound": 83.5,
+      "requires_manual_review": false
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-low",
+      "temperature": 0.0,
+      "started_at": "2026-11-22T18:29:15.868703+00:00",
+      "latency_ms": 7520.844667014899,
+      "input_tokens": 4934,
+      "output_tokens": 712,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n",
+      "hedged": false,
+      "winner": "primary"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v2",
+      "model": "ag/gemini-3.8-flash-low",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v2",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "hr_experience": [
+            {
+              "chunk_index": 1,
+              "score": 4.173110182854851,
+              "lexical_score": 4.173110182854851,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 2.5550154077284493,
+              "lexical_score": 2.5550154077284493,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 2.2254655644082812,
+              "lexical_score": 2.2254655644082812,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 1.7456242523238465,
+              "lexical_score": 1.7456242523238465,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 4,
+              "score": 1.6786812936202589,
+              "lexical_score": 1.6786812936202589,
+              "dense_score": null
+            }
+          ],
+          "talent_acquisition": [
+            {
+              "chunk_index": 7,
+              "score": 6.101683041543289,
+              "lexical_score": 6.101683041543289,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 5.2678464680171215,
+              "lexical_score": 5.2678464680171215,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 6,
+              "score": 4.770143620586558,
+              "lexical_score": 4.770143620586558,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 1.8210601548292251,
+              "lexical_score": 1.8210601548292251,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 5,
+              "score": 1.4460916497969147,
+              "lexical_score": 1.4460916497969147,
+              "dense_score": null
+            }
+          ],
+          "employee_relations_compliance": [
+            {
+              "chunk_index": 0,
+              "score": 5.143145710195266,
+              "lexical_score": 5.143145710195266,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 3.4223251005991306,
+              "lexical_score": 3.4223251005991306,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 3.3358420566527744,
+              "lexical_score": 3.3358420566527744,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 7,
+              "score": 1.483082734469426,
+              "lexical_score": 1.483082734469426,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 1.2168824410481958,
+              "lexical_score": 1.2168824410481958,
+              "dense_score": null
+            }
+          ],
+          "hris_office_tools": [
+            {
+              "chunk_index": 7,
+              "score": 5.71386900753082,
+              "lexical_score": 5.71386900753082,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 6,
+              "score": 2.1064808964256048,
+              "lexical_score": 2.1064808964256048,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 1.4463999229230096,
+              "lexical_score": 1.4463999229230096,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 0.4623361562738053,
+              "lexical_score": 0.4623361562738053,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 0.3364296207855285,
+              "lexical_score": 0.3364296207855285,
+              "dense_score": null
+            }
+          ],
+          "interpersonal_communication": [
+            {
+              "chunk_index": 0,
+              "score": 1.9793734122224647,
+              "lexical_score": 1.9793734122224647,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 5,
+              "score": 1.8034418106394225,
+              "lexical_score": 1.8034418106394225,
+              "dense_score": null
+            }
+          ],
+          "education_hr_business": [
+            {
+              "chunk_index": 0,
+              "score": 3.6456305977884536,
+              "lexical_score": 3.6456305977884536,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 3.4609762212665967,
+              "lexical_score": 3.4609762212665967,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 2.832588530441793,
+              "lexical_score": 2.832588530441793,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 2.285020285073804,
+              "lexical_score": 2.285020285073804,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 4,
+              "score": 1.3738305299199876,
+              "lexical_score": 1.3738305299199876,
+              "dense_score": null
+            }
+          ],
+          "hr_programs": [
+            {
+              "chunk_index": 6,
+              "score": 3.858419274056532,
+              "lexical_score": 3.858419274056532,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 5,
+              "score": 1.3178403224968753,
+              "lexical_score": 1.3178403224968753,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 1.0497511839336344,
+              "lexical_score": 1.0497511839336344,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 7,
+              "score": 0.8579119710342473,
+              "lexical_score": 0.8579119710342473,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 0.8402084342051943,
+              "lexical_score": 0.8402084342051943,
+              "dense_score": null
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 731,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 631,
+            "end_offset": 1396,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1296,
+            "end_offset": 2095,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 3,
+            "start_offset": 1995,
+            "end_offset": 2780,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 4,
+            "start_offset": 2680,
+            "end_offset": 3359,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 5,
+            "start_offset": 3259,
+            "end_offset": 4005,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 6,
+            "start_offset": 3905,
+            "end_offset": 4665,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 7,
+            "start_offset": 4565,
+            "end_offset": 5289,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 8,
+            "start_offset": 5189,
+            "end_offset": 5694,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "119d782063ea245c8901e2b9efc81db3b7097eed0333584fc3d3c65eb3cce913",
+      "jd_sha256": "9aec489388f724515e4a6589cb1bb7d44937611d1bc3ee4efec3532f6e15902f"
+    },
+    "escalation": {
+      "triggered": false,
+      "reasons": [],
+      "primary_result_summary": {
+        "total": {
+          "score_state": "scored",
+          "observed_score": 83.5,
+          "coverage": 1.0,
+          "lower_bound": 83.5,
+          "upper_bound": 83.5,
+          "requires_manual_review": false
+        },
+        "llm": {
+          "provider": "openai_compat",
+          "model": "ag/gemini-3.8-flash-low",
+          "temperature": 0.0,
+          "started_at": "2026-11-22T18:29:15.868703+00:00",
+          "latency_ms": 7520.844667014899,
+          "input_tokens": 4934,
+          "output_tokens": 712,
+          "attempts": 1,
+          "finish_reason": "stop",
+          "response_model": "gemini-3.8-flash-n",
+          "hedged": false,
+          "winner": "primary"
+        },
+        "levels": {
+          "hr_experience": "strong",
+          "talent_acquisition": "strong",
+          "employee_relations_compliance": "strong",
+          "hris_office_tools": "adequate",
+          "interpersonal_communication": "adequate",
+          "education_hr_business": "partial",
+          "hr_programs": "partial"
+        }
+      },
+      "primary_latency_s": 7.523118875018554,
+      "escalation_latency_s": 0.0,
+      "total_latency_s": 7.523118875018554,
+      "escalation_model": "ag/gemini-4-argon-medium",
+      "error": null
+    }
+  },
+  "prompt_char_length": 11898,
+  "context_char_length": 5694,
+  "input_tokens": 4934,
+  "output_tokens": 712,
+  "reasoning_tokens": null,
+  "latency_s": 7.523704999999609,
+  "finished_at": "2026-11-22T18:29:23.390404+00:00"
+}

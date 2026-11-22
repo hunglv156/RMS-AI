@@ -1,0 +1,297 @@
+# Screening accuracy against silver labels
+
+System level: result.criteria[].validation.level, the post-quote-verification level in ScreenedCriterion/AssessmentValidation (app/pipelines/screening/models.py and app/assessment/evidence.py). assessment.level and validation.raw_level are pre-validation and are not evaluated.
+Six exact classes: strong, adequate, partial, absent, unknown, needs_review. Unweighted κ keeps unknown and needs_review as distinct nominal classes. Macro-F1 averages the union of classes present in labels or predictions. Undefined κ (zero expected disagreement) and constant-rank Spearman are null; no-positive binary precision/recall/F1 are 0.
+Linear-weighted κ uses the fixed absent < partial < adequate < strong scale; pairs with either unknown or needs_review are excluded, with retained criterion n reported. Three-class mapping: strong/adequate/partial → evidence, absent → absent, unknown/needs_review → unknown. Binary positive = evidence; all other levels are negative.
+System overall_fit: GUIDELINES v1.1 rule 5 applied to validated must_have levels (none with evidence → poor; all adequate/strong → good; otherwise partial). Labelled fit is used as recorded and checked against rule 5 for final labels.
+Coverage = sum(JD weights with a validated ordinal level)/sum(all JD weights). Known-only score = 100 × sum(weight × configured rubric[level])/known weight, independent of the min_coverage threshold; null if no known weight. Spearman uses average ranks for ties and pairwise exclusion of null scores, with n reported.
+95% percentile bootstrap: 2000 resamples of CV×JD pairs retaining all their criteria, NumPy default_rng seed=20261122, restarted per scope/run for comparable draws; undefined κ draws are omitted and their counts reported. JD scopes resample within JD; priority scopes resample full pairs then select criteria. Fit/correlations in priority scopes still use whole-pair fit and scores, so are identical to all-pair metrics.
+Every run must have exactly the labelled pair set and successful records with exactly the JD criterion set; failures are rejected rather than silently dropped. Criteria have equal weight in classification metrics; JD weights affect coverage and known-only score only. No LLM calls.
+
+## Headline results
+
+Cells show estimate (n), then the 95% pair-bootstrap interval where available.
+
+| Run | Exact accuracy | Exact κ | Collapsed κ | Evidence F1 | Fit accuracy |
+| --- | --- | --- | --- | --- | --- |
+| 20261122T182731Z-heldout-final-flashlow-v2-hedge20-esc-nr-argonmedium | 0.6286 (n=140) [0.5286, 0.7286] | 0.5146 (n=140) [0.3952, 0.6297] | 0.6559 (n=140) [0.5213, 0.7835] | 0.8571 (n=140) [0.7667, 0.9291] | 1.0000 (n=20) [1.0000, 1.0000] |
+
+## 20261122T182731Z-heldout-final-flashlow-v2-hedge20-esc-nr-argonmedium
+
+### all (20 CV×JD pairs)
+
+| Family | Metric | Value (n) [95% CI] | Defined bootstrap draws |
+| --- | --- | --- | --- |
+| exact | accuracy | 0.6286 (n=140) [0.5286, 0.7286] | 2000/2000 |
+| exact | macro_f1 | 0.5964 (n=140) | — |
+| exact | kappa | 0.5146 (n=140) [0.3952, 0.6297] | 2000/2000 |
+| exact | linear_weighted_kappa | 0.6818 (n=79) | — |
+| collapsed | accuracy | 0.7786 (n=140) | — |
+| collapsed | macro_f1 | 0.7587 (n=140) | — |
+| collapsed | kappa | 0.6559 (n=140) [0.5213, 0.7835] | 2000/2000 |
+| evidence | accuracy | 0.8714 (n=140) | — |
+| evidence | macro_f1 | 0.8701 (n=140) | — |
+| evidence | kappa | 0.7436 (n=140) | — |
+| evidence | precision | 0.9818 (n=140) | — |
+| evidence | recall | 0.7606 (n=140) | — |
+| evidence | f1 | 0.8571 (n=140) [0.7667, 0.9291] | 2000/2000 |
+| fit | accuracy | 1.0000 (n=20) [1.0000, 1.0000] | 2000/2000 |
+| fit | macro_f1 | 1.0000 (n=20) | — |
+| fit | kappa | 1.0000 (n=20) | — |
+| fit | coverage_spearman | 0.7545 (n=20) | — |
+| fit | known_only_score_spearman | 0.8148 (n=20) | — |
+
+exact confusion (n=140; labels rows × system columns):
+
+| Label / system | strong | adequate | partial | absent | unknown | needs_review |
+| --- | --- | --- | --- | --- | --- | --- |
+| strong | 4 | 3 | 0 | 0 | 0 | 0 |
+| adequate | 4 | 14 | 6 | 0 | 1 | 0 |
+| partial | 1 | 7 | 15 | 5 | 11 | 0 |
+| absent | 0 | 0 | 0 | 20 | 1 | 0 |
+| unknown | 0 | 0 | 1 | 12 | 35 | 0 |
+| needs_review | 0 | 0 | 0 | 0 | 0 | 0 |
+
+
+fit confusion (n=20; labels rows × system columns):
+
+| Label / system | poor | partial | good |
+| --- | --- | --- | --- |
+| poor | 8 | 0 | 0 |
+| partial | 0 | 11 | 0 |
+| good | 0 | 0 | 1 |
+
+### jd/jd-hr-real (10 CV×JD pairs)
+
+| Family | Metric | Value (n) [95% CI] | Defined bootstrap draws |
+| --- | --- | --- | --- |
+| exact | accuracy | 0.5714 (n=70) [0.4857, 0.6571] | 2000/2000 |
+| exact | macro_f1 | 0.5696 (n=70) | — |
+| exact | kappa | 0.4548 (n=70) [0.3461, 0.5633] | 2000/2000 |
+| exact | linear_weighted_kappa | 0.7433 (n=39) | — |
+| collapsed | accuracy | 0.7000 (n=70) | — |
+| collapsed | macro_f1 | 0.6510 (n=70) | — |
+| collapsed | kappa | 0.5366 (n=70) [0.3794, 0.6887] | 2000/2000 |
+| evidence | accuracy | 0.8857 (n=70) | — |
+| evidence | macro_f1 | 0.8853 (n=70) | — |
+| evidence | kappa | 0.7724 (n=70) | — |
+| evidence | precision | 0.9667 (n=70) | — |
+| evidence | recall | 0.8056 (n=70) | — |
+| evidence | f1 | 0.8788 (n=70) [0.7272, 0.9709] | 2000/2000 |
+| fit | accuracy | 1.0000 (n=10) [1.0000, 1.0000] | 2000/2000 |
+| fit | macro_f1 | 1.0000 (n=10) | — |
+| fit | kappa | 1.0000 (n=10) | — |
+| fit | coverage_spearman | 0.6541 (n=10) | — |
+| fit | known_only_score_spearman | 0.8739 (n=10) | — |
+
+exact confusion (n=70; labels rows × system columns):
+
+| Label / system | strong | adequate | partial | absent | unknown | needs_review |
+| --- | --- | --- | --- | --- | --- | --- |
+| strong | 3 | 2 | 0 | 0 | 0 | 0 |
+| adequate | 3 | 10 | 2 | 0 | 0 | 0 |
+| partial | 0 | 2 | 7 | 2 | 5 | 0 |
+| absent | 0 | 0 | 0 | 8 | 1 | 0 |
+| unknown | 0 | 0 | 1 | 12 | 12 | 0 |
+| needs_review | 0 | 0 | 0 | 0 | 0 | 0 |
+
+
+fit confusion (n=10; labels rows × system columns):
+
+| Label / system | poor | partial | good |
+| --- | --- | --- | --- |
+| poor | 3 | 0 | 0 |
+| partial | 0 | 6 | 0 |
+| good | 0 | 0 | 1 |
+
+### jd/jd-py-real (10 CV×JD pairs)
+
+| Family | Metric | Value (n) [95% CI] | Defined bootstrap draws |
+| --- | --- | --- | --- |
+| exact | accuracy | 0.6857 (n=70) [0.5139, 0.8286] | 2000/2000 |
+| exact | macro_f1 | 0.6028 (n=70) | — |
+| exact | kappa | 0.5779 (n=70) [0.3563, 0.7560] | 2000/2000 |
+| exact | linear_weighted_kappa | 0.5954 (n=40) | — |
+| collapsed | accuracy | 0.8571 (n=70) | — |
+| collapsed | macro_f1 | 0.8634 (n=70) | — |
+| collapsed | kappa | 0.7781 (n=70) [0.5854, 0.9273] | 2000/2000 |
+| evidence | accuracy | 0.8571 (n=70) | — |
+| evidence | macro_f1 | 0.8542 (n=70) | — |
+| evidence | kappa | 0.7143 (n=70) | — |
+| evidence | precision | 1.0000 (n=70) | — |
+| evidence | recall | 0.7143 (n=70) | — |
+| evidence | f1 | 0.8333 (n=70) [0.7059, 0.9333] | 2000/2000 |
+| fit | accuracy | 1.0000 (n=10) [1.0000, 1.0000] | 2000/2000 |
+| fit | macro_f1 | 1.0000 (n=10) | — |
+| fit | kappa | 1.0000 (n=10) | — |
+| fit | coverage_spearman | 0.8839 (n=10) | — |
+| fit | known_only_score_spearman | 0.8757 (n=10) | — |
+
+exact confusion (n=70; labels rows × system columns):
+
+| Label / system | strong | adequate | partial | absent | unknown | needs_review |
+| --- | --- | --- | --- | --- | --- | --- |
+| strong | 1 | 1 | 0 | 0 | 0 | 0 |
+| adequate | 1 | 4 | 4 | 0 | 1 | 0 |
+| partial | 1 | 5 | 8 | 3 | 6 | 0 |
+| absent | 0 | 0 | 0 | 12 | 0 | 0 |
+| unknown | 0 | 0 | 0 | 0 | 23 | 0 |
+| needs_review | 0 | 0 | 0 | 0 | 0 | 0 |
+
+
+fit confusion (n=10; labels rows × system columns):
+
+| Label / system | poor | partial | good |
+| --- | --- | --- | --- |
+| poor | 5 | 0 | 0 |
+| partial | 0 | 5 | 0 |
+| good | 0 | 0 | 0 |
+
+### priority/must_have (20 CV×JD pairs)
+
+| Family | Metric | Value (n) [95% CI] | Defined bootstrap draws |
+| --- | --- | --- | --- |
+| exact | accuracy | 0.7000 (n=80) [0.6000, 0.8000] | 2000/2000 |
+| exact | macro_f1 | 0.6456 (n=80) | — |
+| exact | kappa | 0.5921 (n=80) [0.4741, 0.7149] | 2000/2000 |
+| exact | linear_weighted_kappa | 0.7452 (n=40) | — |
+| collapsed | accuracy | 0.8125 (n=80) | — |
+| collapsed | macro_f1 | 0.7961 (n=80) | — |
+| collapsed | kappa | 0.7127 (n=80) [0.5781, 0.8407] | 2000/2000 |
+| evidence | accuracy | 0.9250 (n=80) | — |
+| evidence | macro_f1 | 0.9189 (n=80) | — |
+| evidence | kappa | 0.8382 (n=80) | — |
+| evidence | precision | 0.9630 (n=80) | — |
+| evidence | recall | 0.8387 (n=80) | — |
+| evidence | f1 | 0.8966 (n=80) [0.7719, 0.9804] | 2000/2000 |
+| fit | accuracy | 1.0000 (n=20) [1.0000, 1.0000] | 2000/2000 |
+| fit | macro_f1 | 1.0000 (n=20) | — |
+| fit | kappa | 1.0000 (n=20) | — |
+| fit | coverage_spearman | 0.7545 (n=20) | — |
+| fit | known_only_score_spearman | 0.8148 (n=20) | — |
+
+exact confusion (n=80; labels rows × system columns):
+
+| Label / system | strong | adequate | partial | absent | unknown | needs_review |
+| --- | --- | --- | --- | --- | --- | --- |
+| strong | 4 | 1 | 0 | 0 | 0 | 0 |
+| adequate | 3 | 4 | 2 | 0 | 0 | 0 |
+| partial | 1 | 2 | 9 | 2 | 3 | 0 |
+| absent | 0 | 0 | 0 | 12 | 0 | 0 |
+| unknown | 0 | 0 | 1 | 9 | 27 | 0 |
+| needs_review | 0 | 0 | 0 | 0 | 0 | 0 |
+
+
+fit confusion (n=20; labels rows × system columns):
+
+| Label / system | poor | partial | good |
+| --- | --- | --- | --- |
+| poor | 8 | 0 | 0 |
+| partial | 0 | 11 | 0 |
+| good | 0 | 0 | 1 |
+
+### priority/nice_to_have (20 CV×JD pairs)
+
+| Family | Metric | Value (n) [95% CI] | Defined bootstrap draws |
+| --- | --- | --- | --- |
+| exact | accuracy | 0.5333 (n=60) [0.4000, 0.6667] | 2000/2000 |
+| exact | macro_f1 | 0.4457 (n=60) | — |
+| exact | kappa | 0.3961 (n=60) [0.2397, 0.5595] | 2000/2000 |
+| exact | linear_weighted_kappa | 0.5912 (n=39) | — |
+| collapsed | accuracy | 0.7333 (n=60) | — |
+| collapsed | macro_f1 | 0.6903 (n=60) | — |
+| collapsed | kappa | 0.5547 (n=60) [0.3787, 0.7246] | 2000/2000 |
+| evidence | accuracy | 0.8000 (n=60) | — |
+| evidence | macro_f1 | 0.7964 (n=60) | — |
+| evidence | kappa | 0.6087 (n=60) | — |
+| evidence | precision | 1.0000 (n=60) | — |
+| evidence | recall | 0.7000 (n=60) | — |
+| evidence | f1 | 0.8235 (n=60) [0.7302, 0.9041] | 2000/2000 |
+| fit | accuracy | 1.0000 (n=20) [1.0000, 1.0000] | 2000/2000 |
+| fit | macro_f1 | 1.0000 (n=20) | — |
+| fit | kappa | 1.0000 (n=20) | — |
+| fit | coverage_spearman | 0.7545 (n=20) | — |
+| fit | known_only_score_spearman | 0.8148 (n=20) | — |
+
+exact confusion (n=60; labels rows × system columns):
+
+| Label / system | strong | adequate | partial | absent | unknown | needs_review |
+| --- | --- | --- | --- | --- | --- | --- |
+| strong | 0 | 2 | 0 | 0 | 0 | 0 |
+| adequate | 1 | 10 | 4 | 0 | 1 | 0 |
+| partial | 0 | 5 | 6 | 3 | 8 | 0 |
+| absent | 0 | 0 | 0 | 8 | 1 | 0 |
+| unknown | 0 | 0 | 0 | 3 | 8 | 0 |
+| needs_review | 0 | 0 | 0 | 0 | 0 | 0 |
+
+
+fit confusion (n=20; labels rows × system columns):
+
+| Label / system | poor | partial | good |
+| --- | --- | --- | --- |
+| poor | 8 | 0 | 0 |
+| partial | 0 | 11 | 0 |
+| good | 0 | 0 | 1 |
+
+### Error patterns
+
+Of 21 labelled absent criteria, 1 became unknown. Adequate → partial accounts for 6 errors. The absent/unknown distinction reflects a material v1.1 convention difference; evidence detection ignores that distinction, so its F1 can be high despite exact-level errors.
+
+Known-only score correlation has n=20; 0 pairs have zero known weight and no score. Coverage correlation retains all pairs. Fit errors below identify which classes drive the headline accuracy; the full 3×3 matrix should be read alongside it.
+
+| Label → system | Count |
+| --- | --- |
+| unknown → absent | 12 |
+| partial → unknown | 11 |
+| partial → adequate | 7 |
+| adequate → partial | 6 |
+| partial → absent | 5 |
+| adequate → strong | 4 |
+| strong → adequate | 3 |
+| absent → unknown | 1 |
+| partial → strong | 1 |
+| adequate → unknown | 1 |
+| unknown → partial | 1 |
+
+| JD / criterion | Errors | n |
+| --- | --- | --- |
+| jd-hr-real/talent_acquisition | 8 | 10 |
+| jd-hr-real/hr_programs | 7 | 10 |
+| jd-py-real/communication_collaboration | 6 | 10 |
+| jd-hr-real/interpersonal_communication | 5 | 10 |
+| jd-hr-real/employee_relations_compliance | 4 | 10 |
+| jd-hr-real/education_hr_business | 4 | 10 |
+| jd-py-real/backend_experience | 4 | 10 |
+| jd-py-real/python_frameworks | 3 | 10 |
+| jd-py-real/software_architecture | 3 | 10 |
+| jd-py-real/education_cs | 3 | 10 |
+| jd-py-real/postgresql_database | 2 | 10 |
+| jd-hr-real/hr_experience | 1 | 10 |
+| jd-hr-real/hris_office_tools | 1 | 10 |
+| jd-py-real/cloud_docker_linux | 1 | 10 |
+
+| Pair | Label fit | System fit |
+| --- | --- | --- |
+
+Quote-validation level changes: 0 criterion assessments.
+
+## Inter-annotator agreement
+
+Raw overall_fit is used as recorded, not recomputed under v1.1; changes reflect both annotation and guideline differences.
+
+| Comparison | Accuracy | κ | Collapsed κ | Evidence κ | Fit κ |
+| --- | --- | --- | --- | --- | --- |
+| claude vs gpt | 0.8571 (n=140) | 0.8128 (n=140) | 0.9318 (n=140) | 0.9143 (n=140) | 1.0000 (n=20) |
+| claude vs final | 0.8500 (n=140) | 0.8032 (n=140) | 0.8401 (n=140) | 0.9572 (n=140) | 1.0000 (n=20) |
+| gpt vs final | 0.7857 (n=140) | 0.7206 (n=140) | 0.8047 (n=140) | 0.9000 (n=140) | 1.0000 (n=20) |
+
+## Limitations
+
+- Silver (LLM) labels are not human ground truth.
+- The adjudicator was Claude, the same model family as one annotator; agreement is not independent validation.
+- GUIDELINES v1.1 codifies that annotator's absent/poor conventions, potentially favoring its decisions.
+- Small n: 10 CVs × 2 JDs (20 pairs, 140 criteria); criteria within a pair are dependent, and the same CV occurs under both JDs.
+- expected_group is sampling metadata, not ground truth; it is never used in evaluation.
+- Latency was measured on a shared gateway and is not an accuracy measure or a controlled speed comparison.
+- Bootstrap resamples CV×JD pairs, as specified, not CVs; cross-JD dependence for the same CV is not preserved. Intervals are descriptive percentile intervals, not a test of run differences.
+- Illustrative JD weights and configured rubric values are not calibrated. Fit is a deterministic rule-5 proxy, not a hiring recommendation.
