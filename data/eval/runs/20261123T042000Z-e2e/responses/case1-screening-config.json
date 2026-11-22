@@ -1,0 +1,1 @@
+{"model":"ag/gemini-3.8-flash-low","prompt_version":"screening-v2","context_mode":"retrieved","retrieval_mode":"lexical","retrieval_k":5,"hedge_after_s":20.0,"escalation":{"enabled":true,"model":"ag/gemini-4-argon-medium","triggers":["needs_review"]},"min_coverage":0.8}
