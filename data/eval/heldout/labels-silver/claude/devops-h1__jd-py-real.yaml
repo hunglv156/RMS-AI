@@ -1,0 +1,89 @@
+cv_sheet_id: devops-h1
+text_sha256: 7951c1d4026e04fd8b3fae1d90c2f2bcf4d11516599d4a7cc9187c80fa734b3a
+jd_id: jd-py-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: 'Áp dụng v1.1 #3: CV không nhắc Python, Django hay Flask; kinh nghiệm lập trình là PHP (Symfony, Laravel, Magento), Java/NodeJS chỉ ở mức cookbook.'
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: The API used MySQL as the data storage.
+      start_offset: 2252
+      end_offset: 2291
+    - quote: e MySQL
+      start_offset: 318
+      end_offset: 325
+    note: Có dùng cơ sở dữ liệu quan hệ MySQL cho REST API; không nhắc PostgreSQL, tối ưu truy vấn, stored procedures hay performance tuning.
+  cloud_docker_linux:
+    level: partial
+    evidence:
+    - quote: Setting up complex environments which include Load Balancers, Application Servers and DB servers using Chef and AWS.Using AWS
+      start_offset: 788
+      end_offset: 913
+    - quote: security groups and iptables to keep the environments secure.
+      start_offset: 914
+      end_offset: 975
+    - quote: Familiar with AWS services like EC2, ELB, $3, VPC, EBS, LAM etc
+      start_offset: 978
+      end_offset: 1041
+    - quote: Part of a team which planned and executed migration from a traditional data center to AWS cloud
+      start_offset: 1306
+      end_offset: 1401
+    note: AWS được chứng minh rõ (EC2, ELB, VPC, dựng môi trường, di chuyển lên AWS) và có iptables/LAMP liên quan Linux; không nhắc Docker, Bash scripting, RDS hay CloudFront.
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: Senior PHP Developer, 05/2010 - 07/2015
+      start_offset: 2118
+      end_offset: 2157
+    - quote: Created and maintained the backend tasks for the API which included various jobs for price calculation and feed processing.
+      start_offset: 2292
+      end_offset: 2415
+    - quote: PHP Software Engineer, 07/2015 - 02/2016
+      start_offset: 1680
+      end_offset: 1720
+    - quote: Built an internal product API using Silex and Mongo DB on the backend.
+      start_offset: 2046
+      end_offset: 2116
+    - quote: Lead Developer, 02/2016 - 06/2016
+      start_offset: 1403
+      end_offset: 1436
+    - quote: DevOps Engineer, 06/2016 - Current
+      start_offset: 468
+      end_offset: 502
+    note: Các vai trò phát triển backend/full stack PHP kéo dài 05/2010–06/2016 (khoảng 6 năm); từ 06/2016 là DevOps Engineer. Có kinh nghiệm backend rõ nhưng chưa chứng minh đủ 7 năm ở vai trò backend software engineer.
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: Designed, built, tested and implemented stand-alone modules for Magento, including payment and promotion modules.
+      start_offset: 1866
+      end_offset: 1979
+    - quote: MVC framework development using Symfony and Laravel
+      start_offset: 392
+      end_offset: 443
+    - quote: Software Developer skilled at technical leadership, communication and presentations.
+      start_offset: 126
+      end_offset: 210
+    note: Có thiết kế module độc lập và phát triển theo MVC, kèm tự nhận technical leadership và vai trò Lead Developer; không nêu design pattern cụ thể hay việc hướng dẫn người khác giải quyết vấn đề kiến trúc.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Software Developer skilled at technical leadership, communication and presentations.
+      start_offset: 126
+      end_offset: 210
+    - quote: Responsible for scoping and developing client website using the enterprise version of Magento E-commerce platform.
+      start_offset: 1749
+      end_offset: 1863
+    note: Kỹ năng giao tiếp/thuyết trình là tự nhận; có xác định phạm vi và tuỳ biến theo nhu cầu khách hàng nhưng không mô tả việc giải thích ý tưởng phức tạp cho người không chuyên kỹ thuật.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Master of Science: Electrical Engineering, 2009'
+      start_offset: 2576
+      end_offset: 2623
+    note: 'Áp dụng v1.1 #2: bằng cấp nêu rõ là Electrical Engineering, không phải CS hay đào tạo kỹ thuật phần mềm tương đương.'

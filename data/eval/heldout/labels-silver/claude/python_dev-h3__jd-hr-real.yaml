@@ -1,0 +1,80 @@
+cv_sheet_id: python_dev-h3
+text_sha256: 1bc8e39e3db3e015029b1b927ca55b21a0153f6613e2202cea404535667a169e
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: Python Developer, 12/2021 to Current
+      start_offset: 2563
+      end_offset: 2599
+    - quote: Python AWClaire Developer, 07/2021 to 12/2021
+      start_offset: 5185
+      end_offset: 5230
+    - quote: Data Engineer, 12/2012 to 08/2017
+      start_offset: 7429
+      end_offset: 7462
+    note: 'Áp dụng v1.1 #1: lịch sử làm việc có mốc thời gian, cả ba vai trò là phát triển phần mềm/data engineering, không có vai trò HR. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.'
+  talent_acquisition:
+    level: absent
+    evidence:
+    - quote: Python Developer, 12/2021 to Current
+      start_offset: 2563
+      end_offset: 2599
+    - quote: Python AWClaire Developer, 07/2021 to 12/2021
+      start_offset: 5185
+      end_offset: 5230
+    - quote: Data Engineer, 12/2012 to 08/2017
+      start_offset: 7429
+      end_offset: 7462
+    note: 'Áp dụng v1.1 #1: không vai trò hay mô tả công việc nào liên quan đến tuyển dụng. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: CV không đề cập quan hệ lao động, quản lý hiệu suất hay luật lao động.
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: Putty, MainframeClaire, Excel, Jupyter Notebook, Azure
+      start_offset: 1023
+      end_offset: 1077
+    note: Excel có trong danh sách công cụ; không nhắc Word, PowerPoint, HRIS hay công nghệ tuyển dụng. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: Clairetrong InterperClaireonal and Communication
+      start_offset: 1080
+      end_offset: 1128
+    - quote: Worked in an agile, collaborative environment, partnering with client ClairetakeholderClaire, to develop and improve
+      start_offset: 2814
+      end_offset: 2930
+    - quote: Interacted with the buClaireineClaireClaire community and databaClairee adminiClairetratorClaire to identify the
+      start_offset: 8514
+      end_offset: 8626
+    note: Có tự nhận kỹ năng giao tiếp/giao tiếp liên cá nhân và có phối hợp với stakeholder khách hàng, bộ phận nghiệp vụ; không có bằng chứng xử lý vấn đề bảo mật/nhạy cảm. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.
+  education_hr_business:
+    level: partial
+    evidence:
+    - quote: 'MaClaireter of Clairecience: Information Technology Management, 12/2020'
+      start_offset: 9741
+      end_offset: 9812
+    - quote: 'Bachelor of Clairecience: electronicClaire and communication engineering, 08/2017'
+      start_offset: 9871
+      end_offset: 9952
+    note: Thạc sĩ Information Technology Management có thành phần quản lý, có thể xem là lĩnh vực liên quan một phần tới quản trị; không phải HR hay Business Administration. Cử nhân là kỹ thuật điện tử viễn thông. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.
+  hr_programs:
+    level: absent
+    evidence:
+    - quote: Python Developer, 12/2021 to Current
+      start_offset: 2563
+      end_offset: 2599
+    - quote: Python AWClaire Developer, 07/2021 to 12/2021
+      start_offset: 5185
+      end_offset: 5230
+    - quote: Data Engineer, 12/2012 to 08/2017
+      start_offset: 7429
+      end_offset: 7462
+    note: 'Áp dụng v1.1 #1: không vai trò nào phát triển hay điều phối chương trình HR. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.'

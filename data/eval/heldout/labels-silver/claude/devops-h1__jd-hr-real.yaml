@@ -1,0 +1,80 @@
+cv_sheet_id: devops-h1
+text_sha256: 7951c1d4026e04fd8b3fae1d90c2f2bcf4d11516599d4a7cc9187c80fa734b3a
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: DevOps Engineer, 06/2016 - Current
+      start_offset: 468
+      end_offset: 502
+    - quote: Lead Developer, 02/2016 - 06/2016
+      start_offset: 1403
+      end_offset: 1436
+    - quote: PHP Software Engineer, 07/2015 - 02/2016
+      start_offset: 1680
+      end_offset: 1720
+    - quote: Senior PHP Developer, 05/2010 - 07/2015
+      start_offset: 2118
+      end_offset: 2157
+    note: 'Áp dụng v1.1 #1: lịch sử làm việc có mốc thời gian, mọi vai trò là phát triển phần mềm/DevOps, không có vai trò HR.'
+  talent_acquisition:
+    level: absent
+    evidence:
+    - quote: DevOps Engineer, 06/2016 - Current
+      start_offset: 468
+      end_offset: 502
+    - quote: Lead Developer, 02/2016 - 06/2016
+      start_offset: 1403
+      end_offset: 1436
+    - quote: PHP Software Engineer, 07/2015 - 02/2016
+      start_offset: 1680
+      end_offset: 1720
+    - quote: Senior PHP Developer, 05/2010 - 07/2015
+      start_offset: 2118
+      end_offset: 2157
+    note: 'Áp dụng v1.1 #1: không vai trò hay mô tả công việc nào liên quan đến tuyển dụng.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: CV không đề cập quan hệ lao động, quản lý hiệu suất hay luật lao động.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: CV không nhắc Microsoft Office, HRIS hay công nghệ tuyển dụng; chỉ có công cụ DevOps/phát triển.
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: Software Developer skilled at technical leadership, communication and presentations.
+      start_offset: 126
+      end_offset: 210
+    - quote: Worked with the team to add features to the existing system and migrated data and features from an old system to the new system.
+      start_offset: 1550
+      end_offset: 1678
+    note: Kỹ năng giao tiếp/thuyết trình là tự nhận, kèm làm việc nhóm; không có bằng chứng về xử lý vấn đề bảo mật/nhạy cảm hay giao tiếp ở mọi cấp tổ chức.
+  education_hr_business:
+    level: absent
+    evidence:
+    - quote: 'Master of Science: Electrical Engineering, 2009'
+      start_offset: 2576
+      end_offset: 2623
+    note: 'Áp dụng v1.1 #2: bằng cấp nêu rõ là Electrical Engineering, không thuộc HR/quản trị kinh doanh.'
+  hr_programs:
+    level: absent
+    evidence:
+    - quote: DevOps Engineer, 06/2016 - Current
+      start_offset: 468
+      end_offset: 502
+    - quote: Lead Developer, 02/2016 - 06/2016
+      start_offset: 1403
+      end_offset: 1436
+    - quote: PHP Software Engineer, 07/2015 - 02/2016
+      start_offset: 1680
+      end_offset: 1720
+    - quote: Senior PHP Developer, 05/2010 - 07/2015
+      start_offset: 2118
+      end_offset: 2157
+    note: 'Áp dụng v1.1 #1: không vai trò nào phát triển hay điều phối chương trình HR.'

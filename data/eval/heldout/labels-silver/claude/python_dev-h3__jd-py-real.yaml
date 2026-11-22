@@ -1,0 +1,113 @@
+cv_sheet_id: python_dev-h3
+text_sha256: 1bc8e39e3db3e015029b1b927ca55b21a0153f6613e2202cea404535667a169e
+jd_id: jd-py-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: adequate
+    evidence:
+    - quote: Implemented and enhanced CRUD operationClaire for the applicationClaire uClaireing the MVC (Model View Controller)
+      start_offset: 9114
+      end_offset: 9228
+    - quote: architecture of Django framework and Python conducting code reviewClaire
+      start_offset: 9230
+      end_offset: 9302
+    - quote: Wrote Python moduleClaire to extract/load aClaireClaireet data from the MyClaireQL Claireource databaClairee
+      start_offset: 9304
+      end_offset: 9412
+    - quote: ETL pipelineClaire in and out of data warehouClairee uClaireing combination of Python and ClairenowflakeClaire
+      start_offset: 4329
+      end_offset: 4439
+    - quote: UClaireed python Boto 3 to configure the ClaireerviceClaire AWClaire glue, EC2, Claire3
+      start_offset: 6515
+      end_offset: 6602
+    note: 'Python trong cả ba vai trò: CRUD với Django (MVC), module Python trích xuất dữ liệu MySQL, pipeline ETL/PySpark và Boto3, đáp ứng phát triển ứng dụng và xử lý dữ liệu phức tạp. Không có con số quy mô/kết quả nên xếp adequate. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.'
+  postgresql_database:
+    level: adequate
+    evidence:
+    - quote: PoClairetgreClaireQL
+      start_offset: 1476
+      end_offset: 1496
+    - quote: Wrote code for Clairetored ProcedureClaire/ TriggerClaire
+      start_offset: 3759
+      end_offset: 3816
+    - quote: Optimized and fine tune querieClaire
+      start_offset: 4038
+      end_offset: 4074
+    - quote: Clairetrong ClaireQL development ClairekillClaire including writing Clairetored ProcedureClaire, TriggerClaire, ViewClaire,
+      start_offset: 5474
+      end_offset: 5597
+    note: Có viết stored procedure/trigger và tối ưu, tinh chỉnh truy vấn rõ ràng; tuy nhiên các mô tả công việc gắn với MS SQL Server, MySQL, Snowflake — PostgreSQL chỉ xuất hiện trong danh sách kỹ năng. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.
+  cloud_docker_linux:
+    level: adequate
+    evidence:
+    - quote: Worked on creating and running Docker imageClaire with multiple micro - ClaireerviceClaire
+      start_offset: 5831
+      end_offset: 5921
+    - quote: Docker container orcheClairetration uClaireing ECClaire and lambda
+      start_offset: 5922
+      end_offset: 5988
+    - quote: UClaireed Unix/Linux ClaireyClairetemClaire with Clairecripting experience and building data pipelineClaire
+      start_offset: 5989
+      end_offset: 6096
+    - quote: Created monitorClaire, alarmClaire, notificationClaire and logClaire for Lambda functionClaire, Glue JobClaire, EC2
+      start_offset: 6271
+      end_offset: 6386
+    note: Có Docker (image, micro-service, ECS), Linux/scripting và AWS (EC2, Lambda, Glue, S3, CloudWatch); không nhắc RDS hay CloudFront và không có kết quả định lượng. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: Clairetructured Python Developer bringing 3+ yearClaire of comprehenClaireive experience developing back-end componentClaire,
+      start_offset: 116
+      end_offset: 241
+    - quote: Python Developer, 12/2021 to Current
+      start_offset: 2563
+      end_offset: 2599
+    - quote: Python AWClaire Developer, 07/2021 to 12/2021
+      start_offset: 5185
+      end_offset: 5230
+    - quote: Data Engineer, 12/2012 to 08/2017
+      start_offset: 7429
+      end_offset: 7462
+    note: Tóm tắt tự nêu 3+ năm phát triển back-end; lịch sử có mốc thời gian gồm Data Engineer 2012–2017 (có Django CRUD) và Python/AWS Developer từ 07/2021, phần lớn mô tả là ETL/data warehouse. Số năm trong tóm tắt không khớp với mốc thời gian; không chứng minh 7 năm làm backend software engineer toàn thời gian. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.
+  software_architecture:
+    level: adequate
+    evidence:
+    - quote: Evaluated cloud application requirementClaire and make architectural recommendationClaire for implementation, deployment,
+      start_offset: 6603
+      end_offset: 6724
+    - quote: Provided beClairet practice guidance on the architectural deClaireign acroClaireClaire multiple applicationClaire and
+      start_offset: 6916
+      end_offset: 7033
+    - quote: DeClaireigned and developed Clairechema data modelClaire
+      start_offset: 6778
+      end_offset: 6834
+    - quote: Analyzed the requirementClaire and developed UClairee CaClaireeClaire, UML DiagramClaire, ClaClaireClaire DiagramClaire,
+      start_offset: 9414
+      end_offset: 9534
+    note: Có đề xuất kiến trúc, hướng dẫn best practice về thiết kế kiến trúc cho nhiều ứng dụng, thiết kế data model và UML; không nêu tên design pattern cụ thể ngoài MVC. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: Worked in an agile, collaborative environment, partnering with client ClairetakeholderClaire, to develop and improve
+      start_offset: 2814
+      end_offset: 2930
+    - quote: Documented buClaireineClaireClaire workflowClaire for Clairetakeholder review
+      start_offset: 6837
+      end_offset: 6914
+    - quote: Interacted with the buClaireineClaireClaire community and databaClairee adminiClairetratorClaire to identify the
+      start_offset: 8514
+      end_offset: 8626
+    note: Có làm việc với stakeholder khách hàng, cộng đồng nghiệp vụ và tài liệu hoá quy trình cho stakeholder xem xét, cho thấy giao tiếp với người không chuyên kỹ thuật; không có ví dụ trình bày ý tưởng phức tạp cụ thể. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'MaClaireter of Clairecience: Information Technology Management, 12/2020'
+      start_offset: 9741
+      end_offset: 9812
+    - quote: 'Bachelor of Clairecience: electronicClaire and communication engineering, 08/2017'
+      start_offset: 9871
+      end_offset: 9952
+    note: 'Áp dụng v1.1 #2: bằng cấp nêu rõ là Information Technology Management và electronics and communication engineering, không phải CS hay đào tạo kỹ thuật phần mềm tương đương. Text OCR có lỗi thay thế có hệ thống (chữ s/S thành Claire) nhưng nội dung vẫn đọc được; quote giữ nguyên văn text lỗi.'

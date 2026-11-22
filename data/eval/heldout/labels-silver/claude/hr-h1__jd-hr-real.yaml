@@ -1,0 +1,118 @@
+cv_sheet_id: hr-h1
+text_sha256: bd29635ff765a7ceeb31a29754c3cc69bfa208dc125e0209a396b3808133402a
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: good
+criteria:
+  hr_experience:
+    level: strong
+    evidence:
+    - quote: Accomplished Director of Human Resources & Operations offering twelve years of comprehensive
+      start_offset: 731
+      end_offset: 823
+    - quote: Sierra Pacific Industries - Human Resources
+      start_offset: 1318
+      end_offset: 1361
+    - quote: Spectrum Brands Inc. - Director of Operations Human Resources
+      start_offset: 2453
+      end_offset: 2514
+    - quote: + Human Resources Multi-Unit Management
+      start_offset: 2550
+      end_offset: 2589
+    - quote: Fitness International LLC - HR Generalist
+      start_offset: 4982
+      end_offset: 5023
+    note: 'Mười hai năm HR với tiến trình HR Generalist → Talent Acquisition Specialist → Director of Operations HR, quản lý HR đa đơn vị và nhiều mảng HR. Lưu ý: mốc 12/2003 - Current của Spectrum Brands chồng lấn với các vai trò khác và không khớp với ''twelve years''; mâu thuẫn này không làm thay đổi việc đạt 3+ năm.'
+  talent_acquisition:
+    level: adequate
+    evidence:
+    - quote: Easter Seals Midwest - Talent Acquisition Specialist
+      start_offset: 4005
+      end_offset: 4057
+    - quote: Sourced and screened candidates for various roles and worked with hiring managers to coordinate
+      start_offset: 4098
+      end_offset: 4193
+    - quote: Evaluated resumes, interviewed and presented qualified candidates to hiring managers and
+      start_offset: 4366
+      end_offset: 4454
+    - quote: Planned and managed recruitment activities for new hires using strategic personnel, staffing and
+      start_offset: 5436
+      end_offset: 5532
+    - quote: Developed comprehensive interviewing guides to improve candidate quality by evaluating both
+      start_offset: 3746
+      end_offset: 3837
+    note: Vai trò Talent Acquisition Specialist chuyên trách, phối hợp với hiring manager, tuyển cho nhiều vị trí và xây dựng hướng dẫn phỏng vấn; không có số lượng vị trí hay kết quả định lượng nên xếp adequate.
+  employee_relations_compliance:
+    level: adequate
+    evidence:
+    - quote: developing HR functions, cultivating positive work environment and collaborating with all
+      start_offset: 835
+      end_offset: 924
+    - quote: levels of management. Expertise in planning and managing employee and labor relations and
+      start_offset: 925
+      end_offset: 1014
+    - quote: + HR duties, Workers compensation, FMLA, and payroll
+      start_offset: 2898
+      end_offset: 2950
+    - quote: Liaised between management and employees to deliver conflict resolution, alleviate problems and
+      start_offset: 5291
+      end_offset: 5386
+    - quote: + Employee Performance Reviews
+      start_offset: 339
+      end_offset: 369
+    note: Có quan hệ lao động, giải quyết xung đột/hoà giải, đánh giá hiệu suất và các mảng tuân thủ (FMLA, workers compensation); không có kết quả định lượng.
+  hris_office_tools:
+    level: adequate
+    evidence:
+    - quote: Manage HRIS system, payroll, ADP workforce now
+      start_offset: 2047
+      end_offset: 2093
+    - quote: Strong computer skills, including Microsoft Office, Internet and Applicant Tracking Systems.
+      start_offset: 4888
+      end_offset: 4980
+    note: Quản lý HRIS/ADP Workforce Now và dùng Microsoft Office, Applicant Tracking Systems; không nêu riêng Excel/Word/PowerPoint.
+  interpersonal_communication:
+    level: strong
+    evidence:
+    - quote: 'this position | am the internal voice and
+
+        communicator to all employees'
+      start_offset: 1753
+      end_offset: 1824
+    - quote: Developed and maintained strong working relationships with executives, HR team and hiring
+      start_offset: 4508
+      end_offset: 4597
+    - quote: '+ Confidential Records
+
+        Management'
+      start_offset: 458
+      end_offset: 491
+    - quote: + Dispute Mediation
+      start_offset: 493
+      end_offset: 512
+    note: Chịu trách nhiệm chính về truyền thông nội bộ tới toàn bộ nhân viên, xây dựng quan hệ với lãnh đạo và hiring manager, quản lý hồ sơ bảo mật và hoà giải tranh chấp.
+  education_hr_business:
+    level: partial
+    evidence:
+    - quote: 'Bachelors degree: Technical
+
+        Management, Bio-medical
+
+        Engineering'
+      start_offset: 613
+      end_offset: 676
+    note: Cử nhân Technical Management (kèm Bio-medical Engineering) là ngành quản lý có liên quan một phần, không phải HR hay Business Administration; cách ghi trong text không rõ đâu là chuyên ngành chính.
+  hr_programs:
+    level: adequate
+    evidence:
+    - quote: Selected medical, dental, short and long-term disability, life insurance and workers compensation
+      start_offset: 3882
+      end_offset: 3979
+    - quote: Developed comprehensive interviewing guides to improve candidate quality by evaluating both
+      start_offset: 3746
+      end_offset: 3837
+    - quote: Create and implement company policies and procedures to drive employee production and customer
+      start_offset: 3071
+      end_offset: 3165
+    note: Có lựa chọn chương trình phúc lợi, xây dựng chính sách và công cụ phỏng vấn, phát triển thế hệ lãnh đạo kế tiếp; không nhắc chương trình thực tập hay early-career.

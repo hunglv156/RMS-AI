@@ -1,0 +1,83 @@
+cv_sheet_id: hr-h3
+text_sha256: c142f0e184d7d5970d5c3781576f5f823ae13dd3c192c0ee5872596f332a07f1
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: 'Abm - Human Resources
+
+        Overland Park, KS + 03/2021 - Current'
+      start_offset: 967
+      end_offset: 1026
+    - quote: 'HR Certificate Series
+
+        Advance HR Certificate Series'
+      start_offset: 541
+      end_offset: 592
+    note: Có một vai trò HR từ 03/2021 nhưng không mô tả nhiệm vụ (dòng duy nhất bên dưới bị lỗi OCR, chỉ nói về chứng chỉ Paylocity); không rõ phạm vi hoạt động HR hay hỗ trợ nhiều chức năng. Các vai trò trước là account manager, policy services, claims, customer support. Thời lượng thực tế phụ thuộc ngày lập CV, không xác định được.
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: 'Không đề cập tuyển dụng; vai trò HR tại ABM không có mô tả nên không thể kết luận absent theo v1.1 #1.'
+  employee_relations_compliance:
+    level: partial
+    evidence:
+    - quote: Provided a high level of customer service and client/employee relations based on outstanding
+      start_offset: 735
+      end_offset: 827
+    - quote: HR Certificate Series
+      start_offset: 541
+      end_offset: 562
+    note: Chỉ có câu tóm tắt về client/employee relations và chứng chỉ HR; không đề cập quản lý hiệu suất hay luật lao động.
+  hris_office_tools:
+    level: adequate
+    evidence:
+    - quote: + MS Office Suite
+      start_offset: 128
+      end_offset: 145
+    - quote: + Paylocity
+      start_offset: 295
+      end_offset: 306
+    - quote: + Trinet
+      start_offset: 278
+      end_offset: 286
+    - quote: Demonstrate proficiency in the use of Claim operational systems including AS400, Lotus Notes, and
+      start_offset: 4361
+      end_offset: 4458
+    note: Danh sách kỹ năng có MS Office Suite và các nền tảng HR/payroll (Paylocity, Trinet), cùng nhiều hệ thống nghiệp vụ khác; không mô tả cách dùng trong công việc HR và không nhắc công nghệ tuyển dụng.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: Provided a high level of customer service and client/employee relations based on outstanding
+      start_offset: 735
+      end_offset: 827
+    - quote: + Assure the oral and written communication are timely, clear, concise, and empathetic.
+      start_offset: 4270
+      end_offset: 4357
+    - quote: + Practice empathy and professionalism in all dealings with customers, recognize individual
+      start_offset: 3962
+      end_offset: 4053
+    - quote: + Report daily to the senior management team on daily productivity of the department
+      start_offset: 3610
+      end_offset: 3694
+    note: Giao tiếp viết/nói rõ ràng, tính chuyên nghiệp và báo cáo lãnh đạo cấp cao được mô tả trong các vai trò dịch vụ khách hàng/bồi thường; không nêu việc xử lý thông tin nhân sự bảo mật.
+  education_hr_business:
+    level: partial
+    evidence:
+    - quote: Business Administration Degree
+      start_offset: 429
+      end_offset: 459
+    - quote: 'QUINSIGAMOND COMMUNITY
+
+        COLLEGE, ACADEMY'
+      start_offset: 348
+      end_offset: 387
+    note: Ngành Business Administration khớp, nhưng bằng từ community college và không ghi cấp bậc; không xác nhận được là bằng cử nhân.
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: Không đề cập chương trình HR; vai trò HR hiện tại không có mô tả. Việc viết quy trình đào tạo ở Society Insurance là quy trình nghiệp vụ, không phải chương trình HR.

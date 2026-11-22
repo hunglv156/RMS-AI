@@ -1,0 +1,74 @@
+cv_sheet_id: finance-h1
+text_sha256: 0bbcf1fa7e05a8101d0a7452a63a3524a4ab35a6f428caa872afa5796726991a
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: 'Financial Analyst
+
+
+        ABC Insurance Services
+
+
+        3 2022- Ongoing'
+      start_offset: 1537
+      end_offset: 1595
+    note: 'Áp dụng v1.1 #1: lịch sử làm việc có mốc thời gian chỉ gồm vai trò Financial Analyst, không có vai trò HR.'
+  talent_acquisition:
+    level: absent
+    evidence:
+    - quote: 'Financial Analyst
+
+
+        ABC Insurance Services
+
+
+        3 2022- Ongoing'
+      start_offset: 1537
+      end_offset: 1595
+    note: 'Áp dụng v1.1 #1: vai trò duy nhất là phân tích tài chính, không liên quan đến tuyển dụng.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: CV không đề cập quan hệ lao động, quản lý hiệu suất hay luật lao động.
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: Proficient in Microsoft Excel and experienced in collaborating with cross-functional
+      start_offset: 396
+      end_offset: 480
+    note: Có Excel; không nhắc Word, PowerPoint, HRIS hay công nghệ tuyển dụng (agency management system là hệ thống nghiệp vụ bảo hiểm).
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: written and oral communication skills, including experience working with small business owners.
+      start_offset: 701
+      end_offset: 796
+    - quote: Collaborated with team members to troubleshoot data inconsistencies and resolve issues, resulting in enhanced data accuracy.
+      start_offset: 1869
+      end_offset: 1993
+    note: Kỹ năng giao tiếp viết/nói chủ yếu tự nhận, có phối hợp nhóm; không có bằng chứng về giao tiếp ở mọi cấp tổ chức hay xử lý vấn đề bảo mật/nhạy cảm.
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: Bachelor's degree in Finance from the University of Chicago.
+      start_offset: 633
+      end_offset: 693
+    note: Cử nhân Finance là ngành kinh doanh liên quan, đáp ứng 'business administration, or a related field'.
+  hr_programs:
+    level: absent
+    evidence:
+    - quote: 'Financial Analyst
+
+
+        ABC Insurance Services
+
+
+        3 2022- Ongoing'
+      start_offset: 1537
+      end_offset: 1595
+    note: 'Áp dụng v1.1 #1: vai trò duy nhất không liên quan đến chương trình HR; hệ thống báo cáo tài chính tự động không phải chương trình HR.'

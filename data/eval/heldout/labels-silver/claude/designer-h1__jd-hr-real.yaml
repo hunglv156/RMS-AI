@@ -1,0 +1,80 @@
+cv_sheet_id: designer-h1
+text_sha256: c200f519e89b0de2b47a0c0d3bdc728dae59233f99b60d499e18d9df7444ce3a
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: Partner/Executive Recruiter, 05/2015 to 05/2017
+      start_offset: 3041
+      end_offset: 3088
+    - quote: Designer, 10/2019 to Current
+      start_offset: 946
+      end_offset: 974
+    - quote: Marketing & Performance Manager, 05/2017 to 01/2020
+      start_offset: 2207
+      end_offset: 2258
+    - quote: Development Director, 05/2012 to 01/2014
+      start_offset: 4411
+      end_offset: 4451
+    note: Kinh nghiệm gần HR duy nhất là tuyển dụng tại công ty săn đầu người (05/2015–05/2017, khoảng 2 năm); các vai trò khác là thiết kế, marketing, gây quỹ. Không chứng minh 3+ năm HR tiến triển hay hỗ trợ nhiều chức năng HR.
+  talent_acquisition:
+    level: strong
+    evidence:
+    - quote: Conduct full life cycle recruiting including sourcing, phone screens, face to face interviews, selection, compensation negotiations,
+      start_offset: 3127
+      end_offset: 3259
+    - quote: pre-employment screens and on-boarding activities for all executive level positions
+      start_offset: 3261
+      end_offset: 3344
+    - quote: Top Producer of the Month- April 2016
+      start_offset: 4183
+      end_offset: 4220
+    - quote: Top Producer of the Month- November 2016
+      start_offset: 4222
+      end_offset: 4262
+    note: Tuyển dụng trọn chu trình cho các vị trí cấp điều hành, duy trì pipeline ứng viên, có kết quả cụ thể (Top Producer hai tháng, vượt chỉ tiêu). Bối cảnh là agency/khách hàng chứ không phải hiring manager nội bộ.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: CV không đề cập quan hệ lao động, quản lý hiệu suất hay luật lao động.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: CV chỉ nêu Adobe Creative Suite; không nhắc Microsoft Office, HRIS hay công nghệ tuyển dụng.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: Excellent bilingual communicator, problem solver and detail-oriented manager proficient in business operations and customer needs
+      start_offset: 372
+      end_offset: 501
+    - quote: Chris Partners direct-hire division by continuously cultivating relationships with senior management and executive level
+      start_offset: 3474
+      end_offset: 3594
+    - quote: Develop business relationships with decision makers across all sectors of Real Estate and Construction from Start-Up companies
+      start_offset: 3818
+      end_offset: 3944
+    - quote: Maintained highly intensive schedule of visiting with potential donors and delivering compelling presentations and
+      start_offset: 4601
+      end_offset: 4715
+    note: Có xây dựng quan hệ với lãnh đạo cấp cao, người ra quyết định và nhà tài trợ, kèm thuyết trình; không đề cập xử lý vấn đề bảo mật/nhạy cảm.
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor’s Degree: Business Administration, 2018'
+      start_offset: 4931
+      end_offset: 4979
+    note: Cử nhân Business Administration khớp yêu cầu.
+  hr_programs:
+    level: partial
+    evidence:
+    - quote: Assisted our Division Director in the training, mentoring, and professional development of new Executive Recruiters
+      start_offset: 3701
+      end_offset: 3816
+    - quote: Coordinate all employee events, community involvement events, press releases, and marketing campaigns
+      start_offset: 2643
+      end_offset: 2744
+    note: Có hỗ trợ đào tạo/phát triển recruiter mới và điều phối sự kiện nhân viên; không phải phát triển hay quản lý chương trình HR chính thức, không nhắc chương trình thực tập/early-career.

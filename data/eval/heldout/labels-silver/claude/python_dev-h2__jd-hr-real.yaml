@@ -1,0 +1,80 @@
+cv_sheet_id: python_dev-h2
+text_sha256: f57c4afb2f55df979951bdd2308b2caecf0714799fdbd7f2ddb4938babeedc57
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: PYTHON DEVELOPER 12/2020 to CURRENT
+      start_offset: 818
+      end_offset: 853
+    - quote: MAGHINE LEARNING ENGINEER 05/2017 to 11/2019
+      start_offset: 2011
+      end_offset: 2055
+    - quote: PROGRAMMER ANALY ST/ETL DEVELOPER 09/2016 to 03/2017
+      start_offset: 4332
+      end_offset: 4384
+    note: 'Áp dụng v1.1 #1: lịch sử làm việc có mốc thời gian, mọi vai trò đều là kỹ thuật phần mềm/ML/ETL, không có vai trò HR.'
+  talent_acquisition:
+    level: absent
+    evidence:
+    - quote: PYTHON DEVELOPER 12/2020 to CURRENT
+      start_offset: 818
+      end_offset: 853
+    - quote: MAGHINE LEARNING ENGINEER 05/2017 to 11/2019
+      start_offset: 2011
+      end_offset: 2055
+    - quote: PROGRAMMER ANALY ST/ETL DEVELOPER 09/2016 to 03/2017
+      start_offset: 4332
+      end_offset: 4384
+    note: 'Áp dụng v1.1 #1: không vai trò nào là tuyển dụng. Ứng viên xây công cụ gợi ý hồ sơ cho đội tuyển dụng nội bộ, nhưng đó là phát triển phần mềm, không phải trực tiếp tuyển dụng hay phối hợp với hiring manager.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: CV không đề cập quan hệ lao động, quản lý hiệu suất hay luật lao động.
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: Built a resume suggestion tool which sorts and filters out the best possible candidate for a position
+      start_offset: 3427
+      end_offset: 3528
+    - quote: embeddings for internal use of our recruitment team.
+      start_offset: 3716
+      end_offset: 3768
+    note: Không nhắc Microsoft Office hay HRIS; có xây và tích hợp một công cụ công nghệ tuyển dụng nội bộ, cho thấy làm việc được với recruiting technology ở vai trò kỹ thuật.
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: Responsible for answering business in situations like over charge, promo not applied errors, on the
+      start_offset: 1672
+      end_offset: 1771
+    - quote: Actively involved in gathering requirements from the end users.
+      start_offset: 5056
+      end_offset: 5119
+    note: Có giao tiếp với bộ phận kinh doanh và người dùng cuối; không có bằng chứng về xử lý vấn đề bảo mật/nhạy cảm hay xây dựng quan hệ ở mọi cấp tổ chức.
+  education_hr_business:
+    level: absent
+    evidence:
+    - quote: Master of Science | Computer Information Technology 2016
+      start_offset: 5408
+      end_offset: 5464
+    - quote: Ba nelor of Science | Electrical And Electronics Engineering 2014
+      start_offset: 5493
+      end_offset: 5558
+    note: 'Áp dụng v1.1 #2: bằng cấp là Computer Information Technology và Electrical And Electronics Engineering, không thuộc HR/quản trị kinh doanh.'
+  hr_programs:
+    level: absent
+    evidence:
+    - quote: PYTHON DEVELOPER 12/2020 to CURRENT
+      start_offset: 818
+      end_offset: 853
+    - quote: MAGHINE LEARNING ENGINEER 05/2017 to 11/2019
+      start_offset: 2011
+      end_offset: 2055
+    - quote: PROGRAMMER ANALY ST/ETL DEVELOPER 09/2016 to 03/2017
+      start_offset: 4332
+      end_offset: 4384
+    note: 'Áp dụng v1.1 #1: không vai trò nào phát triển hay điều phối chương trình HR.'

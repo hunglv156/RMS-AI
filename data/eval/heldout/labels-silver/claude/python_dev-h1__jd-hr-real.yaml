@@ -1,0 +1,77 @@
+cv_sheet_id: python_dev-h1
+text_sha256: d88bc77d615cc7150804a3b8f4395623739516296ee922e1329840046f0bc6b4
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: PY THON DEVELOPER 10/2021 to CURRENT
+      start_offset: 1252
+      end_offset: 1288
+    - quote: IB) CLOUD DEVELOPER-PY THON 07/2020 to 04/2021
+      start_offset: 2004
+      end_offset: 2050
+    - quote: C/O+H+/PY THON DEVELOPER 10/2012 to 07/2020
+      start_offset: 2551
+      end_offset: 2594
+    note: 'Áp dụng v1.1 #1: lịch sử làm việc có mốc thời gian, cả ba vai trò đều là phát triển phần mềm, không có vai trò HR. Công ty ''Motion Recruitment'' là nơi làm việc, không phải chức năng của ứng viên.'
+  talent_acquisition:
+    level: absent
+    evidence:
+    - quote: PY THON DEVELOPER 10/2021 to CURRENT
+      start_offset: 1252
+      end_offset: 1288
+    - quote: IB) CLOUD DEVELOPER-PY THON 07/2020 to 04/2021
+      start_offset: 2004
+      end_offset: 2050
+    - quote: C/O+H+/PY THON DEVELOPER 10/2012 to 07/2020
+      start_offset: 2551
+      end_offset: 2594
+    note: 'Áp dụng v1.1 #1 (kinh nghiệm theo lĩnh vực): các vai trò có mốc thời gian đều là lập trình, không mô tả hoạt động tuyển dụng hay phối hợp với hiring manager.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: CV không đề cập quan hệ lao động, quản lý hiệu suất hay luật lao động.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: Có các công cụ phát triển phần mềm (Visual Studio code, Jira, Git hub) nhưng không nhắc Microsoft Office hay HRIS.
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: effective in working independently and collaboratively in a team with excellent
+      start_offset: 719
+      end_offset: 798
+    - quote: communication and writing skill.
+      start_offset: 799
+      end_offset: 831
+    - quote: Worked closely with systems analysts, engineers and programmers to understand limitations, develop
+      start_offset: 1330
+      end_offset: 1428
+    note: Kỹ năng giao tiếp và làm việc nhóm chủ yếu là tự nhận xét, kèm phối hợp với đồng nghiệp kỹ thuật; không có bằng chứng về xử lý vấn đề bảo mật/nhạy cảm hay giao tiếp với mọi cấp tổ chức.
+  education_hr_business:
+    level: absent
+    evidence:
+    - quote: Master of Technology | Software Engineering 2016
+      start_offset: 5604
+      end_offset: 5652
+    - quote: BzChelor of Science | Electronics 2072
+      start_offset: 5678
+      end_offset: 5716
+    note: 'Áp dụng v1.1 #2: bằng cấp nêu rõ là Software Engineering và Electronics, không thuộc HR/quản trị kinh doanh.'
+  hr_programs:
+    level: absent
+    evidence:
+    - quote: PY THON DEVELOPER 10/2021 to CURRENT
+      start_offset: 1252
+      end_offset: 1288
+    - quote: IB) CLOUD DEVELOPER-PY THON 07/2020 to 04/2021
+      start_offset: 2004
+      end_offset: 2050
+    - quote: C/O+H+/PY THON DEVELOPER 10/2012 to 07/2020
+      start_offset: 2551
+      end_offset: 2594
+    note: 'Áp dụng v1.1 #1 (kinh nghiệm theo lĩnh vực): không vai trò nào liên quan đến chương trình HR; ''Training new developers'' là đào tạo kỹ thuật trong nhóm, không phải chương trình HR.'
