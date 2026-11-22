@@ -1,0 +1,651 @@
+{
+  "sheet_id": "devops-01",
+  "jd_id": "jd-py-real",
+  "expected_group": "partial_A",
+  "source_pdf_sha256": "f7fff9d023f467550d221d079f97b7b8018f35ccdb2e95562ce72aaf2525426c",
+  "text_content_sha256": "9e374bbddb2d973d1bebc66154809e8b2e0436c901f5ca74dc2a8e68d3f8b29d",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-py-real",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "python_frameworks",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV makes no mention of Python, Django, or Flask.",
+          "evidence": [],
+          "missing_information": [
+            "Python experience",
+            "Django or Flask familiarity"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "python_frameworks",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "postgresql_database",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "Candidate has experience writing complex queries and stored procedures in Microsoft SQL Server, not PostgreSQL.",
+          "evidence": [
+            {
+              "quote": "Efficient Database skills in Microsoft SQL Server. Worked on Database Design, Developing\nQueries, Views, Stored Procedure, Packages and Functions, SSRS.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Writing complex queries and stored procedures to perform CRUD operations on Sql Server 2008R2",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "PostgreSQL experience",
+            "Query optimization and performance tuning in PostgreSQL"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Efficient Database skills in Microsoft SQL Server. Worked on Database Design, Developing\nQueries, Views, Stored Procedure, Packages and Functions, SSRS.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 683,
+              "end_offset": 835,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Writing complex queries and stored procedures to perform CRUD operations on Sql Server 2008R2",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3698,
+              "end_offset": 3791,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "postgresql_database",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 8.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "cloud_docker_linux",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "Linux, Bash, Docker, and AWS services are not mentioned in the CV.",
+          "evidence": [],
+          "missing_information": [
+            "Linux and Bash scripting experience",
+            "Docker container experience",
+            "AWS services (EC2, RDS, CloudFront) experience"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "cloud_docker_linux",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "backend_experience",
+          "level": "adequate",
+          "confidence": 0.85,
+          "reason": "Over seven years of full-time software engineering experience (09/2010 to 05/2019) building backend C#/.NET services, Web APIs, and database layers.",
+          "evidence": [
+            {
+              "quote": "Transwestern - Lead Engineer\nPhoenix, AZ + 03/2016 - 05/2019\n\n+ Development using C#, WCF and Windows Services.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Hewlett Packard Enterprise - Senior Software Engineer\nEl Paso, TX + 09/2013 - 02/2016\n\n+ Designed a Web application using Web API with AngularJS",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Transwestern - Lead Engineer\nPhoenix, AZ + 03/2016 - 05/2019\n\n+ Development using C#, WCF and Windows Services.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3255,
+              "end_offset": 3366,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Hewlett Packard Enterprise - Senior Software Engineer\nEl Paso, TX + 09/2013 - 02/2016\n\n+ Designed a Web application using Web API with AngularJS",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4038,
+              "end_offset": 4182,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "backend_experience",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 10.5
+      },
+      {
+        "assessment": {
+          "criterion_id": "software_architecture",
+          "level": "partial",
+          "confidence": 0.8,
+          "reason": "Summary mentions understanding of design and architectural patterns, but lacks demonstrated application for modularity or teaching others.",
+          "evidence": [
+            {
+              "quote": "Good Understanding of Object-Oriented Analysis Design (OOAD), Design Patterns, Architectural\nPatterns, MVC and .NET framework.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Developed and integrated applications implementing SOA based architecture with REST web\nservices.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Demonstrated application of design patterns for modular/efficient software",
+            "Teaching others to solve architectural problems"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Good Understanding of Object-Oriented Analysis Design (OOAD), Design Patterns, Architectural\nPatterns, MVC and .NET framework.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1226,
+              "end_offset": 1352,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Developed and integrated applications implementing SOA based architecture with REST web\nservices.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1125,
+              "end_offset": 1222,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "software_architecture",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication_collaboration",
+          "level": "adequate",
+          "confidence": 0.8,
+          "reason": "CV states effective communication and interpretation skills for interacting with end users, project managers, and business analysts.",
+          "evidence": [
+            {
+              "quote": "Excellent communication and interpretation skills enabling effective interaction with application\nDevelopers, End Users, Project Managers and Business Analysts to review the requirement\nspecifications.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Excellent communication and interpretation skills enabling effective interaction with application\nDevelopers, End Users, Project Managers and Business Analysts to review the requirement\nspecifications.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2067,
+              "end_offset": 2268,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication_collaboration",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education_cs",
+          "level": "adequate",
+          "confidence": 0.75,
+          "reason": "Holds a Bachelor of Science in Electronics, Communication Engineering alongside 10+ years of software engineering experience.",
+          "evidence": [
+            {
+              "quote": "Bachelor of Science: Electronics,\nCommunication Engineering",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Bachelor of Science: Electronics,\nCommunication Engineering",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 290,
+              "end_offset": 349,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education_cs",
+          "weight": 5.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 3.5
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.6,
+      "lower_bound": 33.0,
+      "upper_bound": 73.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-4-argon-medium",
+      "temperature": 0.0,
+      "started_at": "2026-11-22T11:52:18.756856+00:00",
+      "latency_ms": 9289.33541700826,
+      "input_tokens": 5118,
+      "output_tokens": 662,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-4-argon-trial"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v2",
+      "model": "ag/gemini-4-argon-medium",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v2",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "python_frameworks": [],
+          "postgresql_database": [
+            {
+              "chunk_index": 5,
+              "score": 2.939295801480605,
+              "lexical_score": 2.939295801480605,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 1.1263975604838665,
+              "lexical_score": 1.1263975604838665,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 4,
+              "score": 1.0325484765701949,
+              "lexical_score": 1.0325484765701949,
+              "dense_score": null
+            }
+          ],
+          "cloud_docker_linux": [],
+          "backend_experience": [
+            {
+              "chunk_index": 0,
+              "score": 4.240768730809749,
+              "lexical_score": 4.240768730809749,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 2.7860067143106058,
+              "lexical_score": 2.7860067143106058,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 9,
+              "score": 2.4778179014405777,
+              "lexical_score": 2.4778179014405777,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 1.6122916085437664,
+              "lexical_score": 1.6122916085437664,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 7,
+              "score": 1.5972966468026337,
+              "lexical_score": 1.5972966468026337,
+              "dense_score": null
+            }
+          ],
+          "software_architecture": [
+            {
+              "chunk_index": 1,
+              "score": 7.575361938807951,
+              "lexical_score": 7.575361938807951,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 6.779586254812374,
+              "lexical_score": 6.779586254812374,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 7,
+              "score": 2.052224321211787,
+              "lexical_score": 2.052224321211787,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 1.2537134378535741,
+              "lexical_score": 1.2537134378535741,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 6,
+              "score": 0.8520882952388392,
+              "lexical_score": 0.8520882952388392,
+              "dense_score": null
+            }
+          ],
+          "communication_collaboration": [
+            {
+              "chunk_index": 7,
+              "score": 2.859540234890239,
+              "lexical_score": 2.859540234890239,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 1.5414257881437576,
+              "lexical_score": 1.5414257881437576,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 1.5052496326902953,
+              "lexical_score": 1.5052496326902953,
+              "dense_score": null
+            }
+          ],
+          "education_cs": [
+            {
+              "chunk_index": 0,
+              "score": 6.218629503551358,
+              "lexical_score": 6.218629503551358,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 1.4989301157808574,
+              "lexical_score": 1.4989301157808574,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 1.2537134378535741,
+              "lexical_score": 1.2537134378535741,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 7,
+              "score": 0.89963688255195,
+              "lexical_score": 0.89963688255195,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 6,
+              "score": 0.8520882952388392,
+              "lexical_score": 0.8520882952388392,
+              "dense_score": null
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 681,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 581,
+            "end_offset": 1354,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1254,
+            "end_offset": 1989,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 3,
+            "start_offset": 1889,
+            "end_offset": 2628,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 4,
+            "start_offset": 2528,
+            "end_offset": 3317,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 5,
+            "start_offset": 3217,
+            "end_offset": 3980,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 6,
+            "start_offset": 3880,
+            "end_offset": 4614,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 7,
+            "start_offset": 4514,
+            "end_offset": 5222,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 8,
+            "start_offset": 5122,
+            "end_offset": 5839,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 9,
+            "start_offset": 5739,
+            "end_offset": 6136,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "9e374bbddb2d973d1bebc66154809e8b2e0436c901f5ca74dc2a8e68d3f8b29d",
+      "jd_sha256": "6ad85bef9f5c74b0ad16d8e02ade393cb543209f127eb3627955593a2feff9c5"
+    }
+  },
+  "prompt_char_length": 11871,
+  "context_char_length": 6136,
+  "input_tokens": 5118,
+  "output_tokens": 662,
+  "reasoning_tokens": null,
+  "latency_s": 9.29256208302104,
+  "finished_at": "2026-11-22T11:52:28.046842+00:00"
+}

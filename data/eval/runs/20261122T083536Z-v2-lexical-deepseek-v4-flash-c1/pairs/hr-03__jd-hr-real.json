@@ -1,0 +1,713 @@
+{
+  "sheet_id": "hr-03",
+  "jd_id": "jd-hr-real",
+  "expected_group": "match_B",
+  "source_pdf_sha256": "58907fef82f78d143ae3acda26c849510259c47931b51595cd287ffddca519d4",
+  "text_content_sha256": "5f4a12678aab63194313d26f1be6e880270f853eb406bde9b3598134a2f77438",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-hr-real",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "adequate",
+          "confidence": 0.8,
+          "reason": "HR role from 01/2019 to Current with team leadership and multiple HR functions; duration/progression not explicitly quantified.",
+          "evidence": [
+            {
+              "quote": "01/2019 to Current Human Resources",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Liaised between multiple business divisions to improve communications.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Explicit 3+ years duration",
+            "Progressive HR role sequence"
+          ]
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "01/2019 to Current Human Resources",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 867,
+              "end_offset": 901,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Liaised between multiple business divisions to improve communications.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1461,
+              "end_offset": 1531,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 14.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "talent_acquisition",
+          "level": "partial",
+          "confidence": 0.8,
+          "reason": "Recruitment listed as a skill and attracting applicants mentioned, but no hiring-manager partnership or multiple open-position management shown.",
+          "evidence": [
+            {
+              "quote": "Recruitment / Human Resources",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Assessed and aligned compensation packages to market to attract highly qualified applicants",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Hiring-manager partnership",
+            "Multiple open-position management",
+            "Full-cycle recruitment"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Recruitment / Human Resources",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 453,
+              "end_offset": 482,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Assessed and aligned compensation packages to market to attract highly qualified applicants",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1336,
+              "end_offset": 1427,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "talent_acquisition",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 8.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "employee_relations_compliance",
+          "level": "adequate",
+          "confidence": 0.82,
+          "reason": "Personnel issue handling and annual performance evaluation support employee relations and performance management; EEOC compliance is also stated.",
+          "evidence": [
+            {
+              "quote": "Addressed personnel issues and scheduling conflicts promptly.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Evaluated team member performance every year to identify and resolve productivity concems.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "HR-specific employee-relations casework",
+            "Employment-law depth beyond EEOC"
+          ]
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Addressed personnel issues and scheduling conflicts promptly.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2884,
+              "end_offset": 2945,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Evaluated team member performance every year to identify and resolve productivity concems.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4133,
+              "end_offset": 4223,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "employee_relations_compliance",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 14.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "hris_office_tools",
+          "level": "partial",
+          "confidence": 0.9,
+          "reason": "PropelHR use shows HRIS exposure, but no Microsoft Office applications or recruiting technology are mentioned.",
+          "evidence": [
+            {
+              "quote": "Utilized PropelHR system to convert all payroll and benefit programs.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Excel, Word, PowerPoint",
+            "Recruiting technology"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Utilized PropelHR system to convert all payroll and benefit programs.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2005,
+              "end_offset": 2074,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hris_office_tools",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 6.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "interpersonal_communication",
+          "level": "partial",
+          "confidence": 0.8,
+          "reason": "Shows liaison and senior-management collaboration, but no explicit confidentiality, discretion, or written/verbal communication evidence.",
+          "evidence": [
+            {
+              "quote": "Liaised between multiple business divisions to improve communications.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Collaborated with senior management and performed helpful tasks",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Confidentiality/discretion",
+            "Written/verbal communication"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Liaised between multiple business divisions to improve communications.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1461,
+              "end_offset": 1531,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Collaborated with senior management and performed helpful tasks",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1535,
+              "end_offset": 1598,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "interpersonal_communication",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education_hr_business",
+          "level": "unknown",
+          "confidence": 0.9,
+          "reason": "Education section is blank; no degree level or field is stated.",
+          "evidence": [],
+          "missing_information": [
+            "Degree level",
+            "Degree field"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "education_hr_business",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_programs",
+          "level": "adequate",
+          "confidence": 0.85,
+          "reason": "Benefit programs, training systems, onboarding over 75 employees, and a safety program show HR program management; internship program not mentioned.",
+          "evidence": [
+            {
+              "quote": "Directed and controlled various benefit programs, including 401K, medical, dental and vision packages.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "coordinated new hire orientations and provided onboarding and training for over 75 new employees.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Internship or early-career talent program"
+          ]
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Directed and controlled various benefit programs, including 401K, medical, dental and vision packages.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1230,
+              "end_offset": 1332,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "coordinated new hire orientations and provided onboarding and training for over 75 new employees.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": false,
+              "start_offset": null,
+              "end_offset": null,
+              "reason": "quote_not_found",
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_programs",
+          "weight": 5.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 3.5
+      }
+    ],
+    "total": {
+      "score_state": "scored",
+      "observed_score": 55.0,
+      "coverage": 0.9,
+      "lower_bound": 49.5,
+      "upper_bound": 59.5,
+      "requires_manual_review": false
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ds/deepseek-v4-flash",
+      "temperature": 0.0,
+      "started_at": "2026-11-22T12:03:05.867598+00:00",
+      "latency_ms": 48532.75779198157,
+      "input_tokens": 4724,
+      "output_tokens": 12278,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "deepseek-flash"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v2",
+      "model": "ds/deepseek-v4-flash",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v2",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "hr_experience": [
+            {
+              "chunk_index": 2,
+              "score": 1.9400271329384209,
+              "lexical_score": 1.9400271329384209,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 1.8179488655275082,
+              "lexical_score": 1.8179488655275082,
+              "dense_score": null
+            }
+          ],
+          "talent_acquisition": [
+            {
+              "chunk_index": 1,
+              "score": 1.7897927137640466,
+              "lexical_score": 1.7897927137640466,
+              "dense_score": null
+            }
+          ],
+          "employee_relations_compliance": [
+            {
+              "chunk_index": 1,
+              "score": 2.8875432642961667,
+              "lexical_score": 2.8875432642961667,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 6,
+              "score": 2.648168362822943,
+              "lexical_score": 2.648168362822943,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 2.297970882758969,
+              "lexical_score": 2.297970882758969,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 2.1799722368938896,
+              "lexical_score": 2.1799722368938896,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 5,
+              "score": 1.3661854272433147,
+              "lexical_score": 1.3661854272433147,
+              "dense_score": null
+            }
+          ],
+          "hris_office_tools": [
+            {
+              "chunk_index": 3,
+              "score": 3.6358977310550165,
+              "lexical_score": 3.6358977310550165,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 1.8872229104850071,
+              "lexical_score": 1.8872229104850071,
+              "dense_score": null
+            }
+          ],
+          "interpersonal_communication": [],
+          "education_hr_business": [
+            {
+              "chunk_index": 1,
+              "score": 6.07680076394562,
+              "lexical_score": 6.07680076394562,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 5,
+              "score": 3.1677745778811204,
+              "lexical_score": 3.1677745778811204,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 2.662031007998964,
+              "lexical_score": 2.662031007998964,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 1.9400271329384209,
+              "lexical_score": 1.9400271329384209,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 4,
+              "score": 1.0672363200252943,
+              "lexical_score": 1.0672363200252943,
+              "dense_score": null
+            }
+          ],
+          "hr_programs": [
+            {
+              "chunk_index": 3,
+              "score": 3.907650186437025,
+              "lexical_score": 3.907650186437025,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 2.16933065812436,
+              "lexical_score": 2.16933065812436,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 5,
+              "score": 2.1118497185874134,
+              "lexical_score": 2.1118497185874134,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 7,
+              "score": 1.2797239624195405,
+              "lexical_score": 1.2797239624195405,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 1.1150141071556936,
+              "lexical_score": 1.1150141071556936,
+              "dense_score": null
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 406,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 306,
+            "end_offset": 1104,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1004,
+            "end_offset": 1689,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 3,
+            "start_offset": 1589,
+            "end_offset": 2360,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 4,
+            "start_offset": 2260,
+            "end_offset": 3013,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 5,
+            "start_offset": 2913,
+            "end_offset": 3685,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 6,
+            "start_offset": 3585,
+            "end_offset": 4378,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 7,
+            "start_offset": 4278,
+            "end_offset": 4728,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 8,
+            "start_offset": 4628,
+            "end_offset": 5344,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 9,
+            "start_offset": 5244,
+            "end_offset": 5430,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "5f4a12678aab63194313d26f1be6e880270f853eb406bde9b3598134a2f77438",
+      "jd_sha256": "9aec489388f724515e4a6589cb1bb7d44937611d1bc3ee4efec3532f6e15902f"
+    }
+  },
+  "prompt_char_length": 11501,
+  "context_char_length": 5344,
+  "input_tokens": 4724,
+  "output_tokens": 12278,
+  "reasoning_tokens": null,
+  "latency_s": 48.536274957994465,
+  "finished_at": "2026-11-22T12:03:54.400787+00:00"
+}

@@ -1,0 +1,19 @@
+{
+  "sheet_id": "python_dev-01",
+  "jd_id": "jd-py-real",
+  "expected_group": "match_A",
+  "source_pdf_sha256": "18d279c1edf859c2c82c8f98f5456d1bbf7523c5104e672daa2890b5f6059e4e",
+  "text_content_sha256": "ccd1dbb1606934face5a43ed8c730fd622f71c738c78aebbe8371a9adebd7d91",
+  "status": "failed",
+  "error": {
+    "class": "LLMProviderError",
+    "message": "LLM gateway server error"
+  },
+  "prompt_char_length": 16171,
+  "context_char_length": 10391,
+  "input_tokens": null,
+  "output_tokens": null,
+  "reasoning_tokens": null,
+  "latency_s": 4.533132750017103,
+  "finished_at": "2026-11-22T12:04:53.861597+00:00"
+}

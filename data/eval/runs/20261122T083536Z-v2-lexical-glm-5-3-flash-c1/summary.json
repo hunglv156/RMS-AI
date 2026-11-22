@@ -1,0 +1,60 @@
+{
+  "interpretation": "Sanity check only, not accuracy: expected groups are not ground truth.",
+  "pair_count": 1,
+  "succeeded": 0,
+  "pairs": [
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-py-real",
+      "expected_group": "match_A",
+      "status": "failed",
+      "latency_s": 4.533132750017103,
+      "score": null,
+      "coverage": null,
+      "score_state": null,
+      "known_only_score": null
+    }
+  ],
+  "latency_s": {
+    "population": "successful pairs; excludes queue and persistence time",
+    "percentile_method": "linear interpolation at (n - 1) * quantile",
+    "p50": null,
+    "p95": null,
+    "max": null,
+    "within_40_s": 0
+  },
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "missing_usage_pairs": 0,
+    "scope": "successful calls only; failed/retried call usage may be unreported"
+  },
+  "quote_verification": {
+    "valid": 0,
+    "total": 0,
+    "rate": null
+  },
+  "failures": [
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-py-real",
+      "class": "LLMProviderError",
+      "message": "LLM gateway server error"
+    }
+  ],
+  "group_scores_not_accuracy": [
+    {
+      "expected_group": "match_A",
+      "jd_id": "jd-py-real",
+      "count": 0,
+      "scored_count": 0,
+      "mean": null,
+      "median": null,
+      "coverage_mean": null,
+      "coverage_median": null,
+      "known_only_score_mean": null,
+      "known_only_score_median": null
+    }
+  ]
+}

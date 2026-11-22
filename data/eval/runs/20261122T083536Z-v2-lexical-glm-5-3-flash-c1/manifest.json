@@ -1,0 +1,58 @@
+{
+  "run_id": "20261122T083536Z-v2-lexical-glm-5-3-flash-c1",
+  "started_at": "2026-11-22T12:04:49.282679+00:00",
+  "ended_at": "2026-11-22T12:04:53.865416+00:00",
+  "git": {
+    "commit": "ff894d5add80084a6193085acdbeaab9ab17d7fe",
+    "dirty": true
+  },
+  "identity": {
+    "eval_set_sha256": "54ea167125e03566dc5f2a15832f6a85f66090146f235c171db04f9afd460000",
+    "jd_file_sha256": {
+      "jd-py-real": "9dfc4bfeb9730f8db058cee871e71bf99edd53a9444117ed711cd8bfb95e1f29",
+      "jd-hr-real": "2d602cb181c55fbc7ae5dfa548680259de7ac93ff082b14e1ae3461c89f4b154"
+    },
+    "config": {
+      "context_mode": "retrieved",
+      "retrieval_mode": "lexical",
+      "retrieval_k": 5,
+      "prompt_version": "screening-v2",
+      "min_coverage": 0.8,
+      "rubric_values": {
+        "strong": 1.0,
+        "adequate": 0.7,
+        "partial": 0.4,
+        "absent": 0.0
+      }
+    },
+    "embedding_model_id": null,
+    "requested_model": "glm/glm-5.3-flash",
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v2",
+      "chunker": "chunk-v1",
+      "chunker_used": true
+    }
+  },
+  "invocations": [
+    {
+      "started_at": "2026-11-22T12:04:49.305501+00:00",
+      "ended_at": "2026-11-22T12:04:53.865416+00:00",
+      "concurrency": 1,
+      "limit": 1,
+      "git": {
+        "commit": "ff894d5add80084a6193085acdbeaab9ab17d7fe",
+        "dirty": true
+      },
+      "provider_config": {
+        "timeout_s": 180.0,
+        "max_retries": 2,
+        "temperature": 0.0
+      }
+    }
+  ],
+  "text_content_sha256": {
+    "python_dev-01": "ccd1dbb1606934face5a43ed8c730fd622f71c738c78aebbe8371a9adebd7d91"
+  },
+  "gateway_reported_models": []
+}
