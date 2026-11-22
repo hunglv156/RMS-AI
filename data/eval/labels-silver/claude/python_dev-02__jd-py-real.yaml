@@ -1,0 +1,59 @@
+cv_sheet_id: python_dev-02
+text_sha256: 1b279f463335db61fa8db8e58d399734a58491e1779015adc4f65abce8f7602b
+jd_id: jd-py-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: Generic database maintenance is mentioned, but no PostgreSQL or SQL work.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: Over 20 years military service experience in Special Operations.
+      start_offset: 206
+      end_offset: 270
+    - quote: SECIIOR MASTER SERGEANT 06/1992 to 06/2014
+      start_offset: 4353
+      end_offset: 4395
+    - quote: COURSEWARE DEVELOPER 09/2014 to 11/2015
+      start_offset: 1914
+      end_offset: 1953
+    note: 'Despite the python_dev folder, the CV is military operations, logistics and courseware development; no software role. Overall poor: no technical must-have evidenced.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: '"Instructional System Design" refers to training design, not software.'
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: Present plans, recommendations, analysis, and other advice within a broad functional area to the task
+      start_offset: 2688
+      end_offset: 2789
+    - quote: Developed slideshows and other forms of media to present project progress to the executive team
+      start_offset: 6886
+      end_offset: 6981
+    - quote: Responsible for classroom and simulator instruction for all C-130J loadmasters.
+      start_offset: 7209
+      end_offset: 7288
+    note: Clear presentation, briefing and instruction experience; content is not software-technical.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: Bachelor's Degree | Professional Aeronatuics 03/2006
+      start_offset: 9106
+      end_offset: 9158
+    - quote: M£›ter's Degree | Operations Management
+      start_offset: 9410
+      end_offset: 9449
+    note: Bachelor's in professional aeronautics and master's in operations management (OCR-garbled but legible); no CS.

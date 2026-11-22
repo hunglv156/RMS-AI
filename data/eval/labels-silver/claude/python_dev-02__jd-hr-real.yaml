@@ -1,0 +1,79 @@
+cv_sheet_id: python_dev-02
+text_sha256: 1b279f463335db61fa8db8e58d399734a58491e1779015adc4f65abce8f7602b
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: 'hands-on experience supporting business
+
+        areas such as accounting, database management and human resources.'
+      start_offset: 573
+      end_offset: 679
+    - quote: Unit orders clerk for Manning Certification authorization and Reserve Order writing system
+      start_offset: 6410
+      end_offset: 6500
+    note: 'Claims administrative support to HR among other areas; no HR role in the dated history (military operations, logistics, courseware). Overall poor: HR experience is only incidental and recruitment/employee relations are not evidenced.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: Security policies and student counseling are mentioned, not employee relations or employment law.
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: Microsoft Office proficiency
+      start_offset: 1794
+      end_offset: 1822
+    - quote: Created PowerPoint presentations used for business development.
+      start_offset: 3101
+      end_offset: 3164
+    note: Microsoft Office/PowerPoint shown; HRIS and recruiting technology not mentioned.
+  interpersonal_communication:
+    level: strong
+    evidence:
+    - quote: 'Good interpersonal skills and effective communications are required daily: constant coordination and'
+      start_offset: 2308
+      end_offset: 2408
+    - quote: Produced and distributed daily Situation Report for executive level
+      start_offset: 440
+      end_offset: 507
+    - quote: Maintain Top Secret Clearance.
+      start_offset: 1447
+      end_offset: 1477
+    - quote: Logged and filed classified documents.
+      start_offset: 4614
+      end_offset: 4652
+    - quote: Sound judgment
+      start_offset: 1681
+      end_offset: 1695
+    note: Communication up to executive commanders; Top Secret clearance and classified-document handling are concrete evidence of discretion.
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: Bachelor's Degree | Professional Aeronatuics 03/2006
+      start_offset: 9106
+      end_offset: 9158
+    - quote: Business Management, Logistics, Finance and Supply Chain coursework
+      start_offset: 9341
+      end_offset: 9408
+    - quote: M£›ter's Degree | Operations Management
+      start_offset: 9410
+      end_offset: 9449
+    note: Bachelor's in professional aeronautics with business coursework plus a master's in operations management (business-related field; OCR-garbled heading but legible).
+  hr_programs:
+    level: partial
+    evidence:
+    - quote: Developed and implemented training procedures for all newly hired personnel.
+      start_offset: 4275
+      end_offset: 4351
+    - quote: Policy/program development
+      start_offset: 1533
+      end_offset: 1559
+    note: New-hire training procedures and program development, outside an HR function.

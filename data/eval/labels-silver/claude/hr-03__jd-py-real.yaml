@@ -1,0 +1,53 @@
+cv_sheet_id: hr-03
+text_sha256: 58907fef82f78d143ae3acda26c849510259c47931b51595cd287ffddca519d4
+jd_id: jd-py-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: 01/2019 to Current Human Resources
+      start_offset: 867
+      end_offset: 901
+    - quote: 10/2016 to 01/2019 Production Manager
+      start_offset: 2166
+      end_offset: 2203
+    - quote: 01/2013 to 10/2016 Production Supervisor
+      start_offset: 3845
+      end_offset: 3885
+    note: 'Dated history is HR and production management; no software role. Overall poor: no technical must-have evidenced.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Liaised between multiple business divisions to improve communications.
+      start_offset: 1461
+      end_offset: 1531
+    - quote: Educated management on successful policy implementation and enforcement actions to prevent employee legal
+      start_offset: 1106
+      end_offset: 1211
+    note: Explains HR policy to management; not technical ideas.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: '08/2021 Associate of Science: Management'
+      start_offset: 5344
+      end_offset: 5384
+    note: Only an associate degree in management.

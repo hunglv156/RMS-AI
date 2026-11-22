@@ -1,0 +1,53 @@
+cv_sheet_id: hr-02
+text_sha256: 3dd65c19265ee452f579439b6e6b3d9dccb8e1c7f06d06fcd77dd29ed33fc860
+jd_id: jd-py-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: An agile, trusted Human Resources executive leader with more than 15 years of broad experience in
+      start_offset: 1200
+      end_offset: 1297
+    - quote: Lyondellbasell Industries - Vice President of HR & Talent Strategy
+      start_offset: 1740
+      end_offset: 1806
+    note: 'Dated work history (2002-current) is entirely HR leadership; no backend engineering role. Overall poor: none of the technical must-haves is evidenced and the career is in HR.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: audience-centered communications to effectively convey the implications of statistical trends to
+      start_offset: 3523
+      end_offset: 3619
+    - quote: Designed and delivered training to managers and end-users on an array of behavioral
+      start_offset: 5820
+      end_offset: 5903
+    note: Explains statistical trends to management teams and delivers training; not technical/software content.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Bachelor of Science: PSYCHOLOGY'
+      start_offset: 988
+      end_offset: 1019
+    - quote: 'Bachelor of Arts: Chicano Studies'
+      start_offset: 1069
+      end_offset: 1102
+    note: Degrees are in psychology and Chicano studies; no CS or software engineering training.

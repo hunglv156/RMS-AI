@@ -1,0 +1,53 @@
+cv_sheet_id: hr-01
+text_sha256: 21367b09bd5a2ce2495853eb9251a7fb7fd6586624e12d5cfa9e9bd32b5932b9
+jd_id: jd-py-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: General Electric - Human Resources Specialist
+      start_offset: 2955
+      end_offset: 3000
+    - quote: Road & Rail Services - Supervisor
+      start_offset: 4230
+      end_offset: 4263
+    - quote: Danbury Health Systems - Administrative Secretary
+      start_offset: 5472
+      end_offset: 5521
+    note: 'Dated history (1984-current) is HR, supervision and secretarial work; no software role. Overall poor: HR career, no technical must-have evidenced.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Compiled and produced presentations and reports as directed by leadership team.
+      start_offset: 6610
+      end_offset: 6689
+    - quote: Produced and distributed memos, newsletters and other forms of communication.
+      start_offset: 6365
+      end_offset: 6442
+    note: General office communication and presentations; not explaining complex technical ideas. Summary paragraph contains unfilled template placeholders, so it was not relied on.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Associate of Arts: English'
+      start_offset: 617
+      end_offset: 643
+    note: Only an associate degree in English (plus real estate study); no CS training.

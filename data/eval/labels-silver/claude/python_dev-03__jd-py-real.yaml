@@ -1,0 +1,71 @@
+cv_sheet_id: python_dev-03
+text_sha256: 27c4ddafa0d9a33b728a84b0c45ad467b431c928c006299b514cfe21305f7e77
+jd_id: jd-py-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: adequate
+    evidence:
+    - quote: PYTHON PROGRAMMER 08/2007 to PRESENT
+      start_offset: 450
+      end_offset: 486
+    - quote: Used Python programming and language to develop a working and efficient network within the company.
+      start_offset: 1052
+      end_offset: 1151
+    - quote: Utilized Python in the handling of all hits on Django Redis and other applications.
+      start_offset: 1157
+      end_offset: 1240
+    note: 'Long Python tenure and a Django mention, but descriptions are vague and no complex data processing is shown. Overall partial: Python is evidenced, but PostgreSQL and Docker/AWS/Linux are not mentioned and hands-on backend tenure is limited.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: PYOHON PROGRAMMER 07/2004 to 08/2007
+      start_offset: 987
+      end_offset: 1023
+    - quote: Travel to different companies to introduce and encourage the use of Python programming to computer
+      start_offset: 512
+      end_offset: 610
+    note: About 3 years of hands-on Python programming (2004-2007); the 2007-present role is described as Python advocacy/training, not backend engineering. Seven years as a backend engineer is not shown.
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: Developed object-oriented programming to enhance company product management.
+      start_offset: 1324
+      end_offset: 1400
+    - quote: Work with companies to implement Python programming and train on-site Python
+      start_offset: 623
+      end_offset: 699
+    note: OOP and training programmers are mentioned; no design patterns or architectural problem solving.
+  communication_collaboration:
+    level: strong
+    evidence:
+    - quote: Speak at conferences and make presentations regarding Python as well as its
+      start_offset: 712
+      end_offset: 787
+    - quote: applications and features Act as guest speaker in college programs to educate students on
+      start_offset: 788
+      end_offset: 877
+    - quote: Develop readable and simple curriculum for the average user to get started with
+      start_offset: 898
+      end_offset: 977
+    note: 'Conference talks, guest lectures and beginner curricula: concrete evidence of explaining technical ideas to non-experts.'
+  education_cs:
+    level: adequate
+    evidence:
+    - quote: Bachelor's Degree
+      start_offset: 1402
+      end_offset: 1419
+    - quote: XXX | Computer Science
+      start_offset: 1421
+      end_offset: 1443
+    note: Bachelor's degree in Computer Science (Clemson); year is redacted as XXX.

@@ -1,0 +1,104 @@
+cv_sheet_id: python_dev-01
+text_sha256: 18d279c1edf859c2c82c8f98f5456d1bbf7523c5104e672daa2890b5f6059e4e
+jd_id: jd-py-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: good
+criteria:
+  python_frameworks:
+    level: strong
+    evidence:
+    - quote: Developed a chaibot using natural language processing techniques and the OpenAl GPT-2 framework.
+      start_offset: 1859
+      end_offset: 1955
+    - quote: Implemented using Python and Flask.
+      start_offset: 1956
+      end_offset: 1991
+    - quote: (RESTful Web services) by using Flask, SQL AlClaireemy and PostgreSQL.
+      start_offset: 5357
+      end_offset: 5427
+    - quote: Developed entire front end and back end modules using Python on Django Web Framework.
+      start_offset: 10297
+      end_offset: 10382
+    - quote: Used Analytical Python Libraries like Pandas and Numpy to work on Data Manipulations.
+      start_offset: 6256
+      end_offset: 6341
+    note: Python across all three roles since 2016, with Django and Flask and Pandas/Spark data processing.
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: using databases like Oracle, Netezza and PostgreSQL.
+      start_offset: 2634
+      end_offset: 2686
+    - quote: Migrated the Django database from SQLite to MySQL to PostgreSQL with complete data integrity.
+      start_offset: 7163
+      end_offset: 7256
+    note: 'Uses PostgreSQL behind APIs and did a migration; the tuning/joins evidence is for Spark, not PostgreSQL; no stored procedures or query optimization. Overall good: Python, cloud/Docker and backend tenure meet the must-haves; the main gap is advanced PostgreSQL tuning.'
+  cloud_docker_linux:
+    level: strong
+    evidence:
+    - quote: Implemented CI/CD process on Apache Airflow binary and DAG’s by building Airflow Docker images by
+      start_offset: 1993
+      end_offset: 2090
+    - quote: Docker-Compose and uploading to Jfrog antifactory and deployment through AWS ECS cluster.
+      start_offset: 2091
+      end_offset: 2180
+    - quote: Lambda, SES, EC2 and ECS.
+      start_offset: 6980
+      end_offset: 7005
+    - quote: framework in Linux/Python.
+      start_offset: 5527
+      end_offset: 5553
+    - quote: custom tools developed in Python and Bash.
+      start_offset: 5650
+      end_offset: 5692
+    note: Hands-on Docker images deployed to AWS ECS, EC2/EMR, a Linux test framework and Bash tooling. RDS is only in the skills list; CloudFront not mentioned.
+  backend_experience:
+    level: adequate
+    evidence:
+    - quote: Above 7+ years of experience in the field of Information Technology.
+      start_offset: 98
+      end_offset: 166
+    - quote: 08/2021 Full Stack Python Developer
+      start_offset: 1247
+      end_offset: 1282
+    - quote: 05/2019 Python Developer
+      start_offset: 5193
+      end_offset: 5217
+    - quote: 05/2016 Software Developer
+      start_offset: 9097
+      end_offset: 9123
+    note: Claims 7+ years; dated roles run from 05/2016 to current. Roles are full-stack/Python developer with substantial backend work.
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: Architected data engineering pipelines to support machine leaming performance.
+      start_offset: 10718
+      end_offset: 10796
+    - quote: Revised, modularized and updated old code bases to modern development standards, reducing
+      start_offset: 11561
+      end_offset: 11650
+    note: Architected pipelines and modularized code; design patterns and teaching others not shown.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Built an AWS and REDIS server for storing the data and performed defect analysis and interaction with
+      start_offset: 7666
+      end_offset: 7767
+    - quote: Business Users during UAT/SIT.
+      start_offset: 7768
+      end_offset: 7798
+    - quote: Documented the entire build and deployment process including detailed step-by-step instructions.
+      start_offset: 6343
+      end_offset: 6439
+    note: Worked with business users during UAT and wrote documentation; no explicit presenting of complex ideas.
+  education_cs:
+    level: adequate
+    evidence:
+    - quote: 'Master of Science: Computer Information Systems'
+      start_offset: 11908
+      end_offset: 11955
+    - quote: Bachelor of Science
+      start_offset: 12002
+      end_offset: 12021
+    note: MS in Computer Information Systems counts as equivalent computing training; bachelor field not stated.

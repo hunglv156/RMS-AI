@@ -1,0 +1,50 @@
+cv_sheet_id: python_dev-01
+text_sha256: 18d279c1edf859c2c82c8f98f5456d1bbf7523c5104e672daa2890b5f6059e4e
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: 08/2021 Full Stack Python Developer
+      start_offset: 1247
+      end_offset: 1282
+    - quote: 05/2019 Python Developer
+      start_offset: 5193
+      end_offset: 5217
+    - quote: 05/2016 Software Developer
+      start_offset: 9097
+      end_offset: 9123
+    note: 'Dated history is software development only; no HR role. Overall poor: no HR must-have evidenced.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: Many software tools, but Microsoft Office and HRIS are not mentioned.
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: Collaborated with quality assurance team to verify correct implementation of software development
+      start_offset: 4683
+      end_offset: 4780
+    - quote: Business Users during UAT/SIT.
+      start_offset: 7768
+      end_offset: 7798
+    note: Team collaboration and work with business users; nothing on confidentiality or communication across levels.
+  education_hr_business:
+    level: unknown
+    evidence: []
+    note: MS in Computer Information Systems is not HR/business; the bachelor's field is not stated.
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.

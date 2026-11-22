@@ -1,0 +1,83 @@
+cv_sheet_id: devops-01
+text_sha256: f7fff9d023f467550d221d079f97b7b8018f35ccdb2e95562ce72aaf2525426c
+jd_id: jd-py-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python, Django and Flask are not mentioned; the stack is C#/.NET.
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: Efficient Database skills in Microsoft SQL Server. Worked on Database Design, Developing
+      start_offset: 683
+      end_offset: 771
+    - quote: Queries, Views, Stored Procedure, Packages and Functions, SSRS.
+      start_offset: 772
+      end_offset: 835
+    - quote: Writing complex queries and stored procedures to perform CRUD operations on Sql Server 2008R2
+      start_offset: 3698
+      end_offset: 3791
+    note: Stored procedures and complex queries on SQL Server, not PostgreSQL; no performance tuning shown.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Linux, Bash, Docker and AWS are not mentioned; CI/CD is on Azure DevOps/Jenkins with Windows/IIS.
+  backend_experience:
+    level: adequate
+    evidence:
+    - quote: 10+ years of professional work experience in C#, .Net, Angularjs, DevOps, jQuery, SharePoint.
+      start_offset: 375
+      end_offset: 468
+    - quote: Pepco Energy Services - Software Engineer
+      start_offset: 4801
+      end_offset: 4842
+    - quote: Transwestern - Lead Engineer
+      start_offset: 3255
+      end_offset: 3283
+    - quote: Development using C#, WCF and Windows Services.
+      start_offset: 3319
+      end_offset: 3366
+    - quote: Creating RestFul Web API to perform required CRUD operations on Database
+      start_offset: 3906
+      end_offset: 3978
+    note: 'About 8.5 years (09/2010-05/2019) of full-stack .NET engineering with Web API/WCF/SQL backend work, then DevOps from 2019; not purely backend. Overall partial: backend tenure is there, but Python and the Docker/AWS/Linux stack are not mentioned and the database work is on SQL Server.'
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: Good Understanding of Object-Oriented Analysis Design (OOAD), Design Patterns, Architectural
+      start_offset: 1226
+      end_offset: 1318
+    - quote: Developed and integrated applications implementing SOA based architecture with REST web
+      start_offset: 1125
+      end_offset: 1212
+    - quote: Performing peer code reviews in TFS
+      start_offset: 3867
+      end_offset: 3902
+    note: Self-claimed design-pattern knowledge and SOA work; no concrete pattern application or teaching others architecture.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Excellent communication and interpretation skills enabling effective interaction with application
+      start_offset: 2067
+      end_offset: 2164
+    - quote: Developers, End Users, Project Managers and Business Analysts to review the requirement
+      start_offset: 2165
+      end_offset: 2252
+    - quote: Creating installation and update guide documents for the deployment team
+      start_offset: 3531
+      end_offset: 3603
+    note: Self-claimed communication with end users/BAs and writing guides; no evidence of presenting complex ideas to non-technical colleagues.
+  education_cs:
+    level: partial
+    evidence:
+    - quote: 'Bachelor of Science: Electronics,'
+      start_offset: 290
+      end_offset: 323
+    - quote: Communication Engineering
+      start_offset: 324
+      end_offset: 349
+    note: 'Bachelor''s in Electronics & Communication Engineering: an engineering degree, but not CS.'

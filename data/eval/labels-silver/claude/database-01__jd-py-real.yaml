@@ -1,0 +1,65 @@
+cv_sheet_id: database-01
+text_sha256: 456827d30d3eac0171aaefa9852055ba34a863e1fe51959997e2cddf457f63b3
+jd_id: jd-py-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python is not mentioned; languages listed are C++, Java, Visual Basic, SQL and MUMPS.
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: Iam also the Database Administrator, so I am responsible for all database related tasks.
+      start_offset: 3467
+      end_offset: 3555
+    - quote: Maintenance, Migration and Backup of SQL, ORACLE, ACCESS, DB2 and SYBASE databases.
+      start_offset: 3557
+      end_offset: 3640
+    - quote: Experience with SQL Server 2000, 2005, 2008, 2008R2, 2012 and
+      start_offset: 2412
+      end_offset: 2473
+    note: Long DBA experience on SQL Server/Oracle/DB2/Sybase, not PostgreSQL; no query optimization or tuning described.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Linux, Bash, Docker and AWS not mentioned; experience is Windows Server and VMware.
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: Database Administrator/Programmer Analyst, 02/2006 - Current
+      start_offset: 3039
+      end_offset: 3099
+    - quote: Responsible for all reporting and several Go live teams at Rice Memorial Hospital.
+      start_offset: 3138
+      end_offset: 3220
+    - quote: Computer Programmer / Technician / Network Manager, 05/2004 - 02/2006
+      start_offset: 4679
+      end_offset: 4748
+    note: 'Dated history is DBA/report writing and small-business IT support; no backend software engineer role. Overall poor: backend tenure, Python and the cloud stack are not met or not evidenced; only adjacent database skills.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: Worked closely with physicians and nurses and have built working relationships involving trust and respect.
+      start_offset: 390
+      end_offset: 497
+    - quote: bringing IT and healthcare professionals together to determine best practices
+      start_offset: 280
+      end_offset: 357
+    - quote: End User Training and Support
+      start_offset: 920
+      end_offset: 949
+    note: Bridges IT and clinical (non-technical) staff and trains end users; presentation of complex ideas not explicit.
+  education_cs:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor of Science: Computer Science, Business Administration'
+      start_offset: 5869
+      end_offset: 5931
+    note: BS in Computer Science and Business Administration.

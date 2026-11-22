@@ -1,0 +1,53 @@
+cv_sheet_id: designer-01
+text_sha256: 37e62d338121af5abe474fbdc504cf82752fcdf3837cf840580016c47b1e08b3
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: Designer, 04/2016 to Current
+      start_offset: 685
+      end_offset: 713
+    - quote: Design Consultant/Sales Associate, 02/2014 to 03/2016
+      start_offset: 909
+      end_offset: 962
+    - quote: Art Director/Interior Designer, 09/2009 to 11/2011
+      start_offset: 1495
+      end_offset: 1545
+    note: 'Dated history is design and retail; no HR role. Overall poor: no HR must-have evidenced.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: Only CAD and SketchUp listed; Microsoft Office and HRIS not mentioned.
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: Developed client relationships effectively closing sales.
+      start_offset: 756
+      end_offset: 813
+    - quote: Hosted in store events for local Interior Designers.
+      start_offset: 1162
+      end_offset: 1214
+    note: Client relationship building in sales; nothing on cross-level communication or confidentiality.
+  education_hr_business:
+    level: absent
+    evidence:
+    - quote: 'Associate of Arts: Interior Design, 2004'
+      start_offset: 1785
+      end_offset: 1825
+    note: Only an associate degree in interior design.
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.

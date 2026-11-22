@@ -1,0 +1,56 @@
+cv_sheet_id: finance-01
+text_sha256: 91f76edb62f5ec5f51a483922362ef165ec75baa10b55683993fa6afac7da713
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: wide range of administrative functions, including processing payroll, 401(k), and 1099.
+      start_offset: 1370
+      end_offset: 1457
+    - quote: Recruitment of licensed and qualified teachers with comprehensive experience and dedication to guide
+      start_offset: 1778
+      end_offset: 1878
+    - quote: Supervised and mentored junior-level employees.
+      start_offset: 2448
+      end_offset: 2495
+    note: 'Some HR tasks (payroll, teacher recruitment) within general and financial management roles; no HR role. Overall poor: the career is finance management; HR work is incidental and employee relations/HRIS are not evidenced.'
+  talent_acquisition:
+    level: partial
+    evidence:
+    - quote: Recruitment of licensed and qualified teachers with comprehensive experience and dedication to guide
+      start_offset: 1778
+      end_offset: 1878
+    note: Teacher recruitment as part of a school restructuring; no hiring-manager partnership or multiple requisitions.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: Taxation and business laws are mentioned, but not employment law or employee relations.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: Only TurboTax and QuickBooks mentioned; Microsoft Office and HRIS not mentioned.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: articulate communication and interpersonal skills in building positive work relationships with individuals of diverse
+      start_offset: 513
+      end_offset: 630
+    - quote: sociocultural backgrounds; multilingual in Taiwanese, Mandarin Chinese, and English, with working knowledge of
+      start_offset: 631
+      end_offset: 741
+    - quote: report preparation, cash flow and treasury management, and engagement with senior leadership.
+      start_offset: 2613
+      end_offset: 2706
+    note: Self-described interpersonal skills, multilingual, works with senior leadership; confidentiality not explicit.
+  education_hr_business:
+    level: unknown
+    evidence: []
+    note: No education section (page 1 only); "Business Administration" appears only as an area of expertise.
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.

@@ -1,0 +1,59 @@
+cv_sheet_id: database-01
+text_sha256: 456827d30d3eac0171aaefa9852055ba34a863e1fe51959997e2cddf457f63b3
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: Database Administrator/Programmer Analyst, 02/2006 - Current
+      start_offset: 3039
+      end_offset: 3099
+    - quote: Computer Programmer / Technician / Network Manager, 05/2004 - 02/2006
+      start_offset: 4679
+      end_offset: 4748
+    - quote: Computer Systems Builder, 09/2002 - 01/2004
+      start_offset: 5689
+      end_offset: 5732
+    note: 'Dated history (2002-current) is entirely IT/database work; no HR role. Overall poor: no HR experience and no recruitment or employee-relations evidence.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: Not mentioned in the CV.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: Record-retention and user security policies are IT/records policies, not employee relations.
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: Database creation using Microsoft Access.
+      start_offset: 4403
+      end_offset: 4444
+    - quote: Setting up and maintaining Microsoft Exchange Server.
+      start_offset: 5634
+      end_offset: 5687
+    note: Strong Microsoft/IT tooling (Access, Exchange); Excel/Word/PowerPoint and HRIS are not mentioned.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: Worked closely with physicians and nurses and have built working relationships involving trust and respect.
+      start_offset: 390
+      end_offset: 497
+    - quote: Direct working relationships with directors, administrators and upper management to write custom reports in SQL, MS ACCESS, EPIC
+      start_offset: 3642
+      end_offset: 3770
+    note: Relationship building with clinical staff and upper management; confidentiality handling not explicit.
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor of Science: Computer Science, Business Administration'
+      start_offset: 5869
+      end_offset: 5931
+    note: Bachelor of Science includes Business Administration.
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: Trains report-writing staff, but no HR programs described.

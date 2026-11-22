@@ -1,0 +1,124 @@
+cv_sheet_id: hr-02
+text_sha256: 3dd65c19265ee452f579439b6e6b3d9dccb8e1c7f06d06fcd77dd29ed33fc860
+jd_id: jd-hr-real
+labeler: llm-claude
+labeled_at: '2026-11-22'
+overall_fit: good
+criteria:
+  hr_experience:
+    level: strong
+    evidence:
+    - quote: An agile, trusted Human Resources executive leader with more than 15 years of broad experience in
+      start_offset: 1200
+      end_offset: 1297
+    - quote: Proven ability to ensure integrated HR support to all areas of an organization.
+      start_offset: 1485
+      end_offset: 1564
+    - quote: Cedar Fair Entertainment Company - HUMAN RESOURCES DIRECTOR
+      start_offset: 2818
+      end_offset: 2877
+    - quote: Healthcare, 1300 Headcount, $106M) Partnered with leadership team on strategic planning and
+      start_offset: 2915
+      end_offset: 3006
+    - quote: Lyondellbasell Industries - Vice President of HR & Talent Strategy
+      start_offset: 1740
+      end_offset: 1806
+    note: '15+ years progressing from HR Director to VP HR, supporting organisations of up to 1300 staff. Very senior for a generalist role. Overall good: all must-haves met, most strongly; no internship program mentioned.'
+  talent_acquisition:
+    level: adequate
+    evidence:
+    - quote: Successful leader of organizational development initiatives, especially in recruitment and retention
+      start_offset: 3046
+      end_offset: 3146
+    - quote: Identified optimal recruitment sources, decreased dependency on staffing firms, and negotiated
+      start_offset: 5921
+      end_offset: 6015
+    - quote: Defined core job competencies; positively impacted hiring practices and workforce development
+      start_offset: 6203
+      end_offset: 6296
+    note: Led recruitment strategy and sourcing with cost results; hands-on partnering with hiring managers on multiple open positions is not described.
+  employee_relations_compliance:
+    level: strong
+    evidence:
+    - quote: Employee & Labor Relations
+      start_offset: 281
+      end_offset: 307
+    - quote: Employment Law & Compliance
+      start_offset: 376
+      end_offset: 403
+    - quote: Managed a staff of five; handled internal investigations and DFEH communication responses.
+      start_offset: 5227
+      end_offset: 5317
+    - quote: Designed and implemented a Pay-for-Performance initiative in conjunction with a web-based
+      start_offset: 5449
+      end_offset: 5538
+    - quote: Investigated workplace accidents and successfully contested two OSHA citations.
+      start_offset: 7467
+      end_offset: 7546
+    note: Investigations, DFEH responses, union negotiations, performance management and OSHA outcomes.
+  hris_office_tools:
+    level: strong
+    evidence:
+    - quote: MS Office Power User
+      start_offset: 458
+      end_offset: 478
+    - quote: (especially Excel & PPT)
+      start_offset: 479
+      end_offset: 503
+    - quote: Deep HRIS expertise from
+      start_offset: 596
+      end_offset: 620
+    - quote: 'cycles (Examples: Paychex, ADP'
+      start_offset: 653
+      end_offset: 683
+    - quote: Managed the implementation of a new HRIS system and successfully streamlined workflows for
+      start_offset: 4067
+      end_offset: 4157
+    - quote: Partnered with IT and Finance; played a lead role in identifying and implementing a new HRIS and
+      start_offset: 5625
+      end_offset: 5721
+    note: MS Office power user plus several HRIS/ATS implementations.
+  interpersonal_communication:
+    level: strong
+    evidence:
+    - quote: consulting skills, able to build trusting partnerships across all levels of an organization with a
+      start_offset: 1581
+      end_offset: 1679
+    - quote: audience-centered communications to effectively convey the implications of statistical trends to
+      start_offset: 3523
+      end_offset: 3619
+    - quote: Improved partnerships between staff and managers by facilitating communication flow upward and
+      start_offset: 6976
+      end_offset: 7070
+    - quote: Managed a staff of five; handled internal investigations and DFEH communication responses.
+      start_offset: 5227
+      end_offset: 5317
+    note: Communicates across all levels; internal investigations imply confidential matters.
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor of Science: PSYCHOLOGY'
+      start_offset: 988
+      end_offset: 1019
+    - quote: 'Master of Science: INDUSTRIAL/
+
+        ORGANIZATIONAL PSYCHOLOGY'
+      start_offset: 782
+      end_offset: 838
+    - quote: SHRM Senior Certified
+      start_offset: 1122
+      end_offset: 1143
+    note: Bachelor's in psychology (related field), reinforced by an MS in I/O psychology and SHRM-SCP.
+  hr_programs:
+    level: strong
+    evidence:
+    - quote: Guided the development of a leadership training program (“Heroic Leadership Institute”) and a
+      start_offset: 3664
+      end_offset: 3757
+    - quote: Developed a Workforce Engagement program that included an internally developed annual
+      start_offset: 3865
+      end_offset: 3950
+    - quote: This initiative helped reduced healthcare cost by $2M and also helped improve the agency’s
+      start_offset: 4583
+      end_offset: 4673
+    note: Several HR programs with measurable results; no internship/early-career program mentioned.
