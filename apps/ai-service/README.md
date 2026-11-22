@@ -41,3 +41,45 @@ Run `uv run python -m app.extraction.compare_eval --data-root /path/to/data` for
 Set `GEMINI_API_KEY` to use Gemini. `GEMINI_MODEL` defaults to `gemini-3.8-flash-high`; `LLM_TIMEOUT_S` (default 30 seconds) and `LLM_MAX_RETRIES` (default 2) control each attempt and retries. Pass trusted instructions and untrusted input separately to `generate_structured`, along with a Pydantic response model. Schema failures are not retried.
 
 Offline tests run with `uv run pytest -q`. To run the live, non-PII smoke test, set `GEMINI_API_KEY` and run `uv run pytest -q -m live` (or pass `--run-live`).
+
+## Run the API
+
+From `apps/ai-service`, run `uv sync`, then:
+
+```sh
+uv run uvicorn app.main:app --host 127.0.0.1 --port 8100
+```
+
+Set `LLM_BASE_URL` and `LLM_API_KEY` in the repository-root `.env` for your gateway.
+The app loads that file itself. Install Tesseract with English language data for
+scanned CVs. `/health`, `/internal/v1/screening-config`, and
+`/internal/v1/sample-jds` work without an LLM key; screening returns 503 until a
+provider is configured.
+
+To screen a PDF (maximum 25 MiB and 100 pages), get a sample JD, then submit it as
+JSON in the `jd` form field with your PDF in `cv`:
+
+```sh
+curl -s http://127.0.0.1:8100/internal/v1/sample-jds \
+  | python -c 'import json,sys; print(json.dumps(json.load(sys.stdin)["items"][0]["jd"]))' \
+  > /tmp/rms-sample-jd.json
+curl -s http://127.0.0.1:8100/internal/v1/screenings \
+  -F 'cv=@/path/to/cv.pdf;type=application/pdf' \
+  --form-string "jd=$(cat /tmp/rms-sample-jd.json)"
+```
+
+The response contains the pipeline `screening` result, extraction counts, total
+`latency_s`, and the active public `config`. Errors use
+`{"error":{"code":"…","message":"…"}}`: fix the input for 400/413/415;
+retry a 502/504 provider failure. Encrypted PDFs must be decrypted before upload.
+
+Defaults are `ag/gemini-3.8-flash-low`, `screening-v2`, retrieved lexical context
+with five hits, a 20-second hedge, and escalation to `ag/gemini-4-argon-medium`
+only on `needs_review`, with minimum coverage 0.8. Override these with
+`SCREENING_MODEL`, `SCREENING_PROMPT_VERSION`, `SCREENING_CONTEXT_MODE`,
+`SCREENING_RETRIEVAL_MODE`, `SCREENING_RETRIEVAL_K`, `SCREENING_HEDGE_AFTER_S`,
+`SCREENING_ESCALATE_MODEL`, `SCREENING_ESCALATE_ON`, and `SCREENING_MIN_COVERAGE`.
+Use a JSON array for triggers, such as `SCREENING_ESCALATE_ON='["needs_review"]'`;
+`[]` disables escalation. Set `SCREENING_SAMPLE_JDS_DIR` to change the directory
+containing `jd-py-real.yaml` and `jd-hr-real.yaml`. Experiment-runner defaults
+remain separate from these API settings.

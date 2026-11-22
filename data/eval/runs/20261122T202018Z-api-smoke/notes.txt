@@ -1,0 +1,3 @@
+The initial local API POST returned 503 llm_not_configured because this worktree has no .env or configured process credentials; it made no gateway request.
+The coordinator authorized a retry with the main checkout environment loaded into the server process without copying or printing its contents.
+response.json and latency.txt contain the retry result.

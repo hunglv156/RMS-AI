@@ -18,10 +18,13 @@ def test_health() -> None:
     }
 
 
-def test_health_is_the_only_route() -> None:
-    paths = {route.path for route in app.routes}
-
-    assert paths == {"/health", "/openapi.json", "/docs", "/docs/oauth2-redirect", "/redoc"}
+def test_public_api_routes() -> None:
+    assert set(app.openapi()["paths"]) == {
+        "/health",
+        "/internal/v1/screening-config",
+        "/internal/v1/sample-jds",
+        "/internal/v1/screenings",
+    }
 
 
 def test_missing_package_metadata_uses_unknown_version(monkeypatch) -> None:

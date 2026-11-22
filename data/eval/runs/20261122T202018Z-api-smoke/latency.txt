@@ -1,0 +1,7 @@
+http_status: 200
+wall_latency_s: 46.101418
+api_latency_s: 46.08871799998451
+cv_sheet_id: python_dev-01
+cv_pdf: data/Python Developer/20.pdf
+cv_sha256: 18d279c1edf859c2c82c8f98f5456d1bbf7523c5104e672daa2890b5f6059e4e
+jd_id: jd-py-real
