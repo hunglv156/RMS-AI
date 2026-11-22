@@ -1,0 +1,88 @@
+cv_sheet_id: hr-02
+text_sha256: 3dd65c19265ee452f579439b6e6b3d9dccb8e1c7f06d06fcd77dd29ed33fc860
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: good
+criteria:
+  hr_experience:
+    level: strong
+    evidence:
+    - quote: 'An agile, trusted Human Resources executive leader with more than 15 years of broad experience in
+
+        non-profit, community, and healthcare settings.'
+    - quote: 'Partnered with functional leaders to develop innovative ways to reduce the administrative burden
+
+        of operational responsibilities as company expanded to four branches.'
+    note: 'Long progressive HR leadership with functional partnerships and substantial organizational scope. Overall good: the core HR, compliance and systems requirements are well supported.'
+  talent_acquisition:
+    level: adequate
+    evidence:
+    - quote: 'Successful leader of organizational development initiatives, especially in recruitment and retention
+
+        efforts to improve candidate and staff experience.'
+    - quote: 'Identified optimal recruitment sources, decreased dependency on staffing firms, and negotiated
+
+        improved contractual guarantees resulting in reduced recruitment costs.'
+    note: Clear recruitment leadership and sourcing outcomes; direct management of multiple concurrent vacancies and hiring-manager partnership are not specifically described.
+  employee_relations_compliance:
+    level: strong
+    evidence:
+    - quote: Managed a staff of five; handled internal investigations and DFEH communication responses.
+    - quote: 'Designed and implemented a Pay-for-Performance initiative in conjunction with a web-based
+
+        performance management tool that incorporated organizationally aligned objectives.'
+    - quote: Investigated workplace accidents and successfully contested two OSHA citations.
+    note: Specific regulatory responses, investigations and performance management implementation demonstrate broad practical understanding.
+  hris_office_tools:
+    level: strong
+    evidence:
+    - quote: 'MS Office Power User
+
+        (especially Excel & PPT)'
+    - quote: 'Partnered with IT and Finance; played a lead role in identifying and implementing a new HRIS and
+
+        applicant tracking system; moved the organization from paper to electronic benefit enrollment.'
+    note: Office power-user claim plus implemented HRIS and applicant tracking with concrete process changes.
+  interpersonal_communication:
+    level: strong
+    evidence:
+    - quote: 'Improved partnerships between staff and managers by facilitating communication flow upward and
+
+        downward.'
+    - quote: 'Developed a an integrated user-friendly Workplace Policies and Procedures Manual and a New
+
+        Manager’s Training Manual to improve communication and understanding of key expectations and
+
+        shorten the learning curb for new managers.'
+    note: Concrete written communications and staff-management relationships; investigations provide sensitive-work context though discretion is not explicitly claimed.
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: 'Master of Science: INDUSTRIAL/
+
+        ORGANIZATIONAL PSYCHOLOGY
+
+        An applied discipline within
+
+        psychology that focused on the
+
+        science of human behavior as it
+
+        pertains to work'
+    - quote: 'Bachelor of Science: PSYCHOLOGY'
+    note: Bachelor psychology and advanced work-focused organizational psychology constitute related-field education.
+  hr_programs:
+    level: strong
+    evidence:
+    - quote: 'Developed a Workforce Engagement program that included an internally developed annual
+
+        engagement survey with a 75% participation level to cultivate an optimal work experience for staff
+
+        and managers.'
+    - quote: 'Guided the development of a leadership training program (“Heroic Leadership Institute”) and a
+
+        management development program focused on the development of technical skills, knowledge and
+
+        abilities.'
+    note: Named leadership development and measurable employee engagement programs; internship scheme not stated.

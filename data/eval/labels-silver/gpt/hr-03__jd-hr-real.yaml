@@ -1,0 +1,57 @@
+cv_sheet_id: hr-03
+text_sha256: 58907fef82f78d143ae3acda26c849510259c47931b51595cd287ffddca519d4
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: strong
+    evidence:
+    - quote: 01/2019 to Current Human Resources
+    - quote: Led and provided direction for human resources team of 5.
+    - quote: Liaised between multiple business divisions to improve communications.
+    note: 'Ongoing HR leadership since 2019 spans benefits, compensation, training and business divisions. Overall partial: HR breadth is strong, but hiring-manager recruitment and Office proficiency are not established.'
+  talent_acquisition:
+    level: partial
+    evidence:
+    - quote: Recruitment / Human Resources
+    - quote: 'Assessed and aligned compensation packages to market to attract highly qualified applicants for organizational
+
+        vacancies.'
+    note: Recruitment is listed and applicant attraction supported; direct recruitment delivery, hiring-manager partnership and multiple requisitions are not demonstrated.
+  employee_relations_compliance:
+    level: strong
+    evidence:
+    - quote: 'Versed in EEOC
+
+        and other relevant compliance statutes.'
+    - quote: 'Educated management on successful policy implementation and enforcement actions to prevent employee legal
+
+        entanglements.'
+    - quote: Evaluated team member performance every year to identify and resolve productivity concems.
+    note: Compliance knowledge, management guidance and performance evaluation have concrete scope.
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: Utilized PropelHR system to convert all payroll and benefit programs.
+    note: Specific HRIS use; Microsoft Office and recruiting technology are not mentioned.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: Liaised between multiple business divisions to improve communications.
+    - quote: Resolved conflicts and negotiated mutually beneficial agreements between parties.
+    note: Clear cross-division communication and conflict resolution; confidential handling is not explicitly described.
+  education_hr_business:
+    level: partial
+    evidence:
+    - quote: '08/2021 Associate of Science: Management'
+    note: Related management education, at associate rather than required bachelor level.
+  hr_programs:
+    level: strong
+    evidence:
+    - quote: 'Streamlined HR efficiencies, coordinated new hire orientations and provided onboarding and training for over 75
+
+        new employees.'
+    - quote: Reduced workers’ compensation claims by instituting corporate safety training program.
+    note: Delivered onboarding at stated scale and a safety training initiative with a concrete outcome; internship program not stated.

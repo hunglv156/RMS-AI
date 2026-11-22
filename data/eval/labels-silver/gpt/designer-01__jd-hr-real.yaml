@@ -1,0 +1,36 @@
+cv_sheet_id: designer-01
+text_sha256: 37e62d338121af5abe474fbdc504cf82752fcdf3837cf840580016c47b1e08b3
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: unknown
+    evidence: []
+    note: HR work is not mentioned; design and sales experience does not establish or disprove HR experience. Overall partial because core HR requirements remain unknown.
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: No recruitment or hiring-manager work is stated.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: No employee relations, performance management or employment-law evidence is stated.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: CAD and Sketchup are listed, but Office, HRIS and recruiting systems are not mentioned.
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: Developed client relationships effectively closing sales.
+    note: Client relationship-building is explicit; internal communication across organizational levels and confidential matters are not established.
+  education_hr_business:
+    level: unknown
+    evidence: []
+    note: The listed associate degree in interior design does not establish an HR/business bachelor degree; no explicit statement rules out other qualifications.
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: No HR programs or initiatives are mentioned; design projects are not HR programs.

@@ -1,0 +1,62 @@
+cv_sheet_id: hr-01
+text_sha256: 21367b09bd5a2ce2495853eb9251a7fb7fd6586624e12d5cfa9e9bd32b5932b9
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: good
+criteria:
+  hr_experience:
+    level: strong
+    evidence:
+    - quote: professional with 6 years of comprehensive experience retaining employee relations.
+    - quote: Provided essential support to address individual HR needs of employees.
+    - quote: Developed and documented HR procedures to refine processes and drive compliance with policies.
+    note: 'Six years stated and broad HR duties cover recruitment, employee support, compliance and retention. Overall good: main HR criteria have clear evidence, with education and explicit confidential handling unestablished.'
+  talent_acquisition:
+    level: adequate
+    evidence:
+    - quote: 'Analyzed job descriptions and determined recruitment plan, timeline and advertising efforts to fill
+
+        positions.'
+    - quote: 'Consulted with internal clients to evaluate labor trends and competitor talent insights for pointed
+
+        candidate selection.'
+    note: Recruitment planning for positions and internal-client consultation are explicit; simultaneous requisition volume is not specified.
+  employee_relations_compliance:
+    level: strong
+    evidence:
+    - quote: Established and generated various reports to verify HR compliance.
+    - quote: 'Identified and corrected performance and personnel issues to reduce impact to business
+
+        operations.'
+    - quote: 'Assisted candidates with application processes by answering questions about application,
+
+        performing background checks, providing I-9 forms and handling drug screening paperwork.'
+    note: Concrete HR compliance processes, personnel issue resolution and performance management support broad understanding.
+  hris_office_tools:
+    level: adequate
+    evidence:
+    - quote: HRIS Applications Proficient
+    - quote: Microsoft Office
+    - quote: Spreadsheet Development
+    note: Explicit HRIS and Office proficiency plus spreadsheet skills; individual Office applications and recruiting platform are unspecified.
+  interpersonal_communication:
+    level: strong
+    evidence:
+    - quote: 'Wrote email messages, memos and business letters for management and proofread documentation
+
+        to provide error-free correspondence.'
+    - quote: 'Responded to employee concerns or complaints by coordinating with human resources team to
+
+        solve issues.'
+    note: Written work for management and employee concern resolution demonstrate communication at multiple levels; confidentiality not explicit.
+  education_hr_business:
+    level: unknown
+    evidence: []
+    note: Education lists English associate degree and real-estate study; HR/business bachelor qualification is not stated.
+  hr_programs:
+    level: adequate
+    evidence:
+    - quote: Developed incentives to drive employee retention and improve work culture.
+    - quote: Identified opportunities to improve HR programs and proposed solutions to increase efficiencies.
+    note: Explicit retention initiative development and HR program improvement; internship or early-career program not stated. Generic summary placeholders are not used as evidence.

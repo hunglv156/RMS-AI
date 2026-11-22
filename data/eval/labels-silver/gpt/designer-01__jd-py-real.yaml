@@ -1,0 +1,38 @@
+cv_sheet_id: designer-01
+text_sha256: 37e62d338121af5abe474fbdc504cf82752fcdf3837cf840580016c47b1e08b3
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python application development and web frameworks are not mentioned.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: PostgreSQL and database tuning are not mentioned.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Linux, Bash, Docker and AWS are not mentioned; the employer name does not establish AWS use.
+  backend_experience:
+    level: unknown
+    evidence: []
+    note: Design and sales roles do not establish backend engineering tenure. Overall fit is partial because
+      all main technical requirements lack evidence; silence is not evidence of failure.
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Interior and set design do not establish software architecture or design patterns.
+  communication_collaboration:
+    level: unknown
+    evidence: []
+    note: Customer relationships and space plans do not establish explaining complex technical ideas to
+      colleagues.
+  education_cs:
+    level: unknown
+    evidence: []
+    note: An interior design associate degree is stated; computer science or equivalent software engineering
+      training is not mentioned.

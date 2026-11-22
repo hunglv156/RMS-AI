@@ -1,0 +1,44 @@
+cv_sheet_id: hr-02
+text_sha256: 3dd65c19265ee452f579439b6e6b3d9dccb8e1c7f06d06fcd77dd29ed33fc860
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python, Django/Flask and software data processing are not mentioned.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: PostgreSQL development or tuning is not mentioned; HRIS optimization does not establish it.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Linux, Bash, Docker and AWS are not mentioned.
+  backend_experience:
+    level: unknown
+    evidence: []
+    note: 'HR leadership tenure does not establish backend engineering tenure. Overall fit is partial:
+      the main technical requirements remain unestablished, rather than explicitly disproved.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: HR systems and workflows do not establish software design patterns or architectural teaching.
+  communication_collaboration:
+    level: strong
+    evidence:
+    - quote: 'Value driven understanding of HR metrics and research methods, with a keen sensitivity to
+
+        audience-centered communications to effectively convey the implications of statistical trends
+        to
+
+        management teams.'
+    note: Explaining statistical implications to management provides concrete evidence of communicating
+      complex ideas to a business audience.
+  education_cs:
+    level: unknown
+    evidence: []
+    note: Psychology and Chicano Studies degrees are stated; computer science or equivalent software engineering
+      training is not mentioned.

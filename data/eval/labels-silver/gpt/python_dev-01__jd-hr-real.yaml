@@ -1,0 +1,39 @@
+cv_sheet_id: python_dev-01
+text_sha256: 18d279c1edf859c2c82c8f98f5456d1bbf7523c5104e672daa2890b5f6059e4e
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: unknown
+    evidence: []
+    note: IT roles do not mention HR responsibilities or progressive HR experience. Overall partial because primary HR requirements are unestablished; technical career history alone does not prove they are unmet.
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: No recruitment or hiring-manager partnership is stated.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: Technical performance tuning and security checks concern systems, not employee performance or employment-law compliance; relevant HR evidence is not mentioned.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: Technical tools are listed but Microsoft Office, HRIS and recruiting technology proficiency are not stated.
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: Documented the entire build and deployment process including detailed step-by-step instructions.
+    - quote: 'Built an AWS and REDIS server for storing the data and performed defect analysis and interaction with
+
+        Business Users during UAT/SIT.'
+    note: Clear written technical documentation and business-user interaction support part of the communication requirement; cross-level relationships and sensitive-matter handling are not established.
+  education_hr_business:
+    level: unknown
+    evidence: []
+    note: Computer Information Systems master degree and unspecified bachelor field do not establish HR/business or related-field education.
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: No HR programs, onboarding, internship or early-career program is stated.

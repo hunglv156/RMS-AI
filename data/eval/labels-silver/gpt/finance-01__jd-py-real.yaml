@@ -1,0 +1,42 @@
+cv_sheet_id: finance-01
+text_sha256: 91f76edb62f5ec5f51a483922362ef165ec75baa10b55683993fa6afac7da713
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python and web frameworks are not mentioned.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: PostgreSQL and database engineering are not mentioned.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Linux, Bash, Docker and AWS are not mentioned.
+  backend_experience:
+    level: unknown
+    evidence: []
+    note: Financial leadership is described but backend engineering tenure is not mentioned. Overall fit
+      is partial because evidence for all must-have technical requirements is missing; this is not an
+      explicit denial of skills.
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: A risk management system is mentioned without software implementation or design-pattern details.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: 'Performed a wide range of financial tasks, including financial planning and analysis, month-end
+        and annual financial
+
+        report preparation, cash flow and treasury management, and engagement with senior leadership.'
+    note: Financial reporting and leadership engagement provide related evidence, but explaining complex
+      ideas clearly to non-technical colleagues is not established.
+  education_cs:
+    level: unknown
+    evidence: []
+    note: The provided text has no education or software engineering training information.

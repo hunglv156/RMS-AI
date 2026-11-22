@@ -1,0 +1,44 @@
+cv_sheet_id: hr-03
+text_sha256: 58907fef82f78d143ae3acda26c849510259c47931b51595cd287ffddca519d4
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python and web frameworks are not mentioned; unspecified automation does not establish them.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: PostgreSQL and database tuning are not mentioned.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Linux, Bash, Docker and AWS are not mentioned.
+  backend_experience:
+    level: unknown
+    evidence: []
+    note: HR and production management roles do not establish backend engineering experience. Overall
+      fit is partial because all must-have technical requirements are unestablished, rather than explicitly
+      contradicted.
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Operational processes and unspecified compliance automation do not establish software design
+      patterns or architectural teaching.
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: 'Educated management on successful policy implementation and enforcement actions to prevent
+        employee legal
+
+        entanglements.'
+    note: Explaining compliance and enforcement to management is clear evidence of communicating specialist
+      ideas to a business audience; no concrete outcome is given.
+  education_cs:
+    level: unknown
+    evidence: []
+    note: An associate degree in management is stated; computer science or equivalent software engineering
+      training is not mentioned.

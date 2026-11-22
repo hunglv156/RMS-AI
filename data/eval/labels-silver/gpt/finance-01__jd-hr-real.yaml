@@ -1,0 +1,49 @@
+cv_sheet_id: finance-01
+text_sha256: 91f76edb62f5ec5f51a483922362ef165ec75baa10b55683993fa6afac7da713
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: Vice President 2012-Present
+    - quote: wide range of administrative functions, including processing payroll, 401(k), and 1099.
+    - quote: 'Recruitment of licensed and qualified teachers with comprehensive experience and dedication to guide
+
+        students'
+    note: Long-running management role includes payroll, benefits-related administration and recruiting, but progressive dedicated HR breadth across business functions is not established. Overall partial for these limited HR overlaps and unknown compliance/systems qualifications.
+  talent_acquisition:
+    level: partial
+    evidence:
+    - quote: 'Recruitment of licensed and qualified teachers with comprehensive experience and dedication to guide
+
+        students'
+    note: Teacher recruitment is explicit; hiring-manager partnership and multiple open-position management are not stated.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: Taxation/business law is mentioned, but employee relations, performance management and applicable employment-law knowledge are not established.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: TurboTax and QuickBooks are stated; Microsoft Office, HRIS and recruiting technology are not mentioned.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: 'articulate communication and interpersonal skills in building positive work relationships with individuals of diverse
+
+        sociocultural backgrounds; multilingual in Taiwanese, Mandarin Chinese, and English, with working knowledge of
+
+        Japanese and Spanish.'
+    - quote: Collaborated with senior-level managers in formulating and implementing strategic solutions
+    note: Explicit interpersonal skills with senior-management collaboration; confidential handling not stated.
+  education_hr_business:
+    level: unknown
+    evidence: []
+    note: Business administration is an expertise area, not evidence of a bachelor degree; no education qualification is stated.
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: School events and finance initiatives do not establish HR program development or management.

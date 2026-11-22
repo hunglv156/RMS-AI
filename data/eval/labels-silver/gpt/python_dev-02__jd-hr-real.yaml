@@ -1,0 +1,54 @@
+cv_sheet_id: python_dev-02
+text_sha256: 1b279f463335db61fa8db8e58d399734a58491e1779015adc4f65abce8f7602b
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: 'Organized administrative professional with hands-on experience supporting business
+
+        areas such as accounting, database management and human resources.'
+    - quote: Developed and implemented training procedures for all newly hired personnel.
+    note: 'HR support and new-hire training are explicit, but three years of progressive broad HR work are not established. Overall partial: transferable training/communication and related education are supported, recruitment and employee-relations compliance remain unknown.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: New-hire training does not establish recruiting, hiring-manager partnership or managing vacancies.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: Security policies and training are described; employment law, employee relations and performance management are not stated.
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: Microsoft Office proficiency
+    - quote: Created PowerPoint presentations used for business development.
+    note: Office proficiency and concrete PowerPoint use are stated; HRIS/recruiting technology are not mentioned.
+  interpersonal_communication:
+    level: strong
+    evidence:
+    - quote: 'Produced and distributed daily Situation Report for executive level
+
+        Commanders worldwide.'
+    - quote: 'Present plans, recommendations, analysis, and other advice within a broad functional area to the task
+
+        leader, fellow employee levels and Government representatives in support of Training.'
+    - quote: 'Maintain databases which reflect receipt, storage, inventory, and disposition of classified information to
+
+        include data entry, updates, and generation of reports.'
+    note: Written and verbal communications span executive and peer audiences; handling classified information supports sensitive information responsibility.
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: Bachelor's Degree | Professional Aeronatuics 03/2006
+    - quote: M£›ter's Degree | Operations Management
+    - quote: Coursework in Business, Management and Communications
+    note: Bachelor degree plus operations-management graduate study and business coursework establish related management education; minor OCR damage does not obscure the degree context.
+  hr_programs:
+    level: adequate
+    evidence:
+    - quote: Developed and implemented training procedures for all newly hired personnel.
+    note: Explicit development and implementation of new-hire training is an onboarding initiative; internship program not stated.

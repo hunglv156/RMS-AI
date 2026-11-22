@@ -1,0 +1,45 @@
+cv_sheet_id: python_dev-02
+text_sha256: 1b279f463335db61fa8db8e58d399734a58491e1779015adc4f65abce8f7602b
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: The CV describes military, logistics and courseware work; Python and Django/Flask are not mentioned.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: Database record maintenance is described, but PostgreSQL engineering or tuning is not mentioned.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Linux, Bash, Docker and AWS are not mentioned.
+  backend_experience:
+    level: unknown
+    evidence: []
+    note: Military and courseware-development tenure does not establish backend engineering. Overall fit
+      is partial because the must-have technical requirements remain unknown, not demonstrably unmet.
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Instructional System Design is educational design, not evidence of software architecture or
+      design patterns.
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: 'Present plans, recommendations, analysis, and other advice within a broad functional area
+        to the task
+
+        leader, fellow employee levels and Government representatives in support of Training.'
+    - quote: Developed slideshows and other forms of media to present project progress to the executive
+        team
+    note: Describes explaining analyses and project information to leadership and government audiences;
+      no measured communication outcome is given.
+  education_cs:
+    level: unknown
+    evidence: []
+    note: Aeronautics, operations management and aircrew studies are stated; computer science or equivalent
+      software engineering training is not mentioned.

@@ -1,0 +1,103 @@
+cv_sheet_id: python_dev-01
+text_sha256: 18d279c1edf859c2c82c8f98f5456d1bbf7523c5104e672daa2890b5f6059e4e
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: strong
+    evidence:
+    - quote: 'Developed a chaibot using natural language processing techniques and the OpenAl GPT-2 framework.
+
+        Implemented using Python and Flask.'
+    - quote: Developed entire front end and back end modules using Python on Django Web Framework.
+    - quote: 'Worked on loading CSV/TXT/AVRO/PARQUET files using Scala/Java language in Spark Framework
+        and
+
+        process the data by creating Spark Data frame and RDD and save file in parquet format in HDFS
+        to load
+
+        into fact table using ORC Reader.'
+    note: Specific Python/Flask and Django applications plus complex data pipeline scope support extensive
+      experience; quotes preserve OCR spelling.
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: 'Responsible for Design and maintenance of databases using Python. Developed Python based
+        APIs
+
+        (RESTful Web services) by using Flask, SQL AlClaireemy and PostgreSQL.'
+    - quote: Migrated the Django database from SQLite to MySQL to PostgreSQL with complete data integrity.
+    note: PostgreSQL APIs and migration are concrete; advanced PostgreSQL query optimization, stored procedures
+      and tuning are not demonstrated. Overall fit is partial because this must-have depth is unestablished,
+      despite strong Python and relevant infrastructure/backend evidence.
+  cloud_docker_linux:
+    level: adequate
+    evidence:
+    - quote: 'Implemented CI/CD process on Apache Airflow binary and DAG’s by building Airflow Docker
+        images by
+
+        Docker-Compose and uploading to Jfrog antifactory and deployment through AWS ECS cluster.'
+    - quote: 'Designed test cases and test plans and developed an embedded software data driven test automation
+
+        framework in Linux/Python.'
+    - quote: 'Developed an autonomous continuous integration system by using Git, Gerrit, Jenkins, MySQL
+        and
+
+        custom tools developed in Python and Bash.'
+    - quote: 'Creating job flow using Airflow in Python language and automating the jobs. Airflow will
+        have separate
+
+        stack for deploying Dags on and will run jobs on EMR or EC2 cluster.'
+    - quote: 'AWS Cloud Services (EC2, EMR, S3, ECS, Lambda, SMS,
+
+        e Apache Airflow Amazon SimpleDB(data base), RDS)'
+    note: Practical Linux, Bash, Docker and AWS/EC2 work is explicit; RDS is listed, while CloudFront
+      is not mentioned.
+  backend_experience:
+    level: adequate
+    evidence:
+    - quote: '05/2016 Software Developer
+
+        to University Of California — Los Angeles, CA
+
+
+        08/2019 .'
+    - quote: '05/2019 Python Developer
+
+        to General Dynamics — New York, NY
+
+
+        06/2021'
+    - quote: '08/2021 Full Stack Python Developer
+
+        to Current Jpmorgan Chase & Co. — Louisville, KY'
+    - quote: Developed entire front end and back end modules using Python on Django Web Framework.
+    note: Professional roles with backend duties span 2016 to Current, exceeding seven years as of labeling;
+      overlapping 2019 dates are not double counted. Mixed frontend duties are also present.
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: 'Revised, modularized and updated old code bases to modern development standards, reducing
+
+        operating costs, and improving functionality.'
+    - quote: Architected data engineering pipelines to support machine leaming performance.
+    note: Concrete modularization and architecture with benefits are described; named design-pattern application
+      and teaching others architectural solutions are not established.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: 'Built an AWS and REDIS server for storing the data and performed defect analysis and interaction
+        with
+
+        Business Users during UAT/SIT.'
+    - quote: Documented the entire build and deployment process including detailed step-by-step instructions.
+    note: Business-user interaction and technical documentation are explicit, but clear explanation of
+      complex ideas to non-technical colleagues is not demonstrated.
+  education_cs:
+    level: adequate
+    evidence:
+    - quote: 'Master of Science: Computer Information Systems'
+    note: A postgraduate computing degree supports equivalent computing education; the bachelor subject
+      is unspecified.

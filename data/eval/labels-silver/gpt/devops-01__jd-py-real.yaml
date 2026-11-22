@@ -1,0 +1,74 @@
+cv_sheet_id: devops-01
+text_sha256: f7fff9d023f467550d221d079f97b7b8018f35ccdb2e95562ce72aaf2525426c
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: C#/.NET development is extensive, but Python and Django/Flask are not mentioned.
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: Writing complex queries and stored procedures to perform CRUD operations on Sql Server 2008R2
+    note: Relevant SQL and stored-procedure experience is explicit, but on SQL Server; PostgreSQL and
+      its tuning are not established.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Azure DevOps, PowerShell and Windows deployment do not establish Linux, Bash, Docker or AWS;
+      the required tools are not mentioned.
+  backend_experience:
+    level: adequate
+    evidence:
+    - quote: 'Pepco Energy Services - Software Engineer
+
+        Elgin, IL + 09/2010 - 08/2013'
+    - quote: 'Hewlett Packard Enterprise - Senior Software Engineer
+
+        El Paso, TX + 09/2013 - 02/2016'
+    - quote: 'Transwestern - Lead Engineer
+
+        Phoenix, AZ + 03/2016 - 05/2019'
+    - quote: Creating RestFul Web API to perform required CRUD operations on Database
+    - quote: 'Building Custom software using .NET for Retailers and Sales Managers which include sales,
+
+        purchase, and reporting and Dash board; building an application for the sales force to capture
+        the
+
+        field surveys with Restful JSON'
+    note: 'Professional software roles from 2010 to 2019 include backend applications and APIs, covering
+      more than seven years; roles also include frontend work. Overall fit is partial: substantial backend
+      experience, but Python and required infrastructure are unestablished and PostgreSQL evidence is
+      indirect.'
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: 'Developed and integrated applications implementing SOA based architecture with REST web
+
+        services.'
+    - quote: 'Good Understanding of Object-Oriented Analysis Design (OOAD), Design Patterns, Architectural
+
+        Patterns, MVC and .NET framework.'
+    note: Applied service architecture and pattern knowledge are explicit; architectural teaching and
+      efficiency outcomes are not established.
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: 'Excellent communication and interpretation skills enabling effective interaction with application
+
+        Developers, End Users, Project Managers and Business Analysts to review the requirement
+
+        specifications.'
+    - quote: 'Understanding business requirements and created necessary technical specifications and design
+
+        documents'
+    note: Describes translating requirements with end users and business analysts and creating technical
+      specifications; no concrete communication outcome is given.
+  education_cs:
+    level: unknown
+    evidence: []
+    note: An electronics/communication engineering bachelor degree is stated, but computer science or
+      equivalent software engineering training is not specified.

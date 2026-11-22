@@ -1,0 +1,45 @@
+cv_sheet_id: hr-01
+text_sha256: 21367b09bd5a2ce2495853eb9251a7fb7fd6586624e12d5cfa9e9bd32b5932b9
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python and web frameworks are not mentioned.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: HR reports and HRIS proficiency do not establish PostgreSQL or advanced database tuning.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Linux, Bash, Docker and AWS are not mentioned.
+  backend_experience:
+    level: unknown
+    evidence: []
+    note: The six-year summary concerns HR, not backend engineering; it cannot be treated as evidence
+      of insufficient backend tenure. Overall fit is partial because the principal technical requirements
+      are unestablished.
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: HR procedure development does not establish software design patterns or architectural teaching.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: 'Consulted with internal clients to evaluate labor trends and competitor talent insights
+        for pointed
+
+        candidate selection.'
+    - quote: Compiled and produced presentations and reports as directed by leadership team.
+    note: Consultation about analytical insights and presentation production are relevant; presenting
+      complex ideas clearly to non-technical colleagues is not explicit. Generic unfilled summary placeholders
+      are not used as evidence.
+  education_cs:
+    level: unknown
+    evidence: []
+    note: English and real-estate education are mentioned, but computer science or equivalent software
+      engineering training is not.

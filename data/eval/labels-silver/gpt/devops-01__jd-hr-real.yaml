@@ -1,0 +1,41 @@
+cv_sheet_id: devops-01
+text_sha256: f7fff9d023f467550d221d079f97b7b8018f35ccdb2e95562ce72aaf2525426c
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: unknown
+    evidence: []
+    note: Software and DevOps roles do not state HR activities. Overall partial because the core HR requirements remain unknown, while transferable communication is documented.
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: No recruitment or hiring-manager partnership is mentioned.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: No employee relations, performance management or employment-law knowledge is stated.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: SharePoint development is stated, but Excel/Word/PowerPoint proficiency and HRIS or recruiting systems use are not established.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: 'Excellent communication and interpretation skills enabling effective interaction with application
+
+        Developers, End Users, Project Managers and Business Analysts to review the requirement
+
+        specifications.'
+    - quote: Creating installation and update guide documents for the deployment team
+    note: Explicit varied stakeholder interaction and written documentation; sensitive-matter handling is not described.
+  education_hr_business:
+    level: unknown
+    evidence: []
+    note: Electronics/communication engineering bachelor degree is listed; its relation to HR/business education is not established.
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: Technical delivery projects are described, but no HR programs or early-career initiatives are stated.

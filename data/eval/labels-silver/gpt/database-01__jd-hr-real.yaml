@@ -1,0 +1,42 @@
+cv_sheet_id: database-01
+text_sha256: 456827d30d3eac0171aaefa9852055ba34a863e1fe51959997e2cddf457f63b3
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: unknown
+    evidence: []
+    note: 'IT leadership and staff mentoring do not establish progressive broad HR experience. Overall partial: business education and communication are supported but core HR work remains unknown.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: No recruitment, vacancy management or hiring-manager partnership is stated.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: Staff mentoring and health-record retention do not establish employee relations, performance management or employment-law understanding.
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: Database creation using Microsoft Access.
+    note: Concrete use of an Office application is limited overlap; Excel/Word/PowerPoint, HRIS and recruiting systems are not established.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: Worked closely with physicians and nurses and have built working relationships involving trust and respect.
+    - quote: 'Direct working relationships with directors, administrators and upper management to write custom reports in SQL, MS ACCESS, EPIC
+
+        Reporting Work Bench, Crystal Reports, ORACLE PLSQL and MUMPS Query language.'
+    note: Relationships with clinical and management stakeholders and report writing are explicit; confidential handling is not directly described.
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor of Science: Computer Science, Business Administration'
+    note: Business Administration is explicitly included in the bachelor degree field.
+  hr_programs:
+    level: partial
+    evidence:
+    - quote: Training, mentoring and managing new report writing staff.
+    note: New-staff training overlaps employee development, but a coordinated HR or early-career program is not demonstrated.

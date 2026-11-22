@@ -1,0 +1,52 @@
+cv_sheet_id: database-01
+text_sha256: 456827d30d3eac0171aaefa9852055ba34a863e1fe51959997e2cddf457f63b3
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python and Django/Flask are not mentioned.
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: Maintenance, Migration and Backup of SQL, ORACLE, ACCESS, DB2 and SYBASE databases.
+    - quote: 'Direct working relationships with directors, administrators and upper management to write
+        custom reports in SQL, MS ACCESS, EPIC
+
+        Reporting Work Bench, Crystal Reports, ORACLE PLSQL and MUMPS Query language.'
+    note: Database administration and SQL reporting are evidenced, but PostgreSQL and its advanced tuning
+      are not established.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Windows servers and VMware do not establish Linux, Bash, Docker or AWS; those tools are not
+      mentioned.
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: Database Administrator/Programmer Analyst, 02/2006 - Current
+    - quote: Programming in Visual Basic.net and Visual Basic 6.0.
+    note: Professional database/programming work is relevant, but seven years specifically in full-time
+      backend engineering is unestablished. Overall fit is partial given related database experience and
+      missing Python/PostgreSQL/infrastructure evidence.
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Implementation leadership and report governance do not establish software design patterns or
+      architectural teaching.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Training, mentoring and managing new report writing staff.
+    - quote: Worked closely with physicians and nurses and have built working relationships involving
+        trust and respect.
+    note: Technical mentoring and clinical collaboration are described; clear explanation of complex ideas
+      to non-technical colleagues is not explicit.
+  education_cs:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor of Science: Computer Science, Business Administration'
+    note: A computer science bachelor degree is stated.
