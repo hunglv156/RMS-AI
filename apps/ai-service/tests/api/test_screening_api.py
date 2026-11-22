@@ -1,3 +1,4 @@
+import asyncio
 import json
 import threading
 from dataclasses import replace
@@ -14,6 +15,7 @@ from app.infrastructure.llm import (
     FakeLLMProvider,
     LLMMetadata,
     LLMProviderError,
+    LLMRateLimitError,
     LLMResult,
     LLMSchemaError,
     LLMTimeoutError,
@@ -81,11 +83,13 @@ def response(level="strong", model="primary"):
 @pytest.fixture
 def client():
     app = create_app()
-    app.dependency_overrides[api.get_settings] = lambda: Settings(_env_file=None)
+    app.dependency_overrides[api.get_settings] = lambda: Settings(
+        _env_file=None, ai_internal_token="test-service-token"
+    )
     app.dependency_overrides[api.get_screening_providers] = lambda: api.ScreeningProviders(
         FakeLLMProvider([response()]), FakeLLMProvider([])
     )
-    with TestClient(app) as client:
+    with TestClient(app, headers={"Authorization": "Bearer test-service-token"}) as client:
         yield client
 
 
@@ -94,6 +98,13 @@ def post(client, *, data=None, jd=None, content_type="application/pdf"):
         "/internal/v1/screenings",
         files={"cv": ("cv.pdf", pdf() if data is None else data, content_type)},
         data={"jd": json.dumps(JD) if jd is None else jd},
+        headers={
+            "X-Expected-Config-Fingerprint": client.get("/internal/v1/screening-manifest").json()[
+                "fingerprint"
+            ],
+            "X-Request-ID": "test-request",
+            "X-Run-ID": "test-run",
+        },
     )
 
 
@@ -107,7 +118,15 @@ def test_happy_path(client, escalated):
     result = post(client)
     assert result.status_code == 200, result.text
     body = result.json()
-    assert set(body) == {"screening", "extraction", "latency_s", "config"}
+    assert set(body) == {
+        "screening",
+        "extraction",
+        "latency_s",
+        "config",
+        "source",
+        "manifest",
+        "fingerprint",
+    }
     assert body["extraction"] == {"pages": 1, "ocr_pages": 0, "chars": len(TEXT)}
     assert body["latency_s"] > 0
     assert body["config"] == client.get("/internal/v1/screening-config").json()
@@ -170,7 +189,18 @@ def test_document_limits(client, kind):
     assert result.json()["error"]["code"] == "file_too_large"
 
 
+def inject_local_extraction(client):
+    # Only for legacy monkeypatch cases; production always uses the subprocess.
+    from app.extraction import document
+
+    async def extract(data, *, limits, timeout_s):
+        return await asyncio.to_thread(document.extract_document, data, limits=limits)
+
+    client.app.dependency_overrides[api.get_extractor] = lambda: extract
+
+
 def test_empty_text(client, monkeypatch):
+    inject_local_extraction(client)
     from app.extraction import document
 
     monkeypatch.setattr(document, "_ocr", lambda *args: ("", None))
@@ -180,6 +210,7 @@ def test_empty_text(client, monkeypatch):
 
 
 def test_ocr_and_off_event_loop(client, monkeypatch):
+    inject_local_extraction(client)
     from app.extraction import document
 
     threads = []
@@ -203,10 +234,13 @@ def test_ocr_and_off_event_loop(client, monkeypatch):
 
 
 def test_ocr_failure(client, monkeypatch):
+    inject_local_extraction(client)
+    from app.extraction import document
+
     def fail(*args, **kwargs):
         raise OCRError("private extraction failure")
 
-    monkeypatch.setattr(api, "extract_document", fail)
+    monkeypatch.setattr(document, "extract_document", fail)
     result = post(client)
     assert result.status_code == 400
     assert result.json()["error"]["code"] == "invalid_pdf"
@@ -217,7 +251,8 @@ def test_ocr_failure(client, monkeypatch):
     "error,status,code",
     [
         (LLMProviderError, 502, "llm_error"),
-        (LLMSchemaError, 502, "llm_error"),
+        (LLMSchemaError, 502, "llm_schema_error"),
+        (LLMRateLimitError, 429, "llm_rate_limited"),
         (ValueError, 502, "llm_error"),
         (LLMTimeoutError, 504, "llm_timeout"),
         (TimeoutError, 504, "llm_timeout"),
@@ -257,7 +292,10 @@ def test_unconfigured_health_and_config(client):
 
 def test_config_is_allowlisted(client):
     settings = Settings(
-        _env_file=None, llm_api_key=SecretStr("private-key"), llm_base_url="https://private-gateway"
+        _env_file=None,
+        ai_internal_token="test-service-token",
+        llm_api_key=SecretStr("private-key"),
+        llm_base_url="https://private-gateway",
     )
     client.app.dependency_overrides[api.get_settings] = lambda: settings
     result = client.get("/internal/v1/screening-config")
@@ -291,7 +329,7 @@ def test_samples_and_configurable_directory(client, tmp_path):
     for name in ("jd-py-real", "jd-hr-real"):
         (tmp_path / f"{name}.yaml").write_text(yaml.safe_dump(JD | {"id": name}))
     client.app.dependency_overrides[api.get_settings] = lambda: Settings(
-        _env_file=None, screening_sample_jds_dir=tmp_path
+        _env_file=None, ai_internal_token="test-service-token", screening_sample_jds_dir=tmp_path
     )
     assert client.get("/internal/v1/sample-jds").json()["items"][0]["title"] == JD["title"]
 
@@ -301,7 +339,7 @@ def test_env_overrides_preserve_runner_defaults(monkeypatch):
     monkeypatch.setenv("SCREENING_ESCALATE_MODEL", "api-escalation")
     monkeypatch.setenv("SCREENING_ESCALATE_ON", '["needs_review", "coverage_band"]')
     monkeypatch.setenv("SCREENING_RETRIEVAL_K", "3")
-    settings = Settings(_env_file=None)
+    settings = Settings(_env_file=None, ai_internal_token="test-service-token")
     assert settings.screening_model == "api-primary"
     assert settings.screening_escalate_model == "api-escalation"
     assert settings.screening_escalate_on == {"needs_review", "coverage_band"}
@@ -318,7 +356,12 @@ def test_provider_model_and_hedge_wiring(monkeypatch):
         return FakeLLMProvider([])
 
     monkeypatch.setattr(api, "get_llm_provider", factory)
-    settings = Settings(_env_file=None, llm_api_key="private", llm_base_url="https://private")
+    settings = Settings(
+        _env_file=None,
+        ai_internal_token="test-service-token",
+        llm_api_key="private",
+        llm_base_url="https://private",
+    )
     api.get_screening_providers(settings)
     assert [s.llm_model for s in recorded] == [
         settings.screening_model,
@@ -331,7 +374,7 @@ def test_provider_model_and_hedge_wiring(monkeypatch):
 
 def test_disabled_escalation(client):
     client.app.dependency_overrides[api.get_settings] = lambda: Settings(
-        _env_file=None, screening_escalate_model=None
+        _env_file=None, ai_internal_token="test-service-token", screening_escalate_model=None
     )
     client.app.dependency_overrides[api.get_screening_providers] = lambda: api.ScreeningProviders(
         FakeLLMProvider([response()])

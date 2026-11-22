@@ -1,9 +1,10 @@
+from contextlib import asynccontextmanager
 from importlib.metadata import PackageNotFoundError, version
 
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
-from app.api.internal.screening import APIError, router
+from app.api.internal.screening import APIError, get_settings, router
 
 try:
     SERVICE_VERSION = version("rms-ai-service")
@@ -12,7 +13,16 @@ except PackageNotFoundError:
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="rms-ai-service", version=SERVICE_VERSION)
+    @asynccontextmanager
+    async def lifespan(app):
+        factory = app.dependency_overrides.get(get_settings, get_settings)
+        settings = factory()  # Validates explicit deadlines at startup.
+        token = settings.ai_internal_token
+        if (not token or not token.get_secret_value().strip()) and not settings.ai_test_mode:
+            raise RuntimeError("AI_INTERNAL_TOKEN is required outside test mode")
+        yield
+
+    app = FastAPI(title="rms-ai-service", version=SERVICE_VERSION, lifespan=lifespan)
     app.include_router(router)
 
     @app.exception_handler(APIError)

@@ -21,6 +21,7 @@ def test_health() -> None:
 def test_public_api_routes() -> None:
     assert set(app.openapi()["paths"]) == {
         "/health",
+        "/internal/v1/screening-manifest",
         "/internal/v1/screening-config",
         "/internal/v1/sample-jds",
         "/internal/v1/screenings",

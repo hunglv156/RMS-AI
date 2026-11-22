@@ -1,26 +1,35 @@
 """Internal synchronous screening API, using the production pipeline configuration."""
 
+import asyncio
+import hashlib
+import secrets
 import time
-from dataclasses import dataclass
+from contextlib import suppress
+from dataclasses import asdict, dataclass
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, File, Form, UploadFile
+from fastapi import APIRouter, Depends, File, Form, Header, Request, UploadFile
+from fastapi.responses import JSONResponse
+from fastapi.routing import APIRoute
 from pydantic import ValidationError
-from starlette.concurrency import run_in_threadpool
 
+from app.api.deterministic import DeterministicProvider
+from app.api.manifest import screening_manifest
 from app.config import Settings
+from app.extraction.bounded import ExtractionTimeoutError, extract_bounded
 from app.extraction.document import (
     DocumentLimitError,
     EncryptedPDFError,
     ExtractionLimits,
     InvalidPDFError,
     OCRError,
-    extract_document,
 )
 from app.infrastructure.llm import (
     LLMError,
     LLMProvider,
     LLMProviderError,
+    LLMRateLimitError,
+    LLMSchemaError,
     LLMTimeoutError,
     get_llm_provider,
 )
@@ -32,8 +41,6 @@ from app.pipelines.screening import (
     screen_with_escalation,
 )
 from app.pipelines.screening.models import JobDescription
-
-router = APIRouter(prefix="/internal/v1")
 
 
 class APIError(Exception):
@@ -50,11 +57,80 @@ def get_settings() -> Settings:
 SettingsDep = Annotated[Settings, Depends(get_settings)]
 
 
+async def require_service_token(
+    settings: SettingsDep, authorization: Annotated[str | None, Header()] = None
+):
+    token = settings.ai_internal_token
+    expected = token.get_secret_value() if token else ""
+    if not expected or not secrets.compare_digest(
+        (authorization or "").encode(), f"Bearer {expected}".encode()
+    ):
+        raise APIError(401, "unauthenticated", "A valid service bearer token is required.")
+
+
+class DeadlineRoute(APIRoute):
+    def get_route_handler(self):
+        handler = super().get_route_handler()
+
+        async def bounded(request: Request):
+            factory = request.app.dependency_overrides.get(get_settings, get_settings)
+            settings = factory()
+            try:
+                async with asyncio.timeout(settings.ai_request_deadline_s):
+                    return await handler(request)
+            except TimeoutError:
+                return JSONResponse(
+                    status_code=504,
+                    content={
+                        "error": {
+                            "code": "request_timeout",
+                            "message": "The AI request deadline was exceeded.",
+                        }
+                    },
+                )
+
+        return bounded
+
+
+router = APIRouter(
+    prefix="/internal/v1", dependencies=[Depends(require_service_token)], route_class=DeadlineRoute
+)
+
+
+def get_extractor():
+    return extract_bounded
+
+
+def pinned_manifest(
+    settings: SettingsDep,
+    expected: Annotated[str, Header(alias="X-Expected-Config-Fingerprint")],
+    request_id: Annotated[str, Header(alias="X-Request-ID", min_length=1)],
+    run_id: Annotated[str, Header(alias="X-Run-ID", min_length=1)],
+):
+    manifest = screening_manifest(settings)
+    if not secrets.compare_digest(expected.encode(), manifest["fingerprint"].encode()):
+        raise APIError(409, "config_changed", "The effective screening configuration changed.")
+    return manifest
+
+
+@router.get("/screening-manifest")
+def manifest(settings: SettingsDep):
+    return screening_manifest(settings)
+
+
 def get_extraction_limits() -> ExtractionLimits:
     return ExtractionLimits()
 
 
 def public_config(settings: Settings) -> dict:
+    if settings.ai_provider_mode == "deterministic":
+        settings = settings.model_copy(
+            update={
+                "screening_model": "deterministic-v1",
+                "screening_escalate_model": None,
+                "screening_hedge_after_s": None,
+            }
+        )
     return {
         "model": settings.screening_model,
         "prompt_version": settings.screening_prompt_version,
@@ -78,6 +154,8 @@ class ScreeningProviders:
 
 
 def get_screening_providers(settings: SettingsDep) -> ScreeningProviders:
+    if settings.ai_provider_mode == "deterministic":
+        return ScreeningProviders(primary=DeterministicProvider())
     # Match the runner's model overrides without changing the experiment defaults.
     configured = bool(settings.llm_base_url and settings.llm_api_key) or bool(
         settings.gemini_api_key
@@ -108,6 +186,10 @@ class SafeProvider:
     async def generate_structured(self, **kwargs):
         try:
             return await self.provider.generate_structured(**kwargs)
+        except LLMSchemaError:
+            raise LLMSchemaError("The LLM returned invalid structured output.") from None
+        except LLMRateLimitError:
+            raise LLMRateLimitError("The LLM provider is rate limited.") from None
         except (LLMTimeoutError, TimeoutError):
             raise LLMTimeoutError("The LLM request timed out.") from None
         except Exception:  # noqa: BLE001 — provider failures must not expose connection details
@@ -142,13 +224,38 @@ def get_screening_embedder(settings: SettingsDep):
 
 @router.post("/screenings")
 async def create_screening(
+    request: Request,
     settings: SettingsDep,
+    manifest: Annotated[dict, Depends(pinned_manifest)],
     providers: Annotated[ScreeningProviders, Depends(get_screening_providers)],
     limits: Annotated[ExtractionLimits, Depends(get_extraction_limits)],
     embedder: Annotated[object, Depends(get_screening_embedder)],
+    extractor: Annotated[object, Depends(get_extractor)],
     cv: Annotated[UploadFile | None, File()] = None,
     jd: Annotated[str | None, Form()] = None,
 ):
+    async def disconnect():
+        while not await request.is_disconnected():
+            await asyncio.sleep(0.05)
+
+    work = asyncio.create_task(
+        process_screening(settings, manifest, providers, limits, embedder, extractor, cv, jd)
+    )
+    monitor = asyncio.create_task(disconnect())
+    try:
+        done, _ = await asyncio.wait({work, monitor}, return_when=asyncio.FIRST_COMPLETED)
+        if work in done:
+            return await work
+        raise APIError(499, "client_disconnected", "The client disconnected.")
+    finally:
+        for task in (work, monitor):
+            task.cancel()
+        for task in (work, monitor):
+            with suppress(asyncio.CancelledError):
+                await task
+
+
+async def process_screening(settings, manifest, providers, limits, embedder, extractor, cv, jd):
     started = time.perf_counter()
     try:
         job = JobDescription.model_validate_json(jd or "")
@@ -164,7 +271,13 @@ async def create_screening(
         if len(data) > limits.max_bytes:
             raise APIError(413, "file_too_large", "The PDF exceeds the document size limit.")
         try:
-            document = await run_in_threadpool(extract_document, data, limits=limits)
+            document = await extractor(
+                data, limits=limits, timeout_s=settings.ai_extraction_deadline_s
+            )
+        except ExtractionTimeoutError:
+            raise APIError(
+                504, "extraction_timeout", "PDF extraction exceeded its deadline."
+            ) from None
         except EncryptedPDFError:
             raise APIError(400, "encrypted_pdf", "Encrypted PDFs are unsupported.") from None
         except DocumentLimitError:
@@ -195,6 +308,14 @@ async def create_screening(
             )
         else:
             result = await screen(document.text, job, **kwargs)
+    except LLMSchemaError:
+        raise APIError(
+            502, "llm_schema_error", "The LLM returned invalid structured output."
+        ) from None
+    except LLMRateLimitError:
+        raise APIError(
+            429, "llm_rate_limited", "The LLM provider is rate limited; try again."
+        ) from None
     except LLMTimeoutError:
         raise APIError(504, "llm_timeout", "The LLM request timed out; try again.") from None
     except LLMError:
@@ -203,6 +324,17 @@ async def create_screening(
         ) from None
     return {
         "screening": result.model_dump(mode="json"),
+        "manifest": manifest,
+        "fingerprint": manifest["fingerprint"],
+        "source": {
+            "text": document.text,
+            "pages": [asdict(page) for page in document.pages],
+            "normalized_text_sha256": hashlib.sha256(document.text.encode()).hexdigest(),
+            "offset_unit": "unicode_code_points",
+            "extractor_version": document.extractor_version,
+            "normalization_version": document.normalization_version,
+            "tool_versions": document.tool_versions,
+        },
         "extraction": {
             "pages": len(document.pages),
             "ocr_pages": sum(page.method == "ocr" for page in document.pages),
