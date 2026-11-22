@@ -1,0 +1,83 @@
+# Weights are illustrative values set by Dylan's delegate; they are not calibrated.
+# Criteria derive from a real posting; see the provenance file in sources/.
+id: jd-py-real
+title: Backend Software Engineer - Python/Postgres
+summary: Real-world Enveritas backend software engineer posting focused on Python,
+  PostgreSQL, cloud tooling, architecture, and communication.
+criteria:
+- code: python_frameworks
+  label: Python & Web Frameworks
+  description: Extensive experience with Python, including developing applications
+    and complex data processing tasks. Familiarity with Django or Flask.
+  priority: must_have
+  weight: 25
+  keywords:
+  - Python
+  - Django
+  - Flask
+- code: postgresql_database
+  label: PostgreSQL & Database Tuning
+  description: Advanced experience with PostgreSQL, including query optimization,
+    joins, stored procedures, and performance tuning.
+  priority: must_have
+  weight: 20
+  keywords:
+  - PostgreSQL
+  - query optimization
+  - stored procedures
+  - performance tuning
+- code: cloud_docker_linux
+  label: Docker, AWS & Linux
+  description: Practical experience with Linux, Bash scripting, Docker containers,
+    and AWS services (EC2, RDS, CloudFront).
+  priority: must_have
+  weight: 15
+  keywords:
+  - Docker
+  - AWS
+  - EC2
+  - RDS
+  - CloudFront
+  - Linux
+  - Bash
+- code: backend_experience
+  label: Professional Backend Experience
+  description: Minimum seven years of full-time professional experience as a backend
+    software engineer.
+  priority: must_have
+  weight: 15
+  keywords:
+  - backend software engineer
+  - full-time professional experience
+- code: software_architecture
+  label: Software Architecture & Design Patterns
+  description: Demonstrated ability to apply design patterns for creating modular
+    and efficient software, with the ability to teach others how to solve architectural
+    problems.
+  priority: nice_to_have
+  weight: 10
+  keywords:
+  - design patterns
+  - modular
+  - efficient software
+  - architectural problems
+- code: communication_collaboration
+  label: Technical Communication
+  description: Strong ability to present and explain complex ideas clearly to non-technical
+    colleagues.
+  priority: nice_to_have
+  weight: 10
+  keywords:
+  - communication
+  - presentation
+  - non-technical
+- code: education_cs
+  label: Computer Science Education
+  description: Bachelor’s degree in computer science or equivalent training in the
+    principles of software engineering.
+  priority: nice_to_have
+  weight: 5
+  keywords:
+  - Computer Science
+  - Software Engineering
+  - Bachelor’s degree

@@ -34,3 +34,7 @@ api_design:
 ```
 
 Đây chỉ là ví dụ cho một criterion; cần đánh giá các criterion còn lại trước khi chọn `overall_fit`.
+
+## Additional evaluation JDs
+
+`jd-py-real` (Enveritas Backend Software Engineer - Python/Postgres) and `jd-hr-real` (Surmodics HR Generalist) are sourced from real job postings; see `data/eval/jds/sources/` for provenance. The existing `jd-a` and `jd-b` remain unchanged for reproducibility of earlier runs.

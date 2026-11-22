@@ -1,0 +1,95 @@
+# Weights are illustrative values set by Dylan's delegate; they are not calibrated.
+# Criteria derive from a real posting; see the provenance file in sources/.
+id: jd-hr-real
+title: HR Generalist
+summary: Real-world Surmodics HR Generalist posting covering HR experience, recruiting,
+  employee relations, HRIS, and programs.
+criteria:
+- code: hr_experience
+  label: Progressive HR Experience
+  description: 3+ years of progressive HR experience, including supporting multiple
+    business functions and managing a range of HR activities.
+  priority: must_have
+  weight: 20
+  keywords:
+  - HR experience
+  - progressive HR experience
+  - business functions
+  - HR activities
+- code: talent_acquisition
+  label: Recruitment & Talent Acquisition
+  description: Demonstrated experience in recruitment and talent acquisition, partnering
+    with hiring managers and managing multiple open positions.
+  priority: must_have
+  weight: 20
+  keywords:
+  - recruitment
+  - talent acquisition
+  - hiring managers
+  - open positions
+- code: employee_relations_compliance
+  label: Employee Relations & Compliance
+  description: Strong understanding of HR practices, employee relations, performance
+    management, and applicable employment laws and regulations.
+  priority: must_have
+  weight: 20
+  keywords:
+  - HR practices
+  - employee relations
+  - performance management
+  - employment laws
+  - regulations
+- code: hris_office_tools
+  label: HRIS & MS Office
+  description: Proficiency with Microsoft Office applications (Excel, Word, PowerPoint)
+    and ability to work effectively with HR information systems and recruiting technology.
+  priority: must_have
+  weight: 15
+  keywords:
+  - Microsoft Office
+  - Excel
+  - Word
+  - PowerPoint
+  - HR information systems
+  - recruiting technology
+- code: interpersonal_communication
+  label: Interpersonal & Stakeholder Communication
+  description: Strong written, verbal, interpersonal, and relationship-building skills,
+    with the ability to communicate effectively across all levels of an organization.
+    Ability to handle confidential and sensitive matters with discretion, professionalism,
+    and sound judgment.
+  priority: nice_to_have
+  weight: 10
+  keywords:
+  - written
+  - verbal
+  - interpersonal
+  - relationship-building
+  - communicate effectively
+  - confidential
+  - sensitive
+  - discretion
+  - professionalism
+  - sound judgment
+- code: education_hr_business
+  label: Education in HR or Business
+  description: Bachelor’s degree in human resources, business administration, or a
+    related field.
+  priority: nice_to_have
+  weight: 10
+  keywords:
+  - Human Resources
+  - Business Administration
+  - Bachelor’s degree
+  - related field
+- code: hr_programs
+  label: HR Programs & Initiatives
+  description: Experience developing, coordinating, or managing HR programs and initiatives;
+    experience establishing an internship or early-career talent program is preferred.
+  priority: nice_to_have
+  weight: 5
+  keywords:
+  - HR programs
+  - HR initiatives
+  - internship program
+  - early-career talent program
