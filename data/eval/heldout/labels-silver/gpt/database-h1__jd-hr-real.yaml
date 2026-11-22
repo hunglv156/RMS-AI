@@ -1,0 +1,62 @@
+cv_sheet_id: database-h1
+text_sha256: cc93e6f2982832e9e33d429cd254060be119905571ad2a7996287750deefe19d
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: Database Administrator, 01/2020 to Current
+      start_offset: 1067
+      end_offset: 1109
+    - quote: ORACLE / POSTGRESQL DBA, 11/2015 to 12/2019
+      start_offset: 1614
+      end_offset: 1657
+    note: Dated roles are database administration; no HR role is listed (v1.1).
+  talent_acquisition:
+    level: absent
+    evidence:
+    - quote: Database Administrator, 01/2020 to Current
+      start_offset: 1067
+      end_offset: 1109
+    - quote: ORACLE / POSTGRESQL DBA, 11/2015 to 12/2019
+      start_offset: 1614
+      end_offset: 1657
+    note: No recruitment role or duties in dated history (v1.1 experience rule).
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: Database security/performance is not employee relations, employment-law knowledge or personnel
+      performance management; HR skills are not mentioned.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: Database administration does not establish HRIS proficiency; no HRIS, recruiting technology
+      or Microsoft Office is mentioned.
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: Participated in daily stand ups to discuss about new database design, modeling and creation.
+      start_offset: 6773
+      end_offset: 6865
+    note: Evidence of technical team discussion; does not establish strong communication across organizational
+      levels or handling sensitive personnel matters.
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor of Science: Business Administration, 05/2015'
+      start_offset: 6951
+      end_offset: 7004
+    note: Explicit bachelor's in business administration meets the education requirement.
+  hr_programs:
+    level: absent
+    evidence:
+    - quote: Database Administrator, 01/2020 to Current
+      start_offset: 1067
+      end_offset: 1109
+    - quote: ORACLE / POSTGRESQL DBA, 11/2015 to 12/2019
+      start_offset: 1614
+      end_offset: 1657
+    note: Dated work is database projects, with no HR program responsibilities (v1.1 experience rule).

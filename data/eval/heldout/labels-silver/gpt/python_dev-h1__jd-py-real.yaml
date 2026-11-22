@@ -1,0 +1,71 @@
+cv_sheet_id: python_dev-h1
+text_sha256: d88bc77d615cc7150804a3b8f4395623739516296ee922e1329840046f0bc6b4
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: adequate
+    evidence:
+    - quote: Developed tools for debugging IBM cloud using Python .
+      start_offset: 2164
+      end_offset: 2218
+    - quote: ¢ Linux shell scripting e Flask
+      start_offset: 1078
+      end_offset: 1109
+    note: Python application work and Flask familiarity are explicit; complex data-processing scope is not established.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: PostgreSQL and tuning are not mentioned.
+  cloud_docker_linux:
+    level: partial
+    evidence:
+    - quote: ¢ Linux shell scripting e Flask
+      start_offset: 1078
+      end_offset: 1109
+    - quote: ¢ Automated different operations using shell scripts.
+      start_offset: 2373
+      end_offset: 2426
+    - quote: ¢ Introduction to Containers, Kubernetes and OpenShift
+      start_offset: 5746
+      end_offset: 5800
+    note: Linux/shell work and container training are explicit; Docker and AWS are not mentioned.
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: IB) CLOUD DEVELOPER-PY THON 07/2020 to 04/2021
+      start_offset: 2004
+      end_offset: 2050
+    - quote: ¢ |was working as an IBM cloud backend developer.
+      start_offset: 2070
+      end_offset: 2119
+    - quote: PY THON DEVELOPER 10/2021 to CURRENT
+      start_offset: 1252
+      end_offset: 1288
+    note: Backend work is explicit in 2020–2021; later Python work does not establish seven years of backend work.
+      Earlier telecom software work is not counted as backend automatically.
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: '¢ Programmed applications and tools using object-oriented languages with goals of code abstraction,
+
+        stability and reuse.'
+      start_offset: 1580
+      end_offset: 1700
+    note: Reuse is supported; design patterns and teaching architecture are not explicit.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Discuss the solution with the customer and create draft design document.
+      start_offset: 2847
+      end_offset: 2919
+    note: Solution communication is explicit; a non-technical audience is not established.
+  education_cs:
+    level: adequate
+    evidence:
+    - quote: Master of Technology | Software Engineering 2016
+      start_offset: 5604
+      end_offset: 5652
+    note: Relevant formal software engineering training.

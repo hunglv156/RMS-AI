@@ -1,0 +1,98 @@
+cv_sheet_id: python_dev-h3
+text_sha256: 1bc8e39e3db3e015029b1b927ca55b21a0153f6613e2202cea404535667a169e
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: adequate
+    evidence:
+    - quote: 'Implemented and enhanced CRUD operationClaire for the applicationClaire uClaireing the MVC (Model
+        View Controller)
+
+
+        architecture of Django framework and Python conducting code reviewClaire'
+      start_offset: 9114
+      end_offset: 9302
+    - quote: Wrote Python moduleClaire to extract/load aClaireClaireet data from the MyClaireQL Claireource databaClairee
+      start_offset: 9304
+      end_offset: 9412
+    note: Systematic Claire text corruption is present, but Django/Python application and data-processing statements
+      remain interpretable.
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: PoClairetgreClaireQL ¢ Claireoftware Development ClairetandardClaire
+      start_offset: 1476
+      end_offset: 1544
+    - quote: ¢ Optimized and fine tune querieClaire
+      start_offset: 4036
+      end_offset: 4074
+    note: Corrupted PostgreSQL skills entry and general query tuning are readable; advanced PostgreSQL-specific
+      work is not established.
+  cloud_docker_linux:
+    level: adequate
+    evidence:
+    - quote: Worked on creating and running Docker imageClaire with multiple micro - ClaireerviceClaire
+      start_offset: 5831
+      end_offset: 5921
+    - quote: UClaireed Unix/Linux ClaireyClairetemClaire with Clairecripting experience and building data pipelineClaire
+      start_offset: 5989
+      end_offset: 6096
+    - quote: UClaireed python Boto 3 to configure the ClaireerviceClaire AWClaire glue, EC2, Claire3
+      start_offset: 6515
+      end_offset: 6602
+    note: Practical Docker, Linux scripting and AWS EC2 work remain readable despite systematic text corruption;
+      RDS/CloudFront are not explicit.
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: Clairetructured Python Developer bringing 3+ yearClaire of comprehenClaireive experience developing
+        back-end componentClaire,
+      start_offset: 116
+      end_offset: 241
+    - quote: Data Engineer, 12/2012 to 08/2017
+      start_offset: 7429
+      end_offset: 7462
+    - quote: Python AWClaire Developer, 07/2021 to 12/2021
+      start_offset: 5185
+      end_offset: 5230
+    - quote: Python Developer, 12/2021 to Current
+      start_offset: 2563
+      end_offset: 2599
+    note: Relevant work is present, but the summary states 3+ backend years and data-engineering tenure does not
+      establish seven full-time backend years. CURRENT is not extended to labeling date.
+  software_architecture:
+    level: adequate
+    evidence:
+    - quote: 'Provided beClairet practice guidance on the architectural deClaireign acroClaireClaire multiple applicationClaire
+        and
+
+        projectClaire of the enterpriClairee'
+      start_offset: 6916
+      end_offset: 7070
+    - quote: architecture of Django framework and Python conducting code reviewClaire
+      start_offset: 9230
+      end_offset: 9302
+    note: Architectural guidance and MVC application are readable; no concrete result or specific teaching outcome
+      supports strong.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: '* Documented buClaireineClaireClaire workflowClaire for Clairetakeholder review'
+      start_offset: 6835
+      end_offset: 6914
+    note: Stakeholder documentation is readable, but clear explanations of complex ideas to non-technical colleagues
+      are not established.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'MaClaireter of Clairecience: Information Technology Management, 12/2020'
+      start_offset: 9741
+      end_offset: 9812
+    - quote: 'Bachelor of Clairecience: electronicClaire and communication engineering, 08/2017'
+      start_offset: 9871
+      end_offset: 9952
+    note: Stated degrees are in IT/IT management and electrical/electronics engineering, not CS; equivalent training
+      in software engineering principles is not established. Apply v1.1 non-matching-degree rule.

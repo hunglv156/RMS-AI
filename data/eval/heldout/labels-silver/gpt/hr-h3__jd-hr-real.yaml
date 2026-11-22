@@ -1,0 +1,90 @@
+cv_sheet_id: hr-h3
+text_sha256: c142f0e184d7d5970d5c3781576f5f823ae13dd3c192c0ee5872596f332a07f1
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: 'Abm - Human Resources
+
+        Overland Park, KS + 03/2021 - Current'
+      start_offset: 967
+      end_offset: 1026
+    - quote: Paylocityined a Certificate for HR Essential Series and HR Advance Series Paylocity
+      start_offset: 1027
+      end_offset: 1110
+    note: Dated HR role is relevant, but its responsibilities are missing/corrupted; progressive experience
+      across business functions and a range of HR activities cannot be established from the title alone.
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: Recruitment duties are not mentioned; an HR title alone does not establish recruiting or justify
+      excluding it.
+  employee_relations_compliance:
+    level: partial
+    evidence:
+    - quote: 'Provided a high level of customer service and client/employee relations based on outstanding
+
+        communication and interpersonal skills.'
+      start_offset: 735
+      end_offset: 867
+    - quote: 'HR Certificate Series
+
+        Advance HR Certificate Series'
+      start_offset: 541
+      end_offset: 592
+    note: Some employee-relations exposure and HR training, but no concrete performance-management or
+      employment-law work is described.
+  hris_office_tools:
+    level: adequate
+    evidence:
+    - quote: MS Office Suite
+      start_offset: 130
+      end_offset: 145
+    - quote: Trinet
+      start_offset: 280
+      end_offset: 286
+    - quote: Paylocity
+      start_offset: 297
+      end_offset: 306
+    note: Explicit Office suite and named HR platforms in skills support proficiency; no concrete project
+      outcome or implementation scope supports strong.
+  interpersonal_communication:
+    level: strong
+    evidence:
+    - quote: 'Respond to customers via phone and email within the same business day of receiving their
+
+        communication, i.e., request for quote, customer order, status of order, change request, etc'
+      start_offset: 1773
+      end_offset: 1954
+    - quote: Report daily to the senior management team on daily productivity of the department
+      start_offset: 3612
+      end_offset: 3694
+    - quote: 'Practice empathy and professionalism in all dealings with customers, recognize individual
+
+        situations and promptly respond to their needs.'
+      start_offset: 3964
+      end_offset: 4101
+    note: Specific response-time and daily senior-management reporting responsibilities demonstrate communication
+      scope and professionalism; sensitive personnel confidentiality is not explicitly stated.
+  education_hr_business:
+    level: partial
+    evidence:
+    - quote: 'QUINSIGAMOND COMMUNITY
+
+        COLLEGE, ACADEMY'
+      start_offset: 348
+      end_offset: 387
+    - quote: Business Administration Degree
+      start_offset: 429
+      end_offset: 459
+    note: Related business degree is explicit, but bachelor's level is not specified; do not infer degree
+      level from the institution.
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: No HR program responsibilities are described under the HR role; department procedure writing
+      in insurance does not establish an HR program.

@@ -1,0 +1,79 @@
+cv_sheet_id: finance-h1
+text_sha256: 0bbcf1fa7e05a8101d0a7452a63a3524a4ab35a6f428caa872afa5796726991a
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: 'Financial Analyst
+
+
+        ABC Insurance Services
+
+
+        3 2022- Ongoing 9 Chicago, IL'
+      start_offset: 1537
+      end_offset: 1609
+    note: Only dated work is financial analysis, with no HR responsibilities (v1.1).
+  talent_acquisition:
+    level: absent
+    evidence:
+    - quote: 'Financial Analyst
+
+
+        ABC Insurance Services
+
+
+        3 2022- Ongoing 9 Chicago, IL'
+      start_offset: 1537
+      end_offset: 1609
+    note: Dated experience describes financial reporting, not recruitment or talent acquisition (v1.1
+      experience rule).
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: HR practices, employee relations, performance management and employment law are not mentioned.
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: 'Proficient in Microsoft Excel and experienced in collaborating with cross-functional
+
+        teams.'
+      start_offset: 396
+      end_offset: 487
+    note: Explicit Excel proficiency; no Word, PowerPoint, HRIS or recruiting technology evidence. Agency
+      management system is described for financial reporting, not HR.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: 'Strong
+
+        written and oral communication skills, including experience working with small business owners.'
+      start_offset: 694
+      end_offset: 796
+    note: Explicit written/oral communication and small-business stakeholder experience; no concrete communication
+      outcome, cross-level organizational scope or confidentiality evidence.
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: Bachelor's degree in Finance from the University of Chicago.
+      start_offset: 633
+      end_offset: 693
+    note: Explicit finance bachelor's is a related business field.
+  hr_programs:
+    level: absent
+    evidence:
+    - quote: 'Financial Analyst
+
+
+        ABC Insurance Services
+
+
+        3 2022- Ongoing 9 Chicago, IL'
+      start_offset: 1537
+      end_offset: 1609
+    note: Dated work concerns financial analysis/reporting and contains no HR program responsibilities
+      (v1.1 experience rule).

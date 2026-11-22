@@ -1,0 +1,78 @@
+cv_sheet_id: devops-h1
+text_sha256: 7951c1d4026e04fd8b3fae1d90c2f2bcf4d11516599d4a7cc9187c80fa734b3a
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python, Django and Flask are not mentioned.
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: '© Developed the price tracking REST API using Symfony and Doctrine.
+
+        The API used MySQL as the data storage.'
+      start_offset: 2184
+      end_offset: 2291
+    note: Relational database use is relevant, but PostgreSQL and advanced query tuning are not demonstrated.
+  cloud_docker_linux:
+    level: partial
+    evidence:
+    - quote: 'e Familiar with AWS services like EC2, ELB, $3, VPC, EBS, LAM etc Using knife and test kitchen to
+        test cookbooks locally before
+
+        deploying to AWS environments.'
+      start_offset: 976
+      end_offset: 1134
+    note: Practical AWS/EC2 work is explicit; Docker, Bash and Linux experience are not explicit.
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: Senior PHP Developer, 05/2010 - 07/2015
+      start_offset: 2118
+      end_offset: 2157
+    - quote: Created and maintained the backend tasks for the API which included various jobs for price calculation
+        and feed processing.
+      start_offset: 2292
+      end_offset: 2415
+    - quote: PHP Software Engineer, 07/2015 - 02/2016
+      start_offset: 1680
+      end_offset: 1720
+    - quote: Lead Developer, 02/2016 - 06/2016
+      start_offset: 1403
+      end_offset: 1436
+    - quote: DevOps Engineer, 06/2016 - Current
+      start_offset: 468
+      end_offset: 502
+    note: About six years of backend/full-stack development precede DevOps; DevOps tenure is not automatically backend
+      engineering, so seven years is not demonstrated.
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: © Designed, built, tested and implemented stand-alone modules for Magento, including payment and promotion
+        modules.
+      start_offset: 1864
+      end_offset: 1979
+    - quote: © Code reviews through github's PR feature.
+      start_offset: 1135
+      end_offset: 1178
+    note: Modular software and review are supported; design-pattern application and teaching architectural solutions
+      are not established.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Software Developer skilled at technical leadership, communication and presentations.
+      start_offset: 126
+      end_offset: 210
+    note: General presentation and communication claim; complex explanations to non-technical colleagues are not
+      demonstrated.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Master of Science: Electrical Engineering, 2009'
+      start_offset: 2576
+      end_offset: 2623
+    note: Stated degree does not match CS and equivalent software engineering training is not stated; v1.1 applies.

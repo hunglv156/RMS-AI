@@ -1,0 +1,59 @@
+cv_sheet_id: finance-h1
+text_sha256: 0bbcf1fa7e05a8101d0a7452a63a3524a4ab35a6f428caa872afa5796726991a
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python and web frameworks are not mentioned.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: PostgreSQL and database tuning are not mentioned; financial data management does not establish database
+      engineering.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Docker, AWS, Linux and Bash are not mentioned.
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: 'Financial Analyst
+
+
+        ABC Insurance Services
+
+
+        3 2022- Ongoing 9 Chicago, IL'
+      start_offset: 1537
+      end_offset: 1609
+    note: Dated history lists only financial analysis, with no backend engineer role; apply v1.1.
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Software architecture and design patterns are not mentioned; automated reporting does not establish these
+      skills.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: 'Strong
+
+        written and oral communication skills, including experience working with small business owners.'
+      start_offset: 694
+      end_offset: 796
+    - quote: '* Developed customized reports to analyze key financial metrics, providing valuable insights for decision-making.'
+      start_offset: 1994
+      end_offset: 2107
+    note: Reporting and communication with business owners are relevant but do not demonstrate explaining complex
+      technical ideas.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: Bachelor's degree in Finance from the University of Chicago.
+      start_offset: 633
+      end_offset: 693
+    note: Explicit Finance degree does not match CS; no equivalent software engineering training is stated. Apply
+      v1.1.

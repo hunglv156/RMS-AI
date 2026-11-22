@@ -1,0 +1,58 @@
+cv_sheet_id: hr-h2
+text_sha256: 0f11b1a69b5acfc01c0d60c305a36cd7d41888c65668553df92b8517018d960c
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python and web frameworks are not mentioned.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: PostgreSQL and database tuning are not mentioned.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Docker, AWS, Linux and Bash are not mentioned.
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: Human Resources, 2008 - 01/2010
+      start_offset: 946
+      end_offset: 977
+    - quote: Business Development, 04/2006 - 11/2007
+      start_offset: 1454
+      end_offset: 1493
+    note: Dated work history lists HR and business development roles and no backend engineering; apply v1.1.
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Software design patterns and architecture are not mentioned.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Advised managers on organizational policy matters and recommend needed changes.
+      start_offset: 1143
+      end_offset: 1222
+    - quote: Delivered performance updates, quarterly business reviews and planning meetings.
+      start_offset: 1624
+      end_offset: 1704
+    note: Advice and presentations are explicit, but complex technical explanations to non-technical colleagues
+      are not established.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Bachelor: Human Resources, 2014'
+      start_offset: 1823
+      end_offset: 1854
+    - quote: Expected to graduate fall 2014
+      start_offset: 1902
+      end_offset: 1932
+    - quote: 'Diploma: English language learning, 2010'
+      start_offset: 1934
+      end_offset: 1974
+    note: The stated education is non-matching; the HR bachelor is also listed as expected. No equivalent software
+      engineering training is stated; v1.1 applies.

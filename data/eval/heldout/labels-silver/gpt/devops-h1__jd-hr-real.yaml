@@ -1,0 +1,78 @@
+cv_sheet_id: devops-h1
+text_sha256: 7951c1d4026e04fd8b3fae1d90c2f2bcf4d11516599d4a7cc9187c80fa734b3a
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: DevOps Engineer, 06/2016 - Current
+      start_offset: 468
+      end_offset: 502
+    - quote: Lead Developer, 02/2016 - 06/2016
+      start_offset: 1403
+      end_offset: 1436
+    - quote: PHP Software Engineer, 07/2015 - 02/2016
+      start_offset: 1680
+      end_offset: 1720
+    - quote: Senior PHP Developer, 05/2010 - 07/2015
+      start_offset: 2118
+      end_offset: 2157
+    note: Dated work history is entirely software/infrastructure; no HR role (v1.1).
+  talent_acquisition:
+    level: absent
+    evidence:
+    - quote: DevOps Engineer, 06/2016 - Current
+      start_offset: 468
+      end_offset: 502
+    - quote: Lead Developer, 02/2016 - 06/2016
+      start_offset: 1403
+      end_offset: 1436
+    - quote: PHP Software Engineer, 07/2015 - 02/2016
+      start_offset: 1680
+      end_offset: 1720
+    - quote: Senior PHP Developer, 05/2010 - 07/2015
+      start_offset: 2118
+      end_offset: 2157
+    note: No recruitment role or duties in the dated history (v1.1 experience rule).
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: Employee relations, HR practices and employment law are not mentioned.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: No Microsoft Office, HRIS or recruiting technology is mentioned.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: Software Developer skilled at technical leadership, communication and presentations.
+      start_offset: 126
+      end_offset: 210
+    note: Explicit communication/presentation claim, without concrete scope or confidential personnel
+      matters.
+  education_hr_business:
+    level: absent
+    evidence:
+    - quote: 'Master of Science: Electrical Engineering, 2009'
+      start_offset: 2576
+      end_offset: 2623
+    note: Stated degree is electrical engineering, not HR/business or a related field (v1.1).
+  hr_programs:
+    level: absent
+    evidence:
+    - quote: DevOps Engineer, 06/2016 - Current
+      start_offset: 468
+      end_offset: 502
+    - quote: Lead Developer, 02/2016 - 06/2016
+      start_offset: 1403
+      end_offset: 1436
+    - quote: PHP Software Engineer, 07/2015 - 02/2016
+      start_offset: 1680
+      end_offset: 1720
+    - quote: Senior PHP Developer, 05/2010 - 07/2015
+      start_offset: 2118
+      end_offset: 2157
+    note: Dated roles concern technical products/infrastructure, not HR initiatives (v1.1 experience rule).

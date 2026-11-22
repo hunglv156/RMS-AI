@@ -1,0 +1,132 @@
+cv_sheet_id: hr-h1
+text_sha256: bd29635ff765a7ceeb31a29754c3cc69bfa208dc125e0209a396b3808133402a
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: good
+criteria:
+  hr_experience:
+    level: strong
+    evidence:
+    - quote: 'Accomplished Director of Human Resources & Operations offering twelve years of comprehensive
+
+        experience developing HR functions, cultivating positive work environment and collaborating with
+        all
+
+        levels of management.'
+      start_offset: 731
+      end_offset: 946
+    - quote: 'Spectrum Brands Inc. - Director of Operations Human Resources
+
+        Paramount, CA + 12/2003 - Current'
+      start_offset: 2453
+      end_offset: 2548
+    - quote: Human Resources Multi-Unit Management
+      start_offset: 2552
+      end_offset: 2589
+    - quote: 'Fitness International LLC - HR Generalist
+
+        City, STATE + 01/2011 - 01/2013'
+      start_offset: 4982
+      end_offset: 5055
+    note: Explicit twelve-year HR scope, multi-unit operations and progression from generalist to director.
+      Dates overlap across employers, but overlap alone does not negate the stated HR experience.
+  talent_acquisition:
+    level: adequate
+    evidence:
+    - quote: 'Sourced and screened candidates for various roles and worked with hiring managers to coordinate
+
+        interviews, offers and onboarding.'
+      start_offset: 4098
+      end_offset: 4228
+    - quote: 'Evaluated resumes, interviewed and presented qualified candidates to hiring managers and
+
+        solicited feedback to refine recruiting strategy.'
+      start_offset: 4366
+      end_offset: 4504
+    note: Direct recruiting across roles with hiring-manager partnerships is explicit; no concrete requisition
+      volume or recruiting outcome supports strong.
+  employee_relations_compliance:
+    level: strong
+    evidence:
+    - quote: HR duties, Workers compensation, FMLA, and payroll
+      start_offset: 2900
+      end_offset: 2950
+    - quote: 'Create and implement company policies and procedures to drive employee production and customer
+
+        satisfaction'
+      start_offset: 3071
+      end_offset: 3178
+    - quote: 'Liaised between management and employees to deliver conflict resolution, alleviate problems
+        and
+
+        interpret compensation and benefits policies.'
+      start_offset: 5291
+      end_offset: 5432
+    - quote: Employee Performance Reviews
+      start_offset: 341
+      end_offset: 369
+    note: Concrete ownership of company policy implementation plus FMLA, workers compensation, conflict
+      resolution and performance reviews covers the criterion.
+  hris_office_tools:
+    level: adequate
+    evidence:
+    - quote: Manage HRIS system, payroll, ADP workforce now
+      start_offset: 2047
+      end_offset: 2093
+    - quote: Strong computer skills, including Microsoft Office, Internet and Applicant Tracking Systems.
+      start_offset: 4888
+      end_offset: 4980
+    note: Explicit HRIS/ADP management and Office/ATS proficiency; no distinct implementation scope or
+      measured outcome.
+  interpersonal_communication:
+    level: strong
+    evidence:
+    - quote: 'There are four roles that | am apart of in this position; a strategic partner, operations
+        manager,
+
+        emergency responder and employee mediator -In addition, this position | am the internal voice
+        and
+
+        communicator to all employees'
+      start_offset: 1598
+      end_offset: 1824
+    - quote: 'Confidential Records
+
+        Management'
+      start_offset: 460
+      end_offset: 491
+    - quote: 'Developed and maintained strong working relationships with executives, HR team and hiring
+
+        managers to foster partnerships that produced consistent results.'
+      start_offset: 4508
+      end_offset: 4663
+    note: Specific organization-wide communicator/mediator responsibility, executive and manager relationships,
+      and confidential records management.
+  education_hr_business:
+    level: partial
+    evidence:
+    - quote: 'Bachelors degree: Technical
+
+        Management, Bio-medical
+
+        Engineering'
+      start_offset: 613
+      end_offset: 676
+    note: Bachelor's explicitly includes management, a partly related field, but technical/biomedical
+      focus does not clearly establish HR or business administration coursework.
+  hr_programs:
+    level: strong
+    evidence:
+    - quote: 'Developed comprehensive interviewing guides to improve candidate quality by evaluating both
+
+        analytical and interpersonal attributes.'
+      start_offset: 3746
+      end_offset: 3878
+    - quote: 'Selected medical, dental, short and long-term disability, life insurance and workers compensation
+
+        programs for employees.'
+      start_offset: 3882
+      end_offset: 4003
+    note: Specific ownership of recruiting-guide development and employee benefit program selection; internship/early-career
+      program experience is not stated.

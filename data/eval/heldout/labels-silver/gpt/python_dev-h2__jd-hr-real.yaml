@@ -1,0 +1,95 @@
+cv_sheet_id: python_dev-h2
+text_sha256: f57c4afb2f55df979951bdd2308b2caecf0714799fdbd7f2ddb4938babeedc57
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: MAGHINE LEARNING ENGINEER 05/2017 to 11/2019
+      start_offset: 2011
+      end_offset: 2055
+    - quote: 'Built a resume suggestion tool which sorts and filters out the best possible candidate for
+        a position
+
+        based on the job description and the applicants resume using Natural Language Processing (NLP)
+
+        techniques like Sequence labeling, Name entity recognition, part-of-speech tagging and word
+
+        embeddings for internal use of our recruitment team.'
+      start_offset: 3427
+      end_offset: 3768
+    note: Engineering support to recruitment is relevant exposure, but does not establish three years
+      of progressive generalist HR work across functions.
+  talent_acquisition:
+    level: partial
+    evidence:
+    - quote: 'Built a resume suggestion tool which sorts and filters out the best possible candidate for
+        a position
+
+        based on the job description and the applicants resume using Natural Language Processing (NLP)
+
+        techniques like Sequence labeling, Name entity recognition, part-of-speech tagging and word
+
+        embeddings for internal use of our recruitment team.'
+      start_offset: 3427
+      end_offset: 3768
+    note: Supports candidate screening through a tool; direct recruiting, hiring-manager partnerships
+      and management of open positions are not shown.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: HR practices, employee relations, employment law and performance management are not mentioned.
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: 'Built a basic UI for resume suggestion tool using Flask and integrated all the plugins for
+        easy on non
+
+        commercial use, which in turn increase the productivity of the recruitment team.'
+      start_offset: 3899
+      end_offset: 4082
+    note: Concrete work with recruiting technology; Microsoft Office and operational HRIS proficiency
+      are not stated.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: 'Responsible for answering business in situations like over charge, promo not applied errors,
+        on the
+
+        development team.'
+      start_offset: 1672
+      end_offset: 1789
+    - quote: Actively involved in gathering requirements from the end users.
+      start_offset: 5056
+      end_offset: 5119
+    note: Direct business and end-user communication is demonstrated; confidentiality and organization-wide
+      communication scope are not stated.
+  education_hr_business:
+    level: absent
+    evidence:
+    - quote: Master of Science | Computer Information Technology 2016
+      start_offset: 5408
+      end_offset: 5464
+    - quote: Ba nelor of Science | Electrical And Electronics Engineering 2014
+      start_offset: 5493
+      end_offset: 5558
+    note: Stated fields are IT and electrical/electronics engineering, not HR/business or a related field
+      (v1.1).
+  hr_programs:
+    level: partial
+    evidence:
+    - quote: 'Built a resume suggestion tool which sorts and filters out the best possible candidate for
+        a position
+
+        based on the job description and the applicants resume using Natural Language Processing (NLP)
+
+        techniques like Sequence labeling, Name entity recognition, part-of-speech tagging and word
+
+        embeddings for internal use of our recruitment team.'
+      start_offset: 3427
+      end_offset: 3768
+    note: Technical contribution to a recruitment initiative; does not demonstrate ownership or coordination
+      of HR programs or early-career programs.

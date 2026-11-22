@@ -1,0 +1,65 @@
+cv_sheet_id: hr-h3
+text_sha256: c142f0e184d7d5970d5c3781576f5f823ae13dd3c192c0ee5872596f332a07f1
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python and web frameworks are not mentioned.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: PostgreSQL and database tuning are not mentioned; Oracle appears as a business application used for orders.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Docker, AWS, Linux and Bash are not mentioned.
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: 'Abm - Human Resources
+
+        Overland Park, KS + 03/2021 - Current'
+      start_offset: 967
+      end_offset: 1026
+    - quote: 'Enphase Energy - Inside Account Manager
+
+        Columbia, SC + 04/2018 - 11/2020'
+      start_offset: 1112
+      end_offset: 1184
+    - quote: 'Society Insurance - Policy Services Representative, II
+
+        Fond Du Lac, WI + 08/2014 - 04/2018'
+      start_offset: 2596
+      end_offset: 2686
+    - quote: 'IMPERIAL DISTRIBUTORS - Customer Support Representative/ Field Service Representative
+
+        City, STATE + 02/2010 - 08/2014'
+      start_offset: 4473
+      end_offset: 4590
+    note: Dated history lists HR, account management, insurance and customer support roles; none is backend software
+      engineering. Apply v1.1.
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Software architecture and design patterns are not mentioned.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: '+ Department lead on updating and writing procedures that is to be used companywide for training
+
+        purposes within the department.'
+      start_offset: 3696
+      end_offset: 3824
+    note: Writing procedures for training supports transferable explanation skills; complex technical ideas and
+      a non-technical audience are not established.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: Business Administration Degree
+      start_offset: 429
+      end_offset: 459
+    note: Stated degree is not CS and equivalent software engineering training is not mentioned; apply v1.1.

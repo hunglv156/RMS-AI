@@ -1,0 +1,111 @@
+cv_sheet_id: designer-h1
+text_sha256: c200f519e89b0de2b47a0c0d3bdc728dae59233f99b60d499e18d9df7444ce3a
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: Partner/Executive Recruiter, 05/2015 to 05/2017
+      start_offset: 3041
+      end_offset: 3088
+    - quote: 'Conduct full life cycle recruiting including sourcing, phone screens, face to face interviews,
+        selection, compensation negotiations,
+
+
+        pre-employment screens and on-boarding activities for all executive level positions'
+      start_offset: 3127
+      end_offset: 3344
+    - quote: Marketing & Performance Manager, 05/2017 to 01/2020
+      start_offset: 2207
+      end_offset: 2258
+    - quote: Coordinate all employee events, community involvement events, press releases, and marketing
+        campaigns
+      start_offset: 2643
+      end_offset: 2744
+    note: Two years of direct recruiting plus employee-event coordination is relevant, but 3+ years of
+      progressive generalist HR work across functions is not demonstrated.
+  talent_acquisition:
+    level: strong
+    evidence:
+    - quote: 'Conduct full life cycle recruiting including sourcing, phone screens, face to face interviews,
+        selection, compensation negotiations,
+
+
+        pre-employment screens and on-boarding activities for all executive level positions'
+      start_offset: 3127
+      end_offset: 3344
+    - quote: 'Source and maintain a consistent pipeline of qualified opportunities and properly vetted
+        professional candidates for the Joseph
+
+        Chris Partners direct-hire division by continuously cultivating relationships with senior management
+        and executive level
+
+
+        contacts'
+      start_offset: 3346
+      end_offset: 3604
+    - quote: 'Develop business relationships with decision makers across all sectors of Real Estate and
+        Construction from Start-Up companies
+
+        to Fortune 500 corporations'
+      start_offset: 3818
+      end_offset: 3972
+    note: Specific responsibility for all executive positions in a direct-hire division, pipeline ownership
+      and senior decision-maker partnerships gives concrete scope.
+  employee_relations_compliance:
+    level: partial
+    evidence:
+    - quote: 'Conduct full life cycle recruiting including sourcing, phone screens, face to face interviews,
+        selection, compensation negotiations,
+
+
+        pre-employment screens and on-boarding activities for all executive level positions'
+      start_offset: 3127
+      end_offset: 3344
+    note: Compensation negotiations, pre-employment screening and onboarding provide partial HR-practice
+      coverage; employee relations, performance management and employment-law knowledge are not explicit.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: No Office suite, HRIS or recruiting software is named; design tools do not establish those skills.
+  interpersonal_communication:
+    level: strong
+    evidence:
+    - quote: Attend client meetings and execute sales presentations tailored to the client’s specific
+        business need
+      start_offset: 3974
+      end_offset: 4076
+    - quote: Raised over $228,000 through grant writing for both Houston campuses
+      start_offset: 4488
+      end_offset: 4556
+    - quote: 'Maintained highly intensive schedule of visiting with potential donors and delivering compelling
+        presentations and
+
+        comprehensive fundraising proposals.'
+      start_offset: 4601
+      end_offset: 4752
+    note: Specific written proposal/grant and verbal presentation work, including a quantified grant-writing
+      outcome, supports strong communication; confidential HR matters are not stated.
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor’s Degree: Business Administration, 2018'
+      start_offset: 4931
+      end_offset: 4979
+    note: Explicit bachelor's in business administration meets the requirement.
+  hr_programs:
+    level: adequate
+    evidence:
+    - quote: Coordinate all employee events, community involvement events, press releases, and marketing
+        campaigns
+      start_offset: 2643
+      end_offset: 2744
+    - quote: Assisted our Division Director in the training, mentoring, and professional development of
+        new Executive Recruiters
+      start_offset: 3701
+      end_offset: 3816
+    note: Employee-event coordination and new-recruiter development support HR initiatives; no concrete
+      program development outcome or internship-program establishment is given.

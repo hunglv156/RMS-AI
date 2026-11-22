@@ -1,0 +1,61 @@
+cv_sheet_id: designer-h1
+text_sha256: c200f519e89b0de2b47a0c0d3bdc728dae59233f99b60d499e18d9df7444ce3a
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python and web frameworks are not mentioned; website layout/design does not establish backend implementation.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: PostgreSQL and database tuning are not mentioned.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Docker, AWS, Linux and Bash are not mentioned.
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: Designer, 10/2019 to Current
+      start_offset: 946
+      end_offset: 974
+    - quote: Marketing & Performance Manager, 05/2017 to 01/2020
+      start_offset: 2207
+      end_offset: 2258
+    - quote: Partner/Executive Recruiter, 05/2015 to 05/2017
+      start_offset: 3041
+      end_offset: 3088
+    - quote: Development Director, 05/2012 to 01/2014
+      start_offset: 4411
+      end_offset: 4451
+    note: Dated history lists design, marketing, recruiting and fundraising roles, with no backend software engineering;
+      apply v1.1.
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Graphic design systems and website layouts do not establish software architecture or software design patterns.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: '¢ Produce fresh, innovative work that translates complex ideas into compelling print materials and
+        digital experiences for visually
+
+        sophisticated audiences'
+      start_offset: 1002
+      end_offset: 1157
+    - quote: Attend client meetings and execute sales presentations tailored to the client’s specific business need
+      start_offset: 3974
+      end_offset: 4076
+    note: Complex-idea visual communication and audience-tailored presentations are explicit; explanation of technical
+      ideas to non-technical colleagues is not established.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Bachelor’s Degree: Business Administration, 2018'
+      start_offset: 4931
+      end_offset: 4979
+    note: Stated degree does not match CS; equivalent software engineering training is not mentioned. Apply v1.1.

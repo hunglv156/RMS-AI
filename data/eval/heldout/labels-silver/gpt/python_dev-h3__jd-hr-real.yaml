@@ -1,0 +1,79 @@
+cv_sheet_id: python_dev-h3
+text_sha256: 1bc8e39e3db3e015029b1b927ca55b21a0153f6613e2202cea404535667a169e
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: Python Developer, 12/2021 to Current
+      start_offset: 2563
+      end_offset: 2599
+    - quote: Python AWClaire Developer, 07/2021 to 12/2021
+      start_offset: 5185
+      end_offset: 5230
+    - quote: Data Engineer, 12/2012 to 08/2017
+      start_offset: 7429
+      end_offset: 7462
+    note: Dated history lists software/data roles, no HR roles (v1.1); despite repeated OCR substitutions,
+      these titles and dates remain interpretable.
+  talent_acquisition:
+    level: absent
+    evidence:
+    - quote: Python Developer, 12/2021 to Current
+      start_offset: 2563
+      end_offset: 2599
+    - quote: Python AWClaire Developer, 07/2021 to 12/2021
+      start_offset: 5185
+      end_offset: 5230
+    - quote: Data Engineer, 12/2012 to 08/2017
+      start_offset: 7429
+      end_offset: 7462
+    note: No recruiting work in the dated software/data history (v1.1 experience rule).
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: No employee relations, HR performance management or employment-law evidence; technical performance
+      optimization is unrelated.
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: Putty, MainframeClaire, Excel, Jupyter Notebook, Azure
+      start_offset: 1023
+      end_offset: 1077
+    note: Excel is listed, but Word, PowerPoint, HRIS and recruiting technology are not demonstrated.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: Documented buClaireineClaireClaire workflowClaire for Clairetakeholder review
+      start_offset: 6837
+      end_offset: 6914
+    note: Stakeholder-facing documentation supports written communication; corrupted text remains interpretable
+      here, but does not establish discretion with sensitive HR matters.
+  education_hr_business:
+    level: absent
+    evidence:
+    - quote: 'Bachelor of Clairecience: electronicClaire and communication engineering, 08/2017'
+      start_offset: 9871
+      end_offset: 9952
+    - quote: 'MaClaireter of Clairecience: Information Technology Management, 12/2020'
+      start_offset: 9741
+      end_offset: 9812
+    note: The stated bachelor's field is electronics/communication engineering; the IT management master's
+      does not establish a bachelor's in HR/business or a related HR field.
+  hr_programs:
+    level: absent
+    evidence:
+    - quote: Python Developer, 12/2021 to Current
+      start_offset: 2563
+      end_offset: 2599
+    - quote: Python AWClaire Developer, 07/2021 to 12/2021
+      start_offset: 5185
+      end_offset: 5230
+    - quote: Data Engineer, 12/2012 to 08/2017
+      start_offset: 7429
+      end_offset: 7462
+    note: Dated roles describe software/data projects, with no HR program responsibilities (v1.1 experience
+      rule).

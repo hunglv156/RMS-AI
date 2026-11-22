@@ -1,0 +1,92 @@
+cv_sheet_id: hr-h2
+text_sha256: 0f11b1a69b5acfc01c0d60c305a36cd7d41888c65668553df92b8517018d960c
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: Human Resources, 2008 - 01/2010
+      start_offset: 946
+      end_offset: 977
+    - quote: Business Development, 04/2006 - 11/2007
+      start_offset: 1454
+      end_offset: 1493
+    - quote: 'Advised managers on organizational policy matters and recommend needed changes.
+
+        Designed the employee performance evaluation process and merit program.'
+      start_offset: 1143
+      end_offset: 1294
+    note: Relevant HR work spans approximately two years in the dated history, below 3+ years; recruiting,
+      policy and performance duties are present, but progressive HR tenure across functions is not established.
+  talent_acquisition:
+    level: strong
+    evidence:
+    - quote: 'Devised a successful recruiting plan for new call centers, which resulted in 15 new employees
+        in 12 months.
+
+        Interviewed over 35 people and successfully staffed 5 new store locations.'
+      start_offset: 593
+      end_offset: 775
+    - quote: Worked with HR advisors and HR representatives on establishing consistent hiring practices.
+      start_offset: 1361
+      end_offset: 1452
+    note: Concrete recruiting outcomes and scope across five locations support strong; direct hiring-manager
+      partnership is less explicit than HR-team collaboration.
+  employee_relations_compliance:
+    level: partial
+    evidence:
+    - quote: 'Advised managers on organizational policy matters and recommend needed changes.
+
+        Designed the employee performance evaluation process and merit program.'
+      start_offset: 1143
+      end_offset: 1294
+    - quote: Created and implemented the exit and interview program process.
+      start_offset: 1296
+      end_offset: 1359
+    note: Concrete policy/performance/exit-process work, but no explicit employment-law or regulatory
+      knowledge; partial coverage of the combined criterion.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: Microsoft Office, HRIS and recruiting technology are not mentioned.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: HR Recruiter who communicates and collaborates effectively with all levels of personnel by
+        relying on excellent interpersonal skills,
+      start_offset: 113
+      end_offset: 246
+    - quote: Delivered performance updates, quarterly business reviews and planning meetings.
+      start_offset: 1624
+      end_offset: 1704
+    note: Explicit all-level communication claim and delivered business presentations; no concrete confidentiality/discretion
+      evidence or measurable communication outcome.
+  education_hr_business:
+    level: partial
+    evidence:
+    - quote: 'Bachelor: Human Resources, 2014'
+      start_offset: 1823
+      end_offset: 1854
+    - quote: Expected to graduate fall 2014
+      start_offset: 1902
+      end_offset: 1932
+    note: HR bachelor's study is stated, but expected graduation rather than confirmed completion prevents
+      treating the degree as completed.
+  hr_programs:
+    level: strong
+    evidence:
+    - quote: Supervised 3 HR interns and provided assistance in resume building, training and career path
+        development.
+      start_offset: 827
+      end_offset: 932
+    - quote: Designed the employee performance evaluation process and merit program.
+      start_offset: 1223
+      end_offset: 1294
+    - quote: Created and implemented the exit and interview program process.
+      start_offset: 1296
+      end_offset: 1359
+    note: Specific ownership of performance/merit and exit programs, plus supervision/development of three
+      HR interns; establishing an internship program is not stated.

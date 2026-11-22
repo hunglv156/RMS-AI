@@ -1,0 +1,88 @@
+cv_sheet_id: database-h1
+text_sha256: cc93e6f2982832e9e33d429cd254060be119905571ad2a7996287750deefe19d
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python and web frameworks are not mentioned.
+  postgresql_database:
+    level: strong
+    evidence:
+    - quote: + Responsible for configuring, integrating, and maintaining all Development, QA, Staging and Production
+        PostgreSQL databases.
+      start_offset: 3818
+      end_offset: 3943
+    - quote: '+ Supported daily administration, monitoring, tuning, and troubleshooting of clusters on Linux and
+        AWS Console (Database sizes
+
+        range from 100GB to 2TB).'
+      start_offset: 4322
+      end_offset: 4474
+    - quote: + Daily log analysis using pgbadger tool and query tuning.
+      start_offset: 5238
+      end_offset: 5296
+    - quote: + Tuned auto-vacuum parameters to ensure current table stats and reclaim space consumed by dead tuples.
+      start_offset: 5298
+      end_offset: 5401
+    note: Concrete ownership across database environments, 100GB–2TB scope and PostgreSQL tuning establish advanced
+      experience; joins/stored procedures are not separately detailed.
+  cloud_docker_linux:
+    level: partial
+    evidence:
+    - quote: '+ Languages: Bash Shell scripting, SOL, PL/PGSQL'
+      start_offset: 813
+      end_offset: 861
+    - quote: + Automated Postgres deployments on AWS EC2 with Terraform and Ansible.
+      start_offset: 4249
+      end_offset: 4320
+    - quote: '+ Supported daily administration, monitoring, tuning, and troubleshooting of clusters on Linux and
+        AWS Console (Database sizes
+
+        range from 100GB to 2TB).'
+      start_offset: 4322
+      end_offset: 4474
+    note: Bash, Linux and AWS EC2 are explicit; Docker is not mentioned.
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: Database Administrator, 01/2020 to Current
+      start_offset: 1067
+      end_offset: 1109
+    - quote: ORACLE / POSTGRESQL DBA, 11/2015 to 12/2019
+      start_offset: 1614
+      end_offset: 1657
+    note: Dated work history lists database administration rather than backend software engineering; v1.1 irrelevant-experience
+      rule applies.
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: + Evaluated database design and integration of systems, and made recommendations regarding enhancements
+        or improvements.
+      start_offset: 3696
+      end_offset: 3816
+    note: Database design advice is related, but modular software design patterns and teaching architecture are
+      not established.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: '+ Provided appropriate interfacing, consulting, and standards associated to database management, and
+        monitored transaction
+
+        activity and utilization.'
+      start_offset: 4878
+      end_offset: 5026
+    note: Consulting is explicit, but non-technical explanations of complex ideas are not demonstrated.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Bachelor of Science: Business Administration, 05/2015'
+      start_offset: 6951
+      end_offset: 7004
+    - quote: 'Associate of Arts: General Studies, 04/2010'
+      start_offset: 7043
+      end_offset: 7086
+    note: Stated degrees do not match CS or equivalent software engineering training; v1.1 applies.

@@ -1,0 +1,70 @@
+cv_sheet_id: hr-h1
+text_sha256: bd29635ff765a7ceeb31a29754c3cc69bfa208dc125e0209a396b3808133402a
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: Python and web frameworks are not mentioned.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: PostgreSQL and database tuning are not mentioned.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: Docker, AWS, Linux and Bash are not mentioned.
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: 'Sierra Pacific Industries - Human Resources
+
+
+        Sonora, CA +« 03/2022 - Current'
+      start_offset: 1318
+      end_offset: 1394
+    - quote: 'Spectrum Brands Inc. - Director of Operations Human Resources
+
+        Paramount, CA + 12/2003 - Current'
+      start_offset: 2453
+      end_offset: 2548
+    - quote: 'Easter Seals Midwest - Talent Acquisition Specialist
+
+        Saint Joseph, MO + 01/2013 - 01/2016'
+      start_offset: 4005
+      end_offset: 4094
+    - quote: 'Fitness International LLC - HR Generalist
+
+        City, STATE + 01/2011 - 01/2013'
+      start_offset: 4982
+      end_offset: 5055
+    note: Dated history lists HR/operations roles and no backend engineering; apply v1.1. Overlapping HR dates do
+      not establish relevant backend work.
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: Software architecture and design patterns are not mentioned.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: '+ Liaised between management and employees to deliver conflict resolution, alleviate problems and
+
+        interpret compensation and benefits policies.'
+      start_offset: 5289
+      end_offset: 5432
+    note: Explaining policies to employees supports transferable communication, but complex technical/software explanations
+      are not established.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Bachelors degree: Technical
+
+        Management, Bio-medical
+
+        Engineering'
+      start_offset: 613
+      end_offset: 676
+    note: Stated degree does not match CS; equivalent software engineering training is not stated, so v1.1 applies.

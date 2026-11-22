@@ -1,0 +1,88 @@
+cv_sheet_id: python_dev-h2
+text_sha256: f57c4afb2f55df979951bdd2308b2caecf0714799fdbd7f2ddb4938babeedc57
+jd_id: jd-py-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: strong
+    evidence:
+    - quote: '¢ Built plugins using flask which connects the database of resumes and data of job descriptions to
+        use
+
+        with the applications.'
+      start_offset: 3770
+      end_offset: 3895
+    - quote: '¢ Built a basic UI for resume suggestion tool using Flask and integrated all the plugins for easy
+        on non
+
+        commercial use, which in turn increase the productivity of the recruitment team.'
+      start_offset: 3897
+      end_offset: 4082
+    note: Concrete ownership of a Flask application integrating resume/job data, with a stated recruitment productivity
+      outcome.
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: '¢ Responsible for implementing low latency SQL which does not overload the production databases as
+
+        the load will be huge.'
+      start_offset: 1547
+      end_offset: 1668
+    note: SQL optimization is relevant but PostgreSQL-specific experience is not stated.
+  cloud_docker_linux:
+    level: partial
+    evidence:
+    - quote: 'Environment : Python 3.6, SQL, Jenkins (CI/CD). AWS, Linux, SQLdeveloper, Java.'
+      start_offset: 1930
+      end_offset: 2009
+    - quote: AWS Solutions Architect ( Associate Level)
+      start_offset: 5597
+      end_offset: 5639
+    note: AWS/Linux and certification are explicit; Bash, Docker and named AWS services are not established.
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: Around 4 years total IT experience as a Python Developer and Machine learning Engineer.
+      start_offset: 178
+      end_offset: 265
+    - quote: PYTHON DEVELOPER 12/2020 to CURRENT
+      start_offset: 818
+      end_offset: 853
+    - quote: MAGHINE LEARNING ENGINEER 05/2017 to 11/2019
+      start_offset: 2011
+      end_offset: 2055
+    note: Relevant application work is present but seven years full-time backend work is not demonstrated; undated
+      CURRENT is not extended automatically to labeling date.
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: '¢ Built plugins using flask which connects the database of resumes and data of job descriptions to
+        use
+
+        with the applications.'
+      start_offset: 3770
+      end_offset: 3895
+    note: Application composition is relevant; design patterns and teaching architectural solutions are not demonstrated.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: 'e Responsible for answering business in situations like over charge, promo not applied errors, on
+        the
+
+        development team.'
+      start_offset: 1670
+      end_offset: 1789
+    note: Communication with business is explicit, but explaining complex technical ideas clearly is not demonstrated.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: Master of Science | Computer Information Technology 2016
+      start_offset: 5408
+      end_offset: 5464
+    - quote: Ba nelor of Science | Electrical And Electronics Engineering 2014
+      start_offset: 5493
+      end_offset: 5558
+    note: Stated degrees are in IT/IT management and electrical/electronics engineering, not CS; equivalent training
+      in software engineering principles is not established. Apply v1.1 non-matching-degree rule.

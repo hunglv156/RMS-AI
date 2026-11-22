@@ -1,0 +1,80 @@
+cv_sheet_id: python_dev-h1
+text_sha256: d88bc77d615cc7150804a3b8f4395623739516296ee922e1329840046f0bc6b4
+jd_id: jd-hr-real
+labeler: llm-gpt
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: PY THON DEVELOPER 10/2021 to CURRENT
+      start_offset: 1252
+      end_offset: 1288
+    - quote: IB) CLOUD DEVELOPER-PY THON 07/2020 to 04/2021
+      start_offset: 2004
+      end_offset: 2050
+    - quote: C/O+H+/PY THON DEVELOPER 10/2012 to 07/2020
+      start_offset: 2551
+      end_offset: 2594
+    note: Dated work history is software development; no HR role is listed (v1.1).
+  talent_acquisition:
+    level: absent
+    evidence:
+    - quote: PY THON DEVELOPER 10/2021 to CURRENT
+      start_offset: 1252
+      end_offset: 1288
+    - quote: IB) CLOUD DEVELOPER-PY THON 07/2020 to 04/2021
+      start_offset: 2004
+      end_offset: 2050
+    - quote: C/O+H+/PY THON DEVELOPER 10/2012 to 07/2020
+      start_offset: 2551
+      end_offset: 2594
+    note: No recruitment role or recruitment responsibilities in the dated work history (v1.1 experience
+      rule); employer name Motion Recruitment is not recruiting experience.
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: Employee relations, performance management and employment law are not mentioned.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: Microsoft Office and HRIS/recruiting technology are not mentioned.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: 'effective in working independently and collaboratively in a team with excellent
+
+        communication and writing skill'
+      start_offset: 719
+      end_offset: 830
+    - quote: Discuss the solution with the customer and create draft design document.
+      start_offset: 2847
+      end_offset: 2919
+    note: Communication and customer discussion are explicit; no evidence of handling confidential personnel
+      matters or quantified communication outcomes.
+  education_hr_business:
+    level: absent
+    evidence:
+    - quote: Master of Technology | Software Engineering 2016
+      start_offset: 5604
+      end_offset: 5652
+    - quote: BzChelor of Science | Electronics 2072
+      start_offset: 5678
+      end_offset: 5716
+    note: Stated degree fields are software engineering and electronics, not HR/business or a related
+      field; OCR year is not used.
+  hr_programs:
+    level: absent
+    evidence:
+    - quote: PY THON DEVELOPER 10/2021 to CURRENT
+      start_offset: 1252
+      end_offset: 1288
+    - quote: IB) CLOUD DEVELOPER-PY THON 07/2020 to 04/2021
+      start_offset: 2004
+      end_offset: 2050
+    - quote: C/O+H+/PY THON DEVELOPER 10/2012 to 07/2020
+      start_offset: 2551
+      end_offset: 2594
+    note: Dated roles concern software projects, not HR programs (v1.1); training new developers alone
+      does not establish development or coordination of an HR program.
