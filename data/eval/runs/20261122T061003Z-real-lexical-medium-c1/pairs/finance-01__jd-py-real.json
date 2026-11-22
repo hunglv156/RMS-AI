@@ -1,0 +1,412 @@
+{
+  "sheet_id": "finance-01",
+  "jd_id": "jd-py-real",
+  "expected_group": "none",
+  "source_pdf_sha256": "91f76edb62f5ec5f51a483922362ef165ec75baa10b55683993fa6afac7da713",
+  "text_content_sha256": "9f6f508056d7acd852b3cef021069121e3a94f8de1d53088af095a1efb1b9d94",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-py-real",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "python_frameworks",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention Python, Django, Flask, or any software programming frameworks.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with Python programming",
+            "Experience with web frameworks such as Django or Flask",
+            "Experience with complex data processing tasks"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "python_frameworks",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "postgresql_database",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "There is no mention of PostgreSQL, database tuning, SQL queries, or stored procedures in the CV.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with PostgreSQL",
+            "Experience with query optimization, joins, and performance tuning",
+            "Experience with stored procedures"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "postgresql_database",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "cloud_docker_linux",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The candidate does not mention Docker, Linux, Bash scripting, or AWS services.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with Linux and Bash scripting",
+            "Experience with Docker containers",
+            "Experience with AWS services (EC2, RDS, CloudFront)"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "cloud_docker_linux",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "backend_experience",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The candidate has experience in finance and administration management, with no professional backend software engineering experience mentioned.",
+          "evidence": [],
+          "missing_information": [
+            "At least seven years of full-time professional experience as a backend software engineer"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "backend_experience",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "software_architecture",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV contains no information regarding software architecture, design patterns, or teaching architectural problem-solving.",
+          "evidence": [],
+          "missing_information": [
+            "Application of software design patterns",
+            "Experience creating modular and efficient software",
+            "Experience mentoring or teaching others on architectural problems"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "software_architecture",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication_collaboration",
+          "level": "partial",
+          "confidence": 0.6,
+          "reason": "The candidate notes articulate communication and interpersonal skills across diverse backgrounds, but there is no specific evidence of explaining technical or complex engineering concepts to non-technical stakeholders.",
+          "evidence": [
+            {
+              "quote": "Equipped with\narticulate communication and interpersonal skills in building positive work relationships with individuals of diverse\nsociocultural backgrounds",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Demonstrated ability to explain complex technical ideas clearly to non-technical colleagues"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Equipped with\narticulate communication and interpersonal skills in building positive work relationships with individuals of diverse\nsociocultural backgrounds",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 499,
+              "end_offset": 656,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication_collaboration",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education_cs",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not include an education section or mention any degree in Computer Science or software engineering training.",
+          "evidence": [],
+          "missing_information": [
+            "Bachelor's degree in Computer Science or equivalent training in software engineering principles"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "education_cs",
+          "weight": 5.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.1,
+      "lower_bound": 4.0,
+      "upper_bound": 94.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-medium",
+      "temperature": 0.0,
+      "started_at": "2026-11-22T06:55:50.178146+00:00",
+      "latency_ms": 18648.28758398653,
+      "input_tokens": 4890,
+      "output_tokens": 803,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-medium",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "python_frameworks": [],
+          "postgresql_database": [
+            {
+              "chunk_index": 1,
+              "score": 0.862091456137966,
+              "lexical_score": 0.862091456137966,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.8468676297762635,
+              "lexical_score": 0.8468676297762635,
+              "dense_score": null
+            }
+          ],
+          "cloud_docker_linux": [],
+          "backend_experience": [
+            {
+              "chunk_index": 1,
+              "score": 3.089294507266656,
+              "lexical_score": 3.089294507266656,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.8468676297762635,
+              "lexical_score": 0.8468676297762635,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.8468676297762635,
+              "lexical_score": 0.8468676297762635,
+              "dense_score": null
+            }
+          ],
+          "software_architecture": [
+            {
+              "chunk_index": 1,
+              "score": 1.3651115949907242,
+              "lexical_score": 1.3651115949907242,
+              "dense_score": null
+            }
+          ],
+          "communication_collaboration": [
+            {
+              "chunk_index": 0,
+              "score": 1.3410048465262554,
+              "lexical_score": 1.3410048465262554,
+              "dense_score": null
+            }
+          ],
+          "education_cs": [
+            {
+              "chunk_index": 1,
+              "score": 2.22720305112869,
+              "lexical_score": 2.22720305112869,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 4,
+              "score": 1.3501402596870968,
+              "lexical_score": 1.3501402596870968,
+              "dense_score": null
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 793,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 693,
+            "end_offset": 1459,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1359,
+            "end_offset": 2115,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 3,
+            "start_offset": 2015,
+            "end_offset": 2803,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 4,
+            "start_offset": 2703,
+            "end_offset": 3247,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "9f6f508056d7acd852b3cef021069121e3a94f8de1d53088af095a1efb1b9d94",
+      "jd_sha256": "6ad85bef9f5c74b0ad16d8e02ade393cb543209f127eb3627955593a2feff9c5"
+    }
+  },
+  "prompt_char_length": 6490,
+  "context_char_length": 2661,
+  "input_tokens": 4890,
+  "output_tokens": 803,
+  "reasoning_tokens": null,
+  "latency_s": 18.650229584018234,
+  "finished_at": "2026-11-22T06:56:08.826949+00:00"
+}

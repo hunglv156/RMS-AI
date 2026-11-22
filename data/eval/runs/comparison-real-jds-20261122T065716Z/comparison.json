@@ -1,0 +1,448 @@
+{
+  "interpretation": "Diagnostics only, not accuracy: no human labels are used. Coverage, quote verification, agreement and known-only scores do not establish correctness.",
+  "baseline": "20261122T054842Z-real-lexical-high-c1",
+  "runs": [
+    {
+      "run": "20261122T054842Z-real-lexical-high-c1",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m4-real-runs/data/eval/runs/20261122T054842Z-real-lexical-high-c1",
+      "requested_model": "ag/gemini-3.8-flash-high",
+      "concurrency": [
+        1
+      ],
+      "pair_count": 20,
+      "succeeded": 20,
+      "latency_s": {
+        "population": "successful pairs; excludes queue and persistence time",
+        "percentile_method": "linear interpolation at (n - 1) * quantile",
+        "p50": 61.4886172710103,
+        "p95": 103.7904745389591,
+        "max": 109.10302174999379,
+        "within_40_s": 2
+      },
+      "tokens": {
+        "input": 199625,
+        "output": 21152,
+        "total": 220777,
+        "missing_usage_pairs": 0,
+        "scope": "successful calls only; failed/retried call usage may be unreported",
+        "reasoning": null,
+        "missing_reasoning_pairs": 20
+      },
+      "context_chars": {
+        "mean": 5462.35,
+        "available_pairs": 20,
+        "measured_pairs": 20,
+        "reconstructed_full_pairs": 0,
+        "reduction_vs_baseline": 0.0,
+        "definition": "Unicode characters in cv_context sent to the LLM; historical full input recovered only when source content hash matches"
+      },
+      "prompt_chars": {
+        "mean": 9623.9,
+        "min": 5554,
+        "max": 14396,
+        "measured_pairs": 20,
+        "definition": "pipeline system + user characters; excludes provider-added schema/formatting"
+      },
+      "quote_verification": {
+        "valid": 147,
+        "total": 156,
+        "rate": 0.9423076923076923
+      },
+      "mean_coverage": 0.375,
+      "versus_baseline": {
+        "pairs": [
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": null
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": null
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          }
+        ],
+        "score_state_agreement": {
+          "count": 20,
+          "compared": 20,
+          "rate": 1
+        },
+        "known_only_score": {
+          "both_known_pairs": 18,
+          "mean_absolute_difference": 0.0
+        }
+      }
+    },
+    {
+      "run": "20261122T061003Z-real-lexical-medium-c1",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m4-real-runs/data/eval/runs/20261122T061003Z-real-lexical-medium-c1",
+      "requested_model": "ag/gemini-3.8-flash-medium",
+      "concurrency": [
+        1
+      ],
+      "pair_count": 20,
+      "succeeded": 20,
+      "latency_s": {
+        "population": "successful pairs; excludes queue and persistence time",
+        "percentile_method": "linear interpolation at (n - 1) * quantile",
+        "p50": 43.28745025000535,
+        "p95": 99.1036609080199,
+        "max": 225.1873322080064,
+        "within_40_s": 10
+      },
+      "tokens": {
+        "input": 118690,
+        "output": 19695,
+        "total": 138385,
+        "missing_usage_pairs": 0,
+        "scope": "successful calls only; failed/retried call usage may be unreported",
+        "reasoning": null,
+        "missing_reasoning_pairs": 20
+      },
+      "context_chars": {
+        "mean": 5462.35,
+        "available_pairs": 20,
+        "measured_pairs": 20,
+        "reconstructed_full_pairs": 0,
+        "reduction_vs_baseline": 0.0,
+        "definition": "Unicode characters in cv_context sent to the LLM; historical full input recovered only when source content hash matches"
+      },
+      "prompt_chars": {
+        "mean": 9623.9,
+        "min": 5554,
+        "max": 14396,
+        "measured_pairs": 20,
+        "definition": "pipeline system + user characters; excludes provider-added schema/formatting"
+      },
+      "quote_verification": {
+        "valid": 119,
+        "total": 141,
+        "rate": 0.8439716312056738
+      },
+      "mean_coverage": 0.325,
+      "versus_baseline": {
+        "pairs": [
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": -0.14999999999999997,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 6.43
+          },
+          {
+            "sheet_id": "database-01",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 10.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "designer-01",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": null
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "devops-01",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 18.75
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": -0.4,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "finance-01",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 5.0
+          },
+          {
+            "sheet_id": "hr-01",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 7.5
+          },
+          {
+            "sheet_id": "hr-02",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "hr-03",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": null
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": -0.1,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-01",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 5.0
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": -0.25,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 7.140000000000001
+          },
+          {
+            "sheet_id": "python_dev-02",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-hr-real",
+            "both_succeeded": true,
+            "coverage_delta": -0.1,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 0.0
+          },
+          {
+            "sheet_id": "python_dev-03",
+            "jd_id": "jd-py-real",
+            "both_succeeded": true,
+            "coverage_delta": 0.0,
+            "score_state_agrees": true,
+            "known_only_score_absolute_difference": 18.46
+          }
+        ],
+        "score_state_agreement": {
+          "count": 20,
+          "compared": 20,
+          "rate": 1
+        },
+        "known_only_score": {
+          "both_known_pairs": 18,
+          "mean_absolute_difference": 4.348888888888889
+        }
+      }
+    }
+  ]
+}

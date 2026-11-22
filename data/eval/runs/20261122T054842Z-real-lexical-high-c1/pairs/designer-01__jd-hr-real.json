@@ -1,0 +1,382 @@
+{
+  "sheet_id": "designer-01",
+  "jd_id": "jd-hr-real",
+  "expected_group": "none",
+  "source_pdf_sha256": "37e62d338121af5abe474fbdc504cf82752fcdf3837cf840580016c47b1e08b3",
+  "text_content_sha256": "03994ced08c80bf19f8d537d2287192b7cd96c7f89378274f7cc61e5b35bdaac",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-hr-real",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV details a background in interior design, sales, and merchandising, with no mention of HR experience or HR activities.",
+          "evidence": [],
+          "missing_information": [
+            "3+ years of progressive HR experience",
+            "Experience supporting multiple business functions and managing HR activities"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "talent_acquisition",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention any experience in recruitment, talent acquisition, or partnering with hiring managers.",
+          "evidence": [],
+          "missing_information": [
+            "Experience in recruitment and talent acquisition",
+            "Experience partnering with hiring managers and managing open positions"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "talent_acquisition",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "employee_relations_compliance",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention knowledge or experience in employee relations, performance management, or employment laws and regulations.",
+          "evidence": [],
+          "missing_information": [
+            "Understanding of HR practices and employee relations",
+            "Experience with performance management and employment laws/regulations"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employee_relations_compliance",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hris_office_tools",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV lists design software (CAD, Sketchup Pro) but does not mention Microsoft Office applications (Excel, Word, PowerPoint) or HRIS/recruiting technology.",
+          "evidence": [],
+          "missing_information": [
+            "Proficiency with Microsoft Office applications (Excel, Word, PowerPoint)",
+            "Experience working with HR information systems and recruiting technology"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hris_office_tools",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "interpersonal_communication",
+          "level": "partial",
+          "confidence": 0.7,
+          "reason": "The candidate demonstrates client relationship-building and customer service experience, but there is no evidence of communicating across all levels of an organization or handling confidential and sensitive matters.",
+          "evidence": [
+            {
+              "quote": "Additionally I have 15 years of customer service\n\nexperience.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Developed client relationships effectively closing sales.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Ability to communicate effectively across all levels of an organization",
+            "Experience handling confidential and sensitive matters with discretion"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Additionally I have 15 years of customer service\n\nexperience.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 336,
+              "end_offset": 397,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Developed client relationships effectively closing sales.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 756,
+              "end_offset": 813,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "interpersonal_communication",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education_hr_business",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV lists an Associate of Arts in Interior Design, but does not state whether the candidate holds a Bachelor's degree in human resources, business administration, or a related field.",
+          "evidence": [],
+          "missing_information": [
+            "Bachelor’s degree in human resources, business administration, or a related field"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "education_hr_business",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_programs",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV contains no mention of developing, coordinating, or managing HR programs or early-career talent programs.",
+          "evidence": [],
+          "missing_information": [
+            "Experience developing, coordinating, or managing HR programs and initiatives",
+            "Experience establishing an internship or early-career talent program"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_programs",
+          "weight": 5.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.1,
+      "lower_bound": 4.0,
+      "upper_bound": 94.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-22T06:08:47.072844+00:00",
+      "latency_ms": 68949.2006659857,
+      "input_tokens": 6427,
+      "output_tokens": 856,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "hr_experience": [
+            {
+              "chunk_index": 0,
+              "score": 0.7646884444077443,
+              "lexical_score": 0.7646884444077443,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.4585011610928827,
+              "lexical_score": 0.4585011610928827,
+              "dense_score": null
+            }
+          ],
+          "talent_acquisition": [],
+          "employee_relations_compliance": [],
+          "hris_office_tools": [],
+          "interpersonal_communication": [
+            {
+              "chunk_index": 2,
+              "score": 1.0535104626286134,
+              "lexical_score": 1.0535104626286134,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.9568252740121193,
+              "lexical_score": 0.9568252740121193,
+              "dense_score": null
+            }
+          ],
+          "education_hr_business": [],
+          "hr_programs": []
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 756,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 656,
+            "end_offset": 1438,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1338,
+            "end_offset": 1915,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "03994ced08c80bf19f8d537d2287192b7cd96c7f89378274f7cc61e5b35bdaac",
+      "jd_sha256": "9aec489388f724515e4a6589cb1bb7d44937611d1bc3ee4efec3532f6e15902f"
+    }
+  },
+  "prompt_char_length": 6226,
+  "context_char_length": 1915,
+  "input_tokens": 6427,
+  "output_tokens": 856,
+  "reasoning_tokens": null,
+  "latency_s": 68.95096375001594,
+  "finished_at": "2026-11-22T06:09:56.023147+00:00"
+}

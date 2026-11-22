@@ -1,0 +1,369 @@
+{
+  "sheet_id": "python_dev-03",
+  "jd_id": "jd-hr-real",
+  "expected_group": "match_A",
+  "source_pdf_sha256": "27c4ddafa0d9a33b728a84b0c45ad467b431c928c006299b514cfe21305f7e77",
+  "text_content_sha256": "6a69157cc5ee2fe5201b0081aad815965eae7eb00d341ac6d2fc88921f7f497b",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-hr-real",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The candidate's CV reflects a background in Python programming and retail support, with no mention of progressive HR experience or supporting business functions in an HR capacity.",
+          "evidence": [],
+          "missing_information": [
+            "3+ years of progressive HR experience",
+            "Experience supporting multiple business functions",
+            "Experience managing a range of HR activities"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "talent_acquisition",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention any recruitment or talent acquisition experience, partnering with hiring managers, or managing job openings.",
+          "evidence": [],
+          "missing_information": [
+            "Demonstrated recruitment and talent acquisition experience",
+            "Experience partnering with hiring managers",
+            "Experience managing open positions"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "talent_acquisition",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "employee_relations_compliance",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "There is no mention of employee relations, HR practices, performance management, or employment laws and regulations in the CV.",
+          "evidence": [],
+          "missing_information": [
+            "Knowledge of HR practices",
+            "Experience with employee relations and performance management",
+            "Knowledge of applicable employment laws and regulations"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employee_relations_compliance",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hris_office_tools",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not list proficiency in Microsoft Office applications (Excel, Word, PowerPoint) or any experience with HRIS or recruiting technologies.",
+          "evidence": [],
+          "missing_information": [
+            "Proficiency with Microsoft Office (Excel, Word, PowerPoint)",
+            "Experience working with HR information systems (HRIS)",
+            "Experience with recruiting technology"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hris_office_tools",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "interpersonal_communication",
+          "level": "partial",
+          "confidence": 0.7,
+          "reason": "The CV demonstrates public speaking and presentation skills, but lacks evidence of relationship-building across organizational levels or handling confidential and sensitive matters.",
+          "evidence": [
+            {
+              "quote": "Speak at conferences and make presentations regarding Python as well as its\napplications and features Act as guest speaker in college programs to educate students on\nprogramming options",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Demonstrated ability to handle confidential and sensitive matters with discretion and sound judgment",
+            "Experience communicating and building relationships across all levels of an organization"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Speak at conferences and make presentations regarding Python as well as its\napplications and features Act as guest speaker in college programs to educate students on\nprogramming options",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 712,
+              "end_offset": 897,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "interpersonal_communication",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education_hr_business",
+          "level": "unknown",
+          "confidence": 0.9,
+          "reason": "The candidate holds a Bachelor's Degree in Computer Science, but there is no mention of a degree in human resources, business administration, or a related field.",
+          "evidence": [],
+          "missing_information": [
+            "Bachelor's degree in human resources, business administration, or a related field"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "education_hr_business",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_programs",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention developing, coordinating, or managing HR programs, initiatives, or internship programs.",
+          "evidence": [],
+          "missing_information": [
+            "Experience developing, coordinating, or managing HR programs and initiatives",
+            "Experience establishing an internship or early-career talent program"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_programs",
+          "weight": 5.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.1,
+      "lower_bound": 4.0,
+      "upper_bound": 94.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-medium",
+      "temperature": 0.0,
+      "started_at": "2026-11-22T06:13:17.658776+00:00",
+      "latency_ms": 47184.439917007694,
+      "input_tokens": 4890,
+      "output_tokens": 878,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-medium",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "hr_experience": [
+            {
+              "chunk_index": 0,
+              "score": 1.108427276728101,
+              "lexical_score": 1.108427276728101,
+              "dense_score": null
+            }
+          ],
+          "talent_acquisition": [],
+          "employee_relations_compliance": [
+            {
+              "chunk_index": 2,
+              "score": 1.3174746701914637,
+              "lexical_score": 1.3174746701914637,
+              "dense_score": null
+            }
+          ],
+          "hris_office_tools": [],
+          "interpersonal_communication": [],
+          "education_hr_business": [
+            {
+              "chunk_index": 2,
+              "score": 2.7021243702832396,
+              "lexical_score": 2.7021243702832396,
+              "dense_score": null
+            }
+          ],
+          "hr_programs": [
+            {
+              "chunk_index": 1,
+              "score": 0.9558222748896145,
+              "lexical_score": 0.9558222748896145,
+              "dense_score": null
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 510,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 410,
+            "end_offset": 1050,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 950,
+            "end_offset": 1731,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "6a69157cc5ee2fe5201b0081aad815965eae7eb00d341ac6d2fc88921f7f497b",
+      "jd_sha256": "9aec489388f724515e4a6589cb1bb7d44937611d1bc3ee4efec3532f6e15902f"
+    }
+  },
+  "prompt_char_length": 6041,
+  "context_char_length": 1731,
+  "input_tokens": 4890,
+  "output_tokens": 878,
+  "reasoning_tokens": null,
+  "latency_s": 47.18608795799082,
+  "finished_at": "2026-11-22T06:14:04.843925+00:00"
+}
