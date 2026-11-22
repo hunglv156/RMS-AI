@@ -1,0 +1,1026 @@
+{
+  "seed": 20261122,
+  "resamples": 2000,
+  "runs": {
+    "20261122T164305Z-heldout-final-flashlow-v2-hedge20-esc-argonmedium": {
+      "operational": {
+        "pairs": 20,
+        "succeeded": 20,
+        "success_95_ci": {
+          "low": 0.8388748419471806,
+          "high": 1
+        },
+        "p50": 21.446964291491895,
+        "p95": 93.9940474038609,
+        "max": 107.47268912498839,
+        "within_40_s": 11,
+        "p50_95_ci": {
+          "low": 17.112157625015243,
+          "high": 75.0791565420077
+        },
+        "p95_95_ci": {
+          "low": 83.35774166701594,
+          "high": 107.47268912498839
+        },
+        "max_95_ci": {
+          "low": 84.89064516700455,
+          "high": 107.47268912498839
+        },
+        "within_40_s_95_ci": {
+          "low": 7.0,
+          "high": 15.0
+        },
+        "escalations": 8,
+        "escalations_95_ci": {
+          "low": 4.0,
+          "high": 12.0
+        },
+        "reasons": {
+          "needs_review": {
+            "count": 2,
+            "ci": {
+              "low": 0.0,
+              "high": 5.0
+            }
+          },
+          "coverage_band": {
+            "count": 6,
+            "ci": {
+              "low": 2.0,
+              "high": 10.0
+            }
+          }
+        },
+        "escalation_errors": [],
+        "per_pair": [
+          {
+            "pair": "database-h1__jd-hr-real",
+            "status": "succeeded",
+            "latency_s": 107.47268912498839,
+            "escalation": {
+              "triggered": false,
+              "reasons": [],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.5,
+                  "lower_bound": 7.0,
+                  "upper_bound": 57.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:52:27.987315+00:00",
+                  "latency_ms": 107470.06845800206,
+                  "input_tokens": 5047,
+                  "output_tokens": 553,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": true,
+                  "winner": "hedge"
+                },
+                "levels": {
+                  "hr_experience": "absent",
+                  "talent_acquisition": "absent",
+                  "employee_relations_compliance": "unknown",
+                  "hris_office_tools": "unknown",
+                  "interpersonal_communication": "unknown",
+                  "education_hr_business": "adequate",
+                  "hr_programs": "unknown"
+                }
+              },
+              "primary_latency_s": 107.47214662499027,
+              "escalation_latency_s": 0.0,
+              "total_latency_s": 107.47214662499027,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "database-h1__jd-py-real",
+            "status": "succeeded",
+            "latency_s": 74.11951354201301,
+            "escalation": {
+              "triggered": false,
+              "reasons": [],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.55,
+                  "lower_bound": 26.0,
+                  "upper_bound": 71.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:51:13.864789+00:00",
+                  "latency_ms": 74115.25783399702,
+                  "input_tokens": 5204,
+                  "output_tokens": 551,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": true,
+                  "winner": "hedge"
+                },
+                "levels": {
+                  "python_frameworks": "unknown",
+                  "postgresql_database": "strong",
+                  "cloud_docker_linux": "partial",
+                  "backend_experience": "absent",
+                  "software_architecture": "unknown",
+                  "communication_collaboration": "unknown",
+                  "education_cs": "absent"
+                }
+              },
+              "primary_latency_s": 74.11817020800663,
+              "escalation_latency_s": 0.0,
+              "total_latency_s": 74.11817020800663,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "designer-h1__jd-hr-real",
+            "status": "succeeded",
+            "latency_s": 8.1486210830044,
+            "escalation": {
+              "triggered": false,
+              "reasons": [],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.6,
+                  "lower_bound": 37.0,
+                  "upper_bound": 77.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:58:03.277190+00:00",
+                  "latency_ms": 8145.942417002516,
+                  "input_tokens": 4852,
+                  "output_tokens": 755,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": false,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "hr_experience": "absent",
+                  "talent_acquisition": "strong",
+                  "employee_relations_compliance": "unknown",
+                  "hris_office_tools": "unknown",
+                  "interpersonal_communication": "adequate",
+                  "education_hr_business": "strong",
+                  "hr_programs": "unknown"
+                }
+              },
+              "primary_latency_s": 8.14805812499253,
+              "escalation_latency_s": 0.0,
+              "total_latency_s": 8.14805812499253,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "designer-h1__jd-py-real",
+            "status": "succeeded",
+            "latency_s": 6.7448100420006085,
+            "escalation": {
+              "triggered": false,
+              "reasons": [],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.3,
+                  "lower_bound": 4.0,
+                  "upper_bound": 74.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:57:56.530341+00:00",
+                  "latency_ms": 6741.512166016037,
+                  "input_tokens": 4610,
+                  "output_tokens": 615,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": false,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "python_frameworks": "unknown",
+                  "postgresql_database": "unknown",
+                  "cloud_docker_linux": "unknown",
+                  "backend_experience": "absent",
+                  "software_architecture": "unknown",
+                  "communication_collaboration": "partial",
+                  "education_cs": "absent"
+                }
+              },
+              "primary_latency_s": 6.74399791599717,
+              "escalation_latency_s": 0.0,
+              "total_latency_s": 6.74399791599717,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "devops-h1__jd-hr-real",
+            "status": "succeeded",
+            "latency_s": 83.35774166701594,
+            "escalation": {
+              "triggered": false,
+              "reasons": [],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.45,
+                  "lower_bound": 0.0,
+                  "upper_bound": 55.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:49:50.502183+00:00",
+                  "latency_ms": 83354.71058398252,
+                  "input_tokens": 4068,
+                  "output_tokens": 660,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": true,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "hr_experience": "absent",
+                  "talent_acquisition": "absent",
+                  "employee_relations_compliance": "unknown",
+                  "hris_office_tools": "unknown",
+                  "interpersonal_communication": "unknown",
+                  "education_hr_business": "unknown",
+                  "hr_programs": "absent"
+                }
+              },
+              "primary_latency_s": 83.35688800000935,
+              "escalation_latency_s": 0.0,
+              "total_latency_s": 83.35688800000935,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "devops-h1__jd-py-real",
+            "status": "succeeded",
+            "latency_s": 93.28464520801208,
+            "escalation": {
+              "triggered": true,
+              "reasons": [
+                "needs_review"
+              ],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.3,
+                  "lower_bound": 14.5,
+                  "upper_bound": 84.5,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:48:17.213484+00:00",
+                  "latency_ms": 81852.90462500416,
+                  "input_tokens": 4223,
+                  "output_tokens": 658,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": true,
+                  "winner": "hedge"
+                },
+                "levels": {
+                  "python_frameworks": "unknown",
+                  "postgresql_database": "unknown",
+                  "cloud_docker_linux": "needs_review",
+                  "backend_experience": "adequate",
+                  "software_architecture": "unknown",
+                  "communication_collaboration": "partial",
+                  "education_cs": "absent"
+                }
+              },
+              "primary_latency_s": 81.85398979100864,
+              "escalation_latency_s": 11.425568332982948,
+              "total_latency_s": 93.27955812399159,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "finance-h1__jd-hr-real",
+            "status": "succeeded",
+            "latency_s": 19.387080209009582,
+            "escalation": {
+              "triggered": true,
+              "reasons": [
+                "coverage_band"
+              ],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.75,
+                  "lower_bound": 20.0,
+                  "upper_bound": 45.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:57:37.140814+00:00",
+                  "latency_ms": 6770.252666989109,
+                  "input_tokens": 4080,
+                  "output_tokens": 654,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": false,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "hr_experience": "absent",
+                  "talent_acquisition": "absent",
+                  "employee_relations_compliance": "unknown",
+                  "hris_office_tools": "partial",
+                  "interpersonal_communication": "adequate",
+                  "education_hr_business": "adequate",
+                  "hr_programs": "unknown"
+                }
+              },
+              "primary_latency_s": 6.771709125023335,
+              "escalation_latency_s": 12.614924291992793,
+              "total_latency_s": 19.386633417016128,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "finance-h1__jd-py-real",
+            "status": "succeeded",
+            "latency_s": 4.923214042006293,
+            "escalation": {
+              "triggered": false,
+              "reasons": [],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.3,
+                  "lower_bound": 7.0,
+                  "upper_bound": 77.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:57:32.215052+00:00",
+                  "latency_ms": 4920.91304200585,
+                  "input_tokens": 3991,
+                  "output_tokens": 477,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": false,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "python_frameworks": "unknown",
+                  "postgresql_database": "unknown",
+                  "cloud_docker_linux": "unknown",
+                  "backend_experience": "absent",
+                  "software_architecture": "unknown",
+                  "communication_collaboration": "adequate",
+                  "education_cs": "absent"
+                }
+              },
+              "primary_latency_s": 4.922470666002482,
+              "escalation_latency_s": 0.0,
+              "total_latency_s": 4.922470666002482,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "hr-h1__jd-hr-real",
+            "status": "succeeded",
+            "latency_s": 69.37423241601209,
+            "escalation": {
+              "triggered": false,
+              "reasons": [],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "scored",
+                  "observed_score": 77.5,
+                  "coverage": 1.0,
+                  "lower_bound": 77.5,
+                  "upper_bound": 77.5,
+                  "requires_manual_review": false
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:55:28.200301+00:00",
+                  "latency_ms": 69367.47137497878,
+                  "input_tokens": 4934,
+                  "output_tokens": 673,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": true,
+                  "winner": "hedge"
+                },
+                "levels": {
+                  "hr_experience": "strong",
+                  "talent_acquisition": "strong",
+                  "employee_relations_compliance": "adequate",
+                  "hris_office_tools": "adequate",
+                  "interpersonal_communication": "adequate",
+                  "education_hr_business": "partial",
+                  "hr_programs": "partial"
+                }
+              },
+              "primary_latency_s": 69.37028666699189,
+              "escalation_latency_s": 0.0,
+              "total_latency_s": 69.37028666699189,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "hr-h1__jd-py-real",
+            "status": "succeeded",
+            "latency_s": 72.73357916600071,
+            "escalation": {
+              "triggered": false,
+              "reasons": [],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.3,
+                  "lower_bound": 4.0,
+                  "upper_bound": 74.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:54:15.462699+00:00",
+                  "latency_ms": 72731.06312498567,
+                  "input_tokens": 4478,
+                  "output_tokens": 603,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": true,
+                  "winner": "hedge"
+                },
+                "levels": {
+                  "python_frameworks": "unknown",
+                  "postgresql_database": "unknown",
+                  "cloud_docker_linux": "unknown",
+                  "backend_experience": "absent",
+                  "software_architecture": "unknown",
+                  "communication_collaboration": "partial",
+                  "education_cs": "absent"
+                }
+              },
+              "primary_latency_s": 72.73252183300792,
+              "escalation_latency_s": 0.0,
+              "total_latency_s": 72.73252183300792,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "hr-h2__jd-hr-real",
+            "status": "succeeded",
+            "latency_s": 20.981799625005806,
+            "escalation": {
+              "triggered": true,
+              "reasons": [
+                "coverage_band"
+              ],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "scored",
+                  "observed_score": 71.76,
+                  "coverage": 0.85,
+                  "lower_bound": 61.0,
+                  "upper_bound": 76.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:56:43.063987+00:00",
+                  "latency_ms": 7739.314541016938,
+                  "input_tokens": 4149,
+                  "output_tokens": 739,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": false,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "hr_experience": "partial",
+                  "talent_acquisition": "strong",
+                  "employee_relations_compliance": "adequate",
+                  "hris_office_tools": "unknown",
+                  "interpersonal_communication": "adequate",
+                  "education_hr_business": "adequate",
+                  "hr_programs": "strong"
+                }
+              },
+              "primary_latency_s": 7.741098792001139,
+              "escalation_latency_s": 13.239974125026492,
+              "total_latency_s": 20.98107291702763,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "hr-h2__jd-py-real",
+            "status": "succeeded",
+            "latency_s": 5.483706292026909,
+            "escalation": {
+              "triggered": false,
+              "reasons": [],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.2,
+                  "lower_bound": 0.0,
+                  "upper_bound": 80.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:56:37.576681+00:00",
+                  "latency_ms": 5481.305124994833,
+                  "input_tokens": 3895,
+                  "output_tokens": 469,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": false,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "python_frameworks": "unknown",
+                  "postgresql_database": "unknown",
+                  "cloud_docker_linux": "unknown",
+                  "backend_experience": "absent",
+                  "software_architecture": "unknown",
+                  "communication_collaboration": "unknown",
+                  "education_cs": "absent"
+                }
+              },
+              "primary_latency_s": 5.482571041007759,
+              "escalation_latency_s": 0.0,
+              "total_latency_s": 5.482571041007759,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "hr-h3__jd-hr-real",
+            "status": "succeeded",
+            "latency_s": 21.912128957977984,
+            "escalation": {
+              "triggered": true,
+              "reasons": [
+                "coverage_band"
+              ],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.75,
+                  "lower_bound": 37.5,
+                  "upper_bound": 62.5,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:57:10.301134+00:00",
+                  "latency_ms": 7260.0670420215465,
+                  "input_tokens": 4980,
+                  "output_tokens": 637,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": false,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "hr_experience": "partial",
+                  "talent_acquisition": "unknown",
+                  "employee_relations_compliance": "partial",
+                  "hris_office_tools": "adequate",
+                  "interpersonal_communication": "adequate",
+                  "education_hr_business": "partial",
+                  "hr_programs": "unknown"
+                }
+              },
+              "primary_latency_s": 7.262907374999486,
+              "escalation_latency_s": 14.641537916002562,
+              "total_latency_s": 21.904445291002048,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "hr-h3__jd-py-real",
+            "status": "succeeded",
+            "latency_s": 6.248950415989384,
+            "escalation": {
+              "triggered": false,
+              "reasons": [],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.3,
+                  "lower_bound": 4.0,
+                  "upper_bound": 74.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:57:04.048805+00:00",
+                  "latency_ms": 6245.693582983222,
+                  "input_tokens": 4891,
+                  "output_tokens": 536,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": false,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "python_frameworks": "unknown",
+                  "postgresql_database": "unknown",
+                  "cloud_docker_linux": "unknown",
+                  "backend_experience": "absent",
+                  "software_architecture": "unknown",
+                  "communication_collaboration": "partial",
+                  "education_cs": "absent"
+                }
+              },
+              "primary_latency_s": 6.247936874977313,
+              "escalation_latency_s": 0.0,
+              "total_latency_s": 6.247936874977313,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "python_dev-h1__jd-hr-real",
+            "status": "succeeded",
+            "latency_s": 20.181999708991498,
+            "escalation": {
+              "triggered": true,
+              "reasons": [
+                "coverage_band"
+              ],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "scored",
+                  "observed_score": 4.71,
+                  "coverage": 0.85,
+                  "lower_bound": 4.0,
+                  "upper_bound": 19.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:43:32.809288+00:00",
+                  "latency_ms": 8391.126250004163,
+                  "input_tokens": 4330,
+                  "output_tokens": 822,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": false,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "hr_experience": "absent",
+                  "talent_acquisition": "absent",
+                  "employee_relations_compliance": "absent",
+                  "hris_office_tools": "unknown",
+                  "interpersonal_communication": "partial",
+                  "education_hr_business": "absent",
+                  "hr_programs": "absent"
+                }
+              },
+              "primary_latency_s": 8.392761666997103,
+              "escalation_latency_s": 11.788649167021504,
+              "total_latency_s": 20.181410834018607,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "python_dev-h1__jd-py-real",
+            "status": "succeeded",
+            "latency_s": 17.509990500024287,
+            "escalation": {
+              "triggered": true,
+              "reasons": [
+                "coverage_band"
+              ],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "scored",
+                  "observed_score": 70.0,
+                  "coverage": 0.8,
+                  "lower_bound": 56.0,
+                  "upper_bound": 76.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:43:15.298079+00:00",
+                  "latency_ms": 6561.118207988329,
+                  "input_tokens": 4985,
+                  "output_tokens": 706,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": false,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "python_frameworks": "adequate",
+                  "postgresql_database": "unknown",
+                  "cloud_docker_linux": "partial",
+                  "backend_experience": "strong",
+                  "software_architecture": "adequate",
+                  "communication_collaboration": "adequate",
+                  "education_cs": "adequate"
+                }
+              },
+              "primary_latency_s": 6.563672125019366,
+              "escalation_latency_s": 10.94525612500729,
+              "total_latency_s": 17.508928250026656,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "python_dev-h2__jd-hr-real",
+            "status": "succeeded",
+            "latency_s": 76.03879954200238,
+            "escalation": {
+              "triggered": true,
+              "reasons": [
+                "needs_review"
+              ],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.4,
+                  "lower_bound": 7.0,
+                  "upper_bound": 67.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:44:09.709633+00:00",
+                  "latency_ms": 56104.64516599313,
+                  "input_tokens": 5001,
+                  "output_tokens": 694,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": true,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "hr_experience": "absent",
+                  "talent_acquisition": "needs_review",
+                  "employee_relations_compliance": "unknown",
+                  "hris_office_tools": "unknown",
+                  "interpersonal_communication": "adequate",
+                  "education_hr_business": "absent",
+                  "hr_programs": "unknown"
+                }
+              },
+              "primary_latency_s": 56.106668499996886,
+              "escalation_latency_s": 19.931136250001146,
+              "total_latency_s": 76.03780474999803,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "python_dev-h2__jd-py-real",
+            "status": "succeeded",
+            "latency_s": 16.7143247500062,
+            "escalation": {
+              "triggered": true,
+              "reasons": [
+                "coverage_band"
+              ],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "insufficient_coverage",
+                  "observed_score": null,
+                  "coverage": 0.7,
+                  "lower_bound": 31.0,
+                  "upper_bound": 61.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:43:52.993550+00:00",
+                  "latency_ms": 5288.153082976351,
+                  "input_tokens": 4912,
+                  "output_tokens": 588,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": false,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "python_frameworks": "adequate",
+                  "postgresql_database": "unknown",
+                  "cloud_docker_linux": "partial",
+                  "backend_experience": "absent",
+                  "software_architecture": "unknown",
+                  "communication_collaboration": "partial",
+                  "education_cs": "adequate"
+                }
+              },
+              "primary_latency_s": 5.289472167001804,
+              "escalation_latency_s": 11.42205020901747,
+              "total_latency_s": 16.711522376019275,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "python_dev-h3__jd-hr-real",
+            "status": "succeeded",
+            "latency_s": 86.56482466601301,
+            "escalation": {
+              "triggered": false,
+              "reasons": [],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "scored",
+                  "observed_score": 13.0,
+                  "coverage": 1.0,
+                  "lower_bound": 13.0,
+                  "upper_bound": 13.0,
+                  "requires_manual_review": true
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:46:50.645989+00:00",
+                  "latency_ms": 86562.27545801084,
+                  "input_tokens": 5296,
+                  "output_tokens": 891,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": true,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "hr_experience": "absent",
+                  "talent_acquisition": "absent",
+                  "employee_relations_compliance": "absent",
+                  "hris_office_tools": "partial",
+                  "interpersonal_communication": "adequate",
+                  "education_hr_business": "absent",
+                  "hr_programs": "absent"
+                }
+              },
+              "primary_latency_s": 86.56403966600192,
+              "escalation_latency_s": 0.0,
+              "total_latency_s": 86.56403966600192,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          },
+          {
+            "pair": "python_dev-h3__jd-py-real",
+            "status": "succeeded",
+            "latency_s": 84.89064516700455,
+            "escalation": {
+              "triggered": false,
+              "reasons": [],
+              "primary_result_summary": {
+                "total": {
+                  "score_state": "scored",
+                  "observed_score": 68.0,
+                  "coverage": 1.0,
+                  "lower_bound": 68.0,
+                  "upper_bound": 68.0,
+                  "requires_manual_review": false
+                },
+                "llm": {
+                  "provider": "openai_compat",
+                  "model": "ag/gemini-3.8-flash-low",
+                  "temperature": 0.0,
+                  "started_at": "2026-11-22T16:45:25.753713+00:00",
+                  "latency_ms": 84886.44191599451,
+                  "input_tokens": 5921,
+                  "output_tokens": 937,
+                  "attempts": 1,
+                  "finish_reason": "stop",
+                  "response_model": "gemini-3.8-flash-n",
+                  "hedged": true,
+                  "winner": "primary"
+                },
+                "levels": {
+                  "python_frameworks": "strong",
+                  "postgresql_database": "partial",
+                  "cloud_docker_linux": "strong",
+                  "backend_experience": "partial",
+                  "software_architecture": "adequate",
+                  "communication_collaboration": "adequate",
+                  "education_cs": "absent"
+                }
+              },
+              "primary_latency_s": 84.88981191700441,
+              "escalation_latency_s": 0.0,
+              "total_latency_s": 84.88981191700441,
+              "escalation_model": "ag/gemini-4-argon-medium",
+              "error": null
+            }
+          }
+        ]
+      },
+      "absent_recall": {
+        "correct": 31,
+        "support": 33,
+        "value": 0.9393939393939394,
+        "ci": {
+          "low": 0.8709040747028862,
+          "high": 1.0
+        },
+        "defined_resamples": 2000
+      }
+    }
+  }
+}

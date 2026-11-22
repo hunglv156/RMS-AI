@@ -1,0 +1,42 @@
+{
+  "runs_in_order": [
+    {
+      "run": "20261122T162215Z-dev-esc-flashhigh",
+      "started_at": "2026-11-22T16:22:30.298403+00:00",
+      "ended_at": "2026-11-22T16:34:48.830282+00:00",
+      "invocations": 1
+    },
+    {
+      "run": "20261122T162215Z-dev-esc-argonmedium",
+      "started_at": "2026-11-22T16:34:59.292207+00:00",
+      "ended_at": "2026-11-22T16:42:37.979654+00:00",
+      "invocations": 1
+    },
+    {
+      "run": "20261122T164305Z-heldout-final-flashlow-v2-hedge20-esc-argonmedium",
+      "started_at": "2026-11-22T16:43:15.239403+00:00",
+      "ended_at": "2026-11-22T16:58:11.428663+00:00",
+      "invocations": 1
+    }
+  ],
+  "no_overlap": true,
+  "no_resumes": true,
+  "git_status": [
+    "?? data/eval/runs/20261122T162215Z-dev-esc-argonmedium/",
+    "?? data/eval/runs/20261122T162215Z-dev-esc-flashhigh/",
+    "?? data/eval/runs/20261122T162215Z-dev-escalation-eval/",
+    "?? data/eval/runs/20261122T164305Z-heldout-escalation-eval/",
+    "?? data/eval/runs/20261122T164305Z-heldout-final-flashlow-v2-hedge20-esc-argonmedium/"
+  ],
+  "only_new_run_directories": true,
+  "report_sections_verified": [
+    "Dev results",
+    "Mechanical selection",
+    "One held-out run",
+    "Primary labels",
+    "Strict labels",
+    "Per-pair held-out latency and escalation flags",
+    "Per-pair dev latency and escalation flags",
+    "Limitations"
+  ]
+}

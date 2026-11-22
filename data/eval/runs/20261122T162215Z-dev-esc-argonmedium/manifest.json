@@ -1,0 +1,79 @@
+{
+  "run_id": "20261122T162215Z-dev-esc-argonmedium",
+  "started_at": "2026-11-22T16:34:59.292207+00:00",
+  "ended_at": "2026-11-22T16:42:37.979654+00:00",
+  "git": {
+    "commit": "4bfe6cffc01ef58f2520d609c2b411ca637a69fe",
+    "dirty": true
+  },
+  "identity": {
+    "eval_set_sha256": "54ea167125e03566dc5f2a15832f6a85f66090146f235c171db04f9afd460000",
+    "jd_file_sha256": {
+      "jd-py-real": "9dfc4bfeb9730f8db058cee871e71bf99edd53a9444117ed711cd8bfb95e1f29",
+      "jd-hr-real": "2d602cb181c55fbc7ae5dfa548680259de7ac93ff082b14e1ae3461c89f4b154"
+    },
+    "config": {
+      "context_mode": "retrieved",
+      "retrieval_mode": "lexical",
+      "retrieval_k": 5,
+      "prompt_version": "screening-v2",
+      "min_coverage": 0.8,
+      "rubric_values": {
+        "strong": 1.0,
+        "adequate": 0.7,
+        "partial": 0.4,
+        "absent": 0.0
+      }
+    },
+    "embedding_model_id": null,
+    "requested_model": "ag/gemini-3.8-flash-low",
+    "hedge_after_s": 20.0,
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v2",
+      "chunker": "chunk-v1",
+      "chunker_used": true
+    },
+    "escalation": {
+      "model": "ag/gemini-4-argon-medium",
+      "coverage_band": [
+        0.7,
+        0.9
+      ]
+    }
+  },
+  "invocations": [
+    {
+      "started_at": "2026-11-22T16:34:59.322408+00:00",
+      "ended_at": "2026-11-22T16:42:37.979654+00:00",
+      "concurrency": 1,
+      "limit": null,
+      "git": {
+        "commit": "4bfe6cffc01ef58f2520d609c2b411ca637a69fe",
+        "dirty": true
+      },
+      "provider_config": {
+        "timeout_s": 180.0,
+        "max_retries": 2,
+        "hedge_after_s": 20.0,
+        "temperature": 0.0
+      }
+    }
+  ],
+  "text_content_sha256": {
+    "python_dev-01": "ccd1dbb1606934face5a43ed8c730fd622f71c738c78aebbe8371a9adebd7d91",
+    "python_dev-02": "231d34c9676135ba4ac39a83ea76af775bd05bce1bff5a1421eb7cac22910a3f",
+    "python_dev-03": "6a69157cc5ee2fe5201b0081aad815965eae7eb00d341ac6d2fc88921f7f497b",
+    "devops-01": "9e374bbddb2d973d1bebc66154809e8b2e0436c901f5ca74dc2a8e68d3f8b29d",
+    "database-01": "93e113674ba0e0f7aa4abdc00d18028a71522f6ad093f325468fc8161ecadb3c",
+    "hr-01": "13bfaa6a2e117d8dbe650593332e31b61e096dfc2ab48a6146808d1f20f43f22",
+    "hr-02": "b1e77963a878d5d6424fcbbd4df659153351a506aba7d9cf8c69698cce8e6ea8",
+    "hr-03": "5f4a12678aab63194313d26f1be6e880270f853eb406bde9b3598134a2f77438",
+    "finance-01": "9f6f508056d7acd852b3cef021069121e3a94f8de1d53088af095a1efb1b9d94",
+    "designer-01": "03994ced08c80bf19f8d537d2287192b7cd96c7f89378274f7cc61e5b35bdaac"
+  },
+  "gateway_reported_models": [
+    "gemini-3.8-flash-n",
+    "gemini-4-argon-trial"
+  ]
+}

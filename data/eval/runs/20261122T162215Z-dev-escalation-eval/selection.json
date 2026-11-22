@@ -1,0 +1,46 @@
+{
+  "rule": "Candidates A and B must have 20/20 success, then at least 17/20 pairs <=40 s. Pick higher collapsed kappa; values within 0.01 tie, then higher evidence F1, then lower p95. Use escalation only if the picked candidate strictly improves reference collapsed kappa OR evidence F1. Otherwise no escalation and skip held-out.",
+  "rows": [
+    {
+      "run": "20261122T083536Z-v2-lexical-gemini-3-8-flash-low-c1",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m5-escalation-eval/data/eval/runs/20261122T083536Z-v2-lexical-gemini-3-8-flash-low-c1",
+      "success": 20,
+      "within_40_s": 19,
+      "p95": 26.518317848183525,
+      "collapsed_kappa": 0.7107438016528926,
+      "evidence_f1": 0.8440366972477065
+    },
+    {
+      "run": "20261122T162215Z-dev-esc-flashhigh",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m5-escalation-eval/data/eval/runs/20261122T162215Z-dev-esc-flashhigh",
+      "success": 20,
+      "within_40_s": 16,
+      "p95": 173.29329120894982,
+      "collapsed_kappa": 0.7352245862884161,
+      "evidence_f1": 0.8828828828828829
+    },
+    {
+      "run": "20261122T162215Z-dev-esc-argonmedium",
+      "path": "/Users/hung/orca/workspaces/RMS-AI/m5-escalation-eval/data/eval/runs/20261122T162215Z-dev-esc-argonmedium",
+      "success": 20,
+      "within_40_s": 18,
+      "p95": 89.13990316250128,
+      "collapsed_kappa": 0.7770700636942676,
+      "evidence_f1": 0.9217391304347826
+    }
+  ],
+  "eligible": [
+    "20261122T162215Z-dev-esc-argonmedium"
+  ],
+  "picked_before_reference_gate": {
+    "run": "20261122T162215Z-dev-esc-argonmedium",
+    "path": "/Users/hung/orca/workspaces/RMS-AI/m5-escalation-eval/data/eval/runs/20261122T162215Z-dev-esc-argonmedium",
+    "success": 20,
+    "within_40_s": 18,
+    "p95": 89.13990316250128,
+    "collapsed_kappa": 0.7770700636942676,
+    "evidence_f1": 0.9217391304347826
+  },
+  "decision": "20261122T162215Z-dev-esc-argonmedium",
+  "heldout_required": true
+}

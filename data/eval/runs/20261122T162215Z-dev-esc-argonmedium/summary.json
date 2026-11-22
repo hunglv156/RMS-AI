@@ -1,0 +1,359 @@
+{
+  "interpretation": "Sanity check only, not accuracy: expected groups are not ground truth.",
+  "pair_count": 20,
+  "succeeded": 20,
+  "pairs": [
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-py-real",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 88.99781775000156,
+      "score": 50.0,
+      "coverage": 0.9,
+      "score_state": "scored",
+      "known_only_score": 50.0
+    },
+    {
+      "sheet_id": "python_dev-01",
+      "jd_id": "jd-hr-real",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 34.981608624977525,
+      "score": null,
+      "coverage": 0.6,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 6.67
+    },
+    {
+      "sheet_id": "python_dev-02",
+      "jd_id": "jd-py-real",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 18.91931237501558,
+      "score": null,
+      "coverage": 0.3,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 13.33
+    },
+    {
+      "sheet_id": "python_dev-02",
+      "jd_id": "jd-hr-real",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 91.83952599999611,
+      "score": 28.0,
+      "coverage": 1.0,
+      "score_state": "scored",
+      "known_only_score": 28.0
+    },
+    {
+      "sheet_id": "python_dev-03",
+      "jd_id": "jd-py-real",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 28.366146915999707,
+      "score": null,
+      "coverage": 0.65,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 58.46
+    },
+    {
+      "sheet_id": "python_dev-03",
+      "jd_id": "jd-hr-real",
+      "expected_group": "match_A",
+      "status": "succeeded",
+      "latency_s": 28.12939820898464,
+      "score": null,
+      "coverage": 0.6,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 6.67
+    },
+    {
+      "sheet_id": "devops-01",
+      "jd_id": "jd-py-real",
+      "expected_group": "partial_A",
+      "status": "succeeded",
+      "latency_s": 22.671150375012076,
+      "score": null,
+      "coverage": 0.4,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 70.0
+    },
+    {
+      "sheet_id": "devops-01",
+      "jd_id": "jd-hr-real",
+      "expected_group": "partial_A",
+      "status": "succeeded",
+      "latency_s": 34.6302029590006,
+      "score": null,
+      "coverage": 0.6,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 6.67
+    },
+    {
+      "sheet_id": "database-01",
+      "jd_id": "jd-py-real",
+      "expected_group": "partial_A",
+      "status": "succeeded",
+      "latency_s": 8.598529500013683,
+      "score": null,
+      "coverage": 0.3,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 40.0
+    },
+    {
+      "sheet_id": "database-01",
+      "jd_id": "jd-hr-real",
+      "expected_group": "partial_A",
+      "status": "succeeded",
+      "latency_s": 23.126698834006675,
+      "score": 12.94,
+      "coverage": 0.85,
+      "score_state": "scored",
+      "known_only_score": 12.94
+    },
+    {
+      "sheet_id": "hr-01",
+      "jd_id": "jd-py-real",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 6.185489416995551,
+      "score": null,
+      "coverage": 0.3,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 13.33
+    },
+    {
+      "sheet_id": "hr-01",
+      "jd_id": "jd-hr-real",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 6.480894874985097,
+      "score": 63.0,
+      "coverage": 1.0,
+      "score_state": "scored",
+      "known_only_score": 63.0
+    },
+    {
+      "sheet_id": "hr-02",
+      "jd_id": "jd-py-real",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 7.029444166022586,
+      "score": null,
+      "coverage": 0.3,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 23.33
+    },
+    {
+      "sheet_id": "hr-02",
+      "jd_id": "jd-hr-real",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 7.50180595801794,
+      "score": 91.0,
+      "coverage": 1.0,
+      "score_state": "scored",
+      "known_only_score": 91.0
+    },
+    {
+      "sheet_id": "hr-03",
+      "jd_id": "jd-py-real",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 7.753572166984668,
+      "score": null,
+      "coverage": 0.3,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 13.33
+    },
+    {
+      "sheet_id": "hr-03",
+      "jd_id": "jd-hr-real",
+      "expected_group": "match_B",
+      "status": "succeeded",
+      "latency_s": 6.663177667011041,
+      "score": 80.0,
+      "coverage": 0.9,
+      "score_state": "scored",
+      "known_only_score": 80.0
+    },
+    {
+      "sheet_id": "finance-01",
+      "jd_id": "jd-py-real",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 5.662964625022141,
+      "score": null,
+      "coverage": 0.25,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 16.0
+    },
+    {
+      "sheet_id": "finance-01",
+      "jd_id": "jd-hr-real",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 19.80784216700704,
+      "score": null,
+      "coverage": 0.55,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 21.82
+    },
+    {
+      "sheet_id": "designer-01",
+      "jd_id": "jd-py-real",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 5.844546084001195,
+      "score": null,
+      "coverage": 0.2,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 0.0
+    },
+    {
+      "sheet_id": "designer-01",
+      "jd_id": "jd-hr-real",
+      "expected_group": "none",
+      "status": "succeeded",
+      "latency_s": 5.393018000002485,
+      "score": null,
+      "coverage": 0.6,
+      "score_state": "insufficient_coverage",
+      "known_only_score": 6.67
+    }
+  ],
+  "latency_s": {
+    "population": "successful pairs; excludes queue and persistence time",
+    "percentile_method": "linear interpolation at (n - 1) * quantile",
+    "p50": 13.758920937514631,
+    "p95": 89.13990316250128,
+    "max": 91.83952599999611,
+    "within_40_s": 18
+  },
+  "tokens": {
+    "input": 118109,
+    "output": 16093,
+    "total": 134202,
+    "missing_usage_pairs": 0,
+    "scope": "successful calls only; failed/retried call usage may be unreported"
+  },
+  "quote_verification": {
+    "valid": 154,
+    "total": 154,
+    "rate": 1.0
+  },
+  "failures": [],
+  "group_scores_not_accuracy": [
+    {
+      "expected_group": "match_A",
+      "jd_id": "jd-hr-real",
+      "count": 3,
+      "scored_count": 1,
+      "mean": 28.0,
+      "median": 28.0,
+      "coverage_mean": 0.7333333333333333,
+      "coverage_median": 0.6,
+      "known_only_score_mean": 13.78,
+      "known_only_score_median": 6.67
+    },
+    {
+      "expected_group": "match_A",
+      "jd_id": "jd-py-real",
+      "count": 3,
+      "scored_count": 1,
+      "mean": 50.0,
+      "median": 50.0,
+      "coverage_mean": 0.6166666666666667,
+      "coverage_median": 0.65,
+      "known_only_score_mean": 40.596666666666664,
+      "known_only_score_median": 50.0
+    },
+    {
+      "expected_group": "match_B",
+      "jd_id": "jd-hr-real",
+      "count": 3,
+      "scored_count": 3,
+      "mean": 78.0,
+      "median": 80.0,
+      "coverage_mean": 0.9666666666666667,
+      "coverage_median": 1.0,
+      "known_only_score_mean": 78.0,
+      "known_only_score_median": 80.0
+    },
+    {
+      "expected_group": "match_B",
+      "jd_id": "jd-py-real",
+      "count": 3,
+      "scored_count": 0,
+      "mean": null,
+      "median": null,
+      "coverage_mean": 0.3,
+      "coverage_median": 0.3,
+      "known_only_score_mean": 16.663333333333334,
+      "known_only_score_median": 13.33
+    },
+    {
+      "expected_group": "none",
+      "jd_id": "jd-hr-real",
+      "count": 2,
+      "scored_count": 0,
+      "mean": null,
+      "median": null,
+      "coverage_mean": 0.575,
+      "coverage_median": 0.575,
+      "known_only_score_mean": 14.245000000000001,
+      "known_only_score_median": 14.245000000000001
+    },
+    {
+      "expected_group": "none",
+      "jd_id": "jd-py-real",
+      "count": 2,
+      "scored_count": 0,
+      "mean": null,
+      "median": null,
+      "coverage_mean": 0.225,
+      "coverage_median": 0.225,
+      "known_only_score_mean": 8.0,
+      "known_only_score_median": 8.0
+    },
+    {
+      "expected_group": "partial_A",
+      "jd_id": "jd-hr-real",
+      "count": 2,
+      "scored_count": 1,
+      "mean": 12.94,
+      "median": 12.94,
+      "coverage_mean": 0.725,
+      "coverage_median": 0.725,
+      "known_only_score_mean": 9.805,
+      "known_only_score_median": 9.805
+    },
+    {
+      "expected_group": "partial_A",
+      "jd_id": "jd-py-real",
+      "count": 2,
+      "scored_count": 0,
+      "mean": null,
+      "median": null,
+      "coverage_mean": 0.35,
+      "coverage_median": 0.35,
+      "known_only_score_mean": 55.0,
+      "known_only_score_median": 55.0
+    }
+  ],
+  "escalation": {
+    "escalated_pairs": 4,
+    "failed_pairs": 0,
+    "reasons": {
+      "needs_review": 1,
+      "coverage_band": 3
+    },
+    "latency_s": {
+      "primary_latency_s": 291.0069639169669,
+      "escalation_latency_s": 167.55428708301042,
+      "total_latency_s": 458.56125099997735
+    }
+  }
+}

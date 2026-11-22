@@ -1,0 +1,629 @@
+{
+  "sheet_id": "devops-01",
+  "jd_id": "jd-hr-real",
+  "expected_group": "partial_A",
+  "source_pdf_sha256": "f7fff9d023f467550d221d079f97b7b8018f35ccdb2e95562ce72aaf2525426c",
+  "text_content_sha256": "9e374bbddb2d973d1bebc66154809e8b2e0436c901f5ca74dc2a8e68d3f8b29d",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-hr-real",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "absent",
+          "confidence": 0.99,
+          "reason": "The candidate's dated work history shows roles in software and DevOps engineering rather than HR.",
+          "evidence": [
+            {
+              "quote": "Xylem Inc. - DevOps Engineer\nRock Hill, SC + 11/2019 - Current",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Transwestern - Lead Engineer\nPhoenix, AZ + 03/2016 - 05/2019",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "3+ years of progressive HR experience"
+          ]
+        },
+        "validation": {
+          "level": "absent",
+          "raw_level": "absent",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Xylem Inc. - DevOps Engineer\nRock Hill, SC + 11/2019 - Current",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2284,
+              "end_offset": 2346,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Transwestern - Lead Engineer\nPhoenix, AZ + 03/2016 - 05/2019",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3255,
+              "end_offset": 3315,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "not_supported",
+          "match_value": 0.0,
+          "validated": true
+        },
+        "score": 0.0,
+        "weighted_points": 0.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "talent_acquisition",
+          "level": "absent",
+          "confidence": 0.99,
+          "reason": "The candidate's work history contains only engineering roles, with no talent acquisition or recruiting experience listed.",
+          "evidence": [
+            {
+              "quote": "Xylem Inc. - DevOps Engineer\nRock Hill, SC + 11/2019 - Current",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Pepco Energy Services - Software Engineer\nElgin, IL + 09/2010 - 08/2013",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Recruiting and talent acquisition experience"
+          ]
+        },
+        "validation": {
+          "level": "absent",
+          "raw_level": "absent",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Xylem Inc. - DevOps Engineer\nRock Hill, SC + 11/2019 - Current",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2284,
+              "end_offset": 2346,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Pepco Energy Services - Software Engineer\nElgin, IL + 09/2010 - 08/2013",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4801,
+              "end_offset": 4872,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "talent_acquisition",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "not_supported",
+          "match_value": 0.0,
+          "validated": true
+        },
+        "score": 0.0,
+        "weighted_points": 0.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "employee_relations_compliance",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention employee relations, performance management, or employment compliance.",
+          "evidence": [],
+          "missing_information": [
+            "Employee relations knowledge",
+            "Employment law and compliance experience"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employee_relations_compliance",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hris_office_tools",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention HR information systems or standard Microsoft Office applications.",
+          "evidence": [],
+          "missing_information": [
+            "HRIS experience",
+            "MS Office proficiency (Excel, Word, PowerPoint)"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hris_office_tools",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "interpersonal_communication",
+          "level": "partial",
+          "confidence": 0.75,
+          "reason": "The CV notes strong communication and stakeholder interaction, but lacks evidence of handling confidential/sensitive HR matters.",
+          "evidence": [
+            {
+              "quote": "Excellent communication and interpretation skills enabling effective interaction with application\nDevelopers, End Users, Project Managers and Business Analysts to review the requirement\nspecifications.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience handling confidential and sensitive HR matters with discretion"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Excellent communication and interpretation skills enabling effective interaction with application\nDevelopers, End Users, Project Managers and Business Analysts to review the requirement\nspecifications.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2067,
+              "end_offset": 2268,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "interpersonal_communication",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education_hr_business",
+          "level": "absent",
+          "confidence": 0.99,
+          "reason": "The candidate holds a Bachelor of Science in Electronics, Communication Engineering, which is not an HR or Business-related field.",
+          "evidence": [
+            {
+              "quote": "Bachelor of Science: Electronics,\nCommunication Engineering",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Bachelor's degree in HR, Business Administration, or related field"
+          ]
+        },
+        "validation": {
+          "level": "absent",
+          "raw_level": "absent",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Bachelor of Science: Electronics,\nCommunication Engineering",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 290,
+              "end_offset": 349,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education_hr_business",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "not_supported",
+          "match_value": 0.0,
+          "validated": true
+        },
+        "score": 0.0,
+        "weighted_points": 0.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_programs",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV contains no mention of developing or coordinating HR programs or initiatives.",
+          "evidence": [],
+          "missing_information": [
+            "HR programs and initiatives experience",
+            "Internship or early-career program management"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_programs",
+          "weight": 5.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.6,
+      "lower_bound": 4.0,
+      "upper_bound": 44.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-low",
+      "temperature": 0.0,
+      "started_at": "2026-11-22T16:40:13.274531+00:00",
+      "latency_ms": 34628.268208005466,
+      "input_tokens": 4854,
+      "output_tokens": 591,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n",
+      "hedged": true,
+      "winner": "primary"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v2",
+      "model": "ag/gemini-3.8-flash-low",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v2",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "hr_experience": [
+            {
+              "chunk_index": 1,
+              "score": 2.8390280667075163,
+              "lexical_score": 2.8390280667075163,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 2.413332047674672,
+              "lexical_score": 2.413332047674672,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 7,
+              "score": 1.4912502044643858,
+              "lexical_score": 1.4912502044643858,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 1.3132879940345783,
+              "lexical_score": 1.3132879940345783,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 1.2870765985297485,
+              "lexical_score": 1.2870765985297485,
+              "dense_score": null
+            }
+          ],
+          "talent_acquisition": [
+            {
+              "chunk_index": 3,
+              "score": 1.5052496326902953,
+              "lexical_score": 1.5052496326902953,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 1.4442382134309306,
+              "lexical_score": 1.4442382134309306,
+              "dense_score": null
+            }
+          ],
+          "employee_relations_compliance": [],
+          "hris_office_tools": [
+            {
+              "chunk_index": 1,
+              "score": 1.9598333472109277,
+              "lexical_score": 1.9598333472109277,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 1.9421807249882512,
+              "lexical_score": 1.9421807249882512,
+              "dense_score": null
+            }
+          ],
+          "interpersonal_communication": [
+            {
+              "chunk_index": 8,
+              "score": 2.4343502409922166,
+              "lexical_score": 2.4343502409922166,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 4,
+              "score": 1.796544140352028,
+              "lexical_score": 1.796544140352028,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 7,
+              "score": 1.4912502044643858,
+              "lexical_score": 1.4912502044643858,
+              "dense_score": null
+            }
+          ],
+          "education_hr_business": [
+            {
+              "chunk_index": 0,
+              "score": 2.072876501183786,
+              "lexical_score": 2.072876501183786,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 1.9421807249882512,
+              "lexical_score": 1.9421807249882512,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 1.5052496326902953,
+              "lexical_score": 1.5052496326902953,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 7,
+              "score": 1.4912502044643858,
+              "lexical_score": 1.4912502044643858,
+              "dense_score": null
+            }
+          ],
+          "hr_programs": []
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 681,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 581,
+            "end_offset": 1354,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1254,
+            "end_offset": 1989,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 3,
+            "start_offset": 1889,
+            "end_offset": 2628,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 4,
+            "start_offset": 2528,
+            "end_offset": 3317,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 5,
+            "start_offset": 3217,
+            "end_offset": 3980,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 6,
+            "start_offset": 3880,
+            "end_offset": 4614,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 7,
+            "start_offset": 4514,
+            "end_offset": 5222,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 8,
+            "start_offset": 5122,
+            "end_offset": 5839,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 9,
+            "start_offset": 5739,
+            "end_offset": 6136,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "9e374bbddb2d973d1bebc66154809e8b2e0436c901f5ca74dc2a8e68d3f8b29d",
+      "jd_sha256": "9aec489388f724515e4a6589cb1bb7d44937611d1bc3ee4efec3532f6e15902f"
+    },
+    "escalation": {
+      "triggered": false,
+      "reasons": [],
+      "primary_result_summary": {
+        "total": {
+          "score_state": "insufficient_coverage",
+          "observed_score": null,
+          "coverage": 0.6,
+          "lower_bound": 4.0,
+          "upper_bound": 44.0,
+          "requires_manual_review": true
+        },
+        "llm": {
+          "provider": "openai_compat",
+          "model": "ag/gemini-3.8-flash-low",
+          "temperature": 0.0,
+          "started_at": "2026-11-22T16:40:13.274531+00:00",
+          "latency_ms": 34628.268208005466,
+          "input_tokens": 4854,
+          "output_tokens": 591,
+          "attempts": 1,
+          "finish_reason": "stop",
+          "response_model": "gemini-3.8-flash-n",
+          "hedged": true,
+          "winner": "primary"
+        },
+        "levels": {
+          "hr_experience": "absent",
+          "talent_acquisition": "absent",
+          "employee_relations_compliance": "unknown",
+          "hris_office_tools": "unknown",
+          "interpersonal_communication": "partial",
+          "education_hr_business": "absent",
+          "hr_programs": "unknown"
+        }
+      },
+      "primary_latency_s": 34.62948024997604,
+      "escalation_latency_s": 0.0,
+      "total_latency_s": 34.62948024997604,
+      "escalation_model": "ag/gemini-4-argon-medium",
+      "error": null
+    }
+  },
+  "prompt_char_length": 10831,
+  "context_char_length": 4644,
+  "input_tokens": 4854,
+  "output_tokens": 591,
+  "reasoning_tokens": null,
+  "latency_s": 34.6302029590006,
+  "finished_at": "2026-11-22T16:40:47.903980+00:00"
+}

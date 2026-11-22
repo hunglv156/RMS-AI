@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "errors": [],
+  "canonical_heldout_sha256": "ce42cfbff2bd031b7d984d272fd3680a483855290917f47e5271edfa20e97a6f",
+  "staged_heldout_sha256": "ce42cfbff2bd031b7d984d272fd3680a483855290917f47e5271edfa20e97a6f",
+  "pair_count": 20,
+  "invocations": 1,
+  "manifest_identity": {
+    "eval_set_sha256": "ce42cfbff2bd031b7d984d272fd3680a483855290917f47e5271edfa20e97a6f",
+    "jd_file_sha256": {
+      "jd-py-real": "9dfc4bfeb9730f8db058cee871e71bf99edd53a9444117ed711cd8bfb95e1f29",
+      "jd-hr-real": "2d602cb181c55fbc7ae5dfa548680259de7ac93ff082b14e1ae3461c89f4b154"
+    },
+    "config": {
+      "context_mode": "retrieved",
+      "retrieval_mode": "lexical",
+      "retrieval_k": 5,
+      "prompt_version": "screening-v2",
+      "min_coverage": 0.8,
+      "rubric_values": {
+        "strong": 1.0,
+        "adequate": 0.7,
+        "partial": 0.4,
+        "absent": 0.0
+      }
+    },
+    "embedding_model_id": null,
+    "requested_model": "ag/gemini-3.8-flash-low",
+    "hedge_after_s": 20.0,
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v2",
+      "chunker": "chunk-v1",
+      "chunker_used": true
+    },
+    "escalation": {
+      "model": "ag/gemini-4-argon-medium",
+      "coverage_band": [
+        0.7,
+        0.9
+      ]
+    }
+  },
+  "changed_read_only_paths": [],
+  "selection": "20261122T162215Z-dev-esc-argonmedium",
+  "selection_created_before_heldout_started": true
+}

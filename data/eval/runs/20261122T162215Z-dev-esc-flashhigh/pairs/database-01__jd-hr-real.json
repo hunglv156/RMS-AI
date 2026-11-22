@@ -1,0 +1,748 @@
+{
+  "sheet_id": "database-01",
+  "jd_id": "jd-hr-real",
+  "expected_group": "partial_A",
+  "source_pdf_sha256": "456827d30d3eac0171aaefa9852055ba34a863e1fe51959997e2cddf457f63b3",
+  "text_content_sha256": "93e113674ba0e0f7aa4abdc00d18028a71522f6ad093f325468fc8161ecadb3c",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-hr-real",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "absent",
+          "confidence": 0.95,
+          "reason": "Candidate's dated work history reflects only IT roles, showing no progressive HR experience supporting business functions.",
+          "evidence": [
+            {
+              "quote": "Database Administrator/Programmer Analyst, 02/2006 - Current\nRice Memorial Hospital — City, STATE",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Computer Programmer / Technician / Network Manager, 05/2004 - 02/2006\nAEI, Automated Environments Inc — City, STATE",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "3+ years of progressive HR experience",
+            "Experience supporting multiple business functions in HR",
+            "Experience managing a range of HR activities"
+          ]
+        },
+        "validation": {
+          "level": "absent",
+          "raw_level": "absent",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Database Administrator/Programmer Analyst, 02/2006 - Current\nRice Memorial Hospital — City, STATE",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3039,
+              "end_offset": 3136,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Computer Programmer / Technician / Network Manager, 05/2004 - 02/2006\nAEI, Automated Environments Inc — City, STATE",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4679,
+              "end_offset": 4794,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "not_supported",
+          "match_value": 0.0,
+          "validated": true
+        },
+        "score": 0.0,
+        "weighted_points": 0.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "talent_acquisition",
+          "level": "absent",
+          "confidence": 0.95,
+          "reason": "Candidate's dated employment history consists solely of IT positions, with no recruitment, talent acquisition, or hiring manager partnership experience.",
+          "evidence": [
+            {
+              "quote": "Database Administrator/Programmer Analyst, 02/2006 - Current\nRice Memorial Hospital — City, STATE",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Computer Programmer / Technician / Network Manager, 05/2004 - 02/2006\nAEI, Automated Environments Inc — City, STATE",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Demonstrated recruitment and talent acquisition experience",
+            "Experience partnering with hiring managers",
+            "Experience managing multiple open positions"
+          ]
+        },
+        "validation": {
+          "level": "absent",
+          "raw_level": "absent",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Database Administrator/Programmer Analyst, 02/2006 - Current\nRice Memorial Hospital — City, STATE",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3039,
+              "end_offset": 3136,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Computer Programmer / Technician / Network Manager, 05/2004 - 02/2006\nAEI, Automated Environments Inc — City, STATE",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4679,
+              "end_offset": 4794,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "talent_acquisition",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "not_supported",
+          "match_value": 0.0,
+          "validated": true
+        },
+        "score": 0.0,
+        "weighted_points": 0.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "employee_relations_compliance",
+          "level": "unknown",
+          "confidence": 0.9,
+          "reason": "The CV does not mention HR practices, employee relations, performance management, or employment laws and regulations.",
+          "evidence": [],
+          "missing_information": [
+            "Understanding of HR practices and employee relations",
+            "Knowledge of performance management",
+            "Familiarity with employment laws and regulations"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employee_relations_compliance",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hris_office_tools",
+          "level": "unknown",
+          "confidence": 0.9,
+          "reason": "The CV does not mention Microsoft Excel, Word, PowerPoint, HR information systems, or recruiting technology.",
+          "evidence": [],
+          "missing_information": [
+            "Proficiency in Microsoft Office (Excel, Word, PowerPoint)",
+            "Experience working with HR information systems (HRIS)",
+            "Experience with recruiting technology"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hris_office_tools",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "interpersonal_communication",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "Shows relationship building across organizational levels with leadership and clinical staff, but lacks evidence of handling confidential or sensitive matters.",
+          "evidence": [
+            {
+              "quote": "Direct working relationships with directors, administrators and upper management to write custom reports in SQL, MS ACCESS, EPIC\nReporting Work Bench, Crystal Reports, ORACLE PLSQL and MUMPS Query language.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Worked closely with physicians and nurses and have built working relationships involving trust and respect.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Demonstrated ability to handle confidential and sensitive matters with discretion"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Direct working relationships with directors, administrators and upper management to write custom reports in SQL, MS ACCESS, EPIC\nReporting Work Bench, Crystal Reports, ORACLE PLSQL and MUMPS Query language.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3642,
+              "end_offset": 3848,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Worked closely with physicians and nurses and have built working relationships involving trust and respect.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 390,
+              "end_offset": 497,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "interpersonal_communication",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education_hr_business",
+          "level": "adequate",
+          "confidence": 0.95,
+          "reason": "Candidate holds a Bachelor of Science degree in Business Administration, directly satisfying the degree requirement.",
+          "evidence": [
+            {
+              "quote": "Bachelor of Science: Computer Science, Business Administration\nSouthwest Minnesota State University - Marshall, MN",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Bachelor of Science: Computer Science, Business Administration\nSouthwest Minnesota State University - Marshall, MN",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 5869,
+              "end_offset": 5983,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education_hr_business",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_programs",
+          "level": "absent",
+          "confidence": 0.95,
+          "reason": "Dated work history shows only technical roles, lacking any experience developing or managing HR programs or early-career talent initiatives.",
+          "evidence": [
+            {
+              "quote": "Database Administrator/Programmer Analyst, 02/2006 - Current\nRice Memorial Hospital — City, STATE",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Computer Programmer / Technician / Network Manager, 05/2004 - 02/2006\nAEI, Automated Environments Inc — City, STATE",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience developing, coordinating, or managing HR programs",
+            "Experience establishing an internship or early-career talent program"
+          ]
+        },
+        "validation": {
+          "level": "absent",
+          "raw_level": "absent",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Database Administrator/Programmer Analyst, 02/2006 - Current\nRice Memorial Hospital — City, STATE",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 3039,
+              "end_offset": 3136,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Computer Programmer / Technician / Network Manager, 05/2004 - 02/2006\nAEI, Automated Environments Inc — City, STATE",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 4679,
+              "end_offset": 4794,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hr_programs",
+          "weight": 5.0,
+          "priority": "nice_to_have",
+          "status": "not_supported",
+          "match_value": 0.0,
+          "validated": true
+        },
+        "score": 0.0,
+        "weighted_points": 0.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.65,
+      "lower_bound": 11.0,
+      "upper_bound": 46.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-22T16:30:30.559166+00:00",
+      "latency_ms": 121773.41599998181,
+      "input_tokens": 18095,
+      "output_tokens": 1151,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n",
+      "hedged": true,
+      "winner": "hedge"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v2",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v2",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "hr_experience": [
+            {
+              "chunk_index": 7,
+              "score": 1.8530090138735889,
+              "lexical_score": 1.8530090138735889,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 1.4606804142437748,
+              "lexical_score": 1.4606804142437748,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 0.9215638704232005,
+              "lexical_score": 0.9215638704232005,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.8582161524970288,
+              "lexical_score": 0.8582161524970288,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.7311809151561321,
+              "lexical_score": 0.7311809151561321,
+              "dense_score": null
+            }
+          ],
+          "talent_acquisition": [],
+          "employee_relations_compliance": [
+            {
+              "chunk_index": 5,
+              "score": 1.7589507952170533,
+              "lexical_score": 1.7589507952170533,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 1.580686429259819,
+              "lexical_score": 1.580686429259819,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 4,
+              "score": 0.24507893382658683,
+              "lexical_score": 0.24507893382658683,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.23915438264625027,
+              "lexical_score": 0.23915438264625027,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 0.23350951130133488,
+              "lexical_score": 0.23350951130133488,
+              "dense_score": null
+            }
+          ],
+          "hris_office_tools": [
+            {
+              "chunk_index": 9,
+              "score": 3.0709819474372346,
+              "lexical_score": 3.0709819474372346,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 8,
+              "score": 2.010154877199464,
+              "lexical_score": 2.010154877199464,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 1.8141061216658614,
+              "lexical_score": 1.8141061216658614,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 1.5915412932911785,
+              "lexical_score": 1.5915412932911785,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 1.2422565087244057,
+              "lexical_score": 1.2422565087244057,
+              "dense_score": null
+            }
+          ],
+          "interpersonal_communication": [
+            {
+              "chunk_index": 8,
+              "score": 1.9642918457148177,
+              "lexical_score": 1.9642918457148177,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.8602483598923774,
+              "lexical_score": 0.8602483598923774,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 6,
+              "score": 0.8602483598923774,
+              "lexical_score": 0.8602483598923774,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 0.8249512031367507,
+              "lexical_score": 0.8249512031367507,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 7,
+              "score": 0.8249512031367507,
+              "lexical_score": 0.8249512031367507,
+              "dense_score": null
+            }
+          ],
+          "education_hr_business": [
+            {
+              "chunk_index": 8,
+              "score": 4.885652674202367,
+              "lexical_score": 4.885652674202367,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 7,
+              "score": 2.424352632594089,
+              "lexical_score": 2.424352632594089,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 9,
+              "score": 2.28363376496398,
+              "lexical_score": 2.28363376496398,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 5,
+              "score": 2.0754718198305153,
+              "lexical_score": 2.0754718198305153,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 1.5438462824670323,
+              "lexical_score": 1.5438462824670323,
+              "dense_score": null
+            }
+          ],
+          "hr_programs": []
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 794,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 694,
+            "end_offset": 1486,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1386,
+            "end_offset": 2139,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 3,
+            "start_offset": 2039,
+            "end_offset": 2815,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 4,
+            "start_offset": 2715,
+            "end_offset": 3467,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 5,
+            "start_offset": 3367,
+            "end_offset": 3993,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 6,
+            "start_offset": 3893,
+            "end_offset": 4679,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 7,
+            "start_offset": 4579,
+            "end_offset": 5353,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 8,
+            "start_offset": 5253,
+            "end_offset": 6009,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 9,
+            "start_offset": 5909,
+            "end_offset": 6078,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "93e113674ba0e0f7aa4abdc00d18028a71522f6ad093f325468fc8161ecadb3c",
+      "jd_sha256": "9aec489388f724515e4a6589cb1bb7d44937611d1bc3ee4efec3532f6e15902f"
+    },
+    "escalation": {
+      "triggered": true,
+      "reasons": [
+        "coverage_band"
+      ],
+      "primary_result_summary": {
+        "total": {
+          "score_state": "insufficient_coverage",
+          "observed_score": null,
+          "coverage": 0.75,
+          "lower_bound": 20.0,
+          "upper_bound": 45.0,
+          "requires_manual_review": true
+        },
+        "llm": {
+          "provider": "openai_compat",
+          "model": "ag/gemini-3.8-flash-low",
+          "temperature": 0.0,
+          "started_at": "2026-11-22T16:30:23.804067+00:00",
+          "latency_ms": 6754.151083994657,
+          "input_tokens": 5162,
+          "output_tokens": 668,
+          "attempts": 1,
+          "finish_reason": "stop",
+          "response_model": "gemini-3.8-flash-n",
+          "hedged": false,
+          "winner": "primary"
+        },
+        "levels": {
+          "hr_experience": "absent",
+          "talent_acquisition": "absent",
+          "employee_relations_compliance": "unknown",
+          "hris_office_tools": "partial",
+          "interpersonal_communication": "adequate",
+          "education_hr_business": "adequate",
+          "hr_programs": "unknown"
+        }
+      },
+      "primary_latency_s": 6.755856832984136,
+      "escalation_latency_s": 121.77402791698114,
+      "total_latency_s": 128.52988474996528,
+      "escalation_model": "ag/gemini-3.8-flash-high",
+      "error": null
+    }
+  },
+  "prompt_char_length": 12301,
+  "context_char_length": 6078,
+  "input_tokens": 23257,
+  "output_tokens": 1819,
+  "reasoning_tokens": null,
+  "latency_s": 128.53030524999485,
+  "finished_at": "2026-11-22T16:32:32.334503+00:00"
+}
