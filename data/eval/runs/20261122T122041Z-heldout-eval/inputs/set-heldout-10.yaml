@@ -1,0 +1,81 @@
+selection_rule: Within each source folder, sort PDF filenames by natural numeric order;
+  skip PDFs whose source-byte SHA-256 occurs in the dev set; skip extraction failures,
+  texts shorter than 1,000 Unicode characters, and PDFs flagged low quality (hidden_text,
+  low_ocr_confidence, or no_text) by extract-v1; select the first required count.
+  Extraction uses apps/ai-service app.extraction.document.extract_document (extract-v1/norm-v1,
+  English OCR at 200 DPI). Skipped files and reasons are recorded below. Expected
+  groups guide stratification, not labels.
+skipped_files:
+- source_file: data/Python Developer/1.pdf
+  reason: existing_text_length_conflict
+cvs:
+- sheet_id: python_dev-h1
+  text_sha256: d88bc77d615cc7150804a3b8f4395623739516296ee922e1329840046f0bc6b4
+  occupation_folder: python_dev
+  expected_group: match_A
+  text_length_characters: 6016
+  source_file: data/Python Developer/0.pdf
+  ocr_used: true
+- sheet_id: python_dev-h2
+  text_sha256: f57c4afb2f55df979951bdd2308b2caecf0714799fdbd7f2ddb4938babeedc57
+  occupation_folder: python_dev
+  expected_group: match_A
+  text_length_characters: 5686
+  source_file: data/Python Developer/2.pdf
+  ocr_used: true
+- sheet_id: python_dev-h3
+  text_sha256: 1bc8e39e3db3e015029b1b927ca55b21a0153f6613e2202cea404535667a169e
+  occupation_folder: python_dev
+  expected_group: match_A
+  text_length_characters: 9980
+  source_file: data/Python Developer/3.pdf
+  ocr_used: true
+- sheet_id: devops-h1
+  text_sha256: 7951c1d4026e04fd8b3fae1d90c2f2bcf4d11516599d4a7cc9187c80fa734b3a
+  occupation_folder: devops
+  expected_group: partial_A
+  text_length_characters: 2662
+  source_file: data/DevOps Engineer/0.pdf
+  ocr_used: true
+- sheet_id: database-h1
+  text_sha256: cc93e6f2982832e9e33d429cd254060be119905571ad2a7996287750deefe19d
+  occupation_folder: database
+  expected_group: partial_A
+  text_length_characters: 7169
+  source_file: data/Database/0.pdf
+  ocr_used: true
+- sheet_id: hr-h1
+  text_sha256: bd29635ff765a7ceeb31a29754c3cc69bfa208dc125e0209a396b3808133402a
+  occupation_folder: hr
+  expected_group: match_B
+  text_length_characters: 5694
+  source_file: data/Human Resources/0.pdf
+  ocr_used: true
+- sheet_id: hr-h2
+  text_sha256: 0f11b1a69b5acfc01c0d60c305a36cd7d41888c65668553df92b8517018d960c
+  occupation_folder: hr
+  expected_group: match_B
+  text_length_characters: 2025
+  source_file: data/Human Resources/1.pdf
+  ocr_used: true
+- sheet_id: hr-h3
+  text_sha256: c142f0e184d7d5970d5c3781576f5f823ae13dd3c192c0ee5872596f332a07f1
+  occupation_folder: hr
+  expected_group: match_B
+  text_length_characters: 5114
+  source_file: data/Human Resources/2.pdf
+  ocr_used: true
+- sheet_id: finance-h1
+  text_sha256: 0bbcf1fa7e05a8101d0a7452a63a3524a4ab35a6f428caa872afa5796726991a
+  occupation_folder: finance
+  expected_group: none
+  text_length_characters: 2147
+  source_file: data/Finance/0deb78ee10402051.pdf
+  ocr_used: true
+- sheet_id: designer-h1
+  text_sha256: c200f519e89b0de2b47a0c0d3bdc728dae59233f99b60d499e18d9df7444ce3a
+  occupation_folder: designer
+  expected_group: none
+  text_length_characters: 5401
+  source_file: data/Designer/0.pdf
+  ocr_used: true

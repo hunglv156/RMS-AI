@@ -1,0 +1,492 @@
+{
+  "sheet_id": "finance-h1",
+  "jd_id": "jd-hr-real",
+  "expected_group": "none",
+  "source_pdf_sha256": "0bbcf1fa7e05a8101d0a7452a63a3524a4ab35a6f428caa872afa5796726991a",
+  "text_content_sha256": "14ce0bee7c1e7f2f09b5edf8eba18db74bb554aac7268fa5de401f041e580af1",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-hr-real",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "hr_experience",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The candidate has experience as a Financial Analyst, but there is no mention of progressive HR experience, supporting business functions in an HR capacity, or managing HR activities.",
+          "evidence": [],
+          "missing_information": [
+            "Evidence of 3+ years of progressive HR experience",
+            "Evidence of supporting multiple business functions in an HR role",
+            "Evidence of managing a range of HR activities"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_experience",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "talent_acquisition",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The candidate's profile is in finance and data management; there is no mention of recruitment, talent acquisition, partnering with hiring managers, or managing open requisitions.",
+          "evidence": [],
+          "missing_information": [
+            "Evidence of recruitment and talent acquisition experience",
+            "Evidence of partnering with hiring managers",
+            "Evidence of managing multiple open positions"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "talent_acquisition",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "employee_relations_compliance",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention knowledge or experience in HR practices, employee relations, performance management, or employment laws and regulations.",
+          "evidence": [],
+          "missing_information": [
+            "Evidence of understanding of HR practices and employee relations",
+            "Evidence of experience with performance management",
+            "Evidence of knowledge of employment laws and regulations"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "employee_relations_compliance",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "hris_office_tools",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "The candidate demonstrates proficiency with Microsoft Excel, but does not provide evidence of proficiency with other MS Office tools (Word, PowerPoint) or HRIS and recruiting technologies.",
+          "evidence": [
+            {
+              "quote": "Proficient in Microsoft Excel",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Evidence of proficiency with Microsoft Word and PowerPoint",
+            "Evidence of experience with HR information systems (HRIS)",
+            "Evidence of experience with recruiting technology"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Proficient in Microsoft Excel",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 396,
+              "end_offset": 425,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "hris_office_tools",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 6.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "interpersonal_communication",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "The candidate notes strong written and oral communication skills and cross-functional collaboration, but does not demonstrate handling confidential/sensitive HR matters with discretion and sound judgment.",
+          "evidence": [
+            {
+              "quote": "experienced in collaborating with cross-functional\nteams.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Strong\nwritten and oral communication skills, including experience working with small business owners.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Evidence of ability to handle confidential and sensitive matters with discretion, professionalism, and sound judgment",
+            "Evidence of relationship-building and communicating across all organizational levels in an HR context"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "experienced in collaborating with cross-functional\nteams.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 430,
+              "end_offset": 487,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Strong\nwritten and oral communication skills, including experience working with small business owners.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 694,
+              "end_offset": 796,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "interpersonal_communication",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education_hr_business",
+          "level": "adequate",
+          "confidence": 0.9,
+          "reason": "The candidate holds a Bachelor's degree in Finance from the University of Chicago, which fulfills the requirement for a degree in a related business field.",
+          "evidence": [
+            {
+              "quote": "Bachelor's degree in Finance from the University of Chicago.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": []
+        },
+        "validation": {
+          "level": "adequate",
+          "raw_level": "adequate",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Bachelor's degree in Finance from the University of Chicago.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 633,
+              "end_offset": 693,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education_hr_business",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "supported",
+          "match_value": 0.7,
+          "validated": true
+        },
+        "score": 70.0,
+        "weighted_points": 7.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "hr_programs",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "There is no mention of developing, coordinating, or managing HR programs or initiatives, nor any experience with internship or early-career talent programs.",
+          "evidence": [],
+          "missing_information": [
+            "Evidence of developing, coordinating, or managing HR programs and initiatives",
+            "Evidence of establishing or supporting internship or early-career talent programs"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "hr_programs",
+          "weight": 5.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.35,
+      "lower_bound": 17.0,
+      "upper_bound": 82.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-22T12:48:11.553847+00:00",
+      "latency_ms": 46839.90958399954,
+      "input_tokens": 5814,
+      "output_tokens": 967,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n",
+      "hedged": null,
+      "winner": null
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "hr_experience": [
+            {
+              "chunk_index": 0,
+              "score": 1.0380408574089535,
+              "lexical_score": 1.0380408574089535,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.9849589726417798,
+              "lexical_score": 0.9849589726417798,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.3773851019738846,
+              "lexical_score": 0.3773851019738846,
+              "dense_score": null
+            }
+          ],
+          "talent_acquisition": [],
+          "employee_relations_compliance": [
+            {
+              "chunk_index": 2,
+              "score": 0.3773851019738846,
+              "lexical_score": 0.3773851019738846,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.3346378192560189,
+              "lexical_score": 0.3346378192560189,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.3019860134535473,
+              "lexical_score": 0.3019860134535473,
+              "dense_score": null
+            }
+          ],
+          "hris_office_tools": [
+            {
+              "chunk_index": 0,
+              "score": 2.038735569534884,
+              "lexical_score": 2.038735569534884,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 1.2738809026416356,
+              "lexical_score": 1.2738809026416356,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 1.1295854685895508,
+              "lexical_score": 1.1295854685895508,
+              "dense_score": null
+            }
+          ],
+          "interpersonal_communication": [
+            {
+              "chunk_index": 1,
+              "score": 0.6503211533857609,
+              "lexical_score": 0.6503211533857609,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.5868669985122924,
+              "lexical_score": 0.5868669985122924,
+              "dense_score": null
+            }
+          ],
+          "education_hr_business": [
+            {
+              "chunk_index": 0,
+              "score": 3.6449703528146187,
+              "lexical_score": 3.6449703528146187,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.6503211533857609,
+              "lexical_score": 0.6503211533857609,
+              "dense_score": null
+            }
+          ],
+          "hr_programs": []
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 797,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 697,
+            "end_offset": 1404,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1304,
+            "end_offset": 1867,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 3,
+            "start_offset": 1767,
+            "end_offset": 2147,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "14ce0bee7c1e7f2f09b5edf8eba18db74bb554aac7268fa5de401f041e580af1",
+      "jd_sha256": "9aec489388f724515e4a6589cb1bb7d44937611d1bc3ee4efec3532f6e15902f"
+    }
+  },
+  "prompt_char_length": 6177,
+  "context_char_length": 1867,
+  "input_tokens": 5814,
+  "output_tokens": 967,
+  "reasoning_tokens": null,
+  "latency_s": 46.84325304199592,
+  "finished_at": "2026-11-22T12:48:58.394854+00:00"
+}

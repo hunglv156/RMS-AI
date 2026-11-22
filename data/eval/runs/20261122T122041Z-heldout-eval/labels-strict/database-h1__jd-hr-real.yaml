@@ -1,0 +1,65 @@
+cv_sheet_id: database-h1
+text_sha256: cc93e6f2982832e9e33d429cd254060be119905571ad2a7996287750deefe19d
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: Database Administrator, 01/2020 to Current
+      start_offset: 1067
+      end_offset: 1109
+    - quote: ORACLE / POSTGRESQL DBA, 11/2015 to 12/2019
+      start_offset: 1614
+      end_offset: 1657
+    note: 'Áp dụng v1.1 #1: lịch sử làm việc có mốc thời gian chỉ gồm vai trò DBA, không có vai trò HR.'
+  talent_acquisition:
+    level: absent
+    evidence:
+    - quote: Database Administrator, 01/2020 to Current
+      start_offset: 1067
+      end_offset: 1109
+    - quote: ORACLE / POSTGRESQL DBA, 11/2015 to 12/2019
+      start_offset: 1614
+      end_offset: 1657
+    note: 'Áp dụng v1.1 #1: không vai trò hay mô tả công việc nào liên quan đến tuyển dụng.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: CV không đề cập quan hệ lao động, quản lý hiệu suất hay luật lao động.
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: CV không nhắc Microsoft Office, HRIS hay công nghệ tuyển dụng.
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: Provided appropriate interfacing, consulting, and standards associated to database management,
+        and monitored transaction
+      start_offset: 4880
+      end_offset: 5000
+    - quote: Participated in daily stand ups to discuss about new database design, modeling and creation.
+      start_offset: 6773
+      end_offset: 6865
+    note: Chỉ có bằng chứng gián tiếp về tư vấn và trao đổi trong nhóm kỹ thuật; việc kiểm soát bảo mật/phân
+      quyền là bảo mật dữ liệu, không phải xử lý vấn đề nhân sự nhạy cảm.
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor of Science: Business Administration, 05/2015'
+      start_offset: 6951
+      end_offset: 7004
+    note: Cử nhân Business Administration khớp yêu cầu bằng cử nhân HR, quản trị kinh doanh hoặc ngành
+      liên quan.
+  hr_programs:
+    level: absent
+    evidence:
+    - quote: Database Administrator, 01/2020 to Current
+      start_offset: 1067
+      end_offset: 1109
+    - quote: ORACLE / POSTGRESQL DBA, 11/2015 to 12/2019
+      start_offset: 1614
+      end_offset: 1657
+    note: 'Áp dụng v1.1 #1: không vai trò nào phát triển hay điều phối chương trình HR.'

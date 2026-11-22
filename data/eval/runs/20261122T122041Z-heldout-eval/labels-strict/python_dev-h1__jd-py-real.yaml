@@ -1,0 +1,103 @@
+cv_sheet_id: python_dev-h1
+text_sha256: d88bc77d615cc7150804a3b8f4395623739516296ee922e1329840046f0bc6b4
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: adequate
+    evidence:
+    - quote: Experienced software developer(over 9 years of experience) in Python programming, IBM Cloud
+        and Unix
+      start_offset: 163
+      end_offset: 263
+    - quote: Developed tools for debugging IBM cloud using Python .
+      start_offset: 2164
+      end_offset: 2218
+    - quote: Working in Python Web scraping using python scrapy Module.
+      start_offset: 1944
+      end_offset: 2002
+    - quote: Flask
+      start_offset: 1104
+      end_offset: 1109
+    note: Python là ngôn ngữ chính trong các vai trò gần đây (công cụ cloud, web scraping, tự động hoá
+      kiểm thử) và có xử lý dữ liệu; Flask chỉ xuất hiện trong danh sách kỹ năng, không có mô tả dự án
+      Django/Flask. Không có quy mô/kết quả cụ thể cho công việc Python nên không xếp strong.
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: CV không nhắc đến PostgreSQL, SQL, tối ưu truy vấn hay stored procedures.
+  cloud_docker_linux:
+    level: partial
+    evidence:
+    - quote: Linux shell scripting
+      start_offset: 1080
+      end_offset: 1101
+    - quote: Automated different operations using shell scripts.
+      start_offset: 2375
+      end_offset: 2426
+    - quote: Introduction to Containers, Kubernetes and OpenShift
+      start_offset: 5748
+      end_offset: 5800
+    note: Có Linux/Unix và shell scripting rõ ràng; container chỉ qua một chứng chỉ nhập môn; kinh nghiệm
+      cloud là IBM Cloud, không nhắc đến Docker trong công việc hay AWS (EC2, RDS, CloudFront).
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: PY THON DEVELOPER 10/2021 to CURRENT
+      start_offset: 1252
+      end_offset: 1288
+    - quote: IB) CLOUD DEVELOPER-PY THON 07/2020 to 04/2021
+      start_offset: 2004
+      end_offset: 2050
+    - quote: was working as an IBM cloud backend developer.
+      start_offset: 2073
+      end_offset: 2119
+    - quote: C/O+H+/PY THON DEVELOPER 10/2012 to 07/2020
+      start_offset: 2551
+      end_offset: 2594
+    note: Hơn 9 năm phát triển phần mềm, nhưng chỉ vai trò IBM (07/2020–04/2021, khoảng 9 tháng) được
+      mô tả là backend; giai đoạn Wipro 2012–2020 là phần mềm C/C++ cho thiết bị viễn thông/mạng, vai
+      trò hiện tại thiên về công cụ và web scraping. Không chứng minh đủ 7 năm backend.
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: Integrated object-oriented design and development techniques into projects to support usability
+        goals.
+      start_offset: 1476
+      end_offset: 1578
+    - quote: Programmed applications and tools using object-oriented languages with goals of code abstraction,
+      start_offset: 1582
+      end_offset: 1679
+    - quote: Discuss the solution with the customer and create draft design document.
+      start_offset: 2847
+      end_offset: 2919
+    - quote: Training new developers
+      start_offset: 2473
+      end_offset: 2496
+    note: Có thiết kế hướng đối tượng hướng tới trừu tượng hoá/tái sử dụng, viết tài liệu thiết kế nháp
+      và đào tạo lập trình viên mới; không nêu design pattern cụ thể hay việc hướng dẫn người khác giải
+      quyết vấn đề kiến trúc.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: effective in working independently and collaboratively in a team with excellent
+      start_offset: 719
+      end_offset: 798
+    - quote: communication and writing skill.
+      start_offset: 799
+      end_offset: 831
+    - quote: Discuss the solution with the customer and create draft design document.
+      start_offset: 2847
+      end_offset: 2919
+    note: Kỹ năng giao tiếp chủ yếu là tự nhận xét; có trao đổi giải pháp với khách hàng nhưng không rõ
+      trình bày ý tưởng phức tạp cho đồng nghiệp không chuyên kỹ thuật.
+  education_cs:
+    level: adequate
+    evidence:
+    - quote: Master of Technology | Software Engineering 2016
+      start_offset: 5604
+      end_offset: 5652
+    note: Thạc sĩ Kỹ thuật phần mềm (BITS Pilani) đáp ứng yêu cầu bằng CS hoặc tương đương; cử nhân là
+      Electronics (năm OCR ghi '2072').

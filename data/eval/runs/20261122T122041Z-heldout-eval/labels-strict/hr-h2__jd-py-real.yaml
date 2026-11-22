@@ -1,0 +1,57 @@
+cv_sheet_id: hr-h2
+text_sha256: 0f11b1a69b5acfc01c0d60c305a36cd7d41888c65668553df92b8517018d960c
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: 'Áp dụng v1.1 #3: CV không nhắc Python, Django hay Flask.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: 'Áp dụng v1.1 #3: CV không nhắc PostgreSQL hay cơ sở dữ liệu.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: 'Áp dụng v1.1 #3: CV không nhắc Linux, Bash, Docker hay AWS.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: Human Resources, 2008 - 01/2010
+      start_offset: 946
+      end_offset: 977
+    - quote: Business Development, 04/2006 - 11/2007
+      start_offset: 1454
+      end_offset: 1493
+    note: 'Áp dụng v1.1 #1: lịch sử làm việc có mốc thời gian gồm HR và Business Development, không có
+      vai trò backend software engineer.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: 'Áp dụng v1.1 #3: CV không đề cập kiến trúc phần mềm hay design pattern.'
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Delivered performance updates, quarterly business reviews and planning meetings.
+      start_offset: 1624
+      end_offset: 1704
+    - quote: HR Recruiter who communicates and collaborates effectively with all levels of personnel by
+        relying on excellent interpersonal skills,
+      start_offset: 113
+      end_offset: 246
+    note: Có trình bày báo cáo kinh doanh và giao tiếp với mọi cấp, nhưng không liên quan đến giải thích
+      ý tưởng kỹ thuật phức tạp.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Bachelor: Human Resources, 2014'
+      start_offset: 1823
+      end_offset: 1854
+    - quote: 'Diploma: English language learning, 2010'
+      start_offset: 1934
+      end_offset: 1974
+    note: 'Áp dụng v1.1 #2: bằng cấp là Human Resources và diploma tiếng Anh, không phải CS hay đào tạo
+      kỹ thuật phần mềm tương đương.'

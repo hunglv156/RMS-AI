@@ -1,0 +1,445 @@
+{
+  "sheet_id": "hr-h2",
+  "jd_id": "jd-py-real",
+  "expected_group": "match_B",
+  "source_pdf_sha256": "0f11b1a69b5acfc01c0d60c305a36cd7d41888c65668553df92b8517018d960c",
+  "text_content_sha256": "b08f50718f091cc1f7173585551390ce5ff41bc7cb0bf05a9930893092adfb23",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-py-real",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "python_frameworks",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention Python, Django, Flask, or any programming frameworks.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with Python",
+            "Experience with Django or Flask"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "python_frameworks",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "postgresql_database",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV contains no mention of PostgreSQL, databases, or SQL query optimization.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with PostgreSQL",
+            "Database tuning and optimization"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "postgresql_database",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "cloud_docker_linux",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention Docker, AWS, Linux, or Bash scripting.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with Docker",
+            "Experience with AWS",
+            "Linux/Bash experience"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "cloud_docker_linux",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "backend_experience",
+          "level": "absent",
+          "confidence": 0.95,
+          "reason": "The candidate's dated work history contains exclusively Human Resources and Business Development roles, showing no backend engineering experience.",
+          "evidence": [
+            {
+              "quote": "Human Resources, 2008 - 01/2010\n\nTowne Properties Associates — Dayton, OH",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Business Development, 04/2006 - 11/2007\n\nQuincy Recycle — Indianapolis, IN",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "7+ years backend software engineering experience"
+          ]
+        },
+        "validation": {
+          "level": "absent",
+          "raw_level": "absent",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Human Resources, 2008 - 01/2010\n\nTowne Properties Associates — Dayton, OH",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 946,
+              "end_offset": 1019,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Business Development, 04/2006 - 11/2007\n\nQuincy Recycle — Indianapolis, IN",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1454,
+              "end_offset": 1528,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "backend_experience",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "not_supported",
+          "match_value": 0.0,
+          "validated": true
+        },
+        "score": 0.0,
+        "weighted_points": 0.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "software_architecture",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention software architecture, design patterns, or technical system design.",
+          "evidence": [],
+          "missing_information": [
+            "Software architecture experience",
+            "Application of design patterns"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "software_architecture",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication_collaboration",
+          "level": "partial",
+          "confidence": 0.6,
+          "reason": "The candidate demonstrates business presentation and advisory experience, but lacks evidence of presenting technical concepts to non-technical stakeholders.",
+          "evidence": [
+            {
+              "quote": "Delivered performance updates, quarterly business reviews and planning meetings.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Advised managers on organizational policy matters and recommend needed changes.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience presenting complex technical ideas"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Delivered performance updates, quarterly business reviews and planning meetings.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1624,
+              "end_offset": 1704,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Advised managers on organizational policy matters and recommend needed changes.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1143,
+              "end_offset": 1222,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication_collaboration",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education_cs",
+          "level": "absent",
+          "confidence": 0.95,
+          "reason": "The candidate lists a degree in Human Resources rather than Computer Science or an equivalent technical field.",
+          "evidence": [
+            {
+              "quote": "Bachelor: Human Resources, 2014\nUniversity of Colorado of Denver - Denver, CO",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Degree in Computer Science or software engineering training"
+          ]
+        },
+        "validation": {
+          "level": "absent",
+          "raw_level": "absent",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Bachelor: Human Resources, 2014\nUniversity of Colorado of Denver - Denver, CO",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1823,
+              "end_offset": 1900,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education_cs",
+          "weight": 5.0,
+          "priority": "nice_to_have",
+          "status": "not_supported",
+          "match_value": 0.0,
+          "validated": true
+        },
+        "score": 0.0,
+        "weighted_points": 0.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.3,
+      "lower_bound": 4.0,
+      "upper_bound": 74.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-low",
+      "temperature": 0.0,
+      "started_at": "2026-11-22T12:25:29.901236+00:00",
+      "latency_ms": 8582.620125001995,
+      "input_tokens": 3895,
+      "output_tokens": 843,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n",
+      "hedged": false,
+      "winner": "primary"
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v2",
+      "model": "ag/gemini-3.8-flash-low",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v2",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "python_frameworks": [],
+          "postgresql_database": [
+            {
+              "chunk_index": 2,
+              "score": 0.5012215824797696,
+              "lexical_score": 0.5012215824797696,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.45375329497918004,
+              "lexical_score": 0.45375329497918004,
+              "dense_score": null
+            }
+          ],
+          "cloud_docker_linux": [],
+          "backend_experience": [
+            {
+              "chunk_index": 1,
+              "score": 0.9469171675977581,
+              "lexical_score": 0.9469171675977581,
+              "dense_score": null
+            }
+          ],
+          "software_architecture": [],
+          "communication_collaboration": [],
+          "education_cs": [
+            {
+              "chunk_index": 2,
+              "score": 1.0459765834700698,
+              "lexical_score": 1.0459765834700698,
+              "dense_score": null
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 777,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 677,
+            "end_offset": 1454,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1354,
+            "end_offset": 2025,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "b08f50718f091cc1f7173585551390ce5ff41bc7cb0bf05a9930893092adfb23",
+      "jd_sha256": "6ad85bef9f5c74b0ad16d8e02ade393cb543209f127eb3627955593a2feff9c5"
+    }
+  },
+  "prompt_char_length": 6938,
+  "context_char_length": 1348,
+  "input_tokens": 3895,
+  "output_tokens": 843,
+  "reasoning_tokens": null,
+  "latency_s": 8.584333500009961,
+  "finished_at": "2026-11-22T12:25:38.484336+00:00"
+}

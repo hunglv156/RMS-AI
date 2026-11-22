@@ -1,0 +1,96 @@
+cv_sheet_id: hr-h2
+text_sha256: 0f11b1a69b5acfc01c0d60c305a36cd7d41888c65668553df92b8517018d960c
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: Human Resources, 2008 - 01/2010
+      start_offset: 946
+      end_offset: 977
+    - quote: Business Development, 04/2006 - 11/2007
+      start_offset: 1454
+      end_offset: 1493
+    note: Lịch sử có mốc thời gian chỉ có một vai trò HR (2008 - 01/2010, khoảng 2 năm) với nhiều mảng
+      HR (tuyển dụng, đánh giá hiệu suất, exit program); vai trò còn lại là Business Development. Chưa
+      chứng minh 3+ năm HR.
+  talent_acquisition:
+    level: strong
+    evidence:
+    - quote: Devised a successful recruiting plan for new call centers, which resulted in 15 new employees
+        in 12 months.
+      start_offset: 593
+      end_offset: 700
+    - quote: Interviewed over 35 people and successfully staffed 5 new store locations.
+      start_offset: 701
+      end_offset: 775
+    - quote: Increased the employee base by 20% to meet changing staffing needs.
+      start_offset: 1074
+      end_offset: 1141
+    note: 'Tuyển dụng có kết quả định lượng: 15 nhân viên trong 12 tháng, phỏng vấn hơn 35 người cho 5
+      cửa hàng mới, tăng 20% nhân sự.'
+  employee_relations_compliance:
+    level: adequate
+    evidence:
+    - quote: 'Advised managers on organizational policy matters and recommend needed changes.
+
+        Designed the employee performance evaluation process and merit program.'
+      start_offset: 1143
+      end_offset: 1294
+    - quote: Created and implemented the exit and interview program process.
+      start_offset: 1296
+      end_offset: 1359
+    - quote: Human Resources. Reduced employee turnoverby10%.
+      start_offset: 777
+      end_offset: 825
+    note: '[adjudicated] Performance management (designed the evaluation process and merit program), policy
+      advice to managers, the exit-interview process and a turnover reduction clearly evidence most of
+      the criterion; employment law and regulations are not mentioned, so it is met at adequate, not strong.'
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: CV không nhắc Microsoft Office, HRIS hay công nghệ tuyển dụng.
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: HR Recruiter who communicates and collaborates effectively with all levels of personnel by
+        relying on excellent interpersonal skills,
+      start_offset: 113
+      end_offset: 246
+    - quote: Advised managers on organizational policy matters and recommend needed changes.
+      start_offset: 1143
+      end_offset: 1222
+    - quote: Delivered performance updates, quarterly business reviews and planning meetings.
+      start_offset: 1624
+      end_offset: 1704
+    note: Tự nhận giao tiếp với mọi cấp, có tư vấn quản lý và trình bày báo cáo kinh doanh định kỳ; không
+      đề cập xử lý vấn đề bảo mật/nhạy cảm.
+  education_hr_business:
+    level: partial
+    evidence:
+    - quote: 'Bachelor: Human Resources, 2014'
+      start_offset: 1823
+      end_offset: 1854
+    - quote: Expected to graduate fall 2014
+      start_offset: 1902
+      end_offset: 1932
+    note: Ngành Human Resources khớp yêu cầu, nhưng CV ghi 'Expected to graduate fall 2014' nên chưa xác
+      nhận đã hoàn thành bằng.
+  hr_programs:
+    level: strong
+    evidence:
+    - quote: Designed the employee performance evaluation process and merit program.
+      start_offset: 1223
+      end_offset: 1294
+    - quote: Created and implemented the exit and interview program process.
+      start_offset: 1296
+      end_offset: 1359
+    - quote: Supervised 3 HR interns and provided assistance in resume building, training and career path
+        development.
+      start_offset: 827
+      end_offset: 932
+    note: Thiết kế chương trình đánh giá/merit và exit interview; giám sát 3 thực tập sinh HR kèm phát
+      triển nghề nghiệp, gần với yêu cầu ưu tiên về chương trình thực tập/early-career.

@@ -1,0 +1,678 @@
+{
+  "sheet_id": "devops-h1",
+  "jd_id": "jd-py-real",
+  "expected_group": "partial_A",
+  "source_pdf_sha256": "7951c1d4026e04fd8b3fae1d90c2f2bcf4d11516599d4a7cc9187c80fa734b3a",
+  "text_content_sha256": "9ae608f45a8c1d4a2d70772ebfbcb8b29ba0bf7c70aee3756630a89458aafa86",
+  "status": "succeeded",
+  "result": {
+    "jd_id": "jd-py-real",
+    "criteria": [
+      {
+        "assessment": {
+          "criterion_id": "python_frameworks",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV does not mention Python, Django, Flask, or data processing applications using Python.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with Python programming",
+            "Experience with Django or Flask frameworks",
+            "Experience developing complex data processing tasks in Python"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "python_frameworks",
+          "weight": 25.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "postgresql_database",
+          "level": "unknown",
+          "confidence": 0.95,
+          "reason": "The CV mentions MySQL and MongoDB, but does not mention PostgreSQL, query optimization, stored procedures, or performance tuning.",
+          "evidence": [],
+          "missing_information": [
+            "Experience with PostgreSQL",
+            "PostgreSQL query optimization, joins, stored procedures, and performance tuning"
+          ]
+        },
+        "validation": {
+          "level": "unknown",
+          "raw_level": "unknown",
+          "reason": null,
+          "evidence_valid": false
+        },
+        "evidence": [],
+        "scoring": {
+          "criterion_id": "postgresql_database",
+          "weight": 20.0,
+          "priority": "must_have",
+          "status": "unknown",
+          "match_value": null,
+          "validated": false
+        },
+        "score": null,
+        "weighted_points": null
+      },
+      {
+        "assessment": {
+          "criterion_id": "cloud_docker_linux",
+          "level": "partial",
+          "confidence": 0.85,
+          "reason": "The candidate demonstrates practical experience with AWS (including EC2, ELB, VPC, and S3) and iptables, but does not mention Docker, Bash scripting, RDS, or CloudFront.",
+          "evidence": [
+            {
+              "quote": "Familiar with AWS services like EC2, ELB, $3, VPC, EBS, LAM etc Using knife and test kitchen to test cookbooks locally before\ndeploying to AWS environments.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Setting up environments on AWS using Rundeck, SparkleFormation and Chef policy files.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Setting up complex environments which include Load Balancers, Application Servers and DB servers using Chef and AWS.Using AWS\nsecurity groups and iptables to keep the environments secure.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Experience with Docker containers",
+            "Experience with Bash scripting",
+            "Experience with AWS RDS and CloudFront"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Familiar with AWS services like EC2, ELB, $3, VPC, EBS, LAM etc Using knife and test kitchen to test cookbooks locally before\ndeploying to AWS environments.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 978,
+              "end_offset": 1134,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Setting up environments on AWS using Rundeck, SparkleFormation and Chef policy files.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 640,
+              "end_offset": 725,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Setting up complex environments which include Load Balancers, Application Servers and DB servers using Chef and AWS.Using AWS\nsecurity groups and iptables to keep the environments secure.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 788,
+              "end_offset": 975,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "cloud_docker_linux",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 6.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "backend_experience",
+          "level": "partial",
+          "confidence": 0.8,
+          "reason": "The candidate documents approximately 6 years of backend and full-stack software development experience across roles from 2010 to 2016, plus an ongoing DevOps role from 2016; however, explicit evidence confirming at least seven years as a backend software engineer is not established.",
+          "evidence": [
+            {
+              "quote": "Senior PHP Developer, 05/2010 - 07/2015",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Created and maintained the backend tasks for the API which included various jobs for price calculation and feed processing.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "PHP Software Engineer, 07/2015 - 02/2016",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Lead Developer, 02/2016 - 06/2016",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "DevOps Engineer, 06/2016 - Current",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Evidence confirming at least seven full years of professional experience specifically as a backend software engineer"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Senior PHP Developer, 05/2010 - 07/2015",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2118,
+              "end_offset": 2157,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Created and maintained the backend tasks for the API which included various jobs for price calculation and feed processing.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2292,
+              "end_offset": 2415,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "PHP Software Engineer, 07/2015 - 02/2016",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1680,
+              "end_offset": 1720,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Lead Developer, 02/2016 - 06/2016",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1403,
+              "end_offset": 1436,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "DevOps Engineer, 06/2016 - Current",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 468,
+              "end_offset": 502,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "backend_experience",
+          "weight": 15.0,
+          "priority": "must_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 6.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "software_architecture",
+          "level": "partial",
+          "confidence": 0.75,
+          "reason": "The candidate shows experience building modular systems and using MVC frameworks, but does not provide evidence of teaching others how to solve architectural problems.",
+          "evidence": [
+            {
+              "quote": "MVC framework development using Symfony and Laravel",
+              "start_offset": null,
+              "end_offset": null
+            },
+            {
+              "quote": "Designed, built, tested and implemented stand-alone modules for Magento, including payment and promotion modules.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Demonstrated ability to teach others how to solve architectural problems",
+            "Application of architectural design patterns beyond standard MVC frameworks"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "MVC framework development using Symfony and Laravel",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 392,
+              "end_offset": 443,
+              "reason": null,
+              "ambiguous": false
+            }
+          },
+          {
+            "evidence": {
+              "quote": "Designed, built, tested and implemented stand-alone modules for Magento, including payment and promotion modules.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 1866,
+              "end_offset": 1979,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "software_architecture",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "communication_collaboration",
+          "level": "partial",
+          "confidence": 0.75,
+          "reason": "The candidate notes skills in communication, presentations, and technical leadership, but there is no specific evidence of explaining complex ideas to non-technical colleagues.",
+          "evidence": [
+            {
+              "quote": "Software Developer skilled at technical leadership, communication and presentations.",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Demonstrated experience presenting and explaining complex ideas to non-technical colleagues"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Software Developer skilled at technical leadership, communication and presentations.",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 126,
+              "end_offset": 210,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "communication_collaboration",
+          "weight": 10.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 4.0
+      },
+      {
+        "assessment": {
+          "criterion_id": "education_cs",
+          "level": "partial",
+          "confidence": 0.8,
+          "reason": "The candidate holds a Master of Science in Electrical Engineering, but a Bachelor's degree in Computer Science or explicit training in software engineering principles is not documented.",
+          "evidence": [
+            {
+              "quote": "Master of Science: Electrical Engineering, 2009",
+              "start_offset": null,
+              "end_offset": null
+            }
+          ],
+          "missing_information": [
+            "Bachelor's degree in Computer Science",
+            "Explicit coursework or equivalent formal training in software engineering principles"
+          ]
+        },
+        "validation": {
+          "level": "partial",
+          "raw_level": "partial",
+          "reason": null,
+          "evidence_valid": true
+        },
+        "evidence": [
+          {
+            "evidence": {
+              "quote": "Master of Science: Electrical Engineering, 2009",
+              "start_offset": null,
+              "end_offset": null
+            },
+            "verification": {
+              "valid": true,
+              "start_offset": 2576,
+              "end_offset": 2623,
+              "reason": null,
+              "ambiguous": false
+            }
+          }
+        ],
+        "scoring": {
+          "criterion_id": "education_cs",
+          "weight": 5.0,
+          "priority": "nice_to_have",
+          "status": "partially_supported",
+          "match_value": 0.4,
+          "validated": true
+        },
+        "score": 40.0,
+        "weighted_points": 2.0
+      }
+    ],
+    "total": {
+      "score_state": "insufficient_coverage",
+      "observed_score": null,
+      "coverage": 0.55,
+      "lower_bound": 22.0,
+      "upper_bound": 67.0,
+      "requires_manual_review": true
+    },
+    "llm": {
+      "provider": "openai_compat",
+      "model": "ag/gemini-3.8-flash-high",
+      "temperature": 0.0,
+      "started_at": "2026-11-22T12:35:23.988807+00:00",
+      "latency_ms": 50931.00020798738,
+      "input_tokens": 8587,
+      "output_tokens": 1240,
+      "attempts": 1,
+      "finish_reason": "stop",
+      "response_model": "gemini-3.8-flash-n",
+      "hedged": null,
+      "winner": null
+    },
+    "versions": {
+      "pipeline": "screening-pipeline-v1",
+      "prompt": "screening-v1",
+      "model": "ag/gemini-3.8-flash-high",
+      "config": {
+        "context_mode": "retrieved",
+        "retrieval_mode": "lexical",
+        "retrieval_k": 5,
+        "prompt_version": "screening-v1",
+        "min_coverage": 0.8,
+        "rubric_values": {
+          "strong": 1.0,
+          "adequate": 0.7,
+          "partial": 0.4,
+          "absent": 0.0
+        }
+      },
+      "retrieval": {
+        "chunker": "chunk-v1",
+        "embedding": null,
+        "retrieval": {
+          "version": "retrieval-v1",
+          "mode": "lexical",
+          "k": 5,
+          "bm25_k1": 1.5,
+          "bm25_b": 0.75,
+          "rrf_k": 60,
+          "tokenizer": "english-tech-v1",
+          "tie_break": "chunk-index-ascending"
+        },
+        "hits": {
+          "python_frameworks": [],
+          "postgresql_database": [],
+          "cloud_docker_linux": [
+            {
+              "chunk_index": 1,
+              "score": 2.2535293896045103,
+              "lexical_score": 2.2535293896045103,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.7354149023179285,
+              "lexical_score": 0.7354149023179285,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.6307112859876614,
+              "lexical_score": 0.6307112859876614,
+              "dense_score": null
+            }
+          ],
+          "backend_experience": [
+            {
+              "chunk_index": 0,
+              "score": 3.2773323874209677,
+              "lexical_score": 3.2773323874209677,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 2.1269118658724055,
+              "lexical_score": 2.1269118658724055,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 1.8328085145533697,
+              "lexical_score": 1.8328085145533697,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 4,
+              "score": 1.2274115916678232,
+              "lexical_score": 1.2274115916678232,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.47505127939107217,
+              "lexical_score": 0.47505127939107217,
+              "dense_score": null
+            }
+          ],
+          "software_architecture": [
+            {
+              "chunk_index": 0,
+              "score": 2.2528952854585604,
+              "lexical_score": 2.2528952854585604,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 0.5868546234056119,
+              "lexical_score": 0.5868546234056119,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 0.505706027523447,
+              "lexical_score": 0.505706027523447,
+              "dense_score": null
+            }
+          ],
+          "communication_collaboration": [
+            {
+              "chunk_index": 0,
+              "score": 3.244367998941798,
+              "lexical_score": 3.244367998941798,
+              "dense_score": null
+            }
+          ],
+          "education_cs": [
+            {
+              "chunk_index": 4,
+              "score": 2.700937221707582,
+              "lexical_score": 2.700937221707582,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 1,
+              "score": 1.6968790815519688,
+              "lexical_score": 1.6968790815519688,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 3,
+              "score": 1.1737092468112238,
+              "lexical_score": 1.1737092468112238,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 2,
+              "score": 1.011412055046894,
+              "lexical_score": 1.011412055046894,
+              "dense_score": null
+            },
+            {
+              "chunk_index": 0,
+              "score": 0.6307112859876614,
+              "lexical_score": 0.6307112859876614,
+              "dense_score": null
+            }
+          ]
+        },
+        "chunks": [
+          {
+            "index": 0,
+            "start_offset": 0,
+            "end_offset": 468,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 1,
+            "start_offset": 368,
+            "end_offset": 1167,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 2,
+            "start_offset": 1067,
+            "end_offset": 1722,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 3,
+            "start_offset": 1622,
+            "end_offset": 2118,
+            "text": null,
+            "version": "chunk-v1"
+          },
+          {
+            "index": 4,
+            "start_offset": 2018,
+            "end_offset": 2662,
+            "text": null,
+            "version": "chunk-v1"
+          }
+        ]
+      },
+      "extraction": null,
+      "cv_sha256": "9ae608f45a8c1d4a2d70772ebfbcb8b29ba0bf7c70aee3756630a89458aafa86",
+      "jd_sha256": "6ad85bef9f5c74b0ad16d8e02ade393cb543209f127eb3627955593a2feff9c5"
+    }
+  },
+  "prompt_char_length": 6494,
+  "context_char_length": 2662,
+  "input_tokens": 8587,
+  "output_tokens": 1240,
+  "reasoning_tokens": null,
+  "latency_s": 50.93389137502527,
+  "finished_at": "2026-11-22T12:36:14.920464+00:00"
+}

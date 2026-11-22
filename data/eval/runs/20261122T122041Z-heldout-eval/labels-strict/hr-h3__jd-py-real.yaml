@@ -1,0 +1,60 @@
+cv_sheet_id: hr-h3
+text_sha256: c142f0e184d7d5970d5c3781576f5f823ae13dd3c192c0ee5872596f332a07f1
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: 'Áp dụng v1.1 #3: CV không nhắc Python, Django hay Flask.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: CV không nhắc PostgreSQL; 'Oracle' xuất hiện như hệ thống nghiệp vụ (Oracle/EDI để xử lý đơn
+      hàng), không phải quản trị/tối ưu cơ sở dữ liệu.
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: 'Áp dụng v1.1 #3: CV không nhắc Linux, Bash, Docker hay AWS.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: Abm - Human Resources
+      start_offset: 967
+      end_offset: 988
+    - quote: Enphase Energy - Inside Account Manager
+      start_offset: 1112
+      end_offset: 1151
+    - quote: Society Insurance - Policy Services Representative, II
+      start_offset: 2596
+      end_offset: 2650
+    - quote: IMPERIAL DISTRIBUTORS - Customer Support Representative/ Field Service Representative
+      start_offset: 4473
+      end_offset: 4558
+    note: 'Áp dụng v1.1 #1: lịch sử làm việc có mốc thời gian gồm HR, account manager, policy services,
+      claims và customer support; không có vai trò backend software engineer.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: 'Áp dụng v1.1 #3: CV không đề cập kiến trúc phần mềm hay design pattern.'
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: + Assure the oral and written communication are timely, clear, concise, and empathetic.
+      start_offset: 4270
+      end_offset: 4357
+    - quote: + Report daily to the senior management team on daily productivity of the department
+      start_offset: 3610
+      end_offset: 3694
+    note: Có giao tiếp rõ ràng với khách hàng và báo cáo lãnh đạo, nhưng không liên quan đến giải thích
+      ý tưởng kỹ thuật phức tạp.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: Business Administration Degree
+      start_offset: 429
+      end_offset: 459
+    note: 'Áp dụng v1.1 #2: bằng cấp nêu là Business Administration, không phải CS hay đào tạo kỹ thuật
+      phần mềm tương đương.'

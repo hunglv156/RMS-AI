@@ -1,0 +1,54 @@
+cv_sheet_id: finance-h1
+text_sha256: 0bbcf1fa7e05a8101d0a7452a63a3524a4ab35a6f428caa872afa5796726991a
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: 'Áp dụng v1.1 #3: CV không nhắc Python, Django hay Flask.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: 'Áp dụng v1.1 #3: CV không nhắc PostgreSQL hay SQL; chỉ có quản lý dữ liệu trong agency management
+      system.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: 'Áp dụng v1.1 #3: CV không nhắc Linux, Bash, Docker hay AWS.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: 'Financial Analyst
+
+
+        ABC Insurance Services
+
+
+        3 2022- Ongoing'
+      start_offset: 1537
+      end_offset: 1595
+    note: 'Áp dụng v1.1 #1: lịch sử làm việc có mốc thời gian chỉ gồm vai trò Financial Analyst, không
+      có vai trò backend software engineer.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: 'Áp dụng v1.1 #3: CV không đề cập kiến trúc phần mềm hay design pattern.'
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: written and oral communication skills, including experience working with small business owners.
+      start_offset: 701
+      end_offset: 796
+    note: Tự nhận giao tiếp tốt và có làm việc với chủ doanh nghiệp nhỏ (người không chuyên kỹ thuật);
+      không liên quan đến giải thích ý tưởng kỹ thuật phức tạp.
+  education_cs:
+    level: absent
+    evidence:
+    - quote: Bachelor's degree in Finance from the University of Chicago.
+      start_offset: 633
+      end_offset: 693
+    note: 'Áp dụng v1.1 #2: bằng cử nhân ngành Finance, không phải CS hay đào tạo kỹ thuật phần mềm tương
+      đương.'

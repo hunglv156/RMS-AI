@@ -1,0 +1,18 @@
+[
+  {
+    "run": "20261122T122041Z-heldout-final-flashlow-v2-hedge20",
+    "invocations": 1,
+    "all_canonical_hashes_match": true,
+    "models": [
+      "gemini-3.8-flash-n"
+    ]
+  },
+  {
+    "run": "20261122T122041Z-heldout-baseline-flashhigh-v1",
+    "invocations": 1,
+    "all_canonical_hashes_match": true,
+    "models": [
+      "gemini-3.8-flash-n"
+    ]
+  }
+]

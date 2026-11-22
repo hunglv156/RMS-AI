@@ -1,0 +1,119 @@
+cv_sheet_id: python_dev-h2
+text_sha256: f57c4afb2f55df979951bdd2308b2caecf0714799fdbd7f2ddb4938babeedc57
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: strong
+    evidence:
+    - quote: experience in Python Django web frame works, large file processing using shell scripts and
+        python, building
+      start_offset: 276
+      end_offset: 383
+    - quote: Implement several code changes to the Python modules running Voice, Data and SMS which includes
+      start_offset: 983
+      end_offset: 1078
+    - quote: Team lead for project which implements billing of Phase 3 customers for Voice module, which
+        is an
+      start_offset: 1294
+      end_offset: 1391
+    - quote: 'Environment : Python 3.6, SQL, Jenkins (CI/CD). AWS, Linux, SQLdeveloper, Java.'
+      start_offset: 1930
+      end_offset: 2009
+    - quote: Built plugins using flask which connects the database of resumes and data of job descriptions
+        to use
+      start_offset: 3772
+      end_offset: 3872
+    note: 'Python là ngôn ngữ chính ở cả hai vai trò gần nhất: module tính cước Voice/Data/SMS cho khách
+      hàng Verizon (trưởng nhóm phần Voice Phase 3), xử lý file lớn, mô hình ML; có Django (tóm tắt) và
+      Flask (plugin, UI). Có quyền sở hữu/phạm vi cụ thể nên xếp strong.'
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: Responsible for implementing low latency SQL which does not overload the production databases
+        as
+      start_offset: 1549
+      end_offset: 1645
+    - quote: lookups, filters, sorter, stored procedures, router & sequence generator.
+      start_offset: 4623
+      end_offset: 4696
+    - quote: 'Environment : SQLdeveloper. Informatica, Java, SQL, sqlserver.'
+      start_offset: 5344
+      end_offset: 5406
+    note: Có SQL hướng hiệu năng trên database production và dùng stored procedures trong ETL (Oracle/SQL
+      Server), nhưng không nhắc PostgreSQL hay tối ưu truy vấn/tuning ở mức nâng cao.
+  cloud_docker_linux:
+    level: partial
+    evidence:
+    - quote: 'Environment : Python 3.6, SQL, Jenkins (CI/CD). AWS, Linux, SQLdeveloper, Java.'
+      start_offset: 1930
+      end_offset: 2009
+    - quote: large file processing using shell scripts and python
+      start_offset: 321
+      end_offset: 373
+    - quote: AWS Solutions Architect ( Associate Level)
+      start_offset: 5597
+      end_offset: 5639
+    note: AWS, Linux và shell script xuất hiện (môi trường dự án, tóm tắt, chứng chỉ AWS Associate) nhưng
+      không mô tả dịch vụ EC2/RDS/CloudFront cụ thể; không nhắc Docker (chỉ có Kubernetes trong môi trường).
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: Around 4 years total IT experience as a Python Developer and Machine learning Engineer.
+      start_offset: 178
+      end_offset: 265
+    - quote: PYTHON DEVELOPER 12/2020 to CURRENT
+      start_offset: 818
+      end_offset: 853
+    - quote: MAGHINE LEARNING ENGINEER 05/2017 to 11/2019
+      start_offset: 2011
+      end_offset: 2055
+    - quote: PROGRAMMER ANALY ST/ETL DEVELOPER 09/2016 to 03/2017
+      start_offset: 4332
+      end_offset: 4384
+    note: Có kinh nghiệm phát triển backend (module tính cước Python) nhưng tổng kinh nghiệm IT tự nêu
+      khoảng 4 năm, gồm cả ML và ETL; chưa đạt mức tối thiểu 7 năm backend.
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: Team lead for project which implements billing of Phase 3 customers for Voice module, which
+        is an
+      start_offset: 1294
+      end_offset: 1391
+    - quote: Part of team converting entire existing Java code base for data module for Verizon business
+        customers
+      start_offset: 1793
+      end_offset: 1894
+    - quote: Built a basic UI for resume suggestion tool using Flask and integrated all the plugins for
+        easy on non
+      start_offset: 3899
+      end_offset: 4001
+    note: Có dẫn dắt một dự án module, tham gia chuyển đổi code base và tích hợp plugin; không nêu design
+      pattern hay việc hướng dẫn người khác giải quyết vấn đề kiến trúc.
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Responsible for answering business in situations like over charge, promo not applied errors,
+        on the
+      start_offset: 1672
+      end_offset: 1771
+    - quote: Actively involved in gathering requirements from the end users.
+      start_offset: 5056
+      end_offset: 5119
+    note: Có trả lời bộ phận kinh doanh về lỗi tính cước và thu thập yêu cầu từ người dùng cuối, cho thấy
+      làm việc với người không chuyên kỹ thuật, nhưng không rõ năng lực trình bày ý tưởng phức tạp.
+  education_cs:
+    level: partial
+    evidence:
+    - quote: Master of Science | Computer Information Technology 2016
+      start_offset: 5408
+      end_offset: 5464
+    - quote: Ba nelor of Science | Electrical And Electronics Engineering 2014
+      start_offset: 5493
+      end_offset: 5558
+    note: '[adjudicated] A stated degree exists, so unknown does not apply. Computer Information Technology
+      is a computing field adjacent to computer science but not CS or software engineering training as
+      such, so it partly matches; partial, not absent (consistent with the dev-set treatment of an adjacent
+      engineering degree).'
