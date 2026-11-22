@@ -1,0 +1,75 @@
+cv_sheet_id: python_dev-h1
+text_sha256: d88bc77d615cc7150804a3b8f4395623739516296ee922e1329840046f0bc6b4
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: PY THON DEVELOPER 10/2021 to CURRENT
+      start_offset: 1252
+      end_offset: 1288
+    - quote: IB) CLOUD DEVELOPER-PY THON 07/2020 to 04/2021
+      start_offset: 2004
+      end_offset: 2050
+    - quote: C/O+H+/PY THON DEVELOPER 10/2012 to 07/2020
+      start_offset: 2551
+      end_offset: 2594
+    note: '[agree] v1.1 rule 1: dated work history (2012-current) lists only software developer roles,
+      none in HR (Motion Recruitment is the employer, not the candidate''s function), so absent.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: '[adjudicated] Both annotators chose absent via v1.1 rule 1, but recruitment is an activity
+      criterion (rule 3, same scope as the dev-set adjudication); recruiting is not mentioned (the employer
+      name Motion Recruitment is not recruiting experience), so unknown, not absent.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: '[agree] Employee relations, performance management and employment law are not mentioned.'
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: '[agree] Microsoft Office, HRIS and recruiting technology are not mentioned; only software development
+      tools are listed.'
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: 'effective in working independently and collaboratively in a team with excellent
+
+        communication and writing skill.'
+      start_offset: 719
+      end_offset: 831
+    - quote: '« Worked closely with systems analysts, engineers and programmers to understand limitations,
+        develop
+
+        capabilities and resolve software problems.'
+      start_offset: 1328
+      end_offset: 1472
+    - quote: Discuss the solution with the customer and create draft design document.
+      start_offset: 2847
+      end_offset: 2919
+    note: '[adjudicated] Self-described communication and writing skills are backed by role evidence:
+      discussing solutions with the customer and writing design documents, and working closely with analysts,
+      engineers and programmers. Handling confidential matters and communication across all organizational
+      levels are not shown and there is no concrete scope, so adequate (consistent with the dev-set treatment
+      of self-described plus role-backed evidence).'
+  education_hr_business:
+    level: absent
+    evidence:
+    - quote: Master of Technology | Software Engineering 2016
+      start_offset: 5604
+      end_offset: 5652
+    - quote: BzChelor of Science | Electronics 2072
+      start_offset: 5678
+      end_offset: 5716
+    note: '[agree] v1.1 rule 2: stated degrees are in Software Engineering and Electronics (OCR-garbled
+      year not used), not HR, business administration or a related field, so absent.'
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: '[adjudicated] Both annotators chose absent via v1.1 rule 1, but HR programs are an activity
+      criterion (rule 3, same scope as the dev-set adjudication); HR programs are not mentioned and training
+      new developers is team training, not an HR program, so unknown, not absent.'

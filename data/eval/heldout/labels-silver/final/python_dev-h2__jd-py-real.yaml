@@ -1,0 +1,152 @@
+cv_sheet_id: python_dev-h2
+text_sha256: f57c4afb2f55df979951bdd2308b2caecf0714799fdbd7f2ddb4938babeedc57
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: strong
+    evidence:
+    - quote: experience in Python Django web frame works, large file processing using shell scripts and
+        python, building
+      start_offset: 276
+      end_offset: 383
+    - quote: 'Implement several code changes to the Python modules running Voice, Data and SMS which includes
+
+        but not limited to addition of new functionalities, bug fixes and performance improvements.'
+      start_offset: 983
+      end_offset: 1170
+    - quote: 'Team lead for project which implements billing of Phase 3 customers for Voice module, which
+        is an
+
+        additional new functionality.'
+      start_offset: 1294
+      end_offset: 1421
+    - quote: 'Environment : Python 3.6, SQL, Jenkins (CI/CD). AWS, Linux, SQLdeveloper, Java.'
+      start_offset: 1930
+      end_offset: 2009
+    - quote: '¢ Built plugins using flask which connects the database of resumes and data of job descriptions
+        to use
+
+        with the applications.'
+      start_offset: 3770
+      end_offset: 3895
+    - quote: '¢ Built a basic UI for resume suggestion tool using Flask and integrated all the plugins
+        for easy on non
+
+        commercial use, which in turn increase the productivity of the recruitment team.'
+      start_offset: 3897
+      end_offset: 4082
+    note: '[agree] Python is the main language in the two latest roles: Verizon Voice/Data/SMS billing
+      modules, with team-lead ownership of the Voice Phase 3 billing project, large-file processing and
+      ML models; Django (summary) and Flask (plugins and UI with a stated productivity result). Ownership
+      and scope satisfy v1.1 rule 4. Truncated copies were merged into full lines.'
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: '¢ Responsible for implementing low latency SQL which does not overload the production databases
+        as
+
+        the load will be huge.'
+      start_offset: 1547
+      end_offset: 1668
+    - quote: lookups, filters, sorter, stored procedures, router & sequence generator.
+      start_offset: 4623
+      end_offset: 4696
+    - quote: 'Environment : SQLdeveloper. Informatica, Java, SQL, sqlserver.'
+      start_offset: 5344
+      end_offset: 5406
+    note: '[agree] Performance-aware SQL on production databases and stored procedures in ETL (Oracle/SQL
+      Server) are relevant, but PostgreSQL and advanced query tuning are not mentioned, so partial. The
+      truncated copy was merged into the full line.'
+  cloud_docker_linux:
+    level: partial
+    evidence:
+    - quote: 'Environment : Python 3.6, SQL, Jenkins (CI/CD). AWS, Linux, SQLdeveloper, Java.'
+      start_offset: 1930
+      end_offset: 2009
+    - quote: large file processing using shell scripts and python
+      start_offset: 321
+      end_offset: 373
+    - quote: AWS Solutions Architect ( Associate Level)
+      start_offset: 5597
+      end_offset: 5639
+    note: '[agree] AWS and Linux appear in a project environment list and an AWS Associate certification,
+      and shell scripts in the summary, but no AWS service (EC2, RDS, CloudFront) or Linux work is described
+      and Docker is not mentioned (only Kubernetes in an environment list), so partial.'
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: Around 4 years total IT experience as a Python Developer and Machine learning Engineer.
+      start_offset: 178
+      end_offset: 265
+    - quote: PYTHON DEVELOPER 12/2020 to CURRENT
+      start_offset: 818
+      end_offset: 853
+    - quote: MAGHINE LEARNING ENGINEER 05/2017 to 11/2019
+      start_offset: 2011
+      end_offset: 2055
+    - quote: PROGRAMMER ANALY ST/ETL DEVELOPER 09/2016 to 03/2017
+      start_offset: 4332
+      end_offset: 4384
+    note: '[agree] Backend development (Python billing modules) is shown, but the stated total IT experience
+      is about 4 years including ML and ETL work, below the seven years required, so partial.'
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: 'Team lead for project which implements billing of Phase 3 customers for Voice module, which
+        is an
+
+        additional new functionality.'
+      start_offset: 1294
+      end_offset: 1421
+    - quote: Part of team converting entire existing Java code base for data module for Verizon business
+        customers
+      start_offset: 1793
+      end_offset: 1894
+    - quote: '¢ Built plugins using flask which connects the database of resumes and data of job descriptions
+        to use
+
+        with the applications.'
+      start_offset: 3770
+      end_offset: 3895
+    - quote: '¢ Built a basic UI for resume suggestion tool using Flask and integrated all the plugins
+        for easy on non
+
+        commercial use, which in turn increase the productivity of the recruitment team.'
+      start_offset: 3897
+      end_offset: 4082
+    note: '[agree] Leading a module project, a code-base conversion and plugin-based integration are related,
+      but design patterns and teaching others to solve architectural problems are not shown, so partial.
+      Truncated copies were merged into full lines.'
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: 'e Responsible for answering business in situations like over charge, promo not applied errors,
+        on the
+
+        development team.'
+      start_offset: 1670
+      end_offset: 1789
+    - quote: Actively involved in gathering requirements from the end users.
+      start_offset: 5056
+      end_offset: 5119
+    note: '[adjudicated] Both annotators chose partial, but answering the business on billing errors (overcharges,
+      promos not applied) on behalf of the development team is explaining technical problems to non-technical
+      colleagues, and requirements gathering with end users adds to it; the dev-set adjudication treats
+      this kind of role-backed explanation to non-specialists as adequate. No concrete scale, so adequate,
+      not strong.'
+  education_cs:
+    level: partial
+    evidence:
+    - quote: Master of Science | Computer Information Technology 2016
+      start_offset: 5408
+      end_offset: 5464
+    - quote: Ba nelor of Science | Electrical And Electronics Engineering 2014
+      start_offset: 5493
+      end_offset: 5558
+    note: '[adjudicated] A stated degree exists, so unknown does not apply. Computer Information Technology
+      is a computing field adjacent to computer science but not CS or software engineering training as
+      such, so it partly matches; partial, not absent (consistent with the dev-set treatment of an adjacent
+      engineering degree).'

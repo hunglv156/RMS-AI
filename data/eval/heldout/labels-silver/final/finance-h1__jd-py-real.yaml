@@ -1,0 +1,63 @@
+cv_sheet_id: finance-h1
+text_sha256: 0bbcf1fa7e05a8101d0a7452a63a3524a4ab35a6f428caa872afa5796726991a
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: '[agree] PostgreSQL and SQL are not mentioned; data management in an agency management system
+      does not establish database engineering.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: '[agree] Linux, Bash, Docker and AWS are not mentioned.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: 'Financial Analyst
+
+
+        ABC Insurance Services
+
+
+        3 2022- Ongoing 9 Chicago, IL'
+      start_offset: 1537
+      end_offset: 1609
+    note: '[agree] v1.1 rule 1: the dated work history (2022-ongoing) lists only a Financial Analyst role,
+      not backend engineering, so absent. The truncated copy of the role block was merged into the full
+      quote.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: '[agree] Software architecture and design patterns are not mentioned; automated reporting does
+      not establish them.'
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: 'Strong
+
+        written and oral communication skills, including experience working with small business owners.'
+      start_offset: 694
+      end_offset: 796
+    - quote: '* Developed customized reports to analyze key financial metrics, providing valuable insights
+        for decision-making.'
+      start_offset: 1994
+      end_offset: 2107
+    note: '[agree] Self-described communication skills, work with small business owners and decision-support
+      reports are relevant, but explaining complex technical ideas to non-technical colleagues is not
+      shown, so partial. The truncated copy was merged into the full quote.'
+  education_cs:
+    level: absent
+    evidence:
+    - quote: Bachelor's degree in Finance from the University of Chicago.
+      start_offset: 633
+      end_offset: 693
+    note: '[agree] v1.1 rule 2: the stated degree is in Finance, not computer science or equivalent software
+      engineering training, so absent.'

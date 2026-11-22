@@ -1,0 +1,83 @@
+cv_sheet_id: hr-h1
+text_sha256: bd29635ff765a7ceeb31a29754c3cc69bfa208dc125e0209a396b3808133402a
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: '[agree] PostgreSQL and databases are not mentioned.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: '[agree] Linux, Bash, Docker and AWS are not mentioned.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: 'Sierra Pacific Industries - Human Resources
+
+
+        Sonora, CA +« 03/2022 - Current'
+      start_offset: 1318
+      end_offset: 1394
+    - quote: 'Spectrum Brands Inc. - Director of Operations Human Resources
+
+        Paramount, CA + 12/2003 - Current'
+      start_offset: 2453
+      end_offset: 2548
+    - quote: 'Easter Seals Midwest - Talent Acquisition Specialist
+
+        Saint Joseph, MO + 01/2013 - 01/2016'
+      start_offset: 4005
+      end_offset: 4094
+    - quote: 'Fitness International LLC - HR Generalist
+
+        City, STATE + 01/2011 - 01/2013'
+      start_offset: 4982
+      end_offset: 5055
+    note: '[agree] v1.1 rule 1: dated work history (2003-current) lists only HR and HR-operations roles,
+      none backend engineering, so absent. Heading-only copies were merged into the headings with dates.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: '[agree] Software architecture and design patterns are not mentioned.'
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: 'this position | am the internal voice and
+
+        communicator to all employees'
+      start_offset: 1753
+      end_offset: 1824
+    - quote: developing and communicating company-wide policies and procedures
+      start_offset: 1015
+      end_offset: 1080
+    - quote: '+ Liaised between management and employees to deliver conflict resolution, alleviate problems
+        and
+
+        interpret compensation and benefits policies.'
+      start_offset: 5289
+      end_offset: 5432
+    note: '[adjudicated] Both annotators chose partial because the content is not technical, but the criterion
+      asks for explaining complex ideas to non-technical colleagues: serving as internal communicator
+      to all employees, communicating company-wide policies and interpreting compensation and benefits
+      policies is explaining specialist matters to non-specialists, which the dev-set adjudication treats
+      as adequate. No concrete scale of presentations, so adequate, not strong.'
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Bachelors degree: Technical
+
+        Management, Bio-medical
+
+        Engineering'
+      start_offset: 613
+      end_offset: 676
+    note: '[agree] v1.1 rule 2: the stated degree is Technical Management / Bio-medical Engineering, not
+      computer science or equivalent software engineering training, so absent.'

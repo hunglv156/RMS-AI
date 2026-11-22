@@ -1,0 +1,106 @@
+cv_sheet_id: python_dev-h1
+text_sha256: d88bc77d615cc7150804a3b8f4395623739516296ee922e1329840046f0bc6b4
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: adequate
+    evidence:
+    - quote: Experienced software developer(over 9 years of experience) in Python programming, IBM Cloud
+        and Unix
+      start_offset: 163
+      end_offset: 263
+    - quote: Developed tools for debugging IBM cloud using Python .
+      start_offset: 2164
+      end_offset: 2218
+    - quote: Working in Python Web scraping using python scrapy Module.
+      start_offset: 1944
+      end_offset: 2002
+    - quote: ¢ Linux shell scripting e Flask
+      start_offset: 1078
+      end_offset: 1109
+    note: '[agree] Python is the main language in recent roles (cloud debugging tools, web scraping, test
+      automation); Flask appears only in the skills list and complex data processing has no concrete scope,
+      so adequate (v1.1 rule 4). The bare "Flask" quote was merged into its full skills line.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: '[agree] PostgreSQL, SQL, query optimization and stored procedures are not mentioned.'
+  cloud_docker_linux:
+    level: partial
+    evidence:
+    - quote: ¢ Linux shell scripting e Flask
+      start_offset: 1078
+      end_offset: 1109
+    - quote: ¢ Automated different operations using shell scripts.
+      start_offset: 2373
+      end_offset: 2426
+    - quote: ¢ Introduction to Containers, Kubernetes and OpenShift
+      start_offset: 5746
+      end_offset: 5800
+    note: '[agree] Linux/Unix shell scripting is practical and explicit, but containers appear only as
+      an introductory certification, cloud work is IBM Cloud, and Docker in practice and AWS are not mentioned,
+      so partial.'
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: PY THON DEVELOPER 10/2021 to CURRENT
+      start_offset: 1252
+      end_offset: 1288
+    - quote: IB) CLOUD DEVELOPER-PY THON 07/2020 to 04/2021
+      start_offset: 2004
+      end_offset: 2050
+    - quote: ¢ |was working as an IBM cloud backend developer.
+      start_offset: 2070
+      end_offset: 2119
+    - quote: C/O+H+/PY THON DEVELOPER 10/2012 to 07/2020
+      start_offset: 2551
+      end_offset: 2594
+    note: '[agree] Over nine years of software development, but only the IBM role (07/2020-04/2021) is
+      described as backend; 2012-2020 was C/C++ telecom/network device software and the current role is
+      tools and web scraping. Relevant but seven years of backend engineering is not shown, so partial.'
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: Integrated object-oriented design and development techniques into projects to support usability
+        goals.
+      start_offset: 1476
+      end_offset: 1578
+    - quote: '¢ Programmed applications and tools using object-oriented languages with goals of code abstraction,
+
+        stability and reuse.'
+      start_offset: 1580
+      end_offset: 1700
+    - quote: Discuss the solution with the customer and create draft design document.
+      start_offset: 2847
+      end_offset: 2919
+    - quote: Training new developers
+      start_offset: 2473
+      end_offset: 2496
+    note: '[agree] Object-oriented design aimed at abstraction and reuse, draft design documents and training
+      new developers are related, but named design patterns and teaching others to solve architectural
+      problems are not shown, so partial. The truncated copy was merged into the full line.'
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: 'effective in working independently and collaboratively in a team with excellent
+
+        communication and writing skill.'
+      start_offset: 719
+      end_offset: 831
+    - quote: Discuss the solution with the customer and create draft design document.
+      start_offset: 2847
+      end_offset: 2919
+    note: '[agree] Communication is mostly self-described, plus solution discussions with the customer;
+      explaining complex ideas to non-technical colleagues is not shown, so partial. Split copies were
+      merged into the full quote.'
+  education_cs:
+    level: adequate
+    evidence:
+    - quote: Master of Technology | Software Engineering 2016
+      start_offset: 5604
+      end_offset: 5652
+    note: '[agree] A Master of Technology in Software Engineering meets the CS-or-equivalent requirement;
+      the bachelor''s is in Electronics.'

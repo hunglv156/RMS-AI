@@ -1,0 +1,72 @@
+cv_sheet_id: finance-h1
+text_sha256: 0bbcf1fa7e05a8101d0a7452a63a3524a4ab35a6f428caa872afa5796726991a
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: 'Financial Analyst
+
+
+        ABC Insurance Services
+
+
+        3 2022- Ongoing 9 Chicago, IL'
+      start_offset: 1537
+      end_offset: 1609
+    note: '[agree] v1.1 rule 1: the dated work history (2022-ongoing) lists only a Financial Analyst role,
+      not HR, so absent. The truncated copy of the role block was merged into the full quote.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: '[adjudicated] Both annotators chose absent via v1.1 rule 1, but recruitment is an activity
+      criterion (rule 3, same scope as the dev-set adjudication); recruiting is not mentioned, so unknown,
+      not absent.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: '[agree] HR practices, employee relations, performance management and employment law are not
+      mentioned.'
+  hris_office_tools:
+    level: partial
+    evidence:
+    - quote: 'Proficient in Microsoft Excel and experienced in collaborating with cross-functional
+
+        teams.'
+      start_offset: 396
+      end_offset: 487
+    note: '[agree] Excel proficiency is explicit; Word, PowerPoint, HRIS and recruiting technology are
+      not mentioned (the agency management system is an insurance business system), so partial. The truncated
+      copy was merged into the full quote.'
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: 'Strong
+
+        written and oral communication skills, including experience working with small business owners.'
+      start_offset: 694
+      end_offset: 796
+    - quote: Collaborated with team members to troubleshoot data inconsistencies and resolve issues, resulting
+        in enhanced data accuracy.
+      start_offset: 1869
+      end_offset: 1993
+    note: '[adjudicated] Written and oral communication is self-described in the summary, backed only
+      by work with small business owners (client communication) and team troubleshooting; communication
+      across organizational levels and handling confidential matters are not shown, so generic/client
+      evidence = partial.'
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: Bachelor's degree in Finance from the University of Chicago.
+      start_offset: 633
+      end_offset: 693
+    note: '[agree] A bachelor''s degree in Finance is a related business field, which meets the requirement.'
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: '[adjudicated] Both annotators chose absent via v1.1 rule 1, but HR programs are an activity
+      criterion (rule 3, same scope as the dev-set adjudication); HR programs are not mentioned (automated
+      financial reporting is not one), so unknown, not absent.'

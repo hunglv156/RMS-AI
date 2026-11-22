@@ -1,0 +1,167 @@
+cv_sheet_id: python_dev-h3
+text_sha256: 1bc8e39e3db3e015029b1b927ca55b21a0153f6613e2202cea404535667a169e
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: adequate
+    evidence:
+    - quote: 'Implemented and enhanced CRUD operationClaire for the applicationClaire uClaireing the MVC
+        (Model View Controller)
+
+
+        architecture of Django framework and Python conducting code reviewClaire'
+      start_offset: 9114
+      end_offset: 9302
+    - quote: Wrote Python moduleClaire to extract/load aClaireClaireet data from the MyClaireQL Claireource
+        databaClairee
+      start_offset: 9304
+      end_offset: 9412
+    - quote: ETL pipelineClaire in and out of data warehouClairee uClaireing combination of Python and
+        ClairenowflakeClaire
+      start_offset: 4329
+      end_offset: 4439
+    - quote: UClaireed python Boto 3 to configure the ClaireerviceClaire AWClaire glue, EC2, Claire3
+      start_offset: 6515
+      end_offset: 6602
+    note: '[agree] Python across all three roles: Django MVC CRUD, Python modules extracting MySQL data,
+      Python/Snowflake ETL pipelines and Boto3; this meets application development, data processing and
+      Django familiarity, but there is no concrete scale or result, so adequate (v1.1 rule 4). OCR replaces
+      s/S with "Claire" but the text is readable; split copies were merged into full quotes.'
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: PoClairetgreClaireQL ¢ Claireoftware Development ClairetandardClaire
+      start_offset: 1476
+      end_offset: 1544
+    - quote: Wrote code for Clairetored ProcedureClaire/ TriggerClaire
+      start_offset: 3759
+      end_offset: 3816
+    - quote: ¢ Optimized and fine tune querieClaire
+      start_offset: 4036
+      end_offset: 4074
+    - quote: 'Clairetrong ClaireQL development ClairekillClaire including writing Clairetored ProcedureClaire,
+        TriggerClaire, ViewClaire,
+
+        and UClaireer Defined functionClaire'
+      start_offset: 5474
+      end_offset: 5634
+    note: '[adjudicated] Stored procedures, triggers and query tuning are clearly evidenced, but in MS
+      SQL Server, MySQL and Snowflake work; PostgreSQL appears only in the skills list. The criterion
+      is advanced PostgreSQL experience, and PostgreSQL work itself is not shown, so partial (as for other
+      pairs with relational-database depth on a different engine).'
+  cloud_docker_linux:
+    level: adequate
+    evidence:
+    - quote: Worked on creating and running Docker imageClaire with multiple micro - ClaireerviceClaire
+      start_offset: 5831
+      end_offset: 5921
+    - quote: Docker container orcheClairetration uClaireing ECClaire and lambda
+      start_offset: 5922
+      end_offset: 5988
+    - quote: UClaireed Unix/Linux ClaireyClairetemClaire with Clairecripting experience and building data
+        pipelineClaire
+      start_offset: 5989
+      end_offset: 6096
+    - quote: Created monitorClaire, alarmClaire, notificationClaire and logClaire for Lambda functionClaire,
+        Glue JobClaire, EC2
+      start_offset: 6271
+      end_offset: 6386
+    - quote: UClaireed python Boto 3 to configure the ClaireerviceClaire AWClaire glue, EC2, Claire3
+      start_offset: 6515
+      end_offset: 6602
+    note: '[agree] Practical Docker (images, microservices, ECS), Unix/Linux scripting and AWS (EC2, Lambda,
+      Glue, S3, CloudWatch) are explicit; RDS and CloudFront are not mentioned and there is no concrete
+      scale, so adequate.'
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: Clairetructured Python Developer bringing 3+ yearClaire of comprehenClaireive experience
+        developing back-end componentClaire,
+      start_offset: 116
+      end_offset: 241
+    - quote: Python Developer, 12/2021 to Current
+      start_offset: 2563
+      end_offset: 2599
+    - quote: Python AWClaire Developer, 07/2021 to 12/2021
+      start_offset: 5185
+      end_offset: 5230
+    - quote: Data Engineer, 12/2012 to 08/2017
+      start_offset: 7429
+      end_offset: 7462
+    note: '[agree] The summary states 3+ years of back-end development; the dated history has a Data Engineer
+      role (2012-2017, with some Django CRUD) and Python/AWS developer roles since 07/2021, mostly ETL
+      and data-warehouse work. The stated years do not match the dates, and seven years as a full-time
+      backend software engineer is not shown, so partial.'
+  software_architecture:
+    level: adequate
+    evidence:
+    - quote: 'Evaluated cloud application requirementClaire and make architectural recommendationClaire
+        for implementation, deployment,
+
+
+        and proviClaireioning applicationClaire on AWClaire'
+      start_offset: 6603
+      end_offset: 6777
+    - quote: 'Provided beClairet practice guidance on the architectural deClaireign acroClaireClaire multiple
+        applicationClaire and
+
+        projectClaire of the enterpriClairee'
+      start_offset: 6916
+      end_offset: 7070
+    - quote: DeClaireigned and developed Clairechema data modelClaire
+      start_offset: 6778
+      end_offset: 6834
+    - quote: Analyzed the requirementClaire and developed UClairee CaClaireeClaire, UML DiagramClaire,
+        ClaClaireClaire DiagramClaire,
+      start_offset: 9414
+      end_offset: 9534
+    - quote: architecture of Django framework and Python conducting code reviewClaire
+      start_offset: 9230
+      end_offset: 9302
+    note: '[agree] Architectural recommendations, best-practice guidance on architectural design across
+      multiple enterprise applications (guiding others), schema data models, UML design and MVC are shown;
+      no named design patterns beyond MVC and no concrete result, so adequate. Truncated copies were merged
+      into full quotes.'
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: 'Worked in an agile, collaborative environment, partnering with client ClairetakeholderClaire,
+        to develop and improve
+
+        miClaireClaireion-baClaireed ClaireolutionClaire'
+      start_offset: 2814
+      end_offset: 2979
+    - quote: '* Documented buClaireineClaireClaire workflowClaire for Clairetakeholder review'
+      start_offset: 6835
+      end_offset: 6914
+    - quote: 'Interacted with the buClaireineClaireClaire community and databaClairee adminiClairetratorClaire
+        to identify the
+
+
+        BuClaireineClaireClaire requirementClaire and data realtieClaire'
+      start_offset: 8514
+      end_offset: 8692
+    - quote: ¢ Mapped buClaireineClaireClaire objectiveClaire to application/architecture requirementClaire
+      start_offset: 7072
+      end_offset: 7166
+    note: '[adjudicated] Documenting business workflows for stakeholder review, working with the business
+      community and client stakeholders on requirements, and mapping business objectives to architecture
+      requirements show role-backed explanation of technical matters to non-technical colleagues (the
+      dev-set adjudication treats translating business requirements with non-technical stakeholders as
+      adequate). No concrete scale, so adequate, not strong.'
+  education_cs:
+    level: partial
+    evidence:
+    - quote: 'MaClaireter of Clairecience: Information Technology Management, 12/2020'
+      start_offset: 9741
+      end_offset: 9812
+    - quote: 'Bachelor of Clairecience: electronicClaire and communication engineering, 08/2017'
+      start_offset: 9871
+      end_offset: 9952
+    note: '[adjudicated] Both annotators chose absent under v1.1 rule 2, but the bachelor''s is in Electronics
+      & Communication Engineering, which the dev-set adjudication treats as an adjacent field that partly
+      matches the CS criterion, and the master''s in IT Management is computing-related; neither is CS
+      or software engineering training as such, so partial, not absent.'

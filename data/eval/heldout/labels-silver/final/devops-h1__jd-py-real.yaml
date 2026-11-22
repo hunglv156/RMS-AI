@@ -1,0 +1,114 @@
+cv_sheet_id: devops-h1
+text_sha256: 7951c1d4026e04fd8b3fae1d90c2f2bcf4d11516599d4a7cc9187c80fa734b3a
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned; programming experience is PHP (Symfony,
+      Laravel, Magento).'
+  postgresql_database:
+    level: partial
+    evidence:
+    - quote: '© Developed the price tracking REST API using Symfony and Doctrine.
+
+        The API used MySQL as the data storage.'
+      start_offset: 2184
+      end_offset: 2291
+    - quote: e MySQL
+      start_offset: 318
+      end_offset: 325
+    note: '[agree] Relational database use (MySQL behind a REST API) is relevant, but PostgreSQL, query
+      optimization, stored procedures and performance tuning are not shown, so partial. The truncated
+      copy of the MySQL line was merged into the full quote.'
+  cloud_docker_linux:
+    level: partial
+    evidence:
+    - quote: '© Setting up complex environments which include Load Balancers, Application Servers and
+        DB servers using Chef and AWS.Using AWS
+
+        security groups and iptables to keep the environments secure.'
+      start_offset: 786
+      end_offset: 975
+    - quote: 'e Familiar with AWS services like EC2, ELB, $3, VPC, EBS, LAM etc Using knife and test kitchen
+        to test cookbooks locally before
+
+        deploying to AWS environments.'
+      start_offset: 976
+      end_offset: 1134
+    - quote: e Part of a team which planned and executed migration from a traditional data center to AWS
+        cloud
+      start_offset: 1304
+      end_offset: 1401
+    note: '[agree] Practical AWS work (EC2, ELB, VPC, environment setup, data-center migration) and iptables
+      are explicit, but Docker containers and Bash scripting are not mentioned, nor RDS or CloudFront;
+      partly evidenced, so partial. Split and truncated copies were merged into full lines.'
+  backend_experience:
+    level: partial
+    evidence:
+    - quote: Senior PHP Developer, 05/2010 - 07/2015
+      start_offset: 2118
+      end_offset: 2157
+    - quote: Created and maintained the backend tasks for the API which included various jobs for price
+        calculation and feed processing.
+      start_offset: 2292
+      end_offset: 2415
+    - quote: PHP Software Engineer, 07/2015 - 02/2016
+      start_offset: 1680
+      end_offset: 1720
+    - quote: Built an internal product API using Silex and Mongo DB on the backend.
+      start_offset: 2046
+      end_offset: 2116
+    - quote: Lead Developer, 02/2016 - 06/2016
+      start_offset: 1403
+      end_offset: 1436
+    - quote: DevOps Engineer, 06/2016 - Current
+      start_offset: 468
+      end_offset: 502
+    note: '[agree] Backend/full-stack PHP development roles cover 05/2010-06/2016 (about six years), followed
+      by a DevOps role that is not backend engineering; relevant but seven years as a backend software
+      engineer is not shown, so partial.'
+  software_architecture:
+    level: partial
+    evidence:
+    - quote: © Designed, built, tested and implemented stand-alone modules for Magento, including payment
+        and promotion modules.
+      start_offset: 1864
+      end_offset: 1979
+    - quote: MVC framework development using Symfony and Laravel
+      start_offset: 392
+      end_offset: 443
+    - quote: © Code reviews through github's PR feature.
+      start_offset: 1135
+      end_offset: 1178
+    - quote: Software Developer skilled at technical leadership, communication and presentations.
+      start_offset: 126
+      end_offset: 210
+    note: '[agree] Stand-alone module design, MVC framework development, code review and self-described
+      technical leadership are related, but named design patterns and teaching others to solve architectural
+      problems are not shown, so partial.'
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: Software Developer skilled at technical leadership, communication and presentations.
+      start_offset: 126
+      end_offset: 210
+    - quote: Responsible for scoping and developing client website using the enterprise version of Magento
+        E-commerce platform.
+      start_offset: 1749
+      end_offset: 1863
+    note: '[agree] Communication and presentation skills are self-described and client scoping is mentioned,
+      but explaining complex ideas to non-technical colleagues is not shown, so partial.'
+  education_cs:
+    level: partial
+    evidence:
+    - quote: 'Master of Science: Electrical Engineering, 2009'
+      start_offset: 2576
+      end_offset: 2623
+    note: '[adjudicated] Both annotators chose absent under v1.1 rule 2, but Electrical Engineering is
+      an adjacent engineering field that partly matches the CS criterion (the dev-set adjudication gives
+      partial for Electronics & Communication Engineering); it is not CS or software engineering training
+      as such, so partial, not absent.'

@@ -1,0 +1,109 @@
+cv_sheet_id: hr-h3
+text_sha256: c142f0e184d7d5970d5c3781576f5f823ae13dd3c192c0ee5872596f332a07f1
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: 'Abm - Human Resources
+
+        Overland Park, KS + 03/2021 - Current'
+      start_offset: 967
+      end_offset: 1026
+    - quote: Paylocityined a Certificate for HR Essential Series and HR Advance Series Paylocity
+      start_offset: 1027
+      end_offset: 1110
+    - quote: 'HR Certificate Series
+
+        Advance HR Certificate Series'
+      start_offset: 541
+      end_offset: 592
+    note: '[agree] One dated HR role since 03/2021, but its only description line is OCR-corrupted and
+      concerns a Paylocity certificate, so the range of HR activities and support for multiple business
+      functions are not shown; earlier roles are account management, policy services, claims and customer
+      support. Relevant but not demonstrated at the required level, so partial.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: '[agree] Recruiting is not mentioned; the HR role has no description, so neither rule 1 absent
+      nor any positive level applies.'
+  employee_relations_compliance:
+    level: partial
+    evidence:
+    - quote: 'Provided a high level of customer service and client/employee relations based on outstanding
+
+        communication and interpersonal skills.'
+      start_offset: 735
+      end_offset: 867
+    - quote: 'HR Certificate Series
+
+        Advance HR Certificate Series'
+      start_offset: 541
+      end_offset: 592
+    note: '[agree] A summary line on client/employee relations and HR certificates give some evidence;
+      performance management and employment law work are not described, so partial. Truncated copies were
+      merged into full quotes.'
+  hris_office_tools:
+    level: adequate
+    evidence:
+    - quote: + MS Office Suite
+      start_offset: 128
+      end_offset: 145
+    - quote: + Paylocity
+      start_offset: 295
+      end_offset: 306
+    - quote: + Trinet
+      start_offset: 278
+      end_offset: 286
+    note: '[agree] The skills list names MS Office Suite and HR/payroll platforms (Paylocity, Trinet);
+      recruiting technology is not mentioned and no usage scope is given, so adequate. The claims-systems
+      quote (AS400, Lotus Notes, eClaimworks) was dropped because those are not HRIS or Microsoft Office.'
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: 'Provided a high level of customer service and client/employee relations based on outstanding
+
+        communication and interpersonal skills.'
+      start_offset: 735
+      end_offset: 867
+    - quote: + Assure the oral and written communication are timely, clear, concise, and empathetic.
+      start_offset: 4270
+      end_offset: 4357
+    - quote: '+ Practice empathy and professionalism in all dealings with customers, recognize individual
+
+        situations and promptly respond to their needs.'
+      start_offset: 3962
+      end_offset: 4101
+    - quote: + Report daily to the senior management team on daily productivity of the department
+      start_offset: 3610
+      end_offset: 3694
+    - quote: 'Respond to customers via phone and email within the same business day of receiving their
+
+        communication, i.e., request for quote, customer order, status of order, change request, etc'
+      start_offset: 1773
+      end_offset: 1954
+    note: '[adjudicated] Clear oral/written communication, professionalism and daily reporting to senior
+      management are role-backed, but a same-day response standard and daily reporting are duties, not
+      a concrete scale or result, and handling confidential matters is not shown; v1.1 rule 4 gives adequate,
+      not strong.'
+  education_hr_business:
+    level: partial
+    evidence:
+    - quote: Business Administration Degree
+      start_offset: 429
+      end_offset: 459
+    - quote: 'QUINSIGAMOND COMMUNITY
+
+        COLLEGE, ACADEMY'
+      start_offset: 348
+      end_offset: 387
+    note: '[agree] The field (Business Administration) matches, but the degree level is not stated (community
+      college) and a bachelor''s cannot be inferred, so partial.'
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: '[agree] HR programs are not mentioned; the HR role has no description, and writing department
+      training procedures in insurance is not an HR program.'

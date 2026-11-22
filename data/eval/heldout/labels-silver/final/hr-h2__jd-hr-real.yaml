@@ -1,0 +1,106 @@
+cv_sheet_id: hr-h2
+text_sha256: 0f11b1a69b5acfc01c0d60c305a36cd7d41888c65668553df92b8517018d960c
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: partial
+criteria:
+  hr_experience:
+    level: partial
+    evidence:
+    - quote: Human Resources, 2008 - 01/2010
+      start_offset: 946
+      end_offset: 977
+    - quote: Business Development, 04/2006 - 11/2007
+      start_offset: 1454
+      end_offset: 1493
+    - quote: 'Advised managers on organizational policy matters and recommend needed changes.
+
+        Designed the employee performance evaluation process and merit program.'
+      start_offset: 1143
+      end_offset: 1294
+    note: '[agree] The dated history has one HR role (2008 - 01/2010, about two years) covering recruiting,
+      policy and performance work; the other role is Business Development. Relevant but below 3+ years
+      of progressive HR, so partial.'
+  talent_acquisition:
+    level: strong
+    evidence:
+    - quote: 'Devised a successful recruiting plan for new call centers, which resulted in 15 new employees
+        in 12 months.
+
+        Interviewed over 35 people and successfully staffed 5 new store locations.'
+      start_offset: 593
+      end_offset: 775
+    - quote: Increased the employee base by 20% to meet changing staffing needs.
+      start_offset: 1074
+      end_offset: 1141
+    - quote: Worked with HR advisors and HR representatives on establishing consistent hiring practices.
+      start_offset: 1361
+      end_offset: 1452
+    note: '[agree] Quantified recruiting results (15 hires in 12 months for new call centers, 35+ interviews
+      staffing 5 new stores, employee base +20%) satisfy v1.1 rule 4; direct hiring-manager partnership
+      is less explicit. Split copies were merged into the full two-line quote.'
+  employee_relations_compliance:
+    level: adequate
+    evidence:
+    - quote: 'Advised managers on organizational policy matters and recommend needed changes.
+
+        Designed the employee performance evaluation process and merit program.'
+      start_offset: 1143
+      end_offset: 1294
+    - quote: Created and implemented the exit and interview program process.
+      start_offset: 1296
+      end_offset: 1359
+    - quote: Human Resources. Reduced employee turnoverby10%.
+      start_offset: 777
+      end_offset: 825
+    note: '[adjudicated] Performance management (designed the evaluation process and merit program), policy
+      advice to managers, the exit-interview process and a turnover reduction clearly evidence most of
+      the criterion; employment law and regulations are not mentioned, so it is met at adequate, not strong.'
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: '[agree] Microsoft Office, HRIS and recruiting technology are not mentioned.'
+  interpersonal_communication:
+    level: adequate
+    evidence:
+    - quote: HR Recruiter who communicates and collaborates effectively with all levels of personnel by
+        relying on excellent interpersonal skills,
+      start_offset: 113
+      end_offset: 246
+    - quote: Advised managers on organizational policy matters and recommend needed changes.
+      start_offset: 1143
+      end_offset: 1222
+    - quote: Delivered performance updates, quarterly business reviews and planning meetings.
+      start_offset: 1624
+      end_offset: 1704
+    note: '[agree] A self-described all-level communication claim backed by advising managers on policy
+      and delivering business reviews; handling confidential matters is not mentioned and no concrete
+      scope, so adequate.'
+  education_hr_business:
+    level: partial
+    evidence:
+    - quote: 'Bachelor: Human Resources, 2014'
+      start_offset: 1823
+      end_offset: 1854
+    - quote: Expected to graduate fall 2014
+      start_offset: 1902
+      end_offset: 1932
+    note: '[agree] The field (Human Resources) matches, but graduation is stated as expected, so completion
+      of the degree is not confirmed; partial.'
+  hr_programs:
+    level: strong
+    evidence:
+    - quote: Designed the employee performance evaluation process and merit program.
+      start_offset: 1223
+      end_offset: 1294
+    - quote: Created and implemented the exit and interview program process.
+      start_offset: 1296
+      end_offset: 1359
+    - quote: Supervised 3 HR interns and provided assistance in resume building, training and career path
+        development.
+      start_offset: 827
+      end_offset: 932
+    note: '[agree] Ownership of designing the performance evaluation/merit program and creating the exit-interview
+      program, plus supervising and developing 3 HR interns (close to the preferred early-career element),
+      satisfy v1.1 rule 4. Establishing an internship program is not stated.'

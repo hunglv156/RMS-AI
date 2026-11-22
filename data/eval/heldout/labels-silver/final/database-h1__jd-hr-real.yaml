@@ -1,0 +1,60 @@
+cv_sheet_id: database-h1
+text_sha256: cc93e6f2982832e9e33d429cd254060be119905571ad2a7996287750deefe19d
+jd_id: jd-hr-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  hr_experience:
+    level: absent
+    evidence:
+    - quote: Database Administrator, 01/2020 to Current
+      start_offset: 1067
+      end_offset: 1109
+    - quote: ORACLE / POSTGRESQL DBA, 11/2015 to 12/2019
+      start_offset: 1614
+      end_offset: 1657
+    note: '[agree] v1.1 rule 1: dated work history (11/2015-current) lists only database administrator
+      roles, none in HR, so absent.'
+  talent_acquisition:
+    level: unknown
+    evidence: []
+    note: '[adjudicated] Both annotators chose absent via v1.1 rule 1, but recruitment is an activity
+      criterion (rule 3, same scope as the dev-set adjudication); the CV does not mention recruiting,
+      hiring managers or open positions, so unknown, not absent.'
+  employee_relations_compliance:
+    level: unknown
+    evidence: []
+    note: '[agree] Employee relations, performance management and employment law are not mentioned; database
+      security and performance tuning are unrelated.'
+  hris_office_tools:
+    level: unknown
+    evidence: []
+    note: '[agree] Microsoft Office, HRIS and recruiting technology are not mentioned; database administration
+      does not establish HRIS proficiency.'
+  interpersonal_communication:
+    level: partial
+    evidence:
+    - quote: Provided appropriate interfacing, consulting, and standards associated to database management,
+        and monitored transaction
+      start_offset: 4880
+      end_offset: 5000
+    - quote: Participated in daily stand ups to discuss about new database design, modeling and creation.
+      start_offset: 6773
+      end_offset: 6865
+    note: '[agree] Only indirect evidence (consulting on database management, technical team stand-ups);
+      communication across all organizational levels and handling of sensitive personnel matters are not
+      shown, so partial.'
+  education_hr_business:
+    level: adequate
+    evidence:
+    - quote: 'Bachelor of Science: Business Administration, 05/2015'
+      start_offset: 6951
+      end_offset: 7004
+    note: '[agree] A bachelor''s degree in Business Administration meets the requirement.'
+  hr_programs:
+    level: unknown
+    evidence: []
+    note: '[adjudicated] Both annotators chose absent via v1.1 rule 1, but HR programs are an activity
+      criterion (rule 3, same scope as the dev-set adjudication); HR programs or initiatives are not mentioned,
+      so unknown, not absent.'

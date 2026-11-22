@@ -1,0 +1,66 @@
+cv_sheet_id: designer-h1
+text_sha256: c200f519e89b0de2b47a0c0d3bdc728dae59233f99b60d499e18d9df7444ce3a
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned; website layout design does not establish
+      backend implementation.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: '[agree] PostgreSQL and databases are not mentioned.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: '[agree] Linux, Bash, Docker and AWS are not mentioned.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: Designer, 10/2019 to Current
+      start_offset: 946
+      end_offset: 974
+    - quote: Marketing & Performance Manager, 05/2017 to 01/2020
+      start_offset: 2207
+      end_offset: 2258
+    - quote: Partner/Executive Recruiter, 05/2015 to 05/2017
+      start_offset: 3041
+      end_offset: 3088
+    - quote: Development Director, 05/2012 to 01/2014
+      start_offset: 4411
+      end_offset: 4451
+    note: '[agree] v1.1 rule 1: dated work history (2012-current) lists design, marketing, recruiting
+      and fundraising roles, none backend engineering (web design is visual design), so absent.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: '[agree] Software architecture and design patterns are not mentioned; "design systems" here
+      refers to graphic design.'
+  communication_collaboration:
+    level: partial
+    evidence:
+    - quote: '¢ Produce fresh, innovative work that translates complex ideas into compelling print materials
+        and digital experiences for visually
+
+        sophisticated audiences'
+      start_offset: 1002
+      end_offset: 1157
+    - quote: Attend client meetings and execute sales presentations tailored to the client’s specific
+        business need
+      start_offset: 3974
+      end_offset: 4076
+    note: '[agree] Visual communication of complex ideas and client sales presentations are shown, but
+      not explaining technical ideas to non-technical colleagues, so partial. The truncated copy of the
+      first line was merged into the full line.'
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Bachelor’s Degree: Business Administration, 2018'
+      start_offset: 4931
+      end_offset: 4979
+    note: '[agree] v1.1 rule 2: the stated degree is in Business Administration, not computer science
+      or equivalent software engineering training, so absent.'

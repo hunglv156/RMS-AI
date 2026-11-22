@@ -1,0 +1,65 @@
+cv_sheet_id: hr-h2
+text_sha256: 0f11b1a69b5acfc01c0d60c305a36cd7d41888c65668553df92b8517018d960c
+jd_id: jd-py-real
+labeler: adjudicated-v1.1
+labeled_at: '2026-11-22'
+overall_fit: poor
+criteria:
+  python_frameworks:
+    level: unknown
+    evidence: []
+    note: '[agree] Python, Django and Flask are not mentioned.'
+  postgresql_database:
+    level: unknown
+    evidence: []
+    note: '[agree] PostgreSQL and databases are not mentioned.'
+  cloud_docker_linux:
+    level: unknown
+    evidence: []
+    note: '[agree] Linux, Bash, Docker and AWS are not mentioned.'
+  backend_experience:
+    level: absent
+    evidence:
+    - quote: Human Resources, 2008 - 01/2010
+      start_offset: 946
+      end_offset: 977
+    - quote: Business Development, 04/2006 - 11/2007
+      start_offset: 1454
+      end_offset: 1493
+    note: '[agree] v1.1 rule 1: dated work history (2006-2010) lists HR and business development roles,
+      none backend engineering, so absent.'
+  software_architecture:
+    level: unknown
+    evidence: []
+    note: '[agree] Software architecture and design patterns are not mentioned.'
+  communication_collaboration:
+    level: adequate
+    evidence:
+    - quote: Advised managers on organizational policy matters and recommend needed changes.
+      start_offset: 1143
+      end_offset: 1222
+    - quote: Delivered performance updates, quarterly business reviews and planning meetings.
+      start_offset: 1624
+      end_offset: 1704
+    - quote: HR Recruiter who communicates and collaborates effectively with all levels of personnel by
+        relying on excellent interpersonal skills,
+      start_offset: 113
+      end_offset: 246
+    note: '[adjudicated] Both annotators chose partial because the content is not technical, but the criterion
+      asks for explaining complex ideas to non-technical colleagues: advising managers on policy matters
+      and delivering business reviews and planning meetings is explaining specialist matters to non-specialists,
+      which the dev-set adjudication treats as adequate. No concrete scale, so adequate, not strong.'
+  education_cs:
+    level: absent
+    evidence:
+    - quote: 'Bachelor: Human Resources, 2014'
+      start_offset: 1823
+      end_offset: 1854
+    - quote: Expected to graduate fall 2014
+      start_offset: 1902
+      end_offset: 1932
+    - quote: 'Diploma: English language learning, 2010'
+      start_offset: 1934
+      end_offset: 1974
+    note: '[agree] v1.1 rule 2: stated education is a Human Resources bachelor''s (expected) and an English-language
+      diploma, not computer science or equivalent software engineering training, so absent.'
