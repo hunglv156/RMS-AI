@@ -22,3 +22,8 @@ Thumbs.db
 
 # Generated evaluation output
 data/eval/results/
+
+# Private CVs and test artifacts
+.local-data/
+playwright-report/
+test-results/

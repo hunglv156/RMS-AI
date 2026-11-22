@@ -1,0 +1,14 @@
+{
+  "name": "@rms-ai/e2e",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "test": "playwright test --config ../../playwright.config.ts",
+    "test:recovery": "playwright test --config ../../playwright.config.ts --grep recovery",
+    "test:live": "playwright test --config ../../playwright.config.ts --grep live",
+    "test:restore": "playwright test --config ../../playwright.config.ts --grep restore"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.58.1"
+  }
+}

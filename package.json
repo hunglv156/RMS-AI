@@ -10,6 +10,12 @@
     "check": "pnpm -r --if-present run check",
     "infra:up": "docker compose up -d",
     "infra:down": "docker compose down",
-    "infra:logs": "docker compose logs -f"
+    "infra:logs": "docker compose logs -f",
+    "api:dev": "pnpm --filter @rms-ai/api dev",
+    "worker:dev": "pnpm --filter @rms-ai/api worker:dev",
+    "demo:reset": "node scripts/demo/reset.mjs",
+    "demo:backup": "node scripts/demo/backup.mjs",
+    "demo:restore": "node scripts/demo/restore.mjs",
+    "verify:t8": "node scripts/verify-t8.mjs"
   }
 }

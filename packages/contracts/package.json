@@ -1,0 +1,21 @@
+{
+  "name": "@rms-ai/contracts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "generate": "openapi-typescript openapi.json -o src/generated.ts",
+    "check": "openapi-typescript openapi.json -o src/generated.ts --check && tsc --noEmit"
+  },
+  "devDependencies": {
+    "openapi-typescript": "7.10.1",
+    "typescript": "5.7.3"
+  }
+}

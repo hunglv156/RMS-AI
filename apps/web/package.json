@@ -19,7 +19,9 @@
     "lucide-react": "^0.468.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "zod": "^3.24.0"
+    "zod": "^3.24.0",
+    "@rms-ai/contracts": "workspace:*",
+    "react-router-dom": "7.13.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
