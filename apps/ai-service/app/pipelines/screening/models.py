@@ -19,7 +19,7 @@ class ScreeningConfig(StrictModel):
     context_mode: Literal["full", "retrieved"] = "full"
     retrieval_mode: Literal["lexical", "dense", "hybrid"] = "hybrid"
     retrieval_k: int = Field(default=5, ge=1, strict=True)
-    prompt_version: Literal["screening-v1"] = "screening-v1"
+    prompt_version: Literal["screening-v1", "screening-v2"] = "screening-v1"
     min_coverage: float = Field(default=0.8, ge=0, le=1)
     rubric_values: dict[str, float] = Field(default_factory=lambda: dict(DEFAULT_RUBRIC))
 

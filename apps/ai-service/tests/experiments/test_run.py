@@ -217,6 +217,63 @@ def test_limit_and_resume_identity(fixture):
         run(args, [], concurrency=0)
 
 
+@pytest.mark.parametrize(
+    "initial,changed", [("screening-v1", "screening-v2"), ("screening-v2", "screening-v1")]
+)
+def test_resume_refuses_changed_prompt_version(fixture, initial, changed):
+    args, _ = fixture
+    assert run(args, [response()], prompt_version=initial, limit=1)["succeeded"] == 1
+    before = {path: path.read_bytes() for path in args["output_dir"].rglob("*") if path.is_file()}
+    with pytest.raises(ValueError, match="Resume inputs/config/model differ"):
+        run(args, [], prompt_version=changed)
+    assert {path: path.read_bytes() for path in before} == before
+    assert run(args, [response()], prompt_version=initial)["succeeded"] == 2
+
+
+@pytest.mark.parametrize("version", [None, "screening-v1", "screening-v2"])
+def test_cli_prompt_version_recorded(fixture, monkeypatch, version):
+    import sys
+
+    from app.experiments.run import main
+    from app.prompts.screening import SCREENING_V1, SCREENING_V2
+
+    args, _ = fixture
+    systems = []
+
+    class RecordingProvider(FakeLLMProvider):
+        async def generate_structured(self, **kwargs):
+            systems.append(kwargs["system"])
+            return await super().generate_structured(**kwargs)
+
+    monkeypatch.setattr("app.experiments.run.Settings", lambda: args["settings"])
+    monkeypatch.setattr(
+        "app.experiments.run.get_llm_provider",
+        lambda _: RecordingProvider([response(), response()]),
+    )
+    argv = [
+        "run",
+        "--eval-set",
+        str(args["eval_set"]),
+        "--jd-ids",
+        "jd-a",
+        "--output-dir",
+        str(args["output_dir"]),
+    ]
+    if version is not None:
+        argv.extend(["--prompt-version", version])
+    monkeypatch.setattr(sys, "argv", argv)
+    assert main() == 0
+    expected = version or "screening-v1"
+    assert systems == [SCREENING_V2 if expected == "screening-v2" else SCREENING_V1] * 2
+    manifest = json.loads((args["output_dir"] / "manifest.json").read_text())
+    assert manifest["identity"]["versions"]["prompt"] == expected
+    assert manifest["identity"]["config"]["prompt_version"] == expected
+    for path in (args["output_dir"] / "pairs").glob("*.json"):
+        versions = json.loads(path.read_text())["result"]["versions"]
+        assert versions["prompt"] == expected
+        assert versions["config"]["prompt_version"] == expected
+
+
 def test_retrieved_and_concurrency_cap(fixture):
     args, _ = fixture
 

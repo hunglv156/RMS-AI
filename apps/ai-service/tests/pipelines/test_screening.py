@@ -1,4 +1,5 @@
 import asyncio
+import hashlib
 import json
 from pathlib import Path
 
@@ -11,6 +12,7 @@ from app.infrastructure.llm.base import LLMMetadata, LLMResult, LLMSchemaError
 from app.infrastructure.llm.fake import FakeLLMProvider
 from app.pipelines.screening import ScreeningConfig, load_jd, screen
 from app.pipelines.screening.models import ScreeningResponse, ScreeningResult
+from app.prompts.screening import SCREENING_V1, SCREENING_V2, screening_prompt
 
 ROOT = Path(__file__).resolve().parents[4]
 CV = "Built Python backends with FastAPI.\nBuilt REST APIs for 100 clients."
@@ -58,6 +60,67 @@ def provider(criteria=None):
             )
         ]
     )
+
+
+def test_v1_prompt_frozen_and_default():
+    assert hashlib.sha256(SCREENING_V1.encode("utf-8")).hexdigest() == (
+        "874b2455fdcffb6240b6e2cae4b5e31e43a98811012c1102c353f072daf2f2b7"
+    )
+    llm = provider()
+    result = asyncio.run(screen(CV, JD, provider=llm))
+    assert llm.calls[0]["system"] == SCREENING_V1
+    assert result.versions.prompt == "screening-v1"
+    assert result.versions.config.prompt_version == "screening-v1"
+
+
+@pytest.mark.parametrize(
+    "rule",
+    [
+        "strong: clear evidence meeting the requirement with concrete scope or results",
+        "adequate: clear evidence meeting the requirement",
+        "partial: evidence meeting only part of the requirement",
+        "absent: evidence showing the requirement is not met",
+        "unknown: the CV does not mention the requirement",
+        "needs_review: contradictory evidence, poor OCR, or unreliable evidence",
+        "dated work history with no relevant role listed means absent",
+        "quote the history entries or role headings",
+        "No dated work history means unknown",
+        "a stated degree in a non-matching field means absent",
+        "quote the degree line",
+        "No degree stated means unknown",
+        "Skills/tools not mentioned stay unknown",
+        "Use strong only when the quote itself contains concrete scope or results",
+        "otherwise use adequate when the requirement is met",
+        "Do not downgrade clear qualifying work to partial",
+        "reason of at most 25 words",
+        "at most 2 evidence quote objects",
+        "missing_information with at most 3 short items",
+        "at most 300 characters copied verbatim from cv_context",
+        "no other text outside the JSON",
+    ],
+)
+def test_v2_contains_level_rules_and_output_limits(rule):
+    assert rule in " ".join(SCREENING_V2.split())
+
+
+def test_v2_prompt_dispatched_and_recorded_with_same_contract():
+    llm = provider()
+    result = asyncio.run(
+        screen(CV, JD, provider=llm, config=ScreeningConfig(prompt_version="screening-v2"))
+    )
+    assert llm.calls[0]["system"] == SCREENING_V2
+    assert llm.calls[0]["response_model"] is ScreeningResponse
+    assert result.versions.prompt == "screening-v2"
+    assert result.versions.config.prompt_version == "screening-v2"
+    _, v1_user = screening_prompt("screening-v1", load_jd(JD).model_dump(), CV)
+    assert llm.calls[0]["user"] == v1_user
+
+
+def test_unsupported_prompt_version_rejected():
+    with pytest.raises(ValueError, match="Unsupported prompt version"):
+        screening_prompt("screening-v3", {}, CV)
+    with pytest.raises(ValidationError):
+        ScreeningConfig(prompt_version="screening-v3")
 
 
 @pytest.mark.parametrize("mode", ["full", "lexical", "dense", "hybrid"])

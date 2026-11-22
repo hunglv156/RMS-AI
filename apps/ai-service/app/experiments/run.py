@@ -277,6 +277,7 @@ async def run_experiment(
     context_mode="full",
     retrieval_mode="lexical",
     retrieval_k=5,
+    prompt_version="screening-v1",
     concurrency=4,
     limit=None,
     model=None,
@@ -287,7 +288,10 @@ async def run_experiment(
         settings = settings.model_copy(update={"llm_model": model, "gemini_model": model})
     eval_set, output_dir = Path(eval_set).resolve(), Path(output_dir).resolve()
     config = ScreeningConfig(
-        context_mode=context_mode, retrieval_mode=retrieval_mode, retrieval_k=retrieval_k
+        context_mode=context_mode,
+        retrieval_mode=retrieval_mode,
+        retrieval_k=retrieval_k,
+        prompt_version=prompt_version,
     )
     embedder = (
         BgeM3Embedder()
@@ -429,6 +433,9 @@ def main():
         "--retrieval-mode", choices=["lexical", "dense", "hybrid"], default="lexical"
     )
     parser.add_argument("--retrieval-k", type=int, default=5)
+    parser.add_argument(
+        "--prompt-version", choices=["screening-v1", "screening-v2"], default="screening-v1"
+    )
     parser.add_argument("--concurrency", type=int, default=4)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--model", help="Override the requested model for this run only")
