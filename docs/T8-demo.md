@@ -163,3 +163,40 @@ These numbers come from a fresh `reset.mjs` setup, with the UI driven in headles
 | Decision save                                  | 70–80 ms                                        |
 
 T8.11 appends its measured validation and troubleshooting below this section.
+
+## 8. Rehearse the final gate (T8.11, 2026-11-23)
+
+The automated local rehearsal passed the seven deterministic full-stack scenarios, including a newly created browser journey, recovery and a database-plus-PDF restore. The detailed command results, evidence paths, live observation and committee checklist are in [T8-validation.md](T8-validation.md). These are local demonstration observations, not a production-readiness claim.
+
+Stop any manually started API, worker, web or AI server before running the tests: they use ports 3100, 5173 and 8100 and refuse to share those ports. Keep the local PostgreSQL and Redis services available. The tests create separate disposable databases, private storage directories and queue names; they do not reset your working database or `rms_ai_demo`.
+
+Load the external study environment in the process that runs the gate. You do not need to create or copy a `.env` file in this checkout:
+
+```sh
+(set -a; . /Users/hung/Study/RMS-AI/.env; set +a; node scripts/verify-t8.mjs)
+```
+
+That command runs the provider-free checks, deterministic browser suite, recovery suite and restore suite. Add `--live` to opt into one live smoke as well. The individual commands and measured results are recorded in the validation report. The supervisor stops its application servers when each suite ends. Private screenshots, traces, logs and backup files remain under `tests/e2e/test-results/`; keep them private.
+
+The single T8.11 live smoke reached the result and source display in **23.0 seconds**, using `ag/gemini-3.8-flash-low` with `ag/gemini-4-argon-medium` configured for escalation. Three verified quotes matched the stored source offsets, and the source disclosure showed the highlighted quote. The recorded fingerprint was `d5db034ce9fb…`; the full value and trace are in the validation report. No score was asserted, and the next live result may differ.
+
+### What the failure rehearsal showed
+
+- **Long processing.** With a controlled 66-second delay, the page showed “Hồ sơ vẫn đang được xử lý — đôi khi mất hơn một phút.” at 61.4 seconds. Refresh preserved the run, and the result completed. You can leave the page while work continues.
+- **Provider timeout.** Two automatic attempts exhausted after about 8 seconds with the injected timeout. Choosing **Thử lại bằng lần phân tích mới** after recovery completed a new run and kept the failed one in history.
+- **Worker stopped during analysis.** Recovery waited for the original four-minute lease. The run then completed with a second attempt. A recently restarted worker does not make a previously running request fail immediately; keep the original run open while it recovers.
+- **Redis unavailable.** The request was saved with degraded dispatch, then completed about 1.6 seconds after the test connection recovered. Refreshing did not lose it.
+- **First screening after idle.** After 45 seconds without screenings and a silently dropped producer socket, the API alone delivered the new request to the queue in 694 ms, with one dispatch attempt. The worker was restarted only after that delivery was verified. If you see a long queued wait in a real rehearsal, check the API/worker logs for “Screening dispatch unavailable” and confirm that only one demo API/worker pair uses the shared queue.
+- **Restore.** A stopped-writer backup restored into a separate disposable database and storage directory. A fresh login opened the saved result and downloaded the exact original PDF. Keep the database dump and private PDFs together when you use the manual backup procedure in section 5.
+
+### If the test tooling stalls
+
+If Node 26 stalls while installing the pinned browser, install it once from the repository root with:
+
+```sh
+pnpm dlx node@24 tests/e2e/node_modules/@playwright/test/cli.js install chromium
+```
+
+The application and final test commands still run on Node 26. The suite saves its browser traces directly to avoid the affected automatic trace-merge path. Open a saved trace with the Playwright trace viewer, or open the run's HTML report under `tests/e2e/playwright-report/`.
+
+All five required T8.11 commands passed, including the separate five-case recovery suite and the single live smoke. The standalone restore verified seven private PDFs and four completed results. After the final run, the API, worker, AI service, web server, test helpers and reused PostgreSQL/Redis containers were stopped; start PostgreSQL and Redis again before your next rehearsal.

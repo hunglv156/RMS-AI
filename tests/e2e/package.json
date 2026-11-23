@@ -5,8 +5,9 @@
   "scripts": {
     "test": "playwright test --config ../../playwright.config.ts",
     "test:recovery": "playwright test --config ../../playwright.config.ts --grep recovery",
-    "test:live": "playwright test --config ../../playwright.config.ts --grep live",
-    "test:restore": "playwright test --config ../../playwright.config.ts --grep restore"
+    "test:live": "T8_LIVE=1 playwright test --config ../../playwright.config.ts --grep @live",
+    "test:restore": "playwright test --config ../../playwright.config.ts --grep restore",
+    "check": "playwright test --config ../../playwright.config.ts --list"
   },
   "devDependencies": {
     "@playwright/test": "1.58.1"
