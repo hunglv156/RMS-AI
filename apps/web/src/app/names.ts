@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import { useWorkspace } from "./context";
-/**
- * Applications and runs carry only IDs. Resolve readable candidate names and job
- * titles through the existing read endpoints the signed-in role may already call;
- * reviewers cannot read candidates, so they keep the short application reference.
- */
+/** Resolve job titles through the existing authorized job endpoint. */
 function useLookup(
   ids: (string | null | undefined)[],
   enabled: boolean,
@@ -23,21 +19,13 @@ function useLookup(
           if (!c.signal.aborted) setNames((v) => ({ ...v, [id]: name }));
         })
         .catch(() => {
-          /* A missing name falls back to the short reference. */
+          /* The view retains its generic job label if a title is unavailable. */
         });
     return () => c.abort();
     // read is derived from the stable client; ids are compared by value.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wanted, enabled]);
   return names;
-}
-export function useCandidateNames(ids: (string | null | undefined)[]) {
-  const { client, session } = useWorkspace();
-  return useLookup(
-    ids,
-    session.user.role !== "reviewer",
-    async (id, s) => (await client.candidate(id, s)).display_name,
-  );
 }
 export function useJobTitles(ids: (string | null | undefined)[]) {
   const { client } = useWorkspace();

@@ -1,4 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
+import { actorJoin } from "../common/display";
 import { z } from "zod";
 import type { Actor } from "../common/interfaces";
 import { Database, type Transaction } from "../db/database";
@@ -21,7 +22,24 @@ export class JdVersionsService {
     @Inject(AuditWriter) private readonly audit: AuditWriter,
   ) {}
   private async detail(tx: Transaction | Database["connection"], id: string) {
-    const row = await tx("jd_versions").where({ id }).first();
+    const query = tx("jd_versions")
+      .select("jd_versions.*")
+      .where("jd_versions.id", id);
+    for (const field of ["created_by", "submitted_by", "approved_by"])
+      actorJoin(query, `jd_versions.${field}`, `${field}_actor`);
+    const returned = tx("audit_events")
+      .select("actor_id")
+      .where({
+        resource_type: "jd_version",
+        resource_id: id,
+        action: "jd.returned_to_draft",
+      })
+      .orderBy("created_at", "desc")
+      .orderBy("id", "desc")
+      .limit(1);
+    query.leftJoin(returned.as("last_return"), tx.raw("true"));
+    actorJoin(query, "last_return.actor_id", "returned_by_actor");
+    const row = await query.first();
     const criteria = await tx("job_criteria")
       .where({ jd_version_id: id })
       .orderBy("sort_order")

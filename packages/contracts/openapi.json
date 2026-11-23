@@ -6254,6 +6254,46 @@
           "created_at": {
             "type": "string",
             "format": "date-time"
+          },
+          "created_by_actor": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ActorDisplay"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "submitted_by_actor": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ActorDisplay"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "approved_by_actor": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ActorDisplay"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "returned_by_actor": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ActorDisplay"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "required": [
@@ -6465,6 +6505,16 @@
           "uploaded_at": {
             "type": "string",
             "format": "date-time"
+          },
+          "uploaded_by_actor": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ActorDisplay"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "required": [
@@ -6566,6 +6616,10 @@
           "created_at": {
             "type": "string",
             "format": "date-time"
+          },
+          "candidate_display_name": {
+            "type": "string",
+            "description": "Candidate name only, visible within the authorized job."
           }
         },
         "required": [
@@ -7727,6 +7781,20 @@
                 "type": "null"
               }
             ]
+          },
+          "candidate_display_name": {
+            "type": "string",
+            "description": "Candidate name only, visible within the authorized job."
+          },
+          "requested_by_actor": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ActorDisplay"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "required": [
@@ -7862,6 +7930,20 @@
                 "type": "null"
               }
             ]
+          },
+          "candidate_display_name": {
+            "type": "string",
+            "description": "Candidate name only, visible within the authorized job."
+          },
+          "requested_by_actor": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ActorDisplay"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "required": [
@@ -7969,6 +8051,16 @@
           "created_at": {
             "type": "string",
             "format": "date-time"
+          },
+          "reviewer": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ActorDisplay"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "required": [
@@ -8447,6 +8539,23 @@
           "jd"
         ],
         "additionalProperties": false
+      },
+      "ActorDisplay": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "display_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "display_name"
+        ]
       }
     },
     "securitySchemes": {

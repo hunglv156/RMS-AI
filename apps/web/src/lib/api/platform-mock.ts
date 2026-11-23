@@ -68,10 +68,18 @@ export function createMockPlatformClient(): PlatformClient {
     if (state === "pending_approval") {
       v.submitted_at = now();
       v.submitted_by = user.id;
+      v.submitted_by_actor = { id: user.id, display_name: user.display_name };
+    }
+    if (state === "draft") {
+      v.returned_by_actor = { id: user.id, display_name: user.display_name };
+      v.submitted_at = null;
+      v.submitted_by = null;
+      v.submitted_by_actor = null;
     }
     if (state === "approved") {
       v.approved_at = now();
       v.approved_by = user.id;
+      v.approved_by_actor = { id: user.id, display_name: user.display_name };
       v.content_sha256 = "0".repeat(64);
       find(jobs, v.job_id).active_jd_version_id = v.id;
     }
@@ -96,6 +104,7 @@ export function createMockPlatformClient(): PlatformClient {
       approved_by: null,
       content_sha256: null,
       created_by: user.id,
+      created_by_actor: { id: user.id, display_name: user.display_name },
       created_at: now(),
     };
     versions.unshift(v);
@@ -284,6 +293,7 @@ export function createMockPlatformClient(): PlatformClient {
         file_sha256: "0".repeat(64),
         status: "uploaded",
         uploaded_by: user.id,
+        uploaded_by_actor: { id: user.id, display_name: user.display_name },
         uploaded_at: now(),
       };
       resumes.unshift(r);
@@ -321,6 +331,7 @@ export function createMockPlatformClient(): PlatformClient {
         throw new PlatformError("conflict", 409);
       const a: Application = {
         ...b,
+        candidate_display_name: find(candidates, b.candidate_id).display_name,
         id: id(),
         job_id: key,
         stage: "new",
@@ -354,6 +365,8 @@ export function createMockPlatformClient(): PlatformClient {
         const a = find(applications, aid);
         if (a.job_id !== key) throw new PlatformError("invalid_input", 400);
         const r: RunDetail = {
+          candidate_display_name: find(candidates, a.candidate_id).display_name,
+          requested_by_actor: { id: user.id, display_name: user.display_name },
           id: id(),
           job_id: key,
           application_id: a.id,

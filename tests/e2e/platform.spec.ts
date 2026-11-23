@@ -132,6 +132,7 @@ test("full persisted browser journey, double submit, approved tamper and denied 
     .getByRole("button", { name: "Tạo hồ sơ ứng tuyển", exact: true })
     .click();
   const application = await (await linked).json();
+  expect(application.candidate_display_name).toBe(name);
   const c = { job, jd, candidate, resume, application };
   await control(page.request, "/fault", { delay: 5 });
   const begunAt = performance.now();
@@ -148,6 +149,11 @@ test("full persisted browser journey, double submit, approved tamper and denied 
   const createLatencyMs = performance.now() - begunAt;
   expect(createLatencyMs).toBeLessThan(2000);
   const run = (await admission.json()).runs[0];
+  expect(run.candidate_display_name).toBe(name);
+  expect(Object.keys(run.requested_by_actor).sort()).toEqual([
+    "display_name",
+    "id",
+  ]);
   const second = await start(page, c);
   expect(second.run.id).toBe(run.id);
   const key = randomUUID();
@@ -206,6 +212,7 @@ test("full persisted browser journey, double submit, approved tamper and denied 
   expect(completed.statusLatencyMs).toBeLessThan(1000);
   await login(page, "reviewer");
   await page.goto(appUrl(c, run.id));
+  await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
   await page.getByRole("radio", { name: /Đưa vào danh sách ngắn/ }).check();
   const note =
     "Synthetic committee review: invite for an interview and verify Python experience.";
@@ -283,6 +290,10 @@ test("full persisted browser journey, double submit, approved tamper and denied 
   const reviews = await (
     await page.request.get(`/api/v1/applications/${application.id}/reviews`)
   ).json();
+  expect(reviews.items.find((r: any) => r.note === note).reviewer).toEqual({
+    id: reviewer.id,
+    display_name: reviewer.display_name,
+  });
   expect(reviews.items.find((r: any) => r.note === note).reviewer_id).toBe(
     reviewer.id,
   );

@@ -122,6 +122,7 @@ test("dashboard uses unique applications, current decisions and latest runs with
       ),
     );
     assert(!JSON.stringify(dashboard).includes(hiddenApplication.id));
+    assert(!JSON.stringify(dashboard).includes(candidate.display_name));
     assert(!JSON.stringify(dashboard).includes(h.jobs[1].id));
     for (const r of [
       ...dashboard.pending_reviews,

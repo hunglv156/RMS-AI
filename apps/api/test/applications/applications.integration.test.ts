@@ -39,6 +39,8 @@ test("applications validate candidate/resume, scoped pagination, uniqueness, clo
     .expect(200);
   assert.equal(list.body.total, 1);
   assert.equal(list.body.items[0].id, row.id);
+  assert.equal(row.candidate_display_name, c.display_name);
+  assert.equal(list.body.items[0].candidate_display_name, c.display_name);
   await ctx.http("get", path, 3).expect(404);
   await ctx.http("get", `/jobs/${ctx.jobs[1].id}/applications`, 2).expect(404);
   await ctx
@@ -86,18 +88,16 @@ test("replacement serializes revisions, preserves historical runs/bytes, and lim
     created_by: ctx.users[0].id,
   };
   await ctx.db("jd_versions").insert(jd);
-  await ctx
-    .db("job_criteria")
-    .insert({
-      jd_version_id: jd.id,
-      code: "synthetic",
-      label: "Synthetic",
-      description: "Synthetic",
-      priority: "must_have",
-      weight: 1,
-      keywords_json: "[]",
-      sort_order: 0,
-    });
+  await ctx.db("job_criteria").insert({
+    jd_version_id: jd.id,
+    code: "synthetic",
+    label: "Synthetic",
+    description: "Synthetic",
+    priority: "must_have",
+    weight: 1,
+    keywords_json: "[]",
+    sort_order: 0,
+  });
   await ctx
     .db("jd_versions")
     .where({ id: jd.id })

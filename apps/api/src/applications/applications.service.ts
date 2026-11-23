@@ -1,4 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
+import { applicationNames } from "../common/display";
 import { z } from "zod";
 import { Database, type Transaction } from "../db/database";
 import { AuditWriter } from "../audit/audit-writer.service";
@@ -38,7 +39,10 @@ export class ApplicationsService {
     const [items, count] = await Promise.all([
       query
         .clone()
-        .select("applications.*")
+        .select(
+          "applications.*",
+          "candidates.display_name as candidate_display_name",
+        )
         .orderBy("applications.created_at", "desc")
         .orderBy("applications.id")
         .limit(pageSize)
@@ -90,7 +94,9 @@ export class ApplicationsService {
           request_id: requestId,
           safe_metadata_json: {},
         });
-        return row;
+        return applicationNames(tx("applications"))
+          .where("applications.id", row.id)
+          .first();
       });
     } catch (e) {
       if ((e as { code?: string }).code === "23505")
@@ -139,7 +145,9 @@ export class ApplicationsService {
         request_id: requestId,
         safe_metadata_json: {},
       });
-      return updated;
+      return applicationNames(tx("applications"))
+        .where("applications.id", updated.id)
+        .first();
     });
   }
 }

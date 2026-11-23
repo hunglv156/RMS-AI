@@ -51,6 +51,10 @@ test("draft edit/submit/return/approve/clone with permissions, revisions, histor
     })
     .expect(200);
   assert.equal(returned.body.state, "draft");
+  assert.deepEqual(returned.body.returned_by_actor, {
+    id: ctx.users[2].id,
+    display_name: ctx.users[2].display_name,
+  });
   const audit = await ctx
     .db("audit_events")
     .where({ resource_id: version.id, action: "jd.returned_to_draft" })

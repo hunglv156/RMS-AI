@@ -669,6 +669,10 @@ export interface components {
             created_by: string;
             /** Format: date-time */
             created_at: string;
+            created_by_actor?: components["schemas"]["ActorDisplay"] | null;
+            submitted_by_actor?: components["schemas"]["ActorDisplay"] | null;
+            approved_by_actor?: components["schemas"]["ActorDisplay"] | null;
+            returned_by_actor?: components["schemas"]["ActorDisplay"] | null;
         };
         CandidateInput: {
             display_name: string;
@@ -716,6 +720,7 @@ export interface components {
             uploaded_by: string;
             /** Format: date-time */
             uploaded_at: string;
+            uploaded_by_actor?: components["schemas"]["ActorDisplay"] | null;
         };
         CreateApplication: {
             /** Format: uuid */
@@ -745,6 +750,8 @@ export interface components {
             created_by: string;
             /** Format: date-time */
             created_at: string;
+            /** @description Candidate name only, visible within the authorized job. */
+            candidate_display_name?: string;
         };
         /** @description Full effective configuration with no secrets. Fingerprint is SHA-256 of UTF-8 canonical JSON of every manifest field except fingerprint, recursively sorted object keys, compact separators, array order preserved; build_revision and explicit mode participate. */
         Manifest: {
@@ -998,6 +1005,9 @@ export interface components {
             next_retry_at: string | null;
             error_code: string | null;
             safe_error_detail: string | null;
+            /** @description Candidate name only, visible within the authorized job. */
+            candidate_display_name?: string;
+            requested_by_actor?: components["schemas"]["ActorDisplay"] | null;
         };
         RunDetail: {
             /** Format: uuid */
@@ -1024,6 +1034,9 @@ export interface components {
             error_code: string | null;
             safe_error_detail: string | null;
             result: components["schemas"]["ScreeningEnvelope"] | null;
+            /** @description Candidate name only, visible within the authorized job. */
+            candidate_display_name?: string;
+            requested_by_actor?: components["schemas"]["ActorDisplay"] | null;
         };
         AcceptedRuns: {
             runs: components["schemas"]["RunSummary"][];
@@ -1050,6 +1063,7 @@ export interface components {
             supersedes_review_id: string | null;
             /** Format: date-time */
             created_at: string;
+            reviewer?: components["schemas"]["ActorDisplay"] | null;
         };
         AuditEvent: {
             /** @description bigint serialized as decimal string */
@@ -1165,6 +1179,11 @@ export interface components {
             cv: string;
             /** @description JSON encoded JobDescription */
             jd: string;
+        };
+        ActorDisplay: {
+            /** Format: uuid */
+            id: string;
+            display_name: string;
         };
     };
     responses: never;

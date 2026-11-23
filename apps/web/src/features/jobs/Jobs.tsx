@@ -22,9 +22,7 @@ import {
   Pager,
   Search,
   day,
-  shortId,
 } from "../../app/ui";
-import { useCandidateNames } from "../../app/names";
 import { JdPanel } from "../jd/JdPanel";
 import { Assignments } from "../admin/Admin";
 export function Jobs() {
@@ -151,9 +149,6 @@ export function JobDetail() {
     (s) => client.applications(id, { page, search }, s),
     [client, id, page, search],
   );
-  const names = useCandidateNames(
-    apps.data?.items.map((a) => a.candidate_id) ?? [],
-  );
   return (
     <>
       <Link className="p-back" to="/jobs">
@@ -223,12 +218,14 @@ export function JobDetail() {
                             to={`/applications/${a.id}?job=${id}`}
                           >
                             <span className="p-avatar" aria-hidden="true">
-                              {(names[a.candidate_id] ?? "#").slice(0, 1)}
+                              {(a.candidate_display_name ?? "Ứng viên").slice(
+                                0,
+                                1,
+                              )}
                             </span>
                             <div>
                               <strong>
-                                {names[a.candidate_id] ??
-                                  `Hồ sơ ${shortId(a.id)}`}
+                                {a.candidate_display_name ?? "Ứng viên"}
                               </strong>
                               <small>Tiếp nhận {date(a.created_at)}</small>
                             </div>

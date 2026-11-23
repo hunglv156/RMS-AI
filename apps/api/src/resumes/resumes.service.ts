@@ -5,6 +5,7 @@ import {
   type OnApplicationBootstrap,
   type OnModuleDestroy,
 } from "@nestjs/common";
+import { actorJoin } from "../common/display";
 import { Database } from "../db/database";
 import { AuditWriter } from "../audit/audit-writer.service";
 import { JobAuthorization, assertId } from "../auth/authorization.service";
@@ -83,7 +84,15 @@ export class ResumesService implements OnApplicationBootstrap, OnModuleDestroy {
           request_id: requestId,
           safe_metadata_json: {},
         });
-        return publicResume(row);
+        return publicResume(
+          await actorJoin(
+            tx("resumes").select("resumes.*"),
+            "resumes.uploaded_by",
+            "uploaded_by_actor",
+          )
+            .where("resumes.id", row.id)
+            .first(),
+        );
       });
     } catch (error) {
       await this.storage.remove(file.storageKey);

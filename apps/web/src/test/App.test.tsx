@@ -94,6 +94,7 @@ const version: JdVersion = {
   approved_at: null,
   content_sha256: null,
   created_by: uid,
+  created_by_actor: { id: uid, display_name: "Demo Admin" },
   created_at: time,
 };
 const page = (items: unknown[]) => ({
@@ -182,6 +183,7 @@ describe("platform journeys over contract-valid HTTP", () => {
           revision: 3,
           submitted_at: time,
           submitted_by: uid,
+          submitted_by_actor: { id: uid, display_name: "Demo Admin" },
         };
         return response(jd);
       }
@@ -193,6 +195,7 @@ describe("platform journeys over contract-valid HTTP", () => {
           revision: 4,
           approved_at: time,
           approved_by: uid,
+          approved_by_actor: { id: uid, display_name: "Demo Admin" },
           content_sha256: "b".repeat(64),
         };
         return response(jd);
@@ -204,7 +207,8 @@ describe("platform journeys over contract-valid HTTP", () => {
     expect(
       await screen.findByText(
         (_, e) =>
-          e?.tagName === "LI" && /^Tạo.+ · bạn$/.test(e.textContent ?? ""),
+          e?.tagName === "LI" &&
+          /^Tạo.+ · Demo Admin \(bạn\)$/.test(e.textContent ?? ""),
       ),
     ).toBeVisible();
     expect(screen.queryByText(/00000001/)).not.toBeInTheDocument();
@@ -228,7 +232,7 @@ describe("platform journeys over contract-valid HTTP", () => {
       await screen.findByText(
         (_, e) =>
           e?.tagName === "LI" &&
-          /^Gửi duyệt.+ · bạn$/.test(e.textContent ?? ""),
+          /^Gửi duyệt.+ · Demo Admin \(bạn\)$/.test(e.textContent ?? ""),
       ),
     ).toBeVisible();
     fireEvent.click(

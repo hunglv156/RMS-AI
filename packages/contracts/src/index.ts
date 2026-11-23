@@ -5,6 +5,7 @@ export type Decision = components["schemas"]["Decision"];
 export type RunStatus = components["schemas"]["RunStatus"];
 export type Level = components["schemas"]["Level"];
 export type Error = components["schemas"]["Error"];
+export type ActorDisplay = components["schemas"]["ActorDisplay"];
 export type User = components["schemas"]["User"];
 export type LoginRequest = components["schemas"]["LoginRequest"];
 export type Session = components["schemas"]["Session"];

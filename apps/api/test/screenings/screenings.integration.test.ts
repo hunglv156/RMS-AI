@@ -31,6 +31,27 @@ test("durable admission, concurrent identities, all-or-none batches, key replay 
       ).length,
       1,
     );
+    // An idempotency record written before T8.12 still returns the additive names.
+    const legacy = structuredClone(response.body);
+    delete legacy.runs[0].candidate_display_name;
+    delete legacy.runs[0].requested_by_actor;
+    await h
+      .db("api_idempotency_keys")
+      .where({ actor_id: h.users[1].id, key })
+      .update({ response_json: legacy });
+    const replay = await h.start(key);
+    assert.equal(
+      replay.response.body.runs[0].candidate_display_name,
+      h.candidate.display_name,
+    );
+    assert.deepEqual(replay.response.body.runs[0].requested_by_actor, {
+      id: h.users[1].id,
+      display_name: h.users[1].display_name,
+    });
+    assert.equal(
+      replay.response.body.runs[0].status,
+      response.body.runs[0].status,
+    );
     const same = await Promise.all([h.start(key), h.start(), h.start()]);
     assert(same.every((v) => v.run.id === run.id));
     await h
@@ -432,6 +453,8 @@ test("audit failure rolls admission back; draft rejected; persistent identity su
 test("no validated manifest rejects admission without writes and HTTP deadline schedules a retry", async (t) => {
   const h = await setup();
   try {
+    // Prime this adapter with its own validated manifest before simulating an outage.
+    await h.app.get(AiAdapter).config();
     h.offline();
     const adapter = h.app.get(AiAdapter),
       config = adapter.config.bind(adapter);

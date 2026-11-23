@@ -1,3 +1,4 @@
+import { useActorName } from "../../app/actors";
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import type { Candidate, Resume } from "@rms-ai/contracts";
@@ -155,6 +156,7 @@ export function Candidates() {
   );
 }
 export function CandidateDetail() {
+  const actorName = useActorName();
   const { id = "" } = useParams();
   const { client, session } = useWorkspace();
   const load = useLoad((s) => client.candidate(id, s), [client, id]);
@@ -218,7 +220,8 @@ export function CandidateDetail() {
                         <div>
                           <strong>{r.original_filename}</strong>
                           <small>
-                            Phiên bản {r.version_no} · {date(r.uploaded_at)}
+                            Phiên bản {r.version_no} · {date(r.uploaded_at)} ·{" "}
+                            {actorName(r.uploaded_by_actor)}
                           </small>
                         </div>
                         <ResumeDownload id={r.id} />

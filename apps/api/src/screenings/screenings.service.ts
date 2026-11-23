@@ -1,4 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
+import { runNames } from "../common/display";
 import { z } from "zod";
 import type { Actor, AuditService } from "../common/interfaces";
 import { AUDIT_SERVICE } from "../common/interfaces";
@@ -71,20 +72,29 @@ export class ScreeningsService {
   }
   async get(actor: Actor, id: string) {
     await this.policy.assertResourceAccess(actor, "screening", id);
-    const r = await this.db.connection("screening_runs").where({ id }).first();
-    return { ...summary(r), result: r.result_json };
+    const r = await runNames(
+      this.db.connection("screening_runs"),
+      summaryColumns,
+    )
+      .select("screening_runs.result_json")
+      .where("screening_runs.id", id)
+      .first();
+    const { result_json, ...safe } = r;
+    return { ...safe, result: result_json };
   }
   async history(actor: Actor, id: string, query: unknown) {
     await this.policy.assertResourceAccess(actor, "application", id);
     const p = parse(listSchema, query);
     const q = this.db
       .connection("screening_runs")
-      .where({ application_id: id });
+      .where({ "screening_runs.application_id": id });
     const count = await q.clone().count("id as count").first();
-    const items = await q
-      .select(summaryColumns)
-      .orderBy("created_at", p.sort === "created_at" ? "asc" : "desc")
-      .orderBy("id")
+    const items = await runNames(q, summaryColumns)
+      .orderBy(
+        "screening_runs.created_at",
+        p.sort === "created_at" ? "asc" : "desc",
+      )
+      .orderBy("screening_runs.id")
       .limit(p.pageSize)
       .offset((p.page - 1) * p.pageSize);
     return {
@@ -122,7 +132,17 @@ export class ScreeningsService {
             "Key already used with different input",
             409,
           );
-        return old.response_json;
+        // Replays created before display fields existed retain their stored run state,
+        // while resolving public names through the same authorized records.
+        const runs = await Promise.all(
+          old.response_json.runs.map(async (run: { id: string }) => ({
+            ...run,
+            ...(await runNames(tx("screening_runs"), [])
+              .where("screening_runs.id", run.id)
+              .first()),
+          })),
+        );
+        return { ...old.response_json, runs };
       }
       if (old)
         await tx("api_idempotency_keys")
@@ -159,7 +179,10 @@ export class ScreeningsService {
       (r) =>
         r.status !== "failed" && (!retry || r.retry_of_run_id === retry.id),
     );
-    if (reusable) return summary(reusable);
+    if (reusable)
+      return runNames(tx("screening_runs"), summaryColumns)
+        .where("screening_runs.id", reusable.id)
+        .first();
     if (previous && !retry)
       throw new PlatformError(
         "retry_required",
@@ -196,7 +219,9 @@ export class ScreeningsService {
       delivery_generation: 1,
       payload_json: { run_id: run.id, request_id: requestId },
     });
-    return summary(run);
+    return runNames(tx("screening_runs"), summaryColumns)
+      .where("screening_runs.id", run.id)
+      .first();
   }
   async start(
     actor: Actor,

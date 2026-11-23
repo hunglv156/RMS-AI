@@ -243,6 +243,7 @@ describe("T8.9 persisted screening and human review", () => {
               application_id: "app",
               screening_run_id: "run",
               reviewer_id: "person",
+              reviewer: { id: "person", display_name: "An" },
               decision: "shortlist",
               note: "Strong Python evidence",
               supersedes_review_id: null,

@@ -1,4 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
+import { actorJoin } from "../common/display";
 import { z } from "zod";
 import { Database } from "../db/database";
 import {
@@ -77,7 +78,13 @@ export class ReviewsService {
         request_id: requestId,
         safe_metadata_json: {},
       });
-      return review;
+      return actorJoin(
+        tx("human_reviews").select("human_reviews.*"),
+        "human_reviews.reviewer_id",
+        "reviewer",
+      )
+        .where("human_reviews.id", review.id)
+        .first();
     });
   }
   async list(actor: Actor, applicationId: string, input: unknown) {
@@ -88,10 +95,16 @@ export class ReviewsService {
       .connection("human_reviews")
       .where({ application_id: applicationId });
     const [items, count] = await Promise.all([
-      q
-        .clone()
-        .orderBy("created_at", sort === "created_at" ? "asc" : "desc")
-        .orderBy("id")
+      actorJoin(
+        q.clone().select("human_reviews.*"),
+        "human_reviews.reviewer_id",
+        "reviewer",
+      )
+        .orderBy(
+          "human_reviews.created_at",
+          sort === "created_at" ? "asc" : "desc",
+        )
+        .orderBy("human_reviews.id")
         .limit(pageSize)
         .offset((page - 1) * pageSize),
       q.clone().count("* as total").first(),

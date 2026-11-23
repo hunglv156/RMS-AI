@@ -1,3 +1,4 @@
+import { useActorName } from "../../app/actors";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   AlertCircle,
@@ -65,6 +66,7 @@ export function ScreeningPanel({
   summary?: ReactNode;
 }) {
   const { client, session } = useWorkspace();
+  const actorName = useActorName();
   const [params, setParams] = useSearchParams();
   const [runs, setRuns] = useState<RunSummary[]>([]),
     [total, setTotal] = useState(0),
@@ -269,6 +271,9 @@ export function ScreeningPanel({
                 )}
               </>
             )}
+            <p className="p-subtle">
+              Yêu cầu bởi {actorName(run.requested_by_actor)}
+            </p>
             <div className="s-run-actions">
               {run.result && (
                 <p className="s-provenance">
@@ -489,7 +494,8 @@ export function ScreeningPanel({
                     <Badge value={r.status} />
                   </span>
                   <small>
-                    {date(r.queued_at)} · {r.attempt_count} lượt xử lý
+                    {date(r.queued_at)} · {actorName(r.requested_by_actor)} ·{" "}
+                    {r.attempt_count} lượt xử lý
                     {r.id === latestId ? " · Mới nhất" : ""}
                   </small>
                 </button>

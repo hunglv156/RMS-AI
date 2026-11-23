@@ -1,4 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
+import { applicationNames, runNames } from "../common/display";
 import { Database } from "../db/database";
 import { JobAuthorization } from "../auth/authorization.service";
 import type { Actor } from "../common/interfaces";
@@ -66,11 +67,15 @@ export class DashboardService {
       const pendingCount = await pending.clone().count("* as total").first();
       const failureCount = await failures.clone().count("* as total").first();
       const runs = (query: typeof pending) =>
-        tx("screening_runs")
-          .whereIn("id", query.select("latest.id"))
-          .select(summaryColumns)
-          .orderBy("created_at", "desc")
-          .orderBy("id", "desc")
+        runNames(
+          tx("screening_runs").whereIn(
+            "screening_runs.id",
+            query.select("latest.id"),
+          ),
+          summaryColumns,
+        )
+          .orderBy("screening_runs.created_at", "desc")
+          .orderBy("screening_runs.id", "desc")
           .limit(10);
       return {
         counts: {
@@ -82,11 +87,9 @@ export class DashboardService {
           hold: Number(decisions?.hold),
           screening_failures: Number(failureCount?.total),
         },
-        recent_applications: await applications
-          .clone()
-          .select("applications.*")
-          .orderBy("created_at", "desc")
-          .orderBy("id", "desc")
+        recent_applications: await applicationNames(applications.clone())
+          .orderBy("applications.created_at", "desc")
+          .orderBy("applications.id", "desc")
           .limit(10),
         latest_failures: await runs(failures),
         pending_reviews: await runs(pending),

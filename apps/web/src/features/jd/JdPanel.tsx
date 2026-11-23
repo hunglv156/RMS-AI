@@ -1,3 +1,4 @@
+import { useActorName } from "../../app/actors";
 import { useEffect, useState } from "react";
 import { Check, CircleCheck, Clock3, FilePlus2, Star } from "lucide-react";
 import type { Job, JdVersion } from "@rms-ai/contracts";
@@ -32,8 +33,7 @@ export function JdPanel({ job, onChange }: { job: Job; onChange: () => void }) {
     onChange();
   };
   const author = session.user.role !== "reviewer";
-  const actorName = (id?: string | null) =>
-    id && id === session.user.id ? "bạn" : undefined;
+  const actorName = useActorName();
   return (
     <section className="p-card">
       <div className="p-section-title">
@@ -112,9 +112,7 @@ export function JdPanel({ job, onChange }: { job: Job; onChange: () => void }) {
                     <div>
                       <strong>Tạo</strong>
                       <small>
-                        {date(v.created_at)}
-                        {actorName(v.created_by) &&
-                          ` · ${actorName(v.created_by)}`}
+                        {date(v.created_at)} · {actorName(v.created_by_actor)}
                       </small>
                     </div>
                   </li>
@@ -126,7 +124,7 @@ export function JdPanel({ job, onChange }: { job: Job; onChange: () => void }) {
                       <strong>Gửi duyệt</strong>
                       <small>
                         {v.submitted_at
-                          ? `${date(v.submitted_at)}${actorName(v.submitted_by) ? ` · ${actorName(v.submitted_by)}` : ""}`
+                          ? `${date(v.submitted_at)} · ${actorName(v.submitted_by_actor)}`
                           : "Chưa gửi"}
                       </small>
                     </div>
@@ -147,13 +145,24 @@ export function JdPanel({ job, onChange }: { job: Job; onChange: () => void }) {
                       <strong>Phê duyệt</strong>
                       <small>
                         {v.approved_at
-                          ? `${date(v.approved_at)}${actorName(v.approved_by) ? ` · ${actorName(v.approved_by)}` : ""}`
+                          ? `${date(v.approved_at)} · ${actorName(v.approved_by_actor)}`
                           : v.state === "pending_approval"
                             ? "Đang chờ người phê duyệt"
                             : "Chưa đến bước này"}
                       </small>
                     </div>
                   </li>
+                  {v.returned_by_actor && (
+                    <li className="p-step-done">
+                      <span aria-hidden="true">
+                        <Check size={12} />
+                      </span>
+                      <div>
+                        <strong>Trả về bản nháp</strong>
+                        <small>{actorName(v.returned_by_actor)}</small>
+                      </div>
+                    </li>
+                  )}
                 </ol>
                 <details className="p-criteria">
                   <summary>

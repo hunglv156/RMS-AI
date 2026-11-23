@@ -9,8 +9,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useWorkspace, useLoad } from "./context";
-import { Heading, Empty, LoadState, Badge, date, num, shortId } from "./ui";
-import { useCandidateNames, useJobTitles } from "./names";
+import { Heading, Empty, LoadState, Badge, date, num } from "./ui";
+import { useJobTitles } from "./names";
 import { runErrorTitles } from "../features/screenings/ScreeningPanel";
 const today = new Intl.DateTimeFormat("vi-VN", {
   weekday: "long",
@@ -22,17 +22,11 @@ export function Dashboard() {
   const { client, session } = useWorkspace();
   const load = useLoad((s) => client.dashboard(s), [client]);
   const d = load.data;
-  const candidateOf = Object.fromEntries(
-    d?.recent_applications.map((a) => [a.id, a.candidate_id]) ?? [],
-  );
-  const names = useCandidateNames(Object.values(candidateOf));
   const titles = useJobTitles([
     ...(d?.recent_applications.map((a) => a.job_id) ?? []),
     ...(d?.pending_reviews.map((r) => r.job_id) ?? []),
     ...(d?.latest_failures.map((r) => r.job_id) ?? []),
   ]);
-  const who = (applicationId: string) =>
-    names[candidateOf[applicationId]] ?? `Hồ sơ ${shortId(applicationId)}`;
   const kpis: [keyof NonNullable<typeof d>["counts"], string, LucideIcon][] = [
     ["jobs_open", "Vị trí đang tuyển", BriefcaseBusiness],
     ["applications", "Hồ sơ ứng tuyển", FileText],
@@ -144,7 +138,9 @@ export function Dashboard() {
                       to={`/applications/${r.application_id}?job=${r.job_id}&run=${r.id}`}
                     >
                       <div>
-                        <strong>{who(r.application_id)}</strong>
+                        <strong>
+                          {r.candidate_display_name ?? "Ứng viên"}
+                        </strong>
                         <small>
                           {titles[r.job_id] ?? "Vị trí tuyển dụng"} ·{" "}
                           {date(r.queued_at)}
@@ -184,12 +180,10 @@ export function Dashboard() {
                   to={`/applications/${a.id}?job=${a.job_id}`}
                 >
                   <span className="p-avatar" aria-hidden="true">
-                    {who(a.id)
-                      .replace(/^Hồ sơ #/, "")
-                      .slice(0, 1)}
+                    {(a.candidate_display_name ?? "Ứng viên").slice(0, 1)}
                   </span>
                   <div>
-                    <strong>{who(a.id)}</strong>
+                    <strong>{a.candidate_display_name ?? "Ứng viên"}</strong>
                     <small>
                       {titles[a.job_id] ?? "Vị trí tuyển dụng"} · Tiếp nhận{" "}
                       {date(a.created_at)}

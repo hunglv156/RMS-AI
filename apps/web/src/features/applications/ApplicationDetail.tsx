@@ -4,15 +4,7 @@ import { useState } from "react";
 import type { Application, Resume } from "@rms-ai/contracts";
 import { useLoad, useWorkspace } from "../../app/context";
 import { ResumeUpload, ResumeDownload } from "../candidates/ResumeControls";
-import {
-  ActionForm,
-  Badge,
-  date,
-  Heading,
-  LoadState,
-  shortId,
-} from "../../app/ui";
-import { useCandidateNames } from "../../app/names";
+import { ActionForm, Badge, date, Heading, LoadState } from "../../app/ui";
 import { ArrowLeft } from "lucide-react";
 export function ApplicationDetail() {
   const { id = "" } = useParams();
@@ -44,8 +36,7 @@ export function ApplicationDetail() {
     [client, id, jobId],
   );
   const app = load.data?.application;
-  const names = useCandidateNames([app?.candidate_id]);
-  const name = app && names[app.candidate_id];
+  const name = app?.candidate_display_name;
   return (
     <>
       <Link className="p-back" to={jobId ? `/jobs/${jobId}` : "/jobs"}>
@@ -83,7 +74,7 @@ export function ApplicationDetail() {
                           {name ?? "Mở hồ sơ ứng viên"} ↗
                         </Link>
                       ) : (
-                        <>Ứng viên {shortId(app.candidate_id)}</>
+                        <>{name ?? "Ứng viên"}</>
                       )}
                     </dd>
                   </div>

@@ -1,3 +1,4 @@
+import { useActorName } from "../../app/actors";
 import { useState } from "react";
 import { AlertTriangle, Clock3, PenLine, Star, CircleX } from "lucide-react";
 import type { Application, RunDetail } from "@rms-ai/contracts";
@@ -8,7 +9,7 @@ const decisions = [
   ["shortlist", "Đưa vào danh sách ngắn", "Đủ căn cứ để mời trao đổi.", Star],
   ["reject", "Chưa phù hợp", "Hồ sơ chưa đáp ứng yêu cầu chính.", CircleX],
 ] as const;
-/** Names are only readable by admins; others see their own name or a stable short reference. */
+/** The admin-only audit reader resolves user IDs through user administration. */
 export function usePeople() {
   const { client, session } = useWorkspace();
   const users = useLoad(
@@ -22,7 +23,7 @@ export function usePeople() {
     if (!id) return fallback;
     if (id === session.user.id) return `${session.user.display_name} (bạn)`;
     const user = users.data?.items.find((u) => u.id === id);
-    return user ? user.display_name : `Người dùng #${id.slice(0, 8)}`;
+    return user ? user.display_name : "Người dùng";
   };
 }
 export function ReviewPanel({
@@ -37,7 +38,7 @@ export function ReviewPanel({
   onReviewed: () => void;
 }) {
   const { client, session } = useWorkspace();
-  const person = usePeople();
+  const person = useActorName();
   const [note, setNote] = useState(""),
     [decision, setDecision] = useState<"hold" | "shortlist" | "reject">("hold"),
     [conflict, setConflict] = useState(false),
@@ -64,7 +65,7 @@ export function ReviewPanel({
           <span>Quyết định hiện tại</span>
           <Badge value={current.decision} />
           <small>
-            {person(current.reviewer_id)} · {date(current.created_at)}
+            {person(current.reviewer)} · {date(current.created_at)}
           </small>
         </div>
       )}
@@ -175,8 +176,8 @@ export function ReviewPanel({
           </div>
           <p className="s-note">{r.note}</p>
           <small>
-            Người quyết định: <strong>{person(r.reviewer_id)}</strong> · Lần
-            phân tích #{r.screening_run_id.slice(0, 8)}
+            Người quyết định: <strong>{person(r.reviewer)}</strong> · Lần phân
+            tích #{r.screening_run_id.slice(0, 8)}
             {r.id === application.current_review_id
               ? " · Hiện tại"
               : " · Đã được thay thế"}
