@@ -8,11 +8,12 @@ import {
 import { Queue, Worker } from "bullmq";
 import { Database } from "../db/database";
 import { ExecutionError } from "../screenings/validation";
+import { loadConfig } from "../common/config";
 import { ScreeningExecution } from "../screenings/execution.service";
 import { redisConnection, queuePrefix } from "./connection";
 @Injectable()
 export class QueueRuntime implements OnModuleInit, OnModuleDestroy {
-  private readonly redis = redisConnection();
+  private redis = redisConnection();
   private queueInstance?: Queue;
   get queue(): Queue {
     if (!this.queueInstance) {
@@ -29,15 +30,44 @@ export class QueueRuntime implements OnModuleInit, OnModuleDestroy {
     }
     return this.queueInstance;
   }
+  // An idle socket can be silently dropped by a NAT/port proxy (Docker Desktop):
+  // ioredis still reports "ready" and every command just times out. The per-tick
+  // PING keeps the socket active and replaces it as soon as it stops answering.
+  private resetProducer() {
+    const queue = this.queueInstance,
+      redis = this.redis;
+    this.queueInstance = undefined;
+    this.redis = redisConnection();
+    redis.disconnect();
+    void queue?.close().catch(() => {});
+  }
   private async ensureQueue() {
-    if (this.redis.status === "wait" || this.redis.status === "end")
-      await this.redis.connect();
-    try {
+    if (this.redis.status === "ready")
+      await this.redis.ping().catch(() => this.resetProducer());
+    // ioredis bounds neither the ready check nor BullMQ's init on a socket that
+    // accepts but never answers; a hung tick would stall every later relay.
+    let deadline: ReturnType<typeof setTimeout> | undefined;
+    const ready = (async () => {
+      if (this.redis.status === "wait" || this.redis.status === "end")
+        await this.redis.connect();
       await this.queue.waitUntilReady();
+    })();
+    ready.catch(() => {});
+    try {
+      await Promise.race([
+        ready,
+        new Promise((_, reject) => {
+          deadline = setTimeout(
+            () => reject(new Error("redis_connect_timeout")),
+            1500,
+          );
+        }),
+      ]);
     } catch (error) {
-      await this.queueInstance?.close().catch(() => {});
-      this.queueInstance = undefined;
+      this.resetProducer();
       throw error;
+    } finally {
+      clearTimeout(deadline);
     }
   }
   private worker?: Worker;
@@ -47,6 +77,8 @@ export class QueueRuntime implements OnModuleInit, OnModuleDestroy {
   private stopping = false;
   private recoveryCursor?: string;
   private degraded = false;
+  private degradedLoggedAt = 0;
+  private readonly leaseWarned = new Set<string>();
   private readonly logger = new Logger(QueueRuntime.name);
   constructor(
     @Inject(Database) private readonly db: Database,
@@ -61,8 +93,27 @@ export class QueueRuntime implements OnModuleInit, OnModuleDestroy {
     }
   }
   startWorker() {
-    if (this.worker) return;
-    this.workerRedis = redisConnection(true);
+    if (this.worker || this.workerRedis) return;
+    const redis = (this.workerRedis = redisConnection(true));
+    // BullMQ caches a failed first connection and never consumes afterwards, so
+    // the worker is created only once its connection (which retries every 1 s) is ready.
+    const waiting = setTimeout(
+      () =>
+        this.logger.warn(
+          "Screening worker waiting for Redis; jobs are consumed once it connects",
+        ),
+      1000,
+    );
+    waiting.unref();
+    redis.once("ready", () => {
+      clearTimeout(waiting);
+      if (this.stopping) return;
+      this.createWorker(redis);
+      this.logger.log("Screening worker connected to Redis");
+    });
+    redis.connect().catch(() => {});
+  }
+  private createWorker(connection: ReturnType<typeof redisConnection>) {
     this.worker = new Worker(
       "screenings",
       async (job) => {
@@ -75,11 +126,13 @@ export class QueueRuntime implements OnModuleInit, OnModuleDestroy {
           throw new ExecutionError(run.error_code ?? "screening_failed");
       },
       {
-        connection: this.workerRedis as any,
+        connection: connection as any,
         prefix: queuePrefix(),
         concurrency: 1,
         lockDuration: 240000,
         maxStalledCount: 1,
+        // Default 15 s would hold every job after a Redis blip.
+        runRetryDelay: 1000,
       },
     );
     this.worker.on("error", () => {});
@@ -93,18 +146,39 @@ export class QueueRuntime implements OnModuleInit, OnModuleDestroy {
       if (this.degraded) this.logger.log("Screening dispatch recovered");
       this.degraded = false;
     } catch {
-      if (!this.degraded)
+      this.resetProducer();
+      if (!this.degraded || Date.now() - this.degradedLoggedAt >= 30000) {
+        this.degradedLoggedAt = Date.now();
         this.logger.warn(
-          "Screening dispatch unavailable; durable work retained",
+          `Screening dispatch unavailable; durable work retained${await this.pendingSummary()}`,
         );
+      }
       this.degraded = true;
     } finally {
       this.busy = false;
     }
   }
+  private async pendingSummary() {
+    try {
+      const row: any = await this.db
+        .connection("outbox_events")
+        .whereNull("delivered_at")
+        .select(this.db.connection.raw("count(*)::int as count"))
+        .min("created_at as oldest")
+        .first();
+      if (!row?.count) return "";
+      const age = Math.round(
+        (Date.now() - new Date(row.oldest).getTime()) / 1000,
+      );
+      return `; ${row.count} outbox event(s) waiting, oldest ${age} s`;
+    } catch {
+      return "";
+    }
+  }
   async relay(afterEnqueue?: () => Promise<void>, runIds?: string[]) {
     // A disconnected producer is recreated lazily by ioredis.connect on the next poll.
     await this.ensureQueue();
+    let failure: unknown;
     for (let i = 0; i < 20; i++) {
       const delivered = await this.db.transaction(async (tx) => {
         const pending = tx("outbox_events").whereNull("delivered_at");
@@ -135,12 +209,15 @@ export class QueueRuntime implements OnModuleInit, OnModuleDestroy {
               last_error: "dispatch_unavailable",
             });
           if (afterEnqueue) throw error;
+          failure = error;
           return false;
         }
         return true;
       });
       if (!delivered) break;
     }
+    // Surface the failure so tick() logs it and rebuilds the producer.
+    if (failure) throw failure;
   }
   async reconcile(runIds?: string[]) {
     const query = this.db.connection("screening_runs").select("id");
@@ -153,6 +230,7 @@ export class QueueRuntime implements OnModuleInit, OnModuleDestroy {
     if (!runIds)
       this.recoveryCursor =
         rows.length === 100 ? rows[rows.length - 1].id : undefined;
+    let redisUnavailable = false;
     for (const { id } of rows)
       await this.db.transaction(async (tx) => {
         const run = await tx("screening_runs")
@@ -165,8 +243,10 @@ export class QueueRuntime implements OnModuleInit, OnModuleDestroy {
           if (
             run.lease_expires_at &&
             new Date(run.lease_expires_at).getTime() > Date.now()
-          )
+          ) {
+            this.warnStaleLease(run);
             return;
+          }
           if (run.attempt_count >= 2) {
             await this.execution.terminal(
               tx,
@@ -206,6 +286,7 @@ export class QueueRuntime implements OnModuleInit, OnModuleDestroy {
           .first();
         if (event && !event.delivered_at) return;
         if (run.status === "queued" && event) {
+          if (redisUnavailable) return;
           let queued;
           try {
             await this.ensureQueue();
@@ -224,6 +305,8 @@ export class QueueRuntime implements OnModuleInit, OnModuleDestroy {
             )
               return;
           } catch {
+            // One bounded probe per pass, not one per queued run.
+            redisUnavailable = true;
             return;
           }
         }
@@ -245,6 +328,22 @@ export class QueueRuntime implements OnModuleInit, OnModuleDestroy {
           .onConflict(["run_id", "delivery_generation"])
           .ignore();
       });
+  }
+  // A live worker renews its lease every min(30 s, lease/3); two missed renewals
+  // mean the holder is probably gone and the run waits for the lease to expire.
+  private warnStaleLease(run: any) {
+    const lease = loadConfig().WORKER_LEASE_MS,
+      remaining = new Date(run.lease_expires_at).getTime() - Date.now();
+    if (
+      remaining > lease - 2 * Math.min(30000, lease / 3) ||
+      this.leaseWarned.has(run.attempt_token)
+    )
+      return;
+    if (this.leaseWarned.size > 1000) this.leaseWarned.clear();
+    this.leaseWarned.add(run.attempt_token);
+    this.logger.warn(
+      `Screening run ${run.id} is waiting on a worker lease that is no longer renewed; recovery in ${Math.ceil(remaining / 1000)} s`,
+    );
   }
   async onModuleDestroy() {
     this.stopping = true;
