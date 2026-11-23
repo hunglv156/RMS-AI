@@ -1,3 +1,4 @@
+import type { Source, QuoteVerification } from "@rms-ai/contracts";
 import {
   AlertTriangle,
   CheckCheck,
@@ -55,8 +56,10 @@ export function Results({
   jd,
   fileName,
   headingRef,
+  source,
 }: {
   data: ScreeningEnvelope;
+  source?: Source;
   jd: JobDescription;
   fileName: string;
   headingRef?: RefObject<HTMLHeadingElement | null>;
@@ -124,7 +127,7 @@ export function Results({
               ? "—"
               : score.toLocaleString("vi-VN", { maximumFractionDigits: 1 })}
           </span>
-          <small>/ 100 điểm</small>
+          <small>{score === null ? "Chưa công bố điểm" : "/ 100 điểm"}</small>
         </div>
         <div className="score-description">
           <span className="eyebrow">MỨC ĐỘ PHÙ HỢP</span>
@@ -200,6 +203,13 @@ export function Results({
                           ? " · Xuất hiện nhiều lần"
                           : ""}
                       </div>
+                      {source && (
+                        <SourceEvidence
+                          source={source}
+                          quote={e.evidence.quote}
+                          verification={e.verification}
+                        />
+                      )}
                     </div>
                   </blockquote>
                 ))}
@@ -227,5 +237,95 @@ export function Results({
         AI hỗ trợ đối chiếu thông tin. Quyết định tuyển dụng thuộc về bạn.
       </p>
     </section>
+  );
+}
+
+export function sourceRange(
+  source: Source,
+  quote: string,
+  verification: QuoteVerification,
+) {
+  const start = verification.start_offset,
+    end = verification.end_offset;
+  const chars = Array.from(source.text);
+  if (
+    !verification.valid ||
+    !Number.isInteger(start) ||
+    !Number.isInteger(end) ||
+    start == null ||
+    end == null ||
+    start < 0 ||
+    end <= start ||
+    end > chars.length ||
+    chars.slice(start, end).join("") !== quote
+  )
+    return null;
+  return {
+    chars,
+    start,
+    end,
+    pages: source.pages.filter(
+      (p) => p.start_offset < end && p.end_offset > start,
+    ),
+  };
+}
+export function SourceEvidence({
+  source,
+  quote,
+  verification,
+}: {
+  source: Source;
+  quote: string;
+  verification: QuoteVerification;
+}) {
+  const range = sourceRange(source, quote, verification);
+  if (!range)
+    return (
+      <p className="p-hint">
+        Không có vị trí nguồn đã xác minh. Không gắn liên kết trang.
+      </p>
+    );
+  const from = range.pages[0]?.start_offset ?? Math.max(0, range.start - 240);
+  const to =
+    range.pages.at(-1)?.end_offset ??
+    Math.min(range.chars.length, range.end + 240);
+  return (
+    <details
+      className="s-source"
+      onToggle={(e) => {
+        const details = e.currentTarget;
+        if (details.open)
+          requestAnimationFrame(() => {
+            const pre = details.querySelector("pre"),
+              mark = pre?.querySelector("mark");
+            if (pre && mark)
+              pre.scrollTop +=
+                mark.getBoundingClientRect().top -
+                pre.getBoundingClientRect().top -
+                pre.clientHeight / 2;
+          });
+      }}
+    >
+      <summary>
+        Đối chiếu nguồn ·{" "}
+        {range.pages.length
+          ? range.pages
+              .map(
+                (p) =>
+                  `Trang ${p.page_number}${p.method === "ocr" ? " · OCR" : ""}`,
+              )
+              .join(", ")
+          : "Chưa biết trang"}
+      </summary>
+      <p className="p-hint">
+        Văn bản chuẩn hóa đã được dùng để phân tích. Trích dẫn được tô sáng theo
+        vị trí Unicode đã xác minh.
+      </p>
+      <pre>
+        {range.chars.slice(from, range.start).join("")}
+        <mark>{range.chars.slice(range.start, range.end).join("")}</mark>
+        {range.chars.slice(range.end, to).join("")}
+      </pre>
+    </details>
   );
 }

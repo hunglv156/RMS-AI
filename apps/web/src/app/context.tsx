@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import type { PlatformClient, Session } from "@rms-ai/contracts";
 import { platformClient, message } from "../lib/api/platform";
 export const Workspace = createContext<{
@@ -15,11 +15,17 @@ export function useLoad<T>(
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [generation, setGeneration] = useState(0);
+  const loaded = useRef(-1);
   useEffect(() => {
     const c = new AbortController();
-    setLoading(true);
+    // A reload of the same request keeps current content mounted (forms keep their confirmation).
+    const refresh = loaded.current !== -1 && loaded.current !== generation;
+    loaded.current = generation;
+    if (!refresh) {
+      setLoading(true);
+      setData(undefined);
+    }
     setError("");
-    setData(undefined);
     load(c.signal)
       .then((v) => {
         if (!c.signal.aborted) setData(v);

@@ -1,3 +1,4 @@
+import { Audit } from "./features/audit/Audit";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import type { PlatformClient, Session } from "@rms-ai/contracts";
@@ -71,6 +72,16 @@ export default function App({
         >
           <Routes>
             <Route element={<Shell onLogout={() => setSession(undefined)} />}>
+              <Route
+                path="/audit"
+                element={
+                  session.user.role === "admin" ? (
+                    <Audit />
+                  ) : (
+                    <Empty title="Bạn chưa có quyền xem nhật ký" />
+                  )
+                }
+              />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/jobs" element={<Jobs />} />
               <Route path="/jobs/:id" element={<JobDetail />} />

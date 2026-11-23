@@ -87,7 +87,10 @@ export function Shell({ onLogout }: { onLogout: () => void }) {
       ? [["/candidates", "Ứng viên", Users] as const]
       : []),
     ...(session.user.role === "admin"
-      ? [["/admin", "Quản trị", ShieldCheck] as const]
+      ? [
+          ["/admin", "Quản trị", ShieldCheck] as const,
+          ["/audit", "Nhật ký hoạt động", ShieldCheck] as const,
+        ]
       : []),
   ] as const;
   return (

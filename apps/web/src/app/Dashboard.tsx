@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, BriefcaseBusiness, Users, Sprout } from "lucide-react";
-import { useWorkspace } from "./context";
-import { Heading, Empty } from "./ui";
+import { Sprout } from "lucide-react";
+import { useWorkspace, useLoad } from "./context";
+import { Heading, Empty, LoadState, Badge, date } from "./ui";
+import { runLabels } from "../features/screenings/ScreeningPanel";
 export function Dashboard() {
-  const { session } = useWorkspace();
+  const { client, session } = useWorkspace();
+  const load = useLoad((s) => client.dashboard(s), [client]);
   return (
     <>
       <Heading
@@ -20,13 +22,9 @@ export function Dashboard() {
             <br />
             Vững bước cùng nhau.
           </h2>
-          <p>
-            Tập trung vào điều quan trọng: hiểu rõ từng ứng viên,
-            <br />
-            đưa ra lựa chọn có căn cứ và đầy trách nhiệm.
-          </p>
+          <p>Hiểu từng hồ sơ. Đưa ra lựa chọn có căn cứ.</p>
           <Link className="button primary" to="/jobs">
-            Khám phá vị trí tuyển dụng <ArrowUpRight size={17} />
+            Khám phá vị trí tuyển dụng ↗
           </Link>
         </div>
         <div className="p-plant" aria-hidden="true">
@@ -34,37 +32,75 @@ export function Dashboard() {
           <span>Growing together.</span>
         </div>
       </section>
-      <div className="p-shortcuts">
-        <Link className="p-card p-shortcut" to="/jobs">
-          <BriefcaseBusiness />
-          <div>
-            <h3>Vị trí tuyển dụng</h3>
-            <p>Quản lý JD, phê duyệt và hồ sơ ứng tuyển</p>
+      <LoadState {...load} />
+      {load.data && (
+        <>
+          <div className="s-stats">
+            {Object.entries({
+              jobs_open: "Vị trí đang tuyển",
+              applications: "Hồ sơ ứng tuyển",
+              awaiting_review: "Chờ quyết định",
+              shortlist: "Danh sách ngắn",
+              hold: "Cân nhắc thêm",
+              reject: "Chưa phù hợp",
+              screening_failures: "Phân tích gặp lỗi",
+            }).map(([key, label]) => (
+              <div className="p-card" key={key}>
+                <strong>
+                  {load.data!.counts[key as keyof typeof load.data.counts]}
+                </strong>
+                <span>{label}</span>
+              </div>
+            ))}
           </div>
-          <ArrowUpRight />
-        </Link>
-        {session.user.role !== "reviewer" && (
-          <Link className="p-card p-shortcut" to="/candidates">
-            <Users />
-            <div>
-              <h3>Hồ sơ ứng viên</h3>
-              <p>Tạo hồ sơ và tải CV PDF riêng tư</p>
-            </div>
-            <ArrowUpRight />
-          </Link>
-        )}
-      </div>
-      <section className="p-card">
-        <div className="p-section-title">
-          <h2>Nhịp tuyển dụng</h2>
-          <span className="p-badge">Sắp kết nối</span>
-        </div>
-        <Empty title="Tổng quan đang được chuẩn bị">
-          Số liệu tổng hợp và các hồ sơ cần đánh giá sẽ có tại đây khi dịch vụ
-          tổng quan sẵn sàng. Bạn đã có thể quản lý vị trí và hồ sơ từ thanh
-          điều hướng.
-        </Empty>
-      </section>
+          <div className="p-detail-grid">
+            {(
+              [
+                ["Chờ góc nhìn của bạn", load.data.pending_reviews],
+                ["Cần thử lại", load.data.latest_failures],
+              ] as const
+            ).map(([title, rows]) => (
+              <section className="p-card" key={title}>
+                <h2>{title}</h2>
+                {!rows.length && <Empty title="Mọi thứ đã gọn gàng" />}
+                {rows.map((r) => (
+                  <Link
+                    className="s-dashboard-row"
+                    key={r.id}
+                    to={`/applications/${r.application_id}?job=${r.job_id}&run=${r.id}`}
+                  >
+                    <strong>
+                      Hồ sơ #{r.application_id.slice(0, 8)} ·{" "}
+                      {runLabels[r.status]}
+                    </strong>
+                    <small>
+                      {date(r.queued_at)} ·{" "}
+                      {r.error_code || "Mở bằng chứng & ghi quyết định"}
+                    </small>
+                  </Link>
+                ))}
+              </section>
+            ))}
+          </div>
+          <section className="p-card">
+            <h2>Hồ sơ mới tiếp nhận</h2>
+            {!load.data.recent_applications.length && (
+              <Empty title="Chưa có hồ sơ ứng tuyển" />
+            )}
+            {load.data.recent_applications.map((a) => (
+              <Link
+                className="s-dashboard-row"
+                key={a.id}
+                to={`/applications/${a.id}?job=${a.job_id}`}
+              >
+                <Badge value={a.stage} />
+                <span>Hồ sơ {a.id.slice(0, 8)}</span>
+                <small>{date(a.created_at)}</small>
+              </Link>
+            ))}
+          </section>
+        </>
+      )}
     </>
   );
 }

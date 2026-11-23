@@ -17,7 +17,13 @@ export class PlatformError extends Error {
   }
 }
 const messages: Record<string, string> = {
+  invalid_origin:
+    "Địa chỉ trang chưa khớp cấu hình máy chủ. Mở đúng địa chỉ của không gian làm việc.",
+  ai_unavailable: "Dịch vụ phân tích chưa sẵn sàng. Hãy thử lại sau.",
+  screening_in_progress: "Hồ sơ đang có một lần phân tích. Hãy xem lịch sử.",
+  config_changed: "Cấu hình AI đã thay đổi. Hãy tạo lần phân tích mới.",
   invalid_credentials: "Email hoặc mật khẩu chưa đúng.",
+  login_throttled: "Đăng nhập sai quá nhiều lần. Hãy thử lại sau 15 phút.",
   unauthenticated: "Phiên đăng nhập đã hết hạn. Hãy đăng nhập lại.",
   invalid_csrf: "Phiên bảo mật đã thay đổi. Hãy tải lại trang.",
   revision_conflict: "Dữ liệu vừa được cập nhật. Hãy tải lại trước khi lưu.",

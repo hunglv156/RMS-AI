@@ -1,16 +1,10 @@
 import { Link, useParams, useSearchParams } from "react-router-dom";
+import { ScreeningPanel } from "../screenings/ScreeningPanel";
 import { useState } from "react";
 import type { Application, Resume } from "@rms-ai/contracts";
 import { useLoad, useWorkspace } from "../../app/context";
 import { ResumeUpload, ResumeDownload } from "../candidates/ResumeControls";
-import {
-  ActionForm,
-  Badge,
-  date,
-  Empty,
-  Heading,
-  LoadState,
-} from "../../app/ui";
+import { ActionForm, Badge, date, Heading, LoadState } from "../../app/ui";
 export function ApplicationDetail() {
   const { id = "" } = useParams();
   const [q] = useSearchParams(),
@@ -52,7 +46,7 @@ export function ApplicationDetail() {
             {load.data.job.title} · Tiếp nhận{" "}
             {date(load.data.application.created_at)}
           </Heading>
-          <div className="p-detail-grid">
+          <div className="s-app-overview">
             <section className="p-card">
               <div className="p-section-title">
                 <h2>Thông tin hồ sơ</h2>
@@ -91,14 +85,12 @@ export function ApplicationDetail() {
                 PDF được kiểm tra quyền truy cập tại mỗi lần tải.
               </p>
             </section>
-            <section className="p-card">
-              <h2>Phân tích & quyết định</h2>
-              <Empty title="Sẵn sàng cho bước đánh giá">
-                Luồng sàng lọc và kết quả lưu trữ sẽ được kết nối ở bước tiếp
-                theo. Quyết định tuyển dụng luôn do con người thực hiện.
-              </Empty>
-            </section>
           </div>
+          <ScreeningPanel
+            application={load.data.application}
+            job={load.data.job}
+            onReviewed={load.reload}
+          />
           {session.user.role !== "reviewer" && (
             <section className="p-card">
               <h2>Thay phiên bản CV</h2>

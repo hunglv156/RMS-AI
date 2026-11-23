@@ -4,6 +4,11 @@ import { message } from "../lib/api/platform";
 export const date = (s: string | null) =>
   s ? new Date(s).toLocaleString("vi-VN") : "—";
 export const labels: Record<string, string> = {
+  queued: "Đang chờ",
+  running: "Đang phân tích",
+  retry_wait: "Chờ thử lại",
+  completed: "Hoàn tất",
+  failed: "Chưa hoàn tất",
   admin: "Quản trị viên",
   recruiter: "Chuyên viên tuyển dụng",
   reviewer: "Người đánh giá",
@@ -14,7 +19,7 @@ export const labels: Record<string, string> = {
   approved: "Đã phê duyệt",
   new: "Mới tiếp nhận",
   shortlist: "Danh sách ngắn",
-  reject: "Không phù hợp",
+  reject: "Chưa phù hợp",
   hold: "Cân nhắc thêm",
 };
 export function Badge({ value }: { value: string }) {
