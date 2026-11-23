@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Ban, CircleCheck, UserCheck, UserPlus } from "lucide-react";
 import type { Role, PlatformClient, User, UserPage } from "@rms-ai/contracts";
 import { useLoad, useWorkspace } from "../../app/context";
 import {
@@ -68,13 +69,20 @@ export function Admin() {
       <div className="p-toolbar">
         <Search
           value={search}
+          label="Tìm tài khoản"
+          placeholder="Tên hoặc email…"
           onChange={(v) => {
             setSearch(v);
             setPage(1);
           }}
         />
-        <button className="button primary" onClick={() => setCreate(!create)}>
-          + Tạo tài khoản
+        <button
+          className="button primary"
+          aria-expanded={create}
+          onClick={() => setCreate(!create)}
+        >
+          <UserPlus size={17} aria-hidden="true" />
+          Tạo tài khoản
         </button>
       </div>
       {create && (
@@ -115,12 +123,22 @@ export function Admin() {
                 key={`${u.id}-${u.role}-${u.disabled_at}`}
               >
                 <summary>
+                  <span className="p-avatar" aria-hidden="true">
+                    {u.display_name.slice(0, 1)}
+                  </span>
                   <span>
                     <strong>{u.display_name}</strong>
                     <small>{u.normalized_email}</small>
                   </span>
                   <Badge value={u.role} />
-                  <span className="p-badge">
+                  <span
+                    className={`p-badge ${u.disabled_at ? "p-disabled" : "p-enabled"}`}
+                  >
+                    {u.disabled_at ? (
+                      <Ban size={13} aria-hidden="true" />
+                    ) : (
+                      <CircleCheck size={13} aria-hidden="true" />
+                    )}
                     {u.disabled_at ? "Đã vô hiệu hóa" : "Đang hoạt động"}
                   </span>
                 </summary>
@@ -162,7 +180,9 @@ export function Admin() {
               </details>
             ))
           ) : (
-            <Empty title="Chưa tìm thấy tài khoản" />
+            <Empty title="Chưa tìm thấy tài khoản">
+              Thử tìm theo tên hoặc email khác.
+            </Empty>
           )}
           <Pager page={page} total={load.data.total} onChange={setPage} />
         </section>
@@ -195,9 +215,12 @@ export function Assignments({ jobId }: { jobId: string }) {
   );
   const [selected, setSelected] = useState<string[]>([]);
   return (
-    <details className="p-card">
-      <summary>Phân công người đánh giá</summary>
-      <p className="muted">
+    <details className="p-card p-disclosure-card">
+      <summary>
+        <UserCheck size={17} aria-hidden="true" />
+        Phân công người đánh giá
+      </summary>
+      <p className="p-subtle">
         Đây là danh sách thay thế, không phải danh sách phân công hiện tại. Chọn
         đầy đủ người cần cấp quyền trước khi lưu; mọi phân công cũ không có
         trong danh sách mới sẽ được thu hồi.
@@ -226,7 +249,7 @@ export function Assignments({ jobId }: { jobId: string }) {
               <small>{u.normalized_email}</small>
             </label>
           ))}
-        <p>
+        <p className="p-subtle">
           {selected.length} người được chọn.{" "}
           {selected.length === 0
             ? "Lưu danh sách rỗng sẽ thu hồi mọi phân công."

@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { ArrowUpRight, Plus } from "lucide-react";
+import {
+  ArrowLeft,
+  BriefcaseBusiness,
+  ChevronRight,
+  FileCheck2,
+  FileClock,
+  Plus,
+  Settings2,
+  Users,
+} from "lucide-react";
 import { useLoad, useWorkspace } from "../../app/context";
 import {
   ActionForm,
@@ -12,7 +21,10 @@ import {
   LoadState,
   Pager,
   Search,
+  day,
+  shortId,
 } from "../../app/ui";
+import { useCandidateNames } from "../../app/names";
 import { JdPanel } from "../jd/JdPanel";
 import { Assignments } from "../admin/Admin";
 export function Jobs() {
@@ -33,13 +45,19 @@ export function Jobs() {
       <div className="p-toolbar">
         <Search
           value={search}
+          label="Tìm vị trí"
+          placeholder="Nhập tên vị trí…"
           onChange={(v) => {
             setSearch(v);
             setPage(1);
           }}
         />
         {session.user.role !== "reviewer" && (
-          <button className="button primary" onClick={() => setCreate(!create)}>
+          <button
+            className="button primary"
+            aria-expanded={create}
+            onClick={() => setCreate(!create)}
+          >
             <Plus size={17} />
             Tạo vị trí
           </button>
@@ -71,25 +89,49 @@ export function Jobs() {
                 key={j.id}
                 to={`/jobs/${j.id}`}
               >
-                <span className="p-job-icon">✳</span>
+                <span className="p-job-icon" aria-hidden="true">
+                  <BriefcaseBusiness size={20} />
+                </span>
                 <div>
-                  <h2>{j.title}</h2>
+                  <h2 title={j.title}>{j.title}</h2>
                   <p>
-                    Tạo ngày {date(j.created_at)} ·{" "}
-                    {j.active_jd_version_id
-                      ? "Có JD đã phê duyệt"
-                      : "Chưa chọn JD chính thức"}
+                    <span>Tạo ngày {day(j.created_at)}</span>
+                    <span
+                      className={
+                        j.active_jd_version_id ? "p-ok" : "p-attention"
+                      }
+                    >
+                      {j.active_jd_version_id ? (
+                        <FileCheck2 size={14} aria-hidden="true" />
+                      ) : (
+                        <FileClock size={14} aria-hidden="true" />
+                      )}
+                      {j.active_jd_version_id
+                        ? "Có JD đã phê duyệt"
+                        : "Chưa có JD chính thức"}
+                    </span>
                   </p>
                 </div>
                 <Badge value={j.status} />
-                <ArrowUpRight size={20} />
+                <ChevronRight size={20} aria-hidden="true" />
               </Link>
             ))}
           </div>
           {!load.data.items.length && (
             <section className="p-card">
-              <Empty title="Chưa có vị trí phù hợp">
-                Thử tên khác hoặc tạo vị trí tuyển dụng đầu tiên.
+              <Empty
+                title={
+                  search
+                    ? "Không có vị trí phù hợp"
+                    : "Chưa có vị trí tuyển dụng"
+                }
+                icon={BriefcaseBusiness}
+              >
+                {search
+                  ? `Không tìm thấy vị trí nào khớp “${search}”. Thử một tên khác.`
+                  : session.user.role === "reviewer"
+                    ? "Bạn chưa được phân công vị trí nào. Liên hệ quản trị viên để được cấp quyền."
+                    : "Tạo vị trí tuyển dụng đầu tiên để bắt đầu."}
               </Empty>
             </section>
           )}
@@ -109,97 +151,145 @@ export function JobDetail() {
     (s) => client.applications(id, { page, search }, s),
     [client, id, page, search],
   );
+  const names = useCandidateNames(
+    apps.data?.items.map((a) => a.candidate_id) ?? [],
+  );
   return (
     <>
       <Link className="p-back" to="/jobs">
-        ← Vị trí tuyển dụng
+        <ArrowLeft size={15} aria-hidden="true" />
+        Vị trí tuyển dụng
       </Link>
       <LoadState {...load} />
       {load.data && (
         <>
-          <Heading title={load.data.title}>
-            <Badge value={load.data.status} />
-          </Heading>
-          {session.user.role !== "reviewer" && (
-            <details className="p-card">
-              <summary>Thông tin & trạng thái vị trí</summary>
-              <ActionForm
-                onSubmit={async (f) => {
-                  await client.updateJob(id, {
-                    title: String(f.get("title")),
-                    status: f.get("status") as "open" | "closed",
-                    revision: load.data!.revision,
-                  });
-                  load.reload();
-                }}
-              >
-                <Field
-                  label="Tên vị trí tuyển dụng"
-                  name="title"
-                  value={load.data.title}
-                  required
-                />
-                <label>
-                  Trạng thái
-                  <select name="status" defaultValue={load.data.status}>
-                    <option value="open">Đang tuyển</option>
-                    <option value="closed">Đã đóng</option>
-                  </select>
-                </label>
-                <p className="muted">
-                  Đóng vị trí sẽ ngừng tiếp nhận hồ sơ mới và phê duyệt JD.
-                </p>
-              </ActionForm>
-            </details>
-          )}
-          <JdPanel job={load.data} onChange={load.reload} />
-          {session.user.role === "admin" && <Assignments jobId={id} />}
-          <section className="p-card">
-            <div className="p-section-title">
-              <h2>Hồ sơ ứng tuyển</h2>
-              {session.user.role !== "reviewer" &&
-                load.data.status === "open" && (
-                  <Link className="button secondary" to="/candidates">
-                    Thêm ứng viên <Plus size={16} />
-                  </Link>
-                )}
-            </div>
-            <Search
-              value={search}
-              onChange={(v) => {
-                setSearch(v);
-                setPage(1);
-              }}
-            />
-            <LoadState {...apps} />
-            {apps.data && (
+          <Heading
+            eyebrow="VỊ TRÍ TUYỂN DỤNG"
+            title={load.data.title}
+            meta={
               <>
-                {apps.data.items.length ? (
-                  <div className="p-list">
-                    {apps.data.items.map((a) => (
-                      <Link
-                        key={a.id}
-                        className="p-record"
-                        to={`/applications/${a.id}?job=${id}`}
-                      >
-                        <div>
-                          <strong>Hồ sơ #{a.id.slice(0, 8)}</strong>
-                          <small>Tiếp nhận {date(a.created_at)}</small>
-                        </div>
-                        <Badge value={a.stage} />
-                        <ArrowUpRight size={18} />
-                      </Link>
-                    ))}
-                  </div>
-                ) : (
-                  <Empty title="Đang chờ những câu chuyện mới">
-                    Tạo ứng viên, tải PDF và liên kết vào vị trí này để bắt đầu.
-                  </Empty>
-                )}
-                <Pager page={page} total={apps.data.total} onChange={setPage} />
+                <Badge value={load.data.status} />
+                <span>Tạo ngày {day(load.data.created_at)}</span>
+                <span>
+                  {load.data.active_jd_version_id
+                    ? "Có JD đã phê duyệt"
+                    : "Chưa có JD chính thức"}
+                </span>
               </>
-            )}
-          </section>
+            }
+          />
+          <div className="p-job-layout">
+            <div className="p-job-main">
+              <JdPanel job={load.data} onChange={load.reload} />
+            </div>
+            <div className="p-job-side">
+              <section className="p-card">
+                <div className="p-section-title">
+                  <div>
+                    <h2>Hồ sơ ứng tuyển</h2>
+                    {apps.data && (
+                      <p className="p-subtle">
+                        {apps.data.total} hồ sơ đang gắn với vị trí này
+                      </p>
+                    )}
+                  </div>
+                  {session.user.role !== "reviewer" &&
+                    load.data.status === "open" && (
+                      <Link className="button secondary" to="/candidates">
+                        <Plus size={16} aria-hidden="true" />
+                        Thêm ứng viên
+                      </Link>
+                    )}
+                </div>
+                {(search || (apps.data?.total ?? 0) > 5) && (
+                  <Search
+                    value={search}
+                    label="Tìm hồ sơ"
+                    onChange={(v) => {
+                      setSearch(v);
+                      setPage(1);
+                    }}
+                  />
+                )}
+                <LoadState {...apps} />
+                {apps.data && (
+                  <>
+                    {apps.data.items.length ? (
+                      <div className="p-rows">
+                        {apps.data.items.map((a) => (
+                          <Link
+                            key={a.id}
+                            className="p-row"
+                            to={`/applications/${a.id}?job=${id}`}
+                          >
+                            <span className="p-avatar" aria-hidden="true">
+                              {(names[a.candidate_id] ?? "#").slice(0, 1)}
+                            </span>
+                            <div>
+                              <strong>
+                                {names[a.candidate_id] ??
+                                  `Hồ sơ ${shortId(a.id)}`}
+                              </strong>
+                              <small>Tiếp nhận {date(a.created_at)}</small>
+                            </div>
+                            <Badge value={a.stage} />
+                            <ChevronRight size={18} aria-hidden="true" />
+                          </Link>
+                        ))}
+                      </div>
+                    ) : (
+                      <Empty title="Đang chờ những câu chuyện mới" icon={Users}>
+                        {search
+                          ? "Không có hồ sơ khớp từ khóa này."
+                          : "Tạo ứng viên, tải PDF và liên kết vào vị trí này để bắt đầu."}
+                      </Empty>
+                    )}
+                    <Pager
+                      page={page}
+                      total={apps.data.total}
+                      onChange={setPage}
+                    />
+                  </>
+                )}
+              </section>
+              {session.user.role !== "reviewer" && (
+                <details className="p-card p-disclosure-card">
+                  <summary>
+                    <Settings2 size={17} aria-hidden="true" />
+                    Thông tin & trạng thái vị trí
+                  </summary>
+                  <ActionForm
+                    onSubmit={async (f) => {
+                      await client.updateJob(id, {
+                        title: String(f.get("title")),
+                        status: f.get("status") as "open" | "closed",
+                        revision: load.data!.revision,
+                      });
+                      load.reload();
+                    }}
+                  >
+                    <Field
+                      label="Tên vị trí tuyển dụng"
+                      name="title"
+                      value={load.data.title}
+                      required
+                    />
+                    <label>
+                      Trạng thái
+                      <select name="status" defaultValue={load.data.status}>
+                        <option value="open">Đang tuyển</option>
+                        <option value="closed">Đã đóng</option>
+                      </select>
+                    </label>
+                    <p className="p-subtle">
+                      Đóng vị trí sẽ ngừng tiếp nhận hồ sơ mới và phê duyệt JD.
+                    </p>
+                  </ActionForm>
+                </details>
+              )}
+              {session.user.role === "admin" && <Assignments jobId={id} />}
+            </div>
+          </div>
         </>
       )}
     </>

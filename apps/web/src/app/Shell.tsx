@@ -5,6 +5,8 @@ import {
   BriefcaseBusiness,
   Users,
   ShieldCheck,
+  ScrollText,
+  UserCog,
   Leaf,
   Moon,
   Sun,
@@ -48,6 +50,16 @@ export function Shell({ onLogout }: { onLogout: () => void }) {
   const sidebar = useRef<HTMLElement>(null);
   const loc = useLocation();
   useEffect(() => setOpen(false), [loc.pathname]);
+  // After sign-in and each route change, keyboard and screen-reader users start at the content.
+  useEffect(() => {
+    if (document.activeElement === document.body || !document.activeElement)
+      document.getElementById("main")?.focus({ preventScroll: true });
+    else if (
+      !document.getElementById("main")?.contains(document.activeElement) &&
+      !sidebar.current?.contains(document.activeElement)
+    )
+      document.getElementById("main")?.focus({ preventScroll: true });
+  }, [loc.pathname]);
   useEffect(() => {
     if (!open) return;
     const previous = document.activeElement as HTMLElement | null;
@@ -88,8 +100,8 @@ export function Shell({ onLogout }: { onLogout: () => void }) {
       : []),
     ...(session.user.role === "admin"
       ? [
-          ["/admin", "Quản trị", ShieldCheck] as const,
-          ["/audit", "Nhật ký hoạt động", ShieldCheck] as const,
+          ["/admin", "Quản trị", UserCog] as const,
+          ["/audit", "Nhật ký hoạt động", ScrollText] as const,
         ]
       : []),
   ] as const;
@@ -126,7 +138,7 @@ export function Shell({ onLogout }: { onLogout: () => void }) {
         <nav aria-label="Điều hướng chính">
           {nav.map(([to, label, Icon]) => (
             <NavLink key={to} to={to}>
-              <Icon size={19} />
+              <Icon size={19} aria-hidden="true" />
               {label}
             </NavLink>
           ))}
@@ -184,14 +196,16 @@ export function Shell({ onLogout }: { onLogout: () => void }) {
           >
             <Menu />
           </button>
-          <span>
-            Không gian làm việc{" "}
-            <span className="muted">
-              /{" "}
+          <p className="p-crumbs">
+            <span className="p-crumbs-root">Không gian làm việc</span>
+            <span aria-hidden="true" className="p-crumbs-root">
+              /
+            </span>
+            <strong>
               {nav.find(([to]) => loc.pathname.startsWith(to))?.[1] ??
                 "Hồ sơ ứng tuyển"}
-            </span>
-          </span>
+            </strong>
+          </p>
           <div className="p-topbar-right">
             <span className="p-private">
               <ShieldCheck size={14} /> Không gian riêng tư

@@ -201,7 +201,12 @@ describe("platform journeys over contract-valid HTTP", () => {
     });
     window.history.replaceState({}, "", `/jobs/${jid}`);
     mount();
-    expect(await screen.findByText(/Tạo · .* · bạn/)).toBeVisible();
+    expect(
+      await screen.findByText(
+        (_, e) =>
+          e?.tagName === "LI" && /^Tạo.+ · bạn$/.test(e.textContent ?? ""),
+      ),
+    ).toBeVisible();
     expect(screen.queryByText(/00000001/)).not.toBeInTheDocument();
     fireEvent.click(await screen.findByRole("button", { name: "Chỉnh sửa" }));
     fireEvent.change(screen.getByLabelText("Tóm tắt công việc"), {
@@ -219,7 +224,13 @@ describe("platform journeys over contract-valid HTTP", () => {
     fireEvent.click(
       await screen.findByRole("button", { name: "Gửi phê duyệt" }),
     );
-    expect(await screen.findByText(/Gửi duyệt · .* · bạn/)).toBeVisible();
+    expect(
+      await screen.findByText(
+        (_, e) =>
+          e?.tagName === "LI" &&
+          /^Gửi duyệt.+ · bạn$/.test(e.textContent ?? ""),
+      ),
+    ).toBeVisible();
     fireEvent.click(
       await screen.findByRole("button", { name: "Phê duyệt JD" }),
     );

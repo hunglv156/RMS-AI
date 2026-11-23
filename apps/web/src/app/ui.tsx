@@ -1,8 +1,42 @@
 import { useState, type ReactNode, type FormEvent } from "react";
-import { ArrowLeft, ArrowRight, Inbox, LoaderCircle } from "lucide-react";
+import {
+  AlertCircle,
+  ArrowLeft,
+  ArrowRight,
+  CircleCheck,
+  CircleDashed,
+  CircleDot,
+  CircleX,
+  Clock3,
+  Inbox,
+  LoaderCircle,
+  Lock,
+  RefreshCw,
+  Sparkles,
+  Star,
+  type LucideIcon,
+} from "lucide-react";
 import { message } from "../lib/api/platform";
+const dateTime = new Intl.DateTimeFormat("vi-VN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }),
+  dateOnly = new Intl.DateTimeFormat("vi-VN", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+/** Vietnamese date and time without seconds, e.g. "07:54 23/11/2026". */
 export const date = (s: string | null) =>
-  s ? new Date(s).toLocaleString("vi-VN") : "—";
+  s ? dateTime.format(new Date(s)) : "—";
+export const day = (s: string | null) =>
+  s ? dateOnly.format(new Date(s)) : "—";
+export const num = (n: number, digits = 1) =>
+  n.toLocaleString("vi-VN", { maximumFractionDigits: digits });
+export const shortId = (id: string) => `#${id.slice(0, 8)}`;
 export const labels: Record<string, string> = {
   queued: "Đang chờ",
   running: "Đang phân tích",
@@ -22,38 +56,82 @@ export const labels: Record<string, string> = {
   reject: "Chưa phù hợp",
   hold: "Cân nhắc thêm",
 };
-export function Badge({ value }: { value: string }) {
-  return <span className={`p-badge p-${value}`}>{labels[value] ?? value}</span>;
+/** Each status carries a distinct shape so it never relies on colour alone. */
+const icons: Record<string, LucideIcon> = {
+  queued: Clock3,
+  running: LoaderCircle,
+  retry_wait: RefreshCw,
+  completed: CircleCheck,
+  failed: CircleX,
+  open: CircleDot,
+  closed: Lock,
+  draft: CircleDashed,
+  pending_approval: Clock3,
+  approved: CircleCheck,
+  new: Sparkles,
+  shortlist: Star,
+  reject: CircleX,
+  hold: Clock3,
+};
+export function Badge({ value, label }: { value: string; label?: string }) {
+  const Icon = icons[value];
+  return (
+    <span className={`p-badge p-${value}`}>
+      {Icon && (
+        <Icon
+          size={13}
+          aria-hidden="true"
+          className={value === "running" ? "spin" : undefined}
+        />
+      )}
+      {label ?? labels[value] ?? value}
+    </span>
+  );
 }
 export function Heading({
   eyebrow = "KHÔNG GIAN TUYỂN DỤNG",
   title,
   children,
+  meta,
+  actions,
 }: {
   eyebrow?: string;
   title: string;
   children?: ReactNode;
+  meta?: ReactNode;
+  actions?: ReactNode;
 }) {
   return (
     <header className="p-heading">
-      <p className="p-eyebrow">{eyebrow}</p>
-      <h1>{title}</h1>
-      {children && <p className="muted">{children}</p>}
+      <div>
+        <p className="p-eyebrow">{eyebrow}</p>
+        <h1>{title}</h1>
+        {children && <p className="muted">{children}</p>}
+        {meta && <div className="p-heading-meta">{meta}</div>}
+      </div>
+      {actions && <div className="p-heading-actions">{actions}</div>}
     </header>
   );
 }
 export function Empty({
   title = "Chưa có dữ liệu",
   children,
+  action,
+  icon: Icon = Inbox,
 }: {
   title?: string;
   children?: ReactNode;
+  action?: ReactNode;
+  icon?: LucideIcon;
 }) {
   return (
     <div className="p-empty">
-      <Inbox size={32} />
+      <span className="p-empty-icon" aria-hidden="true">
+        <Icon size={24} />
+      </span>
       <h3>{title}</h3>
       <p>{children ?? "Dữ liệu mới sẽ xuất hiện tại đây."}</p>
+      {action && <div className="p-empty-action">{action}</div>}
     </div>
   );
 }
@@ -67,15 +145,19 @@ export function LoadState({
   reload: () => void;
 }) {
   return loading ? (
-    <div className="p-empty" role="status">
-      <LoaderCircle className="spin" />
-      <p>Đang tải dữ liệu…</p>
+    <div className="p-loading" role="status">
+      <LoaderCircle className="spin" size={20} aria-hidden="true" />
+      <span>Đang tải dữ liệu…</span>
     </div>
   ) : error ? (
-    <div className="p-error" role="alert">
-      <strong>Chưa tải được dữ liệu</strong>
-      <p>{error}</p>
+    <div className="p-error p-error-block" role="alert">
+      <AlertCircle size={20} aria-hidden="true" />
+      <div>
+        <strong>Chưa tải được dữ liệu</strong>
+        <p>{error}</p>
+      </div>
       <button className="button secondary" onClick={reload}>
+        <RefreshCw size={15} aria-hidden="true" />
         Thử lại
       </button>
     </div>
@@ -87,12 +169,14 @@ export function ActionForm({
   label = "Lưu thay đổi",
   disabled = false,
   className = "",
+  variant = "primary",
 }: {
   onSubmit: (data: FormData) => Promise<unknown>;
   children: ReactNode;
   label?: string;
   disabled?: boolean;
   className?: string;
+  variant?: "primary" | "secondary";
 }) {
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
@@ -114,7 +198,7 @@ export function ActionForm({
     }
   }
   return (
-    <form className={`p-form ${className}`} onSubmit={submit}>
+    <form className={`p-form ${className}`} onSubmit={submit} aria-busy={busy}>
       {children}
       {error && (
         <p className="p-error" role="alert">
@@ -123,13 +207,14 @@ export function ActionForm({
       )}
       {notice && (
         <p role="status" className="p-notice">
+          <CircleCheck size={16} aria-hidden="true" />
           {notice}
         </p>
       )}
-      <button className="button primary" disabled={busy || disabled}>
+      <button className={`button ${variant}`} disabled={busy || disabled}>
         {busy ? (
           <>
-            <LoaderCircle size={16} className="spin" />
+            <LoaderCircle size={16} className="spin" aria-hidden="true" />
             Đang lưu…
           </>
         ) : (
@@ -150,11 +235,12 @@ export function Pager({
   pageSize?: number;
   onChange: (p: number) => void;
 }) {
+  const pages = Math.max(1, Math.ceil(total / pageSize));
+  if (pages <= 1) return null;
   return (
-    <div className="p-pager">
+    <nav className="p-pager" aria-label="Phân trang">
       <span>
-        {total} kết quả · Trang {page}/
-        {Math.max(1, Math.ceil(total / pageSize))}
+        {num(total, 0)} kết quả · Trang {page}/{pages}
       </span>
       <div>
         <button
@@ -172,24 +258,28 @@ export function Pager({
           <ArrowRight size={16} />
         </button>
       </div>
-    </div>
+    </nav>
   );
 }
 export function Search({
   value,
   onChange,
+  label = "Tìm kiếm",
+  placeholder = "Nhập tên để tìm…",
 }: {
   value: string;
   onChange: (s: string) => void;
+  label?: string;
+  placeholder?: string;
 }) {
   return (
     <label className="p-search">
-      Tìm kiếm
+      {label}
       <input
         type="search"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Nhập tên để tìm…"
+        placeholder={placeholder}
       />
     </label>
   );
@@ -200,12 +290,14 @@ export function Field({
   value,
   type = "text",
   required = false,
+  autoComplete,
 }: {
   label: string;
   name: string;
   value?: string;
   type?: string;
   required?: boolean;
+  autoComplete?: string;
 }) {
   return (
     <label>
@@ -215,6 +307,7 @@ export function Field({
         defaultValue={value}
         type={type}
         required={required}
+        autoComplete={autoComplete}
         maxLength={type === "password" ? 1024 : 300}
         minLength={type === "password" ? 12 : undefined}
       />

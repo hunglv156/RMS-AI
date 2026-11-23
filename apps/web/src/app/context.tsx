@@ -24,7 +24,7 @@ export function useLoad<T>(
     if (!refresh) {
       setLoading(true);
       setData(undefined);
-    }
+    } else if (error) setLoading(true); // A retry after an error shows progress.
     setError("");
     load(c.signal)
       .then((v) => {

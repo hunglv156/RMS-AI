@@ -2,10 +2,17 @@ import type { Source, QuoteVerification } from "@rms-ai/contracts";
 import {
   AlertTriangle,
   CheckCheck,
+  CircleCheck,
+  CircleDashed,
+  CircleHelp,
+  CircleMinus,
+  CircleX,
   Download,
+  Eye,
   Printer,
   Quote,
   ShieldCheck,
+  type LucideIcon,
 } from "lucide-react";
 import type { RefObject } from "react";
 import type {
@@ -22,8 +29,24 @@ export const levelLabels: Record<Level, string> = {
   unknown: "Chưa đủ thông tin",
   needs_review: "Cần xem lại",
 };
+const levelIcons: Record<Level, LucideIcon> = {
+  strong: CircleCheck,
+  adequate: CircleCheck,
+  partial: CircleMinus,
+  absent: CircleX,
+  unknown: CircleHelp,
+  needs_review: Eye,
+};
+const vi = (n: number, digits = 1) =>
+  n.toLocaleString("vi-VN", { maximumFractionDigits: digits });
 export function LevelBadge({ level }: { level: Level }) {
-  return <span className={`badge level-${level}`}>{levelLabels[level]}</span>;
+  const Icon = levelIcons[level] ?? CircleDashed;
+  return (
+    <span className={`badge level-${level}`}>
+      <Icon size={13} aria-hidden="true" />
+      {levelLabels[level]}
+    </span>
+  );
 }
 export function ReviewBanner({ result }: { result: ScreeningResult }) {
   const escalated = result.escalation?.triggered;
@@ -112,21 +135,17 @@ export function Results({
         </div>
       </div>
       <p className="muted result-file">
-        {fileName} · {jd.title} · {data.latency_s.toFixed(1)} giây
+        {fileName} · {jd.title} · Thời gian phân tích {vi(data.latency_s)} giây
       </p>
       <ReviewBanner result={r} />
-      <div className="score-panel">
+      <div className={`score-panel ${published ? "" : "score-withheld"}`}>
         <div
           className="score-orb"
           style={{
             background: `conic-gradient(var(--brand) ${score ?? 0}%, var(--line) 0)`,
           }}
         >
-          <span>
-            {score === null
-              ? "—"
-              : score.toLocaleString("vi-VN", { maximumFractionDigits: 1 })}
-          </span>
+          <span>{score === null ? "—" : vi(score)}</span>
           <small>{score === null ? "Chưa công bố điểm" : "/ 100 điểm"}</small>
         </div>
         <div className="score-description">
@@ -138,7 +157,8 @@ export function Results({
               : "Chưa công bố điểm vì độ bao phủ chưa đạt ngưỡng."}
           </p>
           <span className="badge neutral">
-            Khoảng điểm: {r.total.lower_bound}–{r.total.upper_bound}
+            Khoảng điểm có thể: {vi(r.total.lower_bound)}–
+            {vi(r.total.upper_bound)}
           </span>
         </div>
         <div className="coverage">
@@ -147,10 +167,27 @@ export function Results({
             Độ bao phủ
           </span>
           <strong>{Math.round(r.total.coverage * 100)}%</strong>
-          <div className="meter">
+          <div
+            className="meter"
+            role="meter"
+            aria-label="Độ bao phủ"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={Math.round(r.total.coverage * 100)}
+          >
             <div style={{ width: `${r.total.coverage * 100}%` }} />
+            <i
+              className="meter-threshold"
+              style={{ left: `${data.config.min_coverage * 100}%` }}
+              aria-hidden="true"
+            />
           </div>
-          <small>Ngưỡng công bố: {data.config.min_coverage * 100}%</small>
+          <small>
+            Ngưỡng công bố: {Math.round(data.config.min_coverage * 100)}%
+          </small>
+          {r.total.coverage < data.config.min_coverage && (
+            <small className="coverage-short">Chưa đạt ngưỡng</small>
+          )}
         </div>
       </div>
       <div className="section-top criterion-heading">
@@ -174,7 +211,7 @@ export function Results({
                 </h3>
                 <p className="muted text-xs">
                   {c.scoring.priority === "must_have" ? "Bắt buộc" : "Ưu tiên"}{" "}
-                  · Trọng số {c.scoring.weight} · Độ tin cậy{" "}
+                  · Trọng số {vi(c.scoring.weight)} · Độ tin cậy{" "}
                   {Math.round(c.assessment.confidence * 100)}%
                 </p>
               </div>

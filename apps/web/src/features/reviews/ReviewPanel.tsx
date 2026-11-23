@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { AlertTriangle, Clock3, PenLine, Star, CircleX } from "lucide-react";
 import type { Application, RunDetail } from "@rms-ai/contracts";
 import { useLoad, useWorkspace } from "../../app/context";
 import { ActionForm, Badge, date, LoadState, Pager } from "../../app/ui";
 const decisions = [
-  ["hold", "Cân nhắc thêm", "Cần thêm thông tin trước khi chọn."],
-  ["shortlist", "Đưa vào danh sách ngắn", "Đủ căn cứ để mời trao đổi."],
-  ["reject", "Chưa phù hợp", "Hồ sơ chưa đáp ứng yêu cầu chính."],
+  ["hold", "Cân nhắc thêm", "Cần thêm thông tin trước khi chọn.", Clock3],
+  ["shortlist", "Đưa vào danh sách ngắn", "Đủ căn cứ để mời trao đổi.", Star],
+  ["reject", "Chưa phù hợp", "Hồ sơ chưa đáp ứng yêu cầu chính.", CircleX],
 ] as const;
 /** Names are only readable by admins; others see their own name or a stable short reference. */
 export function usePeople() {
@@ -51,7 +52,9 @@ export function ReviewPanel({
   return (
     <section className="p-card s-review" aria-labelledby="s-review-title">
       <p className="p-eyebrow">GÓC NHÌN CON NGƯỜI</p>
-      <h2 id="s-review-title">Một quyết định, có lời giải thích.</h2>
+      <h2 id="s-review-title" tabIndex={-1}>
+        Một quyết định, có lời giải thích.
+      </h2>
       <p className="muted">
         Quyết định được lưu thành bản ghi riêng, gắn tên người quyết định. Kết
         quả AI phía trên giữ nguyên.
@@ -66,12 +69,18 @@ export function ReviewPanel({
         </div>
       )}
       {latestRunId !== run.id && (
-        <p className="review-banner">Bạn đang xem một lần phân tích cũ.</p>
+        <p className="review-banner">
+          <AlertTriangle size={18} aria-hidden="true" />
+          <span>Bạn đang xem một lần phân tích cũ.</span>
+        </p>
       )}
       {current && current.screening_run_id !== latestRunId && (
         <p className="review-banner">
-          Quyết định hiện tại dựa trên một lần phân tích trước. Kết quả AI mới
-          không tự đổi quyết định.
+          <AlertTriangle size={18} aria-hidden="true" />
+          <span>
+            Quyết định hiện tại dựa trên một lần phân tích trước. Kết quả AI mới
+            không tự đổi quyết định.
+          </span>
         </p>
       )}
       <ActionForm
@@ -93,11 +102,15 @@ export function ReviewPanel({
           setNote("");
           onReviewed();
           history.reload();
+          // The emptied note disables the submit button; keep keyboard focus in the panel.
+          requestAnimationFrame(() =>
+            document.getElementById("s-review-title")?.focus(),
+          );
         }}
       >
         <fieldset className="s-decisions">
           <legend>Quyết định</legend>
-          {decisions.map(([value, label, hint]) => (
+          {decisions.map(([value, label, hint, Icon]) => (
             <label
               key={value}
               className={`s-choice s-choice-${value} ${decision === value ? "s-on" : ""}`}
@@ -109,13 +122,18 @@ export function ReviewPanel({
                 checked={decision === value}
                 onChange={() => setDecision(value)}
               />
-              <strong>{label}</strong>
+              <strong>
+                <Icon size={15} aria-hidden="true" />
+                {label}
+              </strong>
               <small>{hint}</small>
             </label>
           ))}
         </fieldset>
         <label>
-          Lý do & bước tiếp theo <span className="muted">(bắt buộc)</span>
+          <span>
+            Lý do & bước tiếp theo <span className="muted">(bắt buộc)</span>
+          </span>
           <textarea
             name="note"
             required
@@ -127,6 +145,7 @@ export function ReviewPanel({
           />
         </label>
         <small className="s-signature">
+          <PenLine size={13} aria-hidden="true" />
           {note.length}/2000 · Ký tên: {session.user.display_name} · Lần phân
           tích #{run.id.slice(0, 8)}
         </small>
@@ -143,10 +162,10 @@ export function ReviewPanel({
           Tải lại hồ sơ, giữ ghi chú của tôi
         </button>
       )}
-      <h3>Lịch sử quyết định</h3>
+      <h3 className="s-history-title">Lịch sử quyết định</h3>
       <LoadState {...history} />
       {history.data && !history.data.items.length && (
-        <p className="muted">Chưa có quyết định nào cho hồ sơ này.</p>
+        <p className="p-subtle">Chưa có quyết định nào cho hồ sơ này.</p>
       )}
       {history.data?.items.map((r) => (
         <article className="s-decision" key={r.id}>

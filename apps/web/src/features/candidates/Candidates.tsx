@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import type { Candidate, Resume } from "@rms-ai/contracts";
-import { ArrowUpRight, FileUp, Plus } from "lucide-react";
+import { ArrowLeft, ChevronRight, FileUp, Plus, Users } from "lucide-react";
 import { useLoad, useWorkspace } from "../../app/context";
 import { ResumeUpload, ResumeDownload } from "./ResumeControls";
 import {
   ActionForm,
   date,
+  day,
   Empty,
   Field,
   Heading,
@@ -77,13 +78,19 @@ export function Candidates() {
       <div className="p-toolbar">
         <Search
           value={search}
+          label="Tìm ứng viên"
+          placeholder="Tên hoặc email…"
           onChange={(v) => {
             setSearch(v);
             setPage(1);
           }}
         />
-        <button className="button primary" onClick={() => setCreate(!create)}>
-          <Plus size={17} />
+        <button
+          className="button primary"
+          aria-expanded={create}
+          onClick={() => setCreate(!create)}
+        >
+          <Plus size={17} aria-hidden="true" />
           Thêm ứng viên
         </button>
       </div>
@@ -106,32 +113,38 @@ export function Candidates() {
         <>
           <section className="p-card">
             {load.data.items.length ? (
-              <div className="p-list">
+              <div className="p-rows">
                 {load.data.items.map((c) => (
-                  <Link
-                    className="p-record"
-                    key={c.id}
-                    to={`/candidates/${c.id}`}
-                  >
-                    <span className="p-avatar">
+                  <Link className="p-row" key={c.id} to={`/candidates/${c.id}`}>
+                    <span className="p-avatar" aria-hidden="true">
                       {c.display_name.slice(0, 1)}
                     </span>
                     <div>
                       <strong>{c.display_name}</strong>
                       <small>
-                        {c.email ?? "Chưa có email"} ·{" "}
-                        {c.provenance === "synthetic"
-                          ? "Hồ sơ tổng hợp"
-                          : "Demo công khai"}
+                        {c.email ?? "Chưa có email"} · Thêm ngày{" "}
+                        {day(c.created_at)}
                       </small>
                     </div>
-                    <ArrowUpRight size={19} />
+                    <span className="p-tag">
+                      {c.provenance === "synthetic"
+                        ? "Hồ sơ tổng hợp"
+                        : "Demo công khai"}
+                    </span>
+                    <ChevronRight size={18} aria-hidden="true" />
                   </Link>
                 ))}
               </div>
             ) : (
-              <Empty title="Chưa tìm thấy ứng viên">
-                Thêm hồ sơ đầu tiên hoặc thử tìm với tên khác.
+              <Empty
+                title={
+                  search ? "Không có ứng viên phù hợp" : "Chưa có ứng viên"
+                }
+                icon={Users}
+              >
+                {search
+                  ? "Thử tìm với tên hoặc email khác."
+                  : "Thêm hồ sơ ứng viên đầu tiên để tải CV và liên kết vào vị trí."}
               </Empty>
             )}
             <Pager page={page} total={load.data.total} onChange={setPage} />
@@ -159,7 +172,8 @@ export function CandidateDetail() {
   return (
     <>
       <Link className="p-back" to="/candidates">
-        ← Ứng viên
+        <ArrowLeft size={15} aria-hidden="true" />
+        Ứng viên
       </Link>
       <LoadState {...load} />
       {load.data && (
